@@ -1,0 +1,56 @@
+{
+ "head_start_ratio": {
+  "cruxeval_o": 0.21531765335397582,
+  "livecodebench": 0.5293894510831018,
+  "ollb_arc": 0.17014678642215167,
+  "ollb_gsm8k": 0.8137344405459297,
+  "ollb_hellaswag": 0.5977559106738084,
+  "ollb_mmlu": 0.20648274913523262,
+  "ollb_winogrande": 0.40269287707076434,
+  "swe_verified": 0.3593916399574411
+ },
+ "ent_best_final": [
+  [
+   800,
+   "cruxeval_o",
+   false
+  ],
+  [
+   1055,
+   "livecodebench",
+   true
+  ],
+  [
+   1172,
+   "ollb_arc",
+   true
+  ],
+  [
+   2000,
+   "ollb_hellaswag",
+   true
+  ],
+  [
+   500,
+   "swe_verified",
+   true
+  ]
+ ],
+ "ent_not_best_final": [
+  [
+   1319,
+   "ollb_gsm8k",
+   false
+  ],
+  [
+   2000,
+   "ollb_mmlu",
+   false
+  ],
+  [
+   1267,
+   "ollb_winogrande",
+   false
+  ]
+ ]
+}

@@ -1,0 +1,8 @@
+{
+ "task": "fbfix",
+ "dataset": "livecodebench",
+ "N": 8,
+ "n_rows": 180,
+ "cpu_seconds": 327.2,
+ "burn_fix": 60
+}

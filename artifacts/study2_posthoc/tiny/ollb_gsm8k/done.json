@@ -1,0 +1,8 @@
+{
+ "task": "tiny",
+ "dataset": "ollb_gsm8k",
+ "N": 8,
+ "n_rows": 360,
+ "cpu_seconds": 381.0,
+ "burn_fix": null
+}

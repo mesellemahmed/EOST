@@ -1,0 +1,140 @@
+\section{Calibration-marginal adaptive testing}
+\label{sec:framework}
+
+\subsection{Items, oracles and recorded verdicts}
+A \emph{test item} $i$ is a task together with an \emph{oracle} $O_i$ that maps a system
+output to a verdict $y_i\in\{0,1\}$: exact numeric match for math word problems,
+execution of hidden unit tests for code and repository-level software engineering, or a
+log-likelihood comparison of fixed answer options for multiple-choice tasks. The framework
+(called EOST in our project, for entropy-oracled information-optimal self-testing, where
+optimality is meant in the one-step sense of Section~\ref{sec:theory}) imposes
+one structural rule: \emph{the system under evaluation may propose or select items, but it
+is never the oracle of its own verdicts}. In this paper all items come from fixed banks,
+which isolates the measurement question; self-generated items were explored only in a
+historical pilot (Section~\ref{sec:pilot}).
+
+Two kinds of verdicts occur in our data and are kept distinct. A \emph{deterministic
+verdict} is the output of the oracle on one recorded system output (GSM8K, ARC-C,
+HellaSwag, WinoGrande, MMLU: a single greedy or log-likelihood evaluation; SWE-bench
+Verified: the official harness on the submitted patch). A \emph{recorded aggregate
+verdict} summarizes several sampled outputs: for LiveCodeBench and CRUXEval-O the public
+data give a pass rate over samples, which we binarize at one half. Replaying either kind
+is exact for the recorded data, but only the first corresponds to one administration of
+the item to one deterministic system; Section~\ref{sec:study2} reports the main contrasts
+separately for the two groups.
+
+\subsection{Measurement model and calibration panel}
+Let $s$ be the target system with latent competence $\theta_s$. Responses follow
+the two-parameter logistic (2PL) model
+\begin{equation}
+\Pr(y_{si}=1\mid\theta_s,a_i,b_i)=\sigma\big(a_i(\theta_s-b_i)\big),\qquad a_i>0 .
+\end{equation}
+Item parameters $\psi_i=(\log a_i,b_i)$ are unknown and are calibrated on a
+\emph{panel} $\mathcal C$ of $N$ other systems whose verdicts on the bank are
+available. The panel excludes the target and every related system: in study~1 the
+target's heuristic \emph{family} (same model line, reasoning-effort or version variant,
+or, for agentic systems, any scaffold sharing an underlying LLM); in study~2 its
+\emph{strict cluster}, which also joins near-duplicates detected from the verdicts
+themselves (Section~\ref{sec:design}).
+
+Calibration proceeds in four steps, shared by every policy:
+(i) joint maximum a posteriori (MAP) estimation of the calibrators' abilities
+$\hat\theta_{\mathcal C}$ and item parameters with $\theta_j\sim\mathcal N(0,1)$,
+$\log a_i\sim\mathcal N(0,1)$, $b_i\sim\mathcal N(0,2^2)$;
+(ii) an empirical-Bayes item hyperprior
+$\log a_i\sim\mathcal N(\mu_a,\sigma_a^2)$, $b_i\sim\mathcal N(\mu_b,\sigma_b^2)$ obtained by
+maximizing the marginal likelihood of \emph{all} items given
+$\hat\theta_{\mathcal C}$ (EM on a parameter grid); the hyperparameters pool
+hundreds of items and are therefore well determined even when $N=4$;
+(iii) plug-in item parameters $(\hat a_i,\hat b_i)$, the conditional MAP given
+$\hat\theta_{\mathcal C}$ under that hyperprior;
+(iv) the exact grid posterior $\pi_i(\psi)\propto p(\psi)\prod_{j\in\mathcal C}p(y_{ji}\mid\hat\theta_j,\psi)$
+on a $26\times129$ grid over $(\log a,b)\in[-2.5,2.5]\times[-8,8]$.
+
+Two measurement models follow. The \textbf{plug-in} model uses
+$P_i(\theta)=\sigma(\hat a_i(\theta-\hat b_i))$, as in classical computerized
+adaptive testing and in recent LLM work \citep{hofmann2025fluid,li2026atlas}.
+The \textbf{marginal} model uses the expected response function
+\begin{equation}\label{eq:erf}
+\bar P_i(\theta)=\int\sigma\big(a(\theta-b)\big)\,\pi_i(d\psi)
+\end{equation}
+\citep{mislevy1994erf}. By Lemma~\ref{lem:exact}, $\bar P_i$ is the exact response
+probability of the target given $\hat\theta_{\mathcal C}$ and the hyperprior, so no
+further approximation is involved in the ability posterior, the predictive distribution
+or the information criteria below. Both models share $\hat\theta_{\mathcal C}$ and the
+hyperprior: they differ only in plugging in a mode versus integrating the item
+posterior.
+
+Numerically, the joint MAP estimate of step (i) uses L-BFGS-B with analytic gradients. The
+hyperprior of step (ii) is obtained by EM on a $14\times65$ grid (at most 60 iterations,
+relative tolerance $10^{-7}$), with $\sigma_b\in[0.3,4]$ and $\sigma_a\in[0.1,1.5]$. The
+plug-in parameters of step (iii) are computed by vectorized Fisher scoring with step halving.
+For the grid posteriors of step (iv), with $\Lambda_1=\log\sigma(z)$ and
+$\Lambda_0=\log\sigma(-z)$ evaluated on the $N\times G$ matrix $z_{jg}=a_g(\hat\theta_j-b_g)$,
+the item log-likelihoods are $Y^\top\Lambda_1+(1-Y)^\top\Lambda_0$ (two GEMMs), and the
+expected response functions on the ability grid are one further GEMM.
+
+\subsection{Adaptive testing and selection criteria}
+The target's ability posterior $\pi_t$ is kept on a 201-point grid over
+$[-5,5]$ with prior $\mathcal N(0,1)$ and is updated after each verdict. At
+step $t$ an item is chosen from the remaining candidate pool by one of:
+\begin{itemize}\itemsep0pt
+\item \textsc{Random}: uniform choice (the model is used only for scoring);
+\item \textsc{Entropy}: maximize $U_{\mathrm H}(i)=h(\bar p_i)$, the predictive entropy
+(uncertainty sampling);
+\item \textsc{MFI}: maximize Fisher information at the posterior mean (classical CAT);
+\item \textsc{PWFI}: maximize posterior-weighted Fisher information \citep{vanderlinden1998bayesian};
+\item \textsc{EIG}: maximize $U_{\mathrm{EIG}}(i)=I(\theta;y_i\mid\mathcal D_t)$, the
+expected information gain about competence (the EOST criterion);
+\item \textsc{EVR}: maximize the expected reduction of the posterior variance of
+the unobserved bank total (score-targeted EOST, Proposition~\ref{prop:evr}).
+\end{itemize}
+Each criterion is run under the plug-in (\texttt{:pi}) and the marginal
+(\texttt{:mg}) model, except PWFI, which is run under the marginal model only. The proposed method, \textbf{EOST-M}, is \textsc{EIG:mg} (Algorithm~\ref{alg:eost}, Figure~\ref{fig:framework}).
+The classical state of practice is \textsc{MFI:pi}. A model-free baseline,
+\textsc{Naive}, samples items uniformly and reports the running sample mean
+with a Wilson interval and finite-population correction.
+
+The ability posterior is kept in log space. Entropy, EIG and PWFI are matrix--vector
+products with precomputed item$\times$grid matrices; MFI interpolates Fisher information at
+the posterior mean; EVR uses the closed form of Proposition~\ref{prop:evr} evaluated exactly
+on the grid (unit-tested against a brute-force enumeration). Ties are broken uniformly at
+random with a dedicated random stream.
+
+\subsection{Recalibrating the score interval}
+The model-based interval ignores what the model gets wrong (misspecification,
+dependence between systems) and, as we will see, is too narrow on real data. A simple
+correction uses only the calibration panel. For every calibrator $c$, the item posteriors
+are recomputed without $c$'s cluster (abilities and hyperprior held at the panel fit), the
+same adaptive test is replayed on $c$, whose full-bank score is known, and its absolute
+score errors $|\hat A_{c,t}-A_c|$ are recorded. The recalibrated half-width at step $t$ is
+the 90\% quantile of these errors pooled over calibrators and over the steps within a
+factor 1.5 of $t$. This leave-one-calibrator-out rule (``+R'') is a cross-validated
+correction, not a conformal guarantee: with $N\le8$ pseudo-targets no finite-sample
+coverage guarantee at 90\% is available \citep{vovk2005algorithmic}. The rule was chosen
+among three variants on development banks before study~2 (Section~\ref{sec:devhist}).
+
+\subsection{Estimands and endpoints}
+Latent competence is a model construct whose scale is fixed only by the prior,
+so endpoints are defined on observable quantities.
+\begin{enumerate}\itemsep0pt
+\item \textbf{Held-out predictive log loss.} A fixed holdout $H$ (20\% of the
+bank, drawn once per target and replicate and shared by \emph{all} policies and
+panel sizes, a design adopted after an audit of the pilot program, Section~\ref{sec:pilot}) is never
+administered. After each step, every policy predicts the target's verdicts on
+$H$ with $\mathbb E_{\pi_t}P_i(\theta)$; the integrated log loss averages the
+holdout log loss over steps $t=1,\dots,T$. A strictly proper score, it rewards
+both accuracy and calibration of what the test has learned about the target.
+\item \textbf{Score error.} The full-bank accuracy $A=\frac1I\sum_iy_{si}$ is
+estimated by $\hat A_t=\frac1I\big(\sum_{\text{asked}}y_{si}+\sum_{\text{not asked}}\mathbb E_{\pi_t}P_i(\theta)\big)$;
+the integrated absolute error (IAE) averages $|\hat A_t-A|$ over $t\le T$.
+\item \textbf{Interval coverage and interval score.} The proportion of steps at which
+the 90\% predictive interval for $A$ contains $A$, and the integrated interval score
+$(u-l)+\frac2\alpha(l-A)_++\frac2\alpha(A-u)_+$ with $\alpha=0.1$, a proper score that
+penalizes both width and misses \citep{gneiting2007strictly}. The predictive distribution of
+the unobserved total is a mixture over the ability grid of sums of independent Bernoulli
+variables; the interval uses its exact mean and variance and a normal approximation.
+\item Secondary: holdout Brier score, final-step errors, sustained items-to-tolerance
+(the first $t$ after which $|\hat A_s-A|\le\varepsilon$ for all $s\ge t$), and, for
+synthetic banks, error and coverage of the true $\theta$.
+\end{enumerate}

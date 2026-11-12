@@ -1,0 +1,26 @@
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{Study 2: frozen hypotheses at $N=8$ and their decisions.}
+\label{tab:study2}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lllcccl@{}}
+\toprule
+ & EOST-M versus & Endpoint & Holm sig. & positive & median & Supported \\
+\midrule
+R2 & plug-in 2PL (MFI:pi) & log loss & 5/0 & 8/8 & $+5.9$ & yes \\
+R3 & Naive & score IAE & 6/0 & 8/8 & $+53.9$ & yes \\
+R4 & plug-in 2PL (MFI:pi) & $|\mathrm{cov}-0.9|$ & 5/0 & 8/8 & $+41.6$ & yes \\
+C1 & Rasch-type plug-in & log loss & 5/0 & 7/8 & $+2.4$ & yes \\
+C2 & Rasch-type marginal & log loss & 4/0 & 8/8 & $+1.8$ & no \\
+C4 & Random:mg & score IAE & 4/0 & 8/8 & $+21.1$ & no \\
+C5b & raw EOST-M interval$^\ast$ & interval score & 0/2 & 4/8 & $+1.0$ & no \\
+C6 & Naive (Wilson)$^\ast$ & interval score & 6/0 & 7/8 & $+35.0$ & yes \\
+C7 & ATLAS-style 3PL CAT & score IAE & 4/0 & 8/8 & $+26.0$ & no \\
+C8 & tinyBenchmarks & error @50 & 4/0 & 8/8 & $+29.6$ & no \\
+C9 & MINCE & error @50 & 5/0 & 8/8 & $+44.8$ & yes \\
+\midrule
+C3 & PDM Bayesian CAT (equivalence) & log loss & \multicolumn{2}{c}{4/8 within $\pm$1\%} & $+0.32$ & no \\
+C5a & (coverage in $[0.85,0.95]$)$^\ast$ & coverage & \multicolumn{2}{c}{5/8 banks inside} & 0.81--0.91 & no \\
+\bottomrule
+\end{tabular}
+\end{table}

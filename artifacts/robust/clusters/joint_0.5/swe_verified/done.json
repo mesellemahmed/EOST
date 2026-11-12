@@ -1,0 +1,6 @@
+{
+ "variant": "joint_0.5",
+ "dataset": "swe_verified",
+ "n_rows": 600,
+ "cpu_seconds": 47.2
+}

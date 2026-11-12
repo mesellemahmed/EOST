@@ -1,0 +1,21 @@
+\begin{table}[tbp]
+\centering\footnotesize
+\caption{Study 2, post hoc audit of tinyBenchmarks at $N=8$: percentage of cells (target $\times$ replicate) in which fewer anchor items than the budget were available: K-Means returns at most one anchor per distinct item embedding, and with eight calibrators the embeddings take only as many distinct values as there are distinct response patterns among the items, often fewer than 100; last column: median number of anchors actually used at a budget of 100.}
+\label{tab:tinyaudit}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & \multicolumn{3}{c}{cells with fewer anchors than budget (\%)} & anchors used \\
+\cmidrule(lr){2-4}
+Benchmark & 25 & 50 & 100 & at budget 100 \\
+\midrule
+GSM8K & 1 & 7 & 76 & 82 \\
+ARC-C & 0 & 0 & 0 & 100 \\
+HellaSwag & 0 & 0 & 29 & 100 \\
+WinoGrande & 0 & 0 & 1 & 100 \\
+MMLU & 0 & 0 & 0 & 100 \\
+SWE-bench V. & 0 & 2 & 100 & 71 \\
+LiveCodeBench & 0 & 0 & 98 & 67 \\
+CRUXEval-O & 0 & 0 & 8 & 100 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,6 @@
+{
+ "variant": "lbo",
+ "dataset": "ollb_arc",
+ "n_rows": 600,
+ "cpu_seconds": 69.8
+}

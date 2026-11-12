@@ -1,0 +1,103 @@
+\section{Study 2: independent targets and strong competitors}
+\label{sec:study2}
+
+Study~2 evaluated \STwoTargetsTotal\ independent targets (\STwoTargetsMin\ to
+\STwoTargetsMax\ per benchmark). Table~\ref{tab:study2} lists every frozen decision with the
+number of benchmarks on which a Holm-significant difference favours EOST-M or the competitor,
+the number on which EOST-M is better, and the median relative improvement (for C3 the
+relative difference of the PDM Bayesian CAT, for C5a the range of coverage; C5a, C5b and C6
+concern the recalibrated interval, marked by an asterisk). Of the \STwoNHyp\ decisions,
+\STwoNSupported\ were supported. Apart from C5b, every superiority contrast favoured EOST-M
+on at least seven of the eight benchmarks and no competitor was significantly better on any
+benchmark; four of the five superiority hypotheses that were not supported (C2, C4, C7, C8)
+missed the threshold by one benchmark. CRUXEval-O, with only \STwoTargetsMin\ independent
+clusters, reached significance in no contrast.
+
+\input{short/tables/study2}
+
+\paragraph{Replication with independent targets.} The study-1 results held: EOST-M's
+held-out log loss was lower than plug-in Fisher CAT's on every benchmark (R2, median
+\STwoRTwoMed\%, \STwoRTwoFav\ significant), more so with four calibrators
+(\SecRTwoNFourMed\%) than with sixteen (\SecRTwoNSixteenMed\%), and by the same amount for
+deterministic (\STwoRTwoDet\%) and aggregate verdicts (\STwoRTwoAgg\%); R3 and R4 were also
+supported, and plug-in Fisher CAT's intervals covered the score only \STwoCovmfipi\ of the
+time, against \STwoCoveigmg\ for EOST-M.
+
+\paragraph{Integration, constraint and Bayesian CATs.} EOST-M predicted better than the
+Rasch-type plug-in test (C1, median \STwoCOneMed\%), more so with sixteen calibrators
+(\SecCOneNSixteenMed\%) than with four (\SecCOneNFourMed\%), where a single discrimination
+becomes a visible misspecification; the integrated one-parameter model sat in between (C2,
+\STwoCTwoMed\%). The two tests had similar score errors (median \SecEostVsRaschIAEMed\%, no
+benchmark significant), and the Rasch-type intervals were again better calibrated before
+recalibration (\STwoCovmfiOnepr). The PDM Bayesian CAT differed from EOST-M by a median of
+\STwoCThreeMed\% in log loss and was within $\pm1\%$ on only \STwoCThreeEq\ benchmarks, so
+equivalence (C3) was not supported. Its frozen burn-in proved too short on
+\FbDriftFrozenBank, where the mean calibrator ability drifted by a median of
+\FbDriftFrozenMax\ during the retained sweeps; with either burn-in (10 or, post hoc, 60
+sweeps) it was not significantly different from EOST-M on any benchmark, in log loss or score
+error (corrected log loss higher by a median of \FbBmiMed\% with Bayesian maximum information
+and \FbEigMed\% with EIG). The exploratory joint fully Bayesian CAT, which
+keeps the uncertainty about the location of the calibration shared across items, was the
+closest to EOST-M with EIG selection (median \FbjEigMed\%). At $N=4$ the corrected PDM
+Bayesian CAT was never significantly better than EOST-M (within $\pm1\%$ on \FbBmiEqNFour\
+and \FbEigEqNFour\ benchmarks with the two criteria). With eight calibrators, integrating
+their abilities and the hyperprior on top of the item parameters thus made no significant
+difference, but equivalence within $\pm1\%$ was not shown.
+
+\paragraph{Adaptivity and benchmark reduction.} All methods used the same eight calibrators;
+ATLAS and tinyBenchmarks were designed for hundreds to thousands, so these comparisons concern
+the small-panel regime, not the methods in their native settings. Under the same calibrated
+model, adaptive selection reduced the score error of random items by a median of
+\STwoCFourMed\% (C4, \STwoCFourFav\ benchmarks significant), more with larger panels
+(\SecCFourNFourMed\% at $N=4$, \SecCFourNSixteenMed\% at $N=16$). Table~\ref{tab:reduction}
+gives the score errors at 25, 50 and 100 items, averaged over targets and benchmarks;
+tinyBenchmarks and MINCE choose their items without adapting to the target. After 50 items
+EOST-M's error was \STwoCEightMed\% below tinyBenchmarks' gp-IRT (C8) and \STwoCNineMed\%
+below MINCE's subset mean (C9, supported), and over the test \STwoCSevenMed\% below the
+ATLAS-style CAT's (C7), whose plug-in 3PL parameters and randomesque selection made it the
+least accurate model-based policy (coverage \STwoCovatlas). With eight calibrators,
+tinyBenchmarks' K-Means cannot always find as many anchors as its budget, because its item
+embeddings take only as many values as there are distinct response patterns; an audit
+decided before the results were seen showed that restricting C8 to full-budget cells, or
+comparing with EOST-M after the number of items tinyBenchmarks actually used, again gave
+\TinyFullFav\ significant benchmarks. MINCE's own stopping rule asked for a median of
+\STwoMinceNstarMed\ items and then had a score error of \STwoMinceErrNstar\ points, more
+than EOST-M after 100 items (\STwoErreigmgHundred).
+
+\input{short/tables/reduction}
+
+\paragraph{Calibrated uncertainty.} Model-based intervals remained too narrow: EOST-M
+covered the score \STwoCoveigmg\ of the time, the PDM Bayesian CAT \FbBmiCov, the Rasch-type
+test \STwoCovmfiOnepr\ and plug-in Fisher CAT \STwoCovmfipi, whereas Random:mg reached
+\STwoCovrandommg\ and Naive's Wilson interval \STwoCovnaive. Recalibration raised EOST-M's
+coverage to \STwoCoveigmgRR, inside $[0.85,0.95]$ on \STwoCFiveaIn\ benchmarks, one short of
+the criterion (C5a), and did not improve the interval score (C5b; significantly worse on
+HellaSwag and WinoGrande): the wider intervals cost about as much as the misses they removed.
+The recalibrated intervals had a much better interval score than Naive's Wilson intervals
+(C6, median \STwoCSixMed\%) because they were much narrower (mean width \STwoWidtheigmgRR\
+against \STwoWidthnaive). Recalibration brought the Rasch-type test inside the band on all
+eight benchmarks, but with intervals about twice as wide (\STwoWidthmfiOneprRR). It needs
+calibrators as pseudo-targets and helped more as the panel grew (coverage
+\STwoCovEostRNFour, \STwoCovEostRNEight\ and \STwoCovEostRNSixteen\ at $N=4$, 8 and 16), and
+mixing one uniformly drawn item in four into the adaptive test raised coverage only to
+\STwoCovmixmg.
+
+\paragraph{Temporal validation and the hyperprior.} On the \TempTargets\ SWE-bench
+Verified submissions of the latest quarter, calibrated only on earlier submissions,
+\TempNSig\ of the \TempNTests\ frozen contrasts favoured EOST-M at a Holm-adjusted $p<0.05$
+within the component and none favoured a competitor; EOST-M's log loss was \TempRTwoMed\% lower than plug-in
+Fisher CAT's and \TempCOneMed\% lower than the Rasch-type test's. Because the empirical-Bayes
+hyperprior is essential and estimated from the same panel, it was checked post hoc and varied
+under the frozen plan. Resampling items moves the hyperparameters by at most
+\EBItemsSdMaxEight\ (standard deviation, $N=8$), whereas resampling calibrators moves them
+about as much as the variation between panels: the hyperprior reflects which systems are in
+the panel, not noise in the items. Prior predictive checks reproduce the spread of the
+items' proportions correct, but the share of items with identical panel verdicts only on
+average, and real systems agree with each other less, item by item, than a unidimensional
+2PL with independent items implies (mean item--rest correlation \PPCRestObs\ observed,
+\PPCRestSim\ simulated): the response model is misspecified in its dependence structure, one
+reason why model-based intervals are too narrow. A cross-fitted hyperprior, estimated for
+each item on the other half of the items, left EOST-M's log loss unchanged (median
+\SecXfVsEostMedAbs\%), and Student-$t$ hyperpriors made it slightly worse
+(\SecTpVsEostMedAbs\%): the gain of EOST-M does not come from fitting the prior to the items
+it is applied to.

@@ -1,0 +1,24 @@
+\begin{table}[tbp]
+\centering\footnotesize
+\caption{All twelve policies at $N=8$, averaged over the eight confirmatory benchmarks (mean of per-benchmark means; in parentheses the mean rank across benchmarks, 1 = best). IAE: integrated absolute error of the full-bank score; $|\mathrm{cov}-0.9|$: miscalibration of the 90\% interval; $t_{0.03}$: sustained items-to-tolerance at $\varepsilon=0.03$ (101 = never).}
+\label{tab:policies}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Policy & holdout log loss & score IAE & $|\mathrm{cov}-0.9|$ & $t_{0.03}$ \\
+\midrule
+Naive & -- & 0.0647 (11.5) & 0.0644 (1.1) & 86.3 (11.6) \\
+Random:pi & 0.3720 (10.4) & 0.0424 (9.8) & 0.0972 (2.8) & 71.2 (10.0) \\
+Random:mg & 0.3564 (6.1) & 0.0432 (10.0) & 0.0897 (2.2) & 71.5 (10.4) \\
+Entropy:pi & 0.3724 (10.0) & 0.0398 (8.9) & 0.1598 (6.6) & 61.5 (8.8) \\
+Entropy:mg & 0.3543 (5.6) & 0.0394 (8.4) & 0.1190 (4.9) & 64.0 (8.9) \\
+MFI:pi (plug-in CAT) & 0.3666 (8.1) & 0.0341 (6.2) & 0.3088 (10.8) & 53.4 (5.1) \\
+MFI:mg & 0.3470 (2.5) & 0.0301 (2.5) & 0.1677 (6.6) & 50.3 (4.0) \\
+PWFI:mg & 0.3469 (2.1) & 0.0301 (2.1) & 0.1686 (7.1) & 49.9 (3.1) \\
+EIG:pi & 0.3665 (7.8) & 0.0339 (6.0) & 0.3142 (11.4) & 53.6 (4.8) \\
+EIG:mg \textbf{(EOST-M)} & 0.3473 (3.0) & 0.0309 (3.8) & 0.1746 (7.6) & 50.5 (3.8) \\
+EVR:pi & 0.3665 (8.0) & 0.0340 (6.0) & 0.3051 (10.5) & 53.0 (4.2) \\
+EVR:mg & 0.3471 (2.4) & 0.0303 (2.9) & 0.1664 (6.4) & 50.0 (3.4) \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,22 @@
+{
+ "k_sources": 4,
+ "n_hypotheses": 11,
+ "n_excl_zero_sources": 6,
+ "excl_zero_sources": [
+  "C2",
+  "C6",
+  "C9",
+  "R2",
+  "R3",
+  "R4"
+ ],
+ "n_excl_zero_banks": 10,
+ "lost": [
+  "C1",
+  "C4",
+  "C7",
+  "C8"
+ ],
+ "median_ollb_pairwise_r": 0.015235318739764723,
+ "ollb_se_ratio_median": 1.0531910913349423
+}

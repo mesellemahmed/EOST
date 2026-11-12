@@ -1,0 +1,59 @@
+\section{Introduction}
+\label{sec:intro}
+
+Large language models (LLMs) are compared by running them on static benchmarks and
+reporting an average. This evaluation is computationally expensive and statistically
+inefficient, because individual items differ substantially in the information they provide
+about a system's capabilities \citep{lalor2016building,rodriguez2021evaluation}.
+Computerized adaptive testing (CAT), the psychometric answer to the same problem for human
+examinees \citep{lord1980applications,wainer2000cat}, has therefore been transferred to
+LLMs: item response theory (IRT) models fitted on the item-level verdicts of previously
+evaluated systems are used to pick anchor items \citep{vivek2024anchor,polo2024tinybenchmarks},
+to distill benchmarks \citep{kipnis2025metabench}, or to administer items adaptively by
+maximum Fisher information \citep{hofmann2025fluid,li2026atlas,zheng2026medcat,zhou2026lost}.
+
+These methods calibrate on hundreds to thousands of systems and then treat the item
+parameters as known. Many practical settings have only a handful of calibration systems: a
+new or private benchmark, a freshly generated item pool, a domain where only a few open
+models can be run, or an agentic benchmark where every evaluation is costly. With four to
+eight calibrators, item parameters---especially discriminations---are poorly identified,
+and adaptive selection \emph{capitalizes on calibration error}: it preferentially picks the
+items whose informativeness is most overestimated
+\citep{vanderlinden2000capitalization,patton2013influence}. Psychometrics knows remedies:
+expected response functions that integrate the item-parameter posterior
+\citep{mislevy1994erf} and fully Bayesian adaptive testing
+\citep{vanderlinden2020fast,fink2025accounting}. What is not known is how much they matter
+in the small-panel regime of LLM evaluation, against which competitors, and with what
+consequences for the uncertainty that an adaptive test reports.
+
+We study this question with a calibration-marginal adaptive test, EOST-M: items enter the
+test through their expected response function under an empirical-Bayes item prior, are
+selected by expected information gain (EIG), and are graded by an independent oracle. We
+show that this model is exact given the calibrators, that a Gaussian difficulty posterior
+caps an item's Fisher information whatever the response link, and how entropy, Fisher
+information and EIG relate under calibration uncertainty (Section~\ref{sec:theory}). Two
+studies with analysis plans frozen before execution---the second with one target per family
+cluster and the strongest competitors we could identify---lead to three messages.
+\begin{enumerate}\itemsep1pt
+\item \textbf{Small-panel calibration uncertainty is the real problem.} With eight
+calibrators, plug-in Fisher-information CAT predicted held-out verdicts worse than EOST-M
+on every benchmark in both studies (study~2: median \STwoRTwoMed\%, Holm-significant on
+\STwoRTwoFav\ of 8), and its 90\% intervals covered the benchmark score only
+\STwoCovmfipi\ of the time.
+\item \textbf{Accounting for that uncertainty fixes much of it.} Integrating the item
+posterior (EOST-M) predicted better than constraining the discriminations (a regularized
+Rasch-type test; median \STwoCOneMed\%, significant on \STwoCOneFav\ of 8), Bayesian CATs that also
+integrate the calibrators' abilities were not significantly different from EOST-M (equivalence
+was not shown), and EOST-M's score error was lower than that of random items under the same
+model, ATLAS-style CAT, tinyBenchmarks and MINCE on every benchmark, conclusively by the frozen
+criterion only against MINCE.
+\item \textbf{Once uncertainty is handled, the information criterion matters much less than
+first hypothesized.} The information criteria performed almost identically, and EIG beat
+predictive entropy on held-out prediction by a median of only \MedImpHOne\%. What remains
+unsolved is calibrated uncertainty: EOST-M's intervals covered \STwoCoveigmg, and
+recalibration from the panel raised this to \STwoCoveigmgRR\ without meeting the frozen
+criterion.
+\end{enumerate}
+All evidence replays recorded verdicts. Every number in the paper is generated from hashed
+artifacts by a Docker-only pipeline over pinned public data, and its qualitative statements
+about results are re-checked automatically against these artifacts.

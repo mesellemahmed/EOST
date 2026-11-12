@@ -1,0 +1,47 @@
+\section{Robustness follow-ups after review}
+\label{sec:s2follow}
+
+\RobustIntro
+
+\subsection{Clusters that never see the target's responses (RF1)}\label{sec:rf1}
+\RobustClusterText
+
+\IfFileExists{tables/robust_clusters.tex}{\input{tables/robust_clusters}}{}
+\IfFileExists{tables/robust_clusters_banks.tex}{\input{tables/robust_clusters_banks}}{}
+\IfFileExists{tables/robust_cluster_counts.tex}{\input{tables/robust_cluster_counts}}{}
+
+\subsection{MCMC quality of the Bayesian CATs (RF2--RF2d)}\label{sec:rf2}
+\RobustMCMCDesign
+
+\RobustMCMCFrozen
+
+\IfFileExists{tables/robust_mcmc.tex}{\input{tables/robust_mcmc}}{}
+\IfFileExists{tables/robust_mcmc_arms.tex}{\input{tables/robust_mcmc_arms}}{}
+
+\IfFileExists{figures/rf2_traces.pdf}{%
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/rf2_traces.pdf}
+\caption{Follow-up RF2: traces of the overall location (mean calibrator ability), the ability scale (standard deviation of the calibrators' abilities), $\sigma_a$ and $\sigma_b$ for the first selected panel of each benchmark; four chains (chain 1 starts at EOST-M's estimates), 300 sweeps after a burn-in of 250.}
+\label{fig:rf2traces}
+\end{figure}}{}
+
+\IfFileExists{figures/rf2d_traces.pdf}{%
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/rf2d_traces.pdf}
+\caption{Exploratory follow-up RF2d (exact sampler of the model of Lemma~\ref{lem:exact}, with the hyperparameters, the scale and the location moved with the item parameters summed out): traces of the same quantities and panels as in Figure~\ref{fig:rf2traces}; four chains, 200 sweeps after a burn-in of 150.}
+\label{fig:rf2dtraces}
+\end{figure}}{}
+
+\RobustMCMCScale
+
+\RobustMCMCExact
+
+\RobustMCMCConclusion
+
+\FloatBarrier
+\subsection{Effects across benchmarks (RF3, RF3b)}\label{sec:rf3}
+\IfFileExists{tables/meta.tex}{\input{tables/meta}}{}
+
+\RobustMetaText

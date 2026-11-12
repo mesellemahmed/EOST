@@ -1,0 +1,119 @@
+\section{Study 2: independent targets and strong competitors}
+\label{sec:study2}
+
+Study~2 evaluated \STwoTargetsTotal\ targets (between \STwoTargetsMin\ and
+\STwoTargetsMax\ per benchmark, one per strict cluster) under the frozen plan of
+Section~\ref{sec:design2}. Table~\ref{tab:study2} lists every decision,
+Table~\ref{tab:study2banks} the main contrasts per benchmark, and
+Table~\ref{tab:study2policies} the policy means. \StudyTwoSummary
+
+\IfFileExists{tables/study2.tex}{\input{tables/study2}}{}
+\IfFileExists{tables/study2_policies.tex}{\input{tables/study2_policies}}{}
+
+\subsection{Replication with independent targets}
+With one target per cluster, EOST-M's held-out log loss was lower than plug-in Fisher
+CAT's on \STwoRTwoPos\ of 8 benchmarks (median \STwoRTwoMed\%), Holm-significantly on
+\STwoRTwoFav\ and in favour of the baseline on \STwoRTwoBase: replication R2 is
+\STwoRTwoVerdict. Its score error was \STwoRThreeMed\% below that of naive subsampling
+(R3, \STwoRThreeVerdict; \STwoRThreeFav\ benchmarks significant), and its intervals were
+less miscalibrated than plug-in Fisher CAT's by a median of \STwoRFourMed\% (R4,
+\STwoRFourVerdict). \StudyTwoReplicationText
+
+\IfFileExists{tables/study2_banks.tex}{\input{tables/study2_banks}}{}
+
+\subsection{Integration, constraint, and Bayesian CATs}\label{sec:s2fb}
+Against the regularized Rasch-type plug-in test, EOST-M's held-out log loss was lower on
+\STwoCOnePos\ of 8 benchmarks (median \STwoCOneMed\%; \STwoCOneFav\ Holm-significant for
+EOST-M, \STwoCOneBase\ for the competitor): C1 is \STwoCOneVerdict. Against the same
+one-parameter model integrated over its item posterior, the median improvement was
+\STwoCTwoMed\% (\STwoCTwoFav/\STwoCTwoBase; C2 \STwoCTwoVerdict). \StudyTwoRaschText
+\par
+The posterior-draw marginal (PDM) Bayesian CAT, which also integrates the calibrators'
+abilities and the hyperprior through posterior draws, differed from EOST-M by a median of \STwoCThreeMed\% in held-out log loss and
+was practically equivalent within $\pm1\%$ on \STwoCThreeEq\ of 8 benchmarks (C3
+\STwoCThreeVerdict; Table~\ref{tab:equiv}). \StudyTwoFBText
+
+\StudyTwoFBDetails
+
+\IfFileExists{tables/fbfix.tex}{\input{tables/fbfix}}{}
+\IfFileExists{tables/equivalence.tex}{\input{tables/equivalence}}{}
+\IfFileExists{tables/fbfix_N4.tex}{\input{tables/fbfix_N4}}{}
+
+\subsection{Adaptivity and benchmark-reduction methods}\label{sec:s2red}
+All methods below use the same eight calibrators per target. ATLAS and tinyBenchmarks were
+designed for panels of hundreds to thousands of systems, so these comparisons concern the
+small-panel regime, not the methods in their native settings; MINCE targets few calibration
+models. Under the same calibrated model, adaptive selection reduced the score error of random
+items by a median of \STwoCFourMed\% (C4 \STwoCFourVerdict; \STwoCFourFav\ benchmarks
+significant). Against the ATLAS-style 3PL CAT the median improvement in score error was
+\STwoCSevenMed\% (C7 \STwoCSevenVerdict). After 50 items, EOST-M's score error was
+\STwoCEightMed\% below tinyBenchmarks' gp-IRT (C8 \STwoCEightVerdict) and \STwoCNineMed\%
+below MINCE's subset mean (C9 \STwoCNineVerdict); Table~\ref{tab:reduction} gives the
+errors at 25, 50 and 100 items. \StudyTwoReductionText
+
+\IfFileExists{tables/reduction.tex}{\input{tables/reduction}}{}
+\IfFileExists{tables/tiny_audit.tex}{\input{tables/tiny_audit}}{}
+
+\subsection{Calibrated uncertainty}\label{sec:s2cov}
+\StudyTwoCoverageText
+
+\IfFileExists{figures/study2_coverage.pdf}{%
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/study2_coverage.pdf}
+\caption{Study 2: coverage of the 90\% score interval per benchmark at $N=8$ (mean over steps, replicates and targets). Shaded band: the $[0.85,0.95]$ criterion of hypothesis C5a; dotted: nominal.}
+\label{fig:study2cov}
+\end{figure}}{}
+
+\subsection{Temporal validation and robustness}\label{sec:s2rob}
+\StudyTwoRobustText
+
+\subsection{Robustness of the empirical-Bayes hyperprior}\label{sec:eb}
+The empirical-Bayes hyperprior is load-bearing: with a fixed weakly-informative prior,
+the study-1 gain of EOST-M over plug-in Fisher CAT halves (Section~\ref{sec:sensitivity}).
+Because it is estimated from the same panel, it could act as an opportunistic tuning
+parameter. Stability and predictive checks (post hoc) and three alternatives run in study~2
+under its frozen plan address this.
+
+\paragraph{Stability.} Hyperparameters are re-estimated on bootstrap resamples of the items
+(abilities held fixed), on two random halves of the items, and at $N=8$ on bootstrap
+resamples of the calibrators (Table~\ref{tab:ebstab}). Resampling items moves them by at most
+\EBItemsSdMaxEight\ (standard deviation, $N=8$): they pool hundreds of items and are well
+determined given the panel. What varies is the panel: resampling calibrators moves the
+spread of the log-discriminations by \EBCalSdSigmaA\ and that of the difficulties by
+\EBCalSdSigmaB, comparable to the variation between panels (\EBBetweenSigmaA\ for
+$\sigma_a$). The hyperprior therefore reflects which systems are in the panel, not noise
+in the items.
+
+\IfFileExists{tables/eb_stability.tex}{\input{tables/eb_stability}}{}
+
+\paragraph{Prior predictive checks.} For each of the \PPCPanels\ panels (three per benchmark
+and panel size), 200 response matrices were simulated from the fitted hyperprior given the
+calibrators' abilities and compared with the observed matrix on three statistics; under a
+correct model about 5\% of the two-sided predictive $p$-values would fall below 0.05. The
+share of items that every calibrator or no calibrator answers correctly matters most for
+Proposition~\ref{prop:cap}, because such items are located by the prior alone. It is
+reproduced on average (median observed \PPCExtremeObs, simulated \PPCExtremeSim) but not
+panel by panel: $p<0.05$ for \PPCExtremeLow\% of the panels (observed share higher than
+simulated in \PPCExtremeAbove\%, lower in \PPCExtremeBelow\%), most of them on
+HellaSwag and MMLU. The spread of the items' proportions correct is reproduced (observed
+\PPCSdPObs, simulated \PPCSdPSim; $p<0.05$ for \PPCSdPLow\%). The mean item--rest
+correlation is mostly lower than simulated (observed \PPCRestObs, simulated \PPCRestSim;
+$p<0.05$ for \PPCRestLow\% of the panels, \PPCRestBelow\% below and \PPCRestAbove\% above),
+again mainly on the multiple-choice banks of the Open LLM Leaderboard: real systems agree
+with each other less, item by item, than a unidimensional 2PL with independent items
+implies. The hyperprior therefore captures the distribution of item locations on which
+EOST-M relies, while the response model is misspecified in its dependence structure, one
+reason why model-based score intervals are too narrow (Section~\ref{sec:s2cov}).
+
+\paragraph{Leave-item-block-out, other families, hierarchical Bayes.} Study~2 ran EOST-M
+with a cross-fitted hyperprior (estimated, for every item, on the other half of the items,
+so that no item informs its own prior) and with Student-$t$ hyperprior families ($\nu=4$) for
+both item parameters; the Bayesian CATs integrate the hyperparameters instead of plugging
+them in, which is the hierarchical Bayesian benchmark. Relative to EOST-M, the cross-fitted
+variant left held-out log loss unchanged (median relative difference \SecXfVsEostMedAbs\%) and
+the Student-$t$ variant made it slightly worse on every benchmark (median
+\SecTpVsEostMedAbs\%), with no benchmark significant, and the Bayesian CATs were not
+significantly different on any benchmark (Section~\ref{sec:s2fb}). The gain of
+EOST-M therefore does not come from fitting the prior to the very items it is applied to,
+nor from the Gaussian family or the plug-in hyperparameters.

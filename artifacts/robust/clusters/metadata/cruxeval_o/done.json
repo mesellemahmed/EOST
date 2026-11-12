@@ -1,0 +1,6 @@
+{
+ "variant": "metadata",
+ "dataset": "cruxeval_o",
+ "n_rows": 180,
+ "cpu_seconds": 15.7
+}

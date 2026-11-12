@@ -1,0 +1,55 @@
+{
+ "release_runtime": {
+  "image_tag": "eost-runtime:cpu",
+  "image_id": "sha256:5b21ccfeb1fd43d53f12c41c34c406aef5ff7ce7ee0ae89cb2a6efdf85dd7f04",
+  "image_created": "2026-10-29T11:33:52.675202972-04:00",
+  "base_image": "ubuntu@sha256:b97134452ef5636a257f70fc52b2e636151ad6e304d8fedcd4097d4680a163ae",
+  "os": "Ubuntu 24.04 LTS",
+  "python": "3.12.3",
+  "pip_freeze": [
+   "contourpy==1.4.0",
+   "cycler==0.12.1",
+   "fonttools==4.68.0",
+   "iniconfig==2.3.1",
+   "jax==0.12.0.1",
+   "jaxlib==0.12.0.1",
+   "kiwisolver==1.5.1",
+   "matplotlib==3.11.2",
+   "ml_dtypes==0.6.0",
+   "multipledispatch==1.0.0",
+   "numpy==2.5.4",
+   "numpyro==0.22.0",
+   "opt_einsum==3.4.0",
+   "packaging==26.3",
+   "pandas==3.1.0",
+   "pillow==13.0.0",
+   "pluggy==1.7.0",
+   "Pygments==2.21.0",
+   "pyparsing==3.3.3",
+   "pytest==9.2.0",
+   "python-dateutil==3.0.0",
+   "PyYAML==6.0.3",
+   "scipy==1.18.1",
+   "six==1.17.0",
+   "tqdm==4.70.1",
+   "tzdata==2026.6"
+  ],
+  "note": "every study-1, post hoc and study-2 computation and every figure/table of the manuscript; built 2026-10-29 before the study-1 freeze; no PyTorch (NumPy/SciPy only)"
+ },
+ "release_paper": {
+  "image_tag": "eost-paper:texlive",
+  "image_id": "sha256:b8c7f599855b312cf45e371070db1162e25822aa889b1d51088c46a67261ea77",
+  "image_created": "2026-10-29T11:48:50.653751058-04:00",
+  "tex": "pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)"
+ },
+ "docker_engine": "29.9.2",
+ "pilot_runtime_as_recorded_in_project_log": {
+  "base_image": "python:3.12-slim-bookworm",
+  "python": "3.12.15",
+  "torch": "2.7.0+cpu",
+  "image_tag": "eost-runtime:cpu (same tag, different image)",
+  "image_id": "sha256:8423de84e45cb715171439c00d937a7a08fea153242fbd68e1554a3e1f22f7d7",
+  "platform": "Linux WSL2, Docker Desktop, 10 CPU threads",
+  "used_for": "pilot stage S4B (Ministral run) only; S0-S4 predate the Docker-only rule; none of the pilot runs was re-executed for the paper"
+ }
+}

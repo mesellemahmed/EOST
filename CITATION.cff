@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite the accompanying paper."
+title: "EOST: calibration-marginal adaptive evaluation of large language models (code, data, artifacts)"
+authors:
+  - family-names: Mesellem
+    given-names: Ahmed
+    affiliation: "STIC Laboratory, Abou Bekr Belkaid University, Tlemcen, Algeria"
+    email: ahmed.mesellem@univ-tlemcen.dz
+  - family-names: Bouhedja
+    given-names: Lotfi
+    affiliation: "LESAIL Laboratory, Ecole Supérieure Normale d'Oran, Algeria"
+  - family-names: Taalbi
+    given-names: Ahmed
+    affiliation: "LESAIL Laboratory, Ecole Supérieure Normale d'Oran, Algeria"
+  - family-names: Berrahal
+    given-names: Mokhtar
+    affiliation: "LESAIL Laboratory, Ecole Supérieure Normale d'Oran, Algeria"
+  - family-names: Mana
+    given-names: Mohammed
+    affiliation: "STIC Laboratory, Abou Bekr Belkaid University, Tlemcen, Algeria"
+version: "5.0.0"
+date-released: "2026-11-11"
+license: MIT
+repository-code: "https://github.com/mesellemahmed/eost"
+preferred-citation:
+  type: article
+  title: "Calibration Uncertainty in Adaptive Large Language Model Evaluation: Theory and Empirical Evidence"
+  authors:
+    - family-names: Mesellem
+      given-names: Ahmed
+    - family-names: Bouhedja
+      given-names: Lotfi
+    - family-names: Taalbi
+      given-names: Ahmed
+    - family-names: Berrahal
+      given-names: Mokhtar
+    - family-names: Mana
+      given-names: Mohammed
+  year: 2026
+  notes: "Submitted to the Journal of Machine Learning Research"

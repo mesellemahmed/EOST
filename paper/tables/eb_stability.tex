@@ -1,0 +1,18 @@
+\begin{table}[tbp]
+\centering\footnotesize
+\caption{Stability of the empirical-Bayes hyperparameters (post hoc; three panels per benchmark and panel size). Medians over benchmarks of: the standard deviation across panels (between), the bootstrap standard deviation over items with abilities fixed (items), the absolute difference between fits on two random halves of the items (halves), and at $N=8$ the bootstrap standard deviation over calibrators (calibrators).}
+\label{tab:ebstab}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lccccccccc c@{}}
+\toprule
+ & \multicolumn{3}{c}{$N=4$} & \multicolumn{3}{c}{$N=8$} & \multicolumn{3}{c}{$N=16$} & $N=8$ \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(l){11-11}
+ & between & items & halves & between & items & halves & between & items & halves & calibrators \\
+\midrule
+$\mu_b$ & 0.17 & 0.09 & 0.16 & 0.07 & 0.07 & 0.11 & 0.08 & 0.07 & 0.07 & 0.10 \\
+$\sigma_b$ & 0.11 & 0.09 & 0.10 & 0.16 & 0.07 & 0.10 & 0.18 & 0.07 & 0.05 & 0.15 \\
+$\mu_a$ & 0.06 & 0.05 & 0.06 & 0.08 & 0.04 & 0.07 & 0.07 & 0.04 & 0.04 & 0.14 \\
+$\sigma_a$ & 0.05 & 0.03 & 0.05 & 0.05 & 0.03 & 0.03 & 0.04 & 0.03 & 0.04 & 0.06 \\
+\bottomrule
+\end{tabular}
+\end{table}

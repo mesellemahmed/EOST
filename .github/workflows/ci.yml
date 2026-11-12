@@ -1,0 +1,15 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  container-tests:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the pinned scientific image
+        run: docker build -t eost-runtime:cpu .
+      - name: Unit tests inside the container (no network)
+        run: docker run --rm --network none -v "$PWD":/work eost-runtime:cpu python -m pytest -q -p no:cacheprovider
+      - name: Pre-registration lock unchanged
+        run: docker run --rm --network none -v "$PWD":/work eost-runtime:cpu python scripts/verify_artifacts.py --prereg-only
+      - name: Every qualitative claim of the paper holds on the committed artifacts
+        run: docker run --rm --network none -v "$PWD":/work -w /work eost-runtime:cpu python scripts/check_claims.py

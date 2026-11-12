@@ -1,0 +1,53 @@
+\section{Related work}
+\label{sec:related}
+
+\paragraph{Calibration error in adaptive testing.} Treating estimated item parameters as
+true inflates measurement precision and biases ability estimates, and adaptive selection
+amplifies the problem because it seeks the items that look most informative
+\citep{vanderlinden2000capitalization,olea2012capitalization,patton2013influence}. Remedies
+propagate parameter uncertainty into scale scores \citep{zhang2011investigating,yang2012characterizing},
+replace the item response function by its expectation over the parameter posterior---the
+expected response function \citep{mislevy1994erf}, which we use---or treat all parameters in
+a fully Bayesian way. \citet{vanderlinden2020fast} sample the joint posterior of ability and
+item parameters during the test from stored calibration draws, and \citet{fink2025accounting}
+found this approach, with selection by Bayesian maximum information, the most accurate
+correction in simulated 2PL tests with 100--500 calibration responses per item. We do not
+claim to be the first to integrate calibration uncertainty into adaptive testing:
+Lemma~\ref{lem:exact} shows that our calibration-marginal model is the fully Bayesian model
+with the calibrators' abilities and the hyperprior held at point estimates, and study~2
+compares the two directly.
+
+\paragraph{Item selection.} Classical CAT maximizes Fisher information at the current
+ability estimate \citep{lord1980applications}; Bayesian variants weight it by the ability
+posterior or use Kullback--Leibler information
+\citep{owen1975bayesian,vanderlinden1998bayesian,chang1996global,veerkamp1997some}, and the
+criteria differ mainly early in a test \citep{chen2000comparison}. Mutual-information
+selection appears in classification and multidimensional CAT
+\citep{weissman2007mutual,wang2011item}, as Lindley's information in experimental design
+\citep{lindley1956measure,chaloner1995bayesian,rainforth2024modern} and as BALD in active
+learning \citep{houlsby2011bald}, whose motivation---entropy conflates epistemic and
+aleatoric uncertainty---is our Proposition~\ref{prop:decomp}; uncertainty sampling
+\citep{lewis1994sequential} and expected error reduction \citep{roy2001toward} are the
+counterparts of our entropy and score-targeted criteria.
+
+\paragraph{IRT and reduced evaluation for LLMs.} IRT has been used to build evaluation
+scales \citep{lalor2016building}, to weight leaderboard examples \citep{rodriguez2021evaluation},
+to select anchors and compressed benchmarks
+\citep{vivek2024anchor,polo2024tinybenchmarks,kipnis2025metabench} and to amortize
+calibration with difficulty predictors \citep{truong2025reliable}. tinyBenchmarks choose about
+100 anchors by clustering item embeddings from hundreds of models and combine them with IRT
+predictions (gp-IRT); ATLAS \citep{li2026atlas} and Fluid Benchmarking
+\citep{hofmann2025fluid} run Fisher-information CAT calibrated on thousands and on about one
+hundred models; MINCE \citep{das2026mince} uses a few calibration models only to size a
+random subset. Further work addresses continuous scores, prompt sensitivity, dataset linking,
+neural and medical item banks and Laplace-approximated neural IRT
+\citep{balkir2026confident,jo2025measure,habba2026growing,zhou2026lost,zheng2026medcat,mandujano2026laplace},
+argues for psychometric testing of AI systems \citep{zhuang2025position}, finds item-level IRT
+inferences unreliable with few calibration models \citep{jiang2026trust}---the regime of this
+paper---and quantifies error bars for LLM evaluation \citep{madaan2024quantifying,miller2024adding}.
+
+\paragraph{What is new.} The ingredients are classical. We contribute their systematic study
+in the regime that LLM evaluation faces (panels of 4 to 64 systems, eight real benchmarks from
+five domains, independent targets), theory for this regime, comparisons under frozen analysis
+plans with the competitors that matter there, and an account of uncertainty quantification,
+recalibration and cost.

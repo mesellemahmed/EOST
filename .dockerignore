@@ -1,0 +1,6 @@
+.git
+data/raw
+artifacts
+paper
+*.pyc
+__pycache__

@@ -1,0 +1,215 @@
+{
+ "recalibration_rule": "Ra",
+ "decisions": {
+  "R2": {
+   "name": "replication of H2 with independent targets: EOST-M vs plug-in 2PL Fisher CAT",
+   "n_banks": 8,
+   "favour_new": 5,
+   "favour_base": 0,
+   "positive": 8,
+   "median_rel_improvement_pct": 5.875464021218792,
+   "supported": true
+  },
+  "R3": {
+   "name": "replication of H3: EOST-M vs naive subsampling (score error)",
+   "n_banks": 8,
+   "favour_new": 6,
+   "favour_base": 0,
+   "positive": 8,
+   "median_rel_improvement_pct": 53.90682861932679,
+   "supported": true
+  },
+  "R4": {
+   "name": "replication of H4: interval calibration vs plug-in 2PL Fisher CAT",
+   "n_banks": 8,
+   "favour_new": 5,
+   "favour_base": 0,
+   "positive": 8,
+   "median_rel_improvement_pct": 41.602857694143445,
+   "supported": true
+  },
+  "C1": {
+   "name": "EOST-M vs regularized Rasch-type plug-in CAT (held-out log loss)",
+   "n_banks": 8,
+   "favour_new": 5,
+   "favour_base": 0,
+   "positive": 7,
+   "median_rel_improvement_pct": 2.4294036997473487,
+   "supported": true
+  },
+  "C2": {
+   "name": "EOST-M vs regularized one-parameter marginal model (held-out log loss)",
+   "n_banks": 8,
+   "favour_new": 4,
+   "favour_base": 0,
+   "positive": 8,
+   "median_rel_improvement_pct": 1.7798767869083396,
+   "supported": false
+  },
+  "C4": {
+   "name": "adaptivity under the same model: EOST-M vs Random:mg (score error)",
+   "n_banks": 8,
+   "favour_new": 4,
+   "favour_base": 0,
+   "positive": 8,
+   "median_rel_improvement_pct": 21.134107366043963,
+   "supported": false
+  },
+  "C5b": {
+   "name": "recalibrated EOST-M intervals vs EOST-M intervals (interval score)",
+   "n_banks": 8,
+   "favour_new": 0,
+   "favour_base": 2,
+   "positive": 4,
+   "median_rel_improvement_pct": 1.0493085562226303,
+   "supported": false
+  },
+  "C6": {
+   "name": "recalibrated EOST-M intervals vs naive Wilson intervals (interval score)",
+   "n_banks": 8,
+   "favour_new": 6,
+   "favour_base": 0,
+   "positive": 7,
+   "median_rel_improvement_pct": 34.996793004690524,
+   "supported": true
+  },
+  "C7": {
+   "name": "EOST-M vs ATLAS-style 3PL CAT (score error)",
+   "n_banks": 8,
+   "favour_new": 4,
+   "favour_base": 0,
+   "positive": 8,
+   "median_rel_improvement_pct": 26.010737477900285,
+   "supported": false
+  },
+  "C8": {
+   "name": "EOST-M vs tinyBenchmarks gp-IRT at 50 items (absolute score error)",
+   "n_banks": 8,
+   "favour_new": 4,
+   "favour_base": 0,
+   "positive": 8,
+   "median_rel_improvement_pct": 29.55707266402844,
+   "supported": false
+  },
+  "C9": {
+   "name": "EOST-M vs MINCE subset mean at 50 items (absolute score error)",
+   "n_banks": 8,
+   "favour_new": 5,
+   "favour_base": 0,
+   "positive": 8,
+   "median_rel_improvement_pct": 44.816910940199534,
+   "supported": true
+  },
+  "C3": {
+   "name": "fully Bayesian CAT (Bayesian maximum information) vs EOST-M (held-out log loss)",
+   "n_equivalent": 4,
+   "n_banks": 8,
+   "median_rel_diff_pct": 0.3192795900404484,
+   "supported": false
+  },
+  "C5a": {
+   "name": "recalibrated EOST-M: mean coverage of the 90% interval within [0.85, 0.95]",
+   "coverage": {
+    "ollb_gsm8k": 0.8394166666666665,
+    "ollb_arc": 0.89,
+    "ollb_hellaswag": 0.8222499999999998,
+    "ollb_winogrande": 0.8834166666666668,
+    "ollb_mmlu": 0.8605,
+    "swe_verified": 0.8606666666666666,
+    "livecodebench": 0.91,
+    "cruxeval_o": 0.8113888888888888
+   },
+   "n_inside": 5,
+   "supported": false
+  }
+ },
+ "secondary_components": {
+  "temporal": {
+   "coverage": {
+    "swe_verified|8|eig:mg": 0.7682795698924733,
+    "swe_verified|8|eig:mg+R": 0.8626881720430108,
+    "swe_verified|8|mfi:1pr": 0.772258064516129,
+    "swe_verified|8|mfi:1pr+R": 0.8748387096774193,
+    "swe_verified|8|naive": 0.9022580645161291,
+    "swe_verified|8|random:mg": 0.8566666666666666
+   },
+   "n_targets": {
+    "swe_verified": 31
+   }
+  },
+  "synthetic": {
+   "coverage": {
+    "synth_2dim|4|eig:mg": 0.8006666666666666,
+    "synth_2dim|4|eig:mg+R": 0.7669999999999999,
+    "synth_2dim|4|mfi:1pr": 0.8366666666666667,
+    "synth_2dim|4|mfi:1pr+R": 0.8611666666666666,
+    "synth_2dim|4|naive": 0.8915000000000001,
+    "synth_2dim|4|random:mg": 0.8666666666666668,
+    "synth_2dim|8|eig:mg": 0.8118333333333334,
+    "synth_2dim|8|eig:mg+R": 0.8514999999999999,
+    "synth_2dim|8|mfi:1pr": 0.8588333333333333,
+    "synth_2dim|8|mfi:1pr+R": 0.8698333333333335,
+    "synth_2dim|8|naive": 0.9223333333333332,
+    "synth_2dim|8|random:mg": 0.9193333333333333,
+    "synth_2dim|16|eig:mg": 0.7658333333333334,
+    "synth_2dim|16|eig:mg+R": 0.8291666666666666,
+    "synth_2dim|16|mfi:1pr": 0.8921666666666667,
+    "synth_2dim|16|mfi:1pr+R": 0.8868333333333334,
+    "synth_2dim|16|naive": 0.8728333333333333,
+    "synth_2dim|16|random:mg": 0.9006666666666666,
+    "synth_2pl|4|eig:mg": 0.8738333333333334,
+    "synth_2pl|4|eig:mg+R": 0.7929999999999999,
+    "synth_2pl|4|mfi:1pr": 0.8915,
+    "synth_2pl|4|mfi:1pr+R": 0.9079999999999998,
+    "synth_2pl|4|naive": 0.9088333333333335,
+    "synth_2pl|4|random:mg": 0.8596666666666666,
+    "synth_2pl|8|eig:mg": 0.8561666666666665,
+    "synth_2pl|8|eig:mg+R": 0.8240000000000001,
+    "synth_2pl|8|mfi:1pr": 0.8990000000000002,
+    "synth_2pl|8|mfi:1pr+R": 0.8896666666666665,
+    "synth_2pl|8|naive": 0.8714999999999999,
+    "synth_2pl|8|random:mg": 0.9093333333333332,
+    "synth_2pl|16|eig:mg": 0.9350000000000002,
+    "synth_2pl|16|eig:mg+R": 0.9136666666666666,
+    "synth_2pl|16|mfi:1pr": 0.8756666666666668,
+    "synth_2pl|16|mfi:1pr+R": 0.8869999999999999,
+    "synth_2pl|16|naive": 0.8845000000000001,
+    "synth_2pl|16|random:mg": 0.9058333333333334,
+    "synth_guess|4|eig:mg": 0.8376666666666667,
+    "synth_guess|4|eig:mg+R": 0.7888333333333333,
+    "synth_guess|4|mfi:1pr": 0.8015000000000001,
+    "synth_guess|4|mfi:1pr+R": 0.9223333333333334,
+    "synth_guess|4|naive": 0.9326666666666666,
+    "synth_guess|4|random:mg": 0.8670000000000002,
+    "synth_guess|8|eig:mg": 0.8935000000000001,
+    "synth_guess|8|eig:mg+R": 0.859,
+    "synth_guess|8|mfi:1pr": 0.8123333333333334,
+    "synth_guess|8|mfi:1pr+R": 0.8553333333333333,
+    "synth_guess|8|naive": 0.9069999999999998,
+    "synth_guess|8|random:mg": 0.9053333333333333,
+    "synth_guess|16|eig:mg": 0.9019999999999999,
+    "synth_guess|16|eig:mg+R": 0.8835,
+    "synth_guess|16|mfi:1pr": 0.8160000000000001,
+    "synth_guess|16|mfi:1pr+R": 0.8681666666666665,
+    "synth_guess|16|naive": 0.944,
+    "synth_guess|16|random:mg": 0.9355
+   },
+   "n_targets": {
+    "synth_2dim": 20,
+    "synth_2pl": 20,
+    "synth_guess": 20
+   }
+  }
+ },
+ "n_targets": {
+  "cruxeval_o": 12,
+  "livecodebench": 15,
+  "ollb_arc": 40,
+  "ollb_gsm8k": 40,
+  "ollb_hellaswag": 40,
+  "ollb_mmlu": 40,
+  "ollb_winogrande": 40,
+  "swe_verified": 40
+ },
+ "n_tests_confirmatory": 88
+}

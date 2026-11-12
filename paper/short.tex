@@ -1,0 +1,81 @@
+\documentclass[twoside,11pt]{article}
+
+% Short article (20-25 pages). JMLR style in preprint mode: no journal heading, no editor line.
+% Numbers come from generated/numbers*.tex (written from the artifacts by the report scripts);
+% the tables in short/tables are the generated tables with one-line captions
+% (scripts/short_tables.py). The extended version with every analysis is main.tex.
+\usepackage[preprint]{jmlr2e}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{booktabs,array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\usepackage{lastpage}
+\usepackage[section]{placeins}% floats never drift past the next section
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{5}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
+
+% Compact bibliography (natbib).
+\renewcommand{\bibfont}{\small}
+\setlength{\bibsep}{1pt plus 0.5pt}
+
+\input{generated/numbers}
+\input{generated/numbers2}
+\input{generated/numbers3}
+
+\ShortHeadings{Calibration Uncertainty in Adaptive Large Language Model Evaluation}{Mesellem et al.}
+\firstpageno{1}
+
+\begin{document}
+
+\title{Calibration Uncertainty in Adaptive Large Language Model Evaluation: Theory and Empirical Evidence}
+
+\author{\name Ahmed Mesellem \email ahmed.mesellem@univ-tlemcen.dz \\
+       \addr STIC Laboratory, Abou Bekr Belkaid University, Tlemcen 13000, Algeria
+       \AND
+       \name Lotfi Bouhedja \\
+       \addr LESAIL Laboratory, Ecole Supérieure Normale d'Oran, Oran 31000, Algeria
+       \AND
+       \name Ahmed Taalbi \\
+       \addr LESAIL Laboratory, Ecole Supérieure Normale d'Oran, Oran 31000, Algeria
+       \AND
+       \name Mokhtar Berrahal \\
+       \addr LESAIL Laboratory, Ecole Supérieure Normale d'Oran, Oran 31000, Algeria
+       \AND
+       \name Mohammed Mana \\
+       \addr STIC Laboratory, Abou Bekr Belkaid University, Tlemcen 13000, Algeria}
+
+\maketitle
+
+\input{short/abstract}
+
+\begin{keywords}
+  adaptive testing, item response theory, large language model evaluation,
+  calibration uncertainty, expected information gain
+\end{keywords}
+
+\input{short/intro}
+\input{short/related}
+\input{short/method}
+\input{short/theory}
+\input{short/design}
+\input{short/study1}
+\input{short/study2}
+\input{short/robustness}
+\input{short/discussion}
+\input{short/declarations}
+
+\vskip 0.2in
+\bibliography{refs}
+
+\end{document}

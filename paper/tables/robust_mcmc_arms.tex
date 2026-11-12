@@ -1,0 +1,43 @@
+\begin{table}[tbp]
+\centering\scriptsize
+\caption{Bayesian CATs with frozen, corrected and long chains against EOST-M on the same 48 cells (follow-up RF2; 6 targets per benchmark, replicate 0, $N=8$). Median over cells of the relative difference in held-out log loss to EOST-M (\%; positive: worse than EOST-M); benchmarks whose median favours the arm / EOST-M; benchmarks with a median within $\pm1\%$; for the long chains, median signed and median absolute relative difference (\%) to the same arm with burn-in 60; mean coverage of the 90\% intervals. Exploratory follow-ups RF2b (sampler with the scale move) and RF2d (exact sampler of the model of Lemma~\ref{lem:exact}) are compared with the same arm with burn-in 60. PDM: posterior-draw marginal; joint: joint fully Bayesian (mixture over 40 of the retained draws); BMI: Bayesian maximum information; EIG: expected information gain.}
+\label{tab:rf2arms}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+ & \multicolumn{3}{c}{log loss vs EOST-M} & \multicolumn{2}{c}{vs burn-in 60 (\%)} & \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-6}
+Arm & median (\%) & banks & $\pm1\%$ & signed & abs. & coverage \\
+\midrule
+EOST-M (empirical Bayes, no chain) & -- & -- & -- & -- & -- & 0.78 \\
+\addlinespace
+\multicolumn{7}{@{}l}{\emph{frozen arm of study 2: 1 chain, burn-in 10, 8 draws}} \\
+\quad PDM, BMI & $+0.08$ & 4/4 & 6 & -- & -- & 0.82 \\
+\quad PDM, EIG & $+0.06$ & 2/6 & 8 & -- & -- & 0.85 \\
+\addlinespace
+\multicolumn{7}{@{}l}{\emph{post hoc correction: 1 chain, burn-in 60, 8 draws}} \\
+\quad PDM, BMI & $+0.37$ & 3/5 & 4 & -- & -- & 0.81 \\
+\quad PDM, EIG & $+0.10$ & 3/5 & 6 & -- & -- & 0.84 \\
+\quad joint, EIG & $+0.10$ & 4/4 & 5 & -- & -- & 0.81 \\
+\quad joint, BMI & $+0.11$ & 5/3 & 7 & -- & -- & 0.80 \\
+\addlinespace
+\multicolumn{7}{@{}l}{\emph{RF2, long chains: 4 chains, burn-in 250, 400 draws (joint: 40)}} \\
+\quad PDM, BMI & $+0.17$ & 3/5 & 8 & $+0.13$ & 1.02 & 0.86 \\
+\quad PDM, EIG & $+0.04$ & 4/4 & 7 & $+0.11$ & 0.77 & 0.86 \\
+\quad joint, EIG & $+0.20$ & 4/4 & 8 & $+0.05$ & 0.61 & 0.86 \\
+\quad joint, BMI & $-0.45$ & 6/2 & 7 & $-0.25$ & 0.75 & 0.86 \\
+\addlinespace
+\multicolumn{7}{@{}l}{\emph{RF2b, scale move: 4 chains, burn-in 200, 400 draws (joint: 40)}} \\
+\quad PDM, BMI & $+0.10$ & 4/4 & 5 & $-0.19$ & 0.77 & 0.85 \\
+\quad PDM, EIG & $+0.01$ & 4/4 & 6 & $-0.05$ & 0.61 & 0.86 \\
+\quad joint, EIG & $+0.07$ & 1/7 & 5 & $+0.15$ & 0.81 & 0.76 \\
+\quad joint, BMI & $+0.29$ & 4/4 & 7 & $-0.02$ & 0.76 & 0.82 \\
+\addlinespace
+\multicolumn{7}{@{}l}{\emph{RF2d, exact sampler: 4 chains, burn-in 150, 400 draws (joint: 40)}} \\
+\quad PDM, BMI & $-0.31$ & 5/3 & 7 & $-0.69$ & 1.62 & 0.78 \\
+\quad PDM, EIG & $+0.15$ & 3/5 & 6 & $-0.29$ & 1.62 & 0.76 \\
+\quad joint, EIG & $+0.20$ & 2/6 & 6 & $-0.16$ & 1.27 & 0.77 \\
+\quad joint, BMI & $-0.13$ & 4/4 & 7 & $-0.14$ & 1.13 & 0.79 \\
+\bottomrule
+\end{tabular}
+\end{table}

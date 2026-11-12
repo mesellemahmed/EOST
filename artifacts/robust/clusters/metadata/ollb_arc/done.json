@@ -1,0 +1,6 @@
+{
+ "variant": "metadata",
+ "dataset": "ollb_arc",
+ "n_rows": 600,
+ "cpu_seconds": 71.6
+}

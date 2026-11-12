@@ -1,0 +1,70 @@
+{
+ "dataset": "synth_2dim",
+ "component": "synthetic",
+ "config": {
+  "master_seed": 20261104,
+  "n_targets": 20,
+  "replicates": 3,
+  "panel_sizes": [
+   4,
+   8,
+   16
+  ],
+  "primary_N": 8,
+  "budget": 100,
+  "holdout_frac": 0.2,
+  "theta_lo": -5.0,
+  "theta_hi": 5.0,
+  "theta_K": 201,
+  "resid_thr": 0.5,
+  "loco_N": [
+   4,
+   8,
+   16
+  ],
+  "fb_N": [
+   4,
+   8
+  ],
+  "eb_arms_N": [
+   8
+  ],
+  "fb_burn": 10,
+  "fb_draws": 8,
+  "fb_thin": 4,
+  "reduction_T": [
+   25,
+   50,
+   100
+  ],
+  "mince_R": 2000,
+  "mince_step": 25,
+  "mince_tau": 0.01,
+  "mix_every": 4,
+  "recal_window": 1.5
+ },
+ "targets": [
+  4,
+  34,
+  49,
+  70,
+  71,
+  81,
+  92,
+  99,
+  111,
+  134,
+  139,
+  144,
+  172,
+  201,
+  222,
+  227,
+  237,
+  250,
+  252,
+  269
+ ],
+ "n_rows": 4140,
+ "cpu_seconds": 1221.1
+}

@@ -1,0 +1,142 @@
+#!/usr/bin/env bash
+# EOST v2 orchestration wrapper.  Host = Docker orchestration only.
+# Science = container only.  Every step is fail-fast: any failing gate or
+# command returns a non-zero exit code to the caller (fixes the S4B wrapper
+# defect where a failed parser gate still produced exit 0).
+set -euo pipefail
+cd "$(dirname "$0")"
+
+DC=(docker compose)
+SCI_RUN=("${DC[@]}" run --rm -T)
+
+usage() {
+  cat <<'EOF'
+Usage: ./run <command> [args]
+  build            build the scientific and paper images
+  doctor           container environment + data hash check
+  test             unit tests (pytest) in the container
+  fetch            sparse git clones of the pinned public sources (host git only)
+  data             build processed response matrices (container, no network)
+  synthetic        generate synthetic ground-truth banks
+  dev              development-phase runs (dev datasets only)
+  confirm          confirmatory runs (requires frozen preregistration)
+  sensitivity      pre-specified sensitivity analyses (checkpointing runner with the EVR guard, exactly as
+                   the committed artifacts were produced; banks with a complete artifacts/<phase>/<bank>
+                   are skipped -- delete that directory to recompute it)
+  regularized      post hoc one-parameter variant with log a ~ N(0, 0.05^2) (labelled post hoc in the paper)
+  analyze PHASE    target-level statistics for a phase
+  explore          exploratory ranking-fidelity analysis (not pre-registered)
+  report           figures + LaTeX tables from analysed artifacts
+  claims           check every qualitative statement of the paper against the artifacts
+  strong           post hoc strong-baseline experiment PH1 + analysis (labelled post hoc in the paper)
+  shrinkage        exploratory regularization-path experiment PH2 + analysis
+  coverage         exploratory coverage decomposition PH3 (analysis of the PH1 runs, no new runs)
+  clusters         study 1 re-analysed with family clusters as units (post hoc)
+  cost             cost and break-even analysis (post hoc)
+  eb               robustness of the empirical-Bayes hyperprior (post hoc)
+  study2 [comp]    frozen study 2 (components: main temporal synthetic; checks STUDY2_GATE; resumable)
+  analyze2         decisions of study 2 under its frozen rules
+  s2fix            post hoc corrections of study 2 decided before its results (tinyBenchmarks anchor audit;
+                   fully Bayesian CAT with a 60-sweep burn-in at N = 8 and 4, plus the joint model; sign check)
+  robust           robustness follow-ups after the second review (RF1 target-blind clustering and thresholds,
+                   RF2 MCMC convergence of the Bayesian CATs, RF3 cross-benchmark meta-analysis)
+  live [args]      live prospective evaluation of a served model (needs an OpenAI-compatible endpoint), e.g.
+                   ./run live --bank gsm8k --out artifacts/live/mymodel --endpoint http://localhost:8000/v1 --model m --full
+  verify           re-check every artifact hash and gate
+  paper            compile the article (paper/short.tex) and its extended version (paper/main.tex) to PDF
+  flatten [dir]    self-contained LaTeX of the article in one main.tex (default dist/eost-latex)
+  demo [args]      EOST-M on one bank/target, e.g. ./run demo --bank data/processed/cruxeval_o.npz --target 3
+  campaign [stage] resumable confirm/sensitivity/explore campaign (one container per phase x bank)
+  all              fetch -> data -> synthetic -> test -> confirm -> sensitivity -> regularized -> analyze
+                   -> explore -> strong -> shrinkage -> coverage -> clusters -> cost -> eb -> study2
+                   -> analyze2 -> s2fix -> robust -> report -> claims -> verify -> paper
+EOF
+}
+
+gate_prereg() {
+  "${SCI_RUN[@]}" verify --prereg-only
+}
+
+DEV_SETS=(synth_2pl swe_lite cruxeval_i ollb_truthfulqa)
+CONF_SETS=(ollb_gsm8k ollb_arc ollb_hellaswag ollb_winogrande ollb_mmlu swe_verified livecodebench cruxeval_o)
+
+cmd="${1:-}"; shift || true
+case "$cmd" in
+  build)       "${DC[@]}" build ;;
+  doctor)      "${SCI_RUN[@]}" doctor ;;
+  test)        "${SCI_RUN[@]}" tests ;;
+  fetch)       bash scripts/fetch_sources.sh ;;
+  data)        "${SCI_RUN[@]}" data ;;
+  synthetic)   "${SCI_RUN[@]}" synthetic ;;
+  dev)         "${SCI_RUN[@]}" bench --phase dev_fixedprior --datasets "${DEV_SETS[@]}" --targets 30 --reps 3 --fixed-prior "$@"
+               "${SCI_RUN[@]}" bench --phase dev_eb --datasets "${DEV_SETS[@]}" --targets 30 --reps 3 "$@" ;;
+  confirm)     gate_prereg
+               "${SCI_RUN[@]}" bench --phase confirm --datasets "${CONF_SETS[@]}" synth_2pl synth_guess synth_2dim --targets 60 --reps 5 "$@" ;;
+  sensitivity) gate_prereg   # --evr-guard: exact no-op unless an expected probability exceeds 1 by rounding (deviation iii)
+               "${SCI_RUN[@]}" bench_resumable --phase sens_1pl --datasets "${CONF_SETS[@]}" --irt-model 1pl --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard "$@"
+               "${SCI_RUN[@]}" bench_resumable --phase sens_fixedprior --datasets "${CONF_SETS[@]}" --fixed-prior --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard "$@"
+               "${SCI_RUN[@]}" bench_resumable --phase sens_dedup --datasets ollb_gsm8k ollb_mmlu ollb_arc ollb_hellaswag ollb_winogrande --max-kappa 0.8 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard "$@" ;;
+  regularized) gate_prereg
+               "${SCI_RUN[@]}" bench_resumable --phase sens_1pl_reg --datasets "${CONF_SETS[@]}" --irt-model 1pl --sd-log-a 0.05 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard "$@" ;;
+  analyze)     "${SCI_RUN[@]}" analyze --phase "${1:?phase required}" ;;
+  explore)     "${SCI_RUN[@]}" explore --datasets "${CONF_SETS[@]}" --N 8 --reps 5 ;;
+  report)      "${SCI_RUN[@]}" report
+               "${SCI_RUN[@]}" report2
+               "${SCI_RUN[@]}" report3
+               "${SCI_RUN[@]}" short ;;
+  claims)      "${SCI_RUN[@]}" claims ;;
+  strong)      "${SCI_RUN[@]}" posthoc --datasets "${CONF_SETS[@]}"
+               "${SCI_RUN[@]}" analyze_posthoc ;;
+  shrinkage)   "${SCI_RUN[@]}" shrinkage --datasets "${CONF_SETS[@]}"
+               "${SCI_RUN[@]}" analyze_shrinkage ;;
+  coverage)    "${SCI_RUN[@]}" coverage ;;
+  clusters)    "${SCI_RUN[@]}" clusters ;;
+  cost)        "${SCI_RUN[@]}" cost ;;
+  eb)          "${SCI_RUN[@]}" eb ;;
+  study2)      for c in ${1:-main temporal synthetic}; do "${SCI_RUN[@]}" study2 --component "$c"; done ;;
+  analyze2)    "${SCI_RUN[@]}" analyze2 ;;
+  s2fix)       "${SCI_RUN[@]}" s2fix --task fbfix --verify-frozen --datasets ollb_gsm8k
+               "${SCI_RUN[@]}" s2fix --task tiny
+               "${SCI_RUN[@]}" s2fix --task fbfix --N 8
+               "${SCI_RUN[@]}" s2fix --task fbfix --N 4
+               "${SCI_RUN[@]}" analyze_s2fix ;;
+  robust)      "${SCI_RUN[@]}" robust_clusters
+               "${SCI_RUN[@]}" fb_convergence
+               "${SCI_RUN[@]}" fb_scale
+               "${SCI_RUN[@]}" fb_exact --datasets ollb_gsm8k ollb_arc   # stopped after these (log)
+               "${SCI_RUN[@]}" fb_exact2
+               "${SCI_RUN[@]}" meta
+               "${SCI_RUN[@]}" meta_sources
+               "${SCI_RUN[@]}" analyze_robust ;;
+  live)        "${DC[@]}" run --rm -T live "$@" ;;
+  verify)      "${SCI_RUN[@]}" verify ;;
+  demo)        "${SCI_RUN[@]}" demo "$@" ;;
+  campaign)    bash scripts/launch_resumable.sh "${1:-all}" ;;
+  paper)       "${SCI_RUN[@]}" paper ;;
+  flatten)     "${SCI_RUN[@]}" flatten "${1:-dist/eost-latex}" ;;
+  all)         bash scripts/fetch_sources.sh
+               "${SCI_RUN[@]}" data
+               "${SCI_RUN[@]}" synthetic
+               "${SCI_RUN[@]}" tests
+               "$0" confirm
+               "$0" sensitivity
+               "$0" regularized
+               for p in confirm sens_1pl sens_fixedprior sens_dedup sens_1pl_reg; do "${SCI_RUN[@]}" analyze --phase "$p"; done
+               "${SCI_RUN[@]}" explore --datasets "${CONF_SETS[@]}" --N 8 --reps 5
+               "$0" strong
+               "$0" shrinkage
+               "$0" coverage
+               "$0" clusters
+               "$0" cost
+               "$0" eb
+               "$0" study2
+               "$0" analyze2
+               "$0" s2fix
+               "$0" robust
+               "$0" report
+               "${SCI_RUN[@]}" claims
+               "${SCI_RUN[@]}" verify
+               "${SCI_RUN[@]}" paper ;;
+  ""|-h|--help) usage ;;
+  *) echo "unknown command: $cmd" >&2; usage; exit 2 ;;
+esac

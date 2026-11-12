@@ -1,0 +1,8 @@
+{
+ "task": "tiny",
+ "dataset": "ollb_arc",
+ "N": 8,
+ "n_rows": 360,
+ "cpu_seconds": 154.7,
+ "burn_fix": null
+}

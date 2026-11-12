@@ -1,0 +1,23 @@
+{
+ "frozen_at_utc": "2026-11-04T04:02:37+00:00",
+ "files": {
+  "configs/study2_plan.md": "9502c24b18e16ba062f9769e15953f42815abd67cc31f28f468ab3fa09c751dc",
+  "configs/study2_hypotheses.json": "18c2977009fae7421354beabecf7821bb1ab114effe98c9005a2bd70751a3a7a",
+  "configs/study2_clusters.json": "09138b1f4f175951e4f178cad4d4165ed3aa15b71be2fee73bba06c4cfaa3f40",
+  "src/eost/study2.py": "2f1465ee9555141c36d4038e4a813ea7eacf91be155431dc2f47a86c54837f69",
+  "src/eost/replay2.py": "1b1298c3140c216b4ee2c8010353be11242a2f1acfaeb4a11225fdaa4825f399",
+  "src/eost/irt2.py": "cd57c4a6016bbfee93a3e9ade21d8a81f5085122befc20dc4cc1614e4169b877",
+  "src/eost/fullbayes.py": "de7ef344f8264cd01da0c878c5a39f604fd93168d3297f1373e04a2e76576ac5",
+  "src/eost/reduction.py": "b77520d605f93c3d646f4cc038a056f1851b5d8bf621973968da27bbc6add69e",
+  "src/eost/families.py": "58b0fa676b35d072d21d5dba8ba14f519b9a2ee388e180e038c49509c90d846d",
+  "scripts/run_study2.py": "10394331edb6fe00057da74722a717f0834e557f63c488177d8f4b04842bfdc3",
+  "scripts/analyze_study2.py": "cc46f8a841efd142257241d47719287edef337b6faff0fa761c64e17ea6d62c8",
+  "src/eost/irt.py": "7d459c8be64fbf05375cc3176e3be5c0fe97f06e69985a69254e3fc69c1b41cf",
+  "src/eost/replay.py": "58a0cf664c3bbc425494f6fdee866e24f724ba03642f8c1f9df750f2b0342352",
+  "src/eost/experiment.py": "40e96f7fc20ddcd6f62f93d87a1337764cb429e8211e32b991abe2fd48d455aa",
+  "src/eost/data.py": "d6757b86b8f92c44be3eced7e19bfacef953686b0720b4d7b778c0b082d0b760",
+  "src/eost/stats.py": "bfebca49db1c81c5a5a1f0c6d04ff465fa563341f6bb6638bb0364e8534b04f7",
+  "data/processed/MANIFEST.json": "9a2ddf564f4f3528dae4efbbc393fc978ae3bae70134244ee7723410b02c1c2f",
+  "data/processed/SYNTH_MANIFEST.json": "8c0a04ecb52e5da9d1f59de7ce5d0e8b0bf4824f90b8671076c81bc9a59767ed"
+ }
+}

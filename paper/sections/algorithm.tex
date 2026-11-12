@@ -1,0 +1,21 @@
+\begin{algorithm}[t]
+\caption{EOST-M: calibration-marginal adaptive test with one-step (myopic) expected-information-gain selection}
+\label{alg:eost}
+\small
+\begin{algorithmic}[1]
+\Require bank $\mathcal I$ with oracles $O_i$; panel verdicts $Y_{\mathcal C}\in\{0,1\}^{N\times I}$; budget $T$; ability grid $\{\theta_k\}_{k=1}^{K}$
+\State $(\hat\theta_{\mathcal C},\cdot)\gets$ joint MAP of the 2PL on $Y_{\mathcal C}$ \Comment{calibrator abilities}
+\State $\eta\gets\arg\max_\eta\sum_i\log\sum_g p_\eta(\psi_g)\,p(Y_{\mathcal C,i}\mid\hat\theta_{\mathcal C},\psi_g)$ \Comment{empirical-Bayes item hyperprior (EM)}
+\State $W_{ig}\propto p_\eta(\psi_g)\,p(Y_{\mathcal C,i}\mid\hat\theta_{\mathcal C},\psi_g)$ \Comment{item posteriors on the $(\log a,b)$ grid}
+\State $\bar P_{ik}\gets\sum_gW_{ig}\,\sigma\big(a_g(\theta_k-b_g)\big)$, \;$H_{ik}\gets h(\bar P_{ik})$ \Comment{expected response functions}
+\State $\log\pi_k\gets\log\phi(\theta_k)$;\; $\mathcal U\gets\mathcal I$ (candidate pool)
+\For{$t=1,\dots,T$}
+  \State $\pi\gets\mathrm{softmax}(\log\pi)$;\; $\bar p_i\gets\sum_k\bar P_{ik}\pi_k$ for $i\in\mathcal U$
+  \State $i_t\gets\arg\max_{i\in\mathcal U}\;h(\bar p_i)-\sum_kH_{ik}\pi_k$ \Comment{EIG; or $R_i$ of Eq.~\eqref{eq:evr}}
+  \State $y\gets O_{i_t}(\text{system's answer to } i_t)$ \Comment{independent oracle}
+  \State $\log\pi_k\gets\log\pi_k+y\log\bar P_{i_tk}+(1-y)\log(1-\bar P_{i_tk})$;\; $\mathcal U\gets\mathcal U\setminus\{i_t\}$
+\EndFor
+\State $\pi\gets\mathrm{softmax}(\log\pi)$;\; $\bar p_i\gets\sum_k\bar P_{ik}\pi_k$ for all $i$
+\State \Return posterior $\pi$, score estimate $\hat A_T=\frac1I\big(\sum_{\text{asked}}y+\sum_{i\notin\text{asked}}\bar p_i\big)$ and its interval
+\end{algorithmic}
+\end{algorithm}

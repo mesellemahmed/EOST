@@ -1,0 +1,50 @@
+{
+ "N": 8,
+ "gaussian_ratio": 4.123036608945911,
+ "n_banks_rasch_cov_higher": 7,
+ "n_banks_rasch_wider": 8,
+ "n_banks_rasch_wider_sig_holm": 8,
+ "n_banks_rasch_narrower_sig_holm": 0,
+ "rasch_wider_on_all_banks_with_higher_coverage": true,
+ "n_higher_cov_banks_rasch_iae_not_lower": 4,
+ "median_width_ratio_rasch_over_eost": 1.2915072451193477,
+ "median_bank_ratio": {
+  "eig:mg": 2.9736666745068185,
+  "mfi:1pr": 3.458516825062615,
+  "eig:1prmg": 3.68594349741468,
+  "mfi:pi": 2.2307938370913094
+ },
+ "mean_over_banks": {
+  "eig:mg": {
+   "coverage": 0.7523741743471583,
+   "mean_width": 0.09354684853972167,
+   "iae": 0.030922171139505236,
+   "ratio": 3.0237930817935386
+  },
+  "mfi:1pr": {
+   "coverage": 0.8113890552995391,
+   "mean_width": 0.12184911628890395,
+   "iae": 0.035090185916009486,
+   "ratio": 3.484210426837351
+  },
+  "eig:1prmg": {
+   "coverage": 0.8287365975422427,
+   "mean_width": 0.12825069156018182,
+   "iae": 0.03596342241104725,
+   "ratio": 3.588082888681775
+  },
+  "mfi:pi": {
+   "coverage": 0.5975841973886329,
+   "mean_width": 0.07515515808961017,
+   "iae": 0.03406573423089029,
+   "ratio": 2.188801373107819
+  }
+ },
+ "spearman_ratio_coverage": {
+  "rho": 0.9809384164222872,
+  "p": 6.653305330490071e-23,
+  "n_cells": 32
+ },
+ "rule": "wider_intervals if mfi:1pr is wider on every bank where its coverage is higher and its IAE is not lower on at least half of those banks; centres_open if it is wider on none of them; mixed otherwise",
+ "verdict": "wider_intervals"
+}

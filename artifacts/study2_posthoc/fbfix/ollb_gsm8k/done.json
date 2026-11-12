@@ -1,0 +1,8 @@
+{
+ "task": "fbfix",
+ "dataset": "ollb_gsm8k",
+ "N": 8,
+ "n_rows": 480,
+ "cpu_seconds": 2505.3,
+ "burn_fix": 60
+}

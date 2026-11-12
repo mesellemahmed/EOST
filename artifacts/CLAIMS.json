@@ -1,0 +1,1342 @@
+[
+ {
+  "id": "H2-never-base",
+  "where": "Results 6.1",
+  "claim": "H2 was never Holm-significant in favour of plug-in Fisher CAT at N=8",
+  "status": "PASS",
+  "evidence": {
+   "favours_base": 0
+  }
+ },
+ {
+  "id": "H2-smaller-at-64",
+  "where": "Results 6.1",
+  "claim": "the H2 gain at N=64 is smaller than at N=8 and N=4",
+  "status": "PASS",
+  "evidence": {
+   "N4": 7.117108905522359,
+   "N8": 5.195350342744752,
+   "N64": 1.1355036147225697
+  }
+ },
+ {
+  "id": "GSM8K-only-nonsig",
+  "where": "Results 6.1",
+  "claim": "GSM8K is the only benchmark where H2-H4 were not Holm-significant at N=8, and its contrasts point the same way",
+  "status": "PASS",
+  "evidence": {
+   "H2": {
+    "non_significant": [
+     "ollb_gsm8k"
+    ],
+    "gsm8k_rel_impr": 0.02448131763665166
+   },
+   "H3": {
+    "non_significant": [
+     "ollb_gsm8k"
+    ],
+    "gsm8k_rel_impr": 0.16752550845881803
+   },
+   "H4": {
+    "non_significant": [
+     "ollb_gsm8k"
+    ],
+    "gsm8k_rel_impr": 0.11627906976744186
+   }
+  }
+ },
+ {
+  "id": "GSM8K-fewest-unlocated",
+  "where": "Results 6.1",
+  "claim": "GSM8K has the fewest items with identical panel verdicts at N=8",
+  "status": "PASS",
+  "evidence": {
+   "cruxeval_o": 0.373,
+   "livecodebench": 0.39,
+   "ollb_arc": 0.489,
+   "ollb_gsm8k": 0.206,
+   "ollb_hellaswag": 0.723,
+   "ollb_mmlu": 0.257,
+   "ollb_winogrande": 0.489,
+   "swe_verified": 0.286
+  }
+ },
+ {
+  "id": "H1-sign-everywhere",
+  "where": "Results 6.1",
+  "claim": "EIG:mg had lower held-out log loss than Entropy:mg on every benchmark at N=8",
+  "status": "PASS",
+  "evidence": {
+   "cruxeval_o": 0.55,
+   "livecodebench": 1.02,
+   "ollb_arc": 0.4,
+   "ollb_gsm8k": 2.72,
+   "ollb_hellaswag": 5.45,
+   "ollb_mmlu": 2.9,
+   "ollb_winogrande": 3.1,
+   "swe_verified": 0.7
+  }
+ },
+ {
+  "id": "H1-never-entropy",
+  "where": "Results 6.1",
+  "claim": "H1 was never Holm-significant in favour of entropy at any panel size",
+  "status": "PASS",
+  "evidence": {
+   "favours_base": 0
+  }
+ },
+ {
+  "id": "H1-more-sig-other-N",
+  "where": "Results 6.1",
+  "claim": "H1 was significant in more benchmarks at N=4 and at N=64 than at N=8 (as a share of benchmarks tested)",
+  "status": "PASS",
+  "evidence": {
+   "4": 0.875,
+   "8": 0.5,
+   "64": 0.8333333333333334
+  }
+ },
+ {
+  "id": "H1-small",
+  "where": "Results 6.1",
+  "claim": "the H1 effect is small at every panel size (median < 3%)",
+  "status": "PASS",
+  "evidence": {
+   "4": 2.4866818421662495,
+   "8": 1.8722183891105235,
+   "16": 1.4866653039215463,
+   "32": 2.0577696304893442,
+   "64": 1.8010977470899046
+  }
+ },
+ {
+  "id": "score-gap-larger",
+  "where": "Results 6.1/6.2",
+  "claim": "on score estimation the EIG-vs-entropy gap (marginal model) is larger than on held-out log loss",
+  "status": "PASS",
+  "evidence": {
+   "logloss_gap_%": 1.8722183891105304,
+   "iae_gap_%": 16.622194602570456
+  }
+ },
+ {
+  "id": "ERF-helps-even-with-entropy",
+  "where": "Results 6.2",
+  "claim": "Entropy:mg improves log loss over MFI:pi (median > 0)",
+  "status": "PASS",
+  "evidence": {
+   "median_%": 4.354894111794971
+  }
+ },
+ {
+  "id": "criterion-under-plugin-small",
+  "where": "Results 6.2",
+  "claim": "under plug-in parameters, switching the criterion changes log loss little (|median| < half the ERF gain)",
+  "status": "PASS",
+  "evidence": {
+   "Ent:pi": -1.82172256924088,
+   "EIG:pi": 0.020472869982557373,
+   "Ent:mg": 4.354894111794971
+  }
+ },
+ {
+  "id": "entropy-worst-score",
+  "where": "Results 6.2 / Discussion",
+  "claim": "entropy selection has the largest score IAE among adaptive rules under each measurement model (N=8)",
+  "status": "PASS",
+  "evidence": {
+   "pi": {
+    "entropy:pi": 0.03976,
+    "mfi:pi": 0.03407,
+    "eig:pi": 0.03392,
+    "evr:pi": 0.03401
+   },
+   "mg": {
+    "entropy:mg": 0.03944,
+    "mfi:mg": 0.03014,
+    "pwfi:mg": 0.03009,
+    "eig:mg": 0.03092,
+    "evr:mg": 0.03032
+   }
+  }
+ },
+ {
+  "id": "info-criteria-equivalent-mg",
+  "where": "Results 6.2",
+  "claim": "under the marginal model MFI, PWFI, EIG and EVR have mean log losses within 0.5% of each other (N=8)",
+  "status": "PASS",
+  "evidence": {
+   "spread": 0.0013131589279757883,
+   "mfi:mg": 0.34697,
+   "pwfi:mg": 0.34686,
+   "eig:mg": 0.34731,
+   "evr:mg": 0.34706
+  }
+ },
+ {
+  "id": "EIGmg-improves-score",
+  "where": "Results 6.2",
+  "claim": "EIG:mg improves the score IAE over MFI:pi (median > 0)",
+  "status": "PASS",
+  "evidence": {
+   "median_%": 7.519882800987326
+  }
+ },
+ {
+  "id": "H2-monotone",
+  "where": "Results 6.3",
+  "claim": "the H2 gain decreases monotonically with N on every benchmark",
+  "status": "PASS",
+  "evidence": {
+   "ollb_gsm8k": {
+    "4": 6.84,
+    "8": 2.45,
+    "16": 0.87,
+    "32": 0.47,
+    "64": 0.21
+   },
+   "ollb_arc": {
+    "4": 5.4,
+    "8": 4.67,
+    "16": 3.37,
+    "32": 2.22,
+    "64": 1.5
+   },
+   "ollb_hellaswag": {
+    "4": 13.63,
+    "8": 9.63,
+    "16": 5.85,
+    "32": 4.44,
+    "64": 2.44
+   },
+   "ollb_winogrande": {
+    "4": 7.39,
+    "8": 4.95,
+    "16": 2.99,
+    "32": 1.55,
+    "64": 0.95
+   },
+   "ollb_mmlu": {
+    "4": 6.24,
+    "8": 4.96,
+    "16": 3.22,
+    "32": 1.09,
+    "64": 0.55
+   },
+   "swe_verified": {
+    "4": 7.58,
+    "8": 6.13,
+    "16": 3.86,
+    "32": 2.31,
+    "64": 1.32
+   },
+   "livecodebench": {
+    "4": 11.43,
+    "8": 6.36,
+    "16": 4.42
+   },
+   "cruxeval_o": {
+    "4": 5.97,
+    "8": 5.43,
+    "16": 3.96
+   }
+  }
+ },
+ {
+  "id": "H2-vanishes-64",
+  "where": "Results 6.3",
+  "claim": "the H2 gain nearly vanishes at N=64 (median < 1.5%)",
+  "status": "PASS",
+  "evidence": {
+   "median_%": 1.1355036147225697
+  }
+ },
+ {
+  "id": "IAE-larger-noisier",
+  "where": "Results 6.3",
+  "claim": "score-error gains (EIG:mg vs MFI:pi) are larger than log-loss gains but less regular across N",
+  "status": "PASS",
+  "evidence": {
+   "median_iae_%": 7.408114871461365,
+   "median_ll_%": 4.188225583120235,
+   "monotone_banks_iae": 2,
+   "monotone_banks_ll": 8
+  }
+ },
+ {
+  "id": "H1-no-trend",
+  "where": "Results 6.3",
+  "claim": "the EIG-vs-entropy advantage shows no monotone trend with N",
+  "status": "PASS",
+  "evidence": {
+   "median_by_N_%": {
+    "4": 2.49,
+    "8": 1.87,
+    "16": 1.49,
+    "32": 2.06,
+    "64": 1.8
+   },
+   "spearman": -0.11199773799883324
+  }
+ },
+ {
+  "id": "model-starts-below-naive",
+  "where": "Results 6.4",
+  "claim": "after one item every model-based policy is below the naive error, and the head start is smallest on GSM8K",
+  "status": "PASS",
+  "evidence": {
+   "cruxeval_o": 0.21531765335397582,
+   "livecodebench": 0.5293894510831018,
+   "ollb_arc": 0.17014678642215167,
+   "ollb_gsm8k": 0.8137344405459297,
+   "ollb_hellaswag": 0.5977559106738084,
+   "ollb_mmlu": 0.20648274913523262,
+   "ollb_winogrande": 0.40269287707076434,
+   "swe_verified": 0.3593916399574411
+  }
+ },
+ {
+  "id": "plugin-fast-early",
+  "where": "Results 6.4",
+  "claim": "at t=5 a plug-in policy is ahead of EIG:mg on most benchmarks",
+  "status": "PASS",
+  "evidence": {
+   "ahead": 7,
+   "B": 8
+  }
+ },
+ {
+  "id": "plugin-levels-off",
+  "where": "Results 6.4",
+  "claim": "between t=25 and t=100 plug-in Fisher CAT's error falls less than EIG:mg's (median), and EIG:mg ends lower on most banks",
+  "status": "PASS",
+  "evidence": {
+   "ratio100/25_mfi:pi": 0.732045431451316,
+   "ratio100/25_eig:mg": 0.5938642067336568,
+   "eig_below": 8
+  }
+ },
+ {
+  "id": "entropy-catches-up",
+  "where": "Results 6.4",
+  "claim": "after 100 items Entropy:mg has the lowest error of all policies on most benchmarks",
+  "status": "PASS",
+  "evidence": {
+   "cruxeval_o": "entropy:mg",
+   "livecodebench": "entropy:mg",
+   "ollb_arc": "entropy:mg",
+   "ollb_gsm8k": "eig:mg",
+   "ollb_hellaswag": "entropy:mg",
+   "ollb_mmlu": "pwfi:mg",
+   "ollb_winogrande": "mfi:mg",
+   "swe_verified": "entropy:mg"
+  }
+ },
+ {
+  "id": "crossover-small-vs-large",
+  "where": "Results 6.4",
+  "claim": "the crossover occurs within 100 items far more often on banks of at most 1,172 items than on larger banks",
+  "status": "PASS",
+  "evidence": {
+   "share_small": 0.9375,
+   "share_large": 0.15
+  }
+ },
+ {
+  "id": "crossover-grows-with-size",
+  "where": "Results 6.4",
+  "claim": "the entropy-vs-EIG crossover item increases with bank size across panel sizes (Spearman rho > 0.5)",
+  "status": "PASS",
+  "evidence": {
+   "rho": 0.7304680023323367,
+   "points": 36
+  }
+ },
+ {
+  "id": "evr-moves-partway",
+  "where": "Results 6.4 / Discussion",
+  "claim": "EVR:mg ends below EIG:mg more often on the entropy-best (small) banks than on the others, but not below entropy",
+  "status": "PASS",
+  "evidence": {
+   "evr<eig on entropy-best banks": [
+    false,
+    true,
+    true,
+    true,
+    true
+   ],
+   "evr<eig on others": [
+    false,
+    false,
+    false
+   ]
+  }
+ },
+ {
+  "id": "adaptivity-helps",
+  "where": "Results 6.4",
+  "claim": "under the marginal model, EIG:mg has a lower mean score IAE than random selection (N=8)",
+  "status": "PASS",
+  "evidence": {
+   "eig:mg": 0.03092217113950524,
+   "random:mg": 0.04318842840215387
+  }
+ },
+ {
+  "id": "plugin-overconfident",
+  "where": "Results 6.5",
+  "claim": "plug-in Fisher CAT intervals are overconfident at N=8 (coverage < 0.8)",
+  "status": "PASS",
+  "evidence": {
+   "coverage": 0.5975841973886329
+  }
+ },
+ {
+  "id": "marg-helps-most-small-N",
+  "where": "Results 6.5",
+  "claim": "the coverage gain of EIG:mg over MFI:pi is larger at N=4 than at N=64",
+  "status": "PASS",
+  "evidence": {
+   "4": 0.19575708525345625,
+   "64": 0.053605555555555566
+  }
+ },
+ {
+  "id": "no-adaptive-nominal",
+  "where": "Results 6.5",
+  "claim": "no model-based adaptive policy reaches nominal coverage on real data (all < 0.85 at every N)",
+  "status": "PASS",
+  "evidence": {
+   "4": 0.7814298387096774,
+   "8": 0.8268711597542242,
+   "16": 0.8402867895545315,
+   "32": 0.8157277777777777,
+   "64": 0.8020777777777778
+  }
+ },
+ {
+  "id": "coverage-opposite-trends",
+  "where": "Results 6.5",
+  "claim": "as N grows from 4 to 64, EIG:mg and MFI:pi coverage rises on the synthetic banks (mean) and falls on real data (mean)",
+  "status": "PASS",
+  "evidence": {
+   "eig:mg": {
+    "real": [
+     0.7797580069124425,
+     0.63645
+    ],
+    "synthetic": [
+     0.8493444444444446,
+     0.8759222222222222
+    ]
+   },
+   "mfi:pi": {
+    "real": [
+     0.5840009216589861,
+     0.5828444444444444
+    ],
+    "synthetic": [
+     0.7608222222222222,
+     0.8629333333333332
+    ]
+   }
+  }
+ },
+ {
+  "id": "both-overconfident-64",
+  "where": "Discussion",
+  "claim": "at N=64 both EIG:mg and MFI:pi are overconfident (coverage < 0.8)",
+  "status": "PASS",
+  "evidence": {
+   "eig:mg": 0.63645,
+   "mfi:pi": 0.5828444444444444
+  }
+ },
+ {
+  "id": "unlocated-shrinks",
+  "where": "Results 6.6",
+  "claim": "fewer items have identical verdicts with 64 calibrators than with 4",
+  "status": "PASS",
+  "evidence": {
+   "4": 0.555,
+   "8": 0.405,
+   "16": 0.294,
+   "32": 0.218,
+   "64": 0.155
+  }
+ },
+ {
+  "id": "a-gt4-absent-small-N",
+  "where": "Results 6.6",
+  "claim": "under the EB prior, plug-in discriminations above 4 are practically absent at N=4 (< 1% of items) and < 15% at N=64",
+  "status": "PASS",
+  "evidence": {
+   "4": 0.0009,
+   "8": 0.0095,
+   "16": 0.0364,
+   "32": 0.0647,
+   "64": 0.0998
+  }
+ },
+ {
+  "id": "ERF-shrinks-a",
+  "where": "Results 6.6",
+  "claim": "the ERF effective discrimination is below the plug-in MAP discrimination at N=4",
+  "status": "PASS",
+  "evidence": {
+   "median_a_map": {
+    "4": 1.991,
+    "8": 2.064,
+    "16": 2.152,
+    "32": 2.195,
+    "64": 2.309
+   },
+   "median_a_eff_mg": {
+    "4": 0.976,
+    "8": 1.083,
+    "16": 1.219,
+    "32": 1.316,
+    "64": 1.499
+   }
+  }
+ },
+ {
+  "id": "mechanism-rho",
+  "where": "Results 6.6",
+  "claim": "H2 gain increases with the fraction of unlocated items (Spearman rho > 0.5)",
+  "status": "PASS",
+  "evidence": {
+   "rho": 0.8463320463320464,
+   "points": 36
+  }
+ },
+ {
+  "id": "syn-EIGmg-best-theta-N8",
+  "where": "Results 6.7",
+  "claim": "at N=8, EIG:mg has the smallest ability error of the four plotted policies on every synthetic bank",
+  "status": "PASS",
+  "evidence": {
+   "synth_2dim": {
+    "entropy:mg": 0.5167,
+    "mfi:pi": 0.4782,
+    "eig:pi": 0.4704,
+    "eig:mg": 0.4689
+   },
+   "synth_2pl": {
+    "entropy:mg": 0.3112,
+    "mfi:pi": 0.251,
+    "eig:pi": 0.2517,
+    "eig:mg": 0.2436
+   },
+   "synth_guess": {
+    "entropy:mg": 0.399,
+    "mfi:pi": 0.4154,
+    "eig:pi": 0.4143,
+    "eig:mg": 0.3911
+   }
+  }
+ },
+ {
+  "id": "syn-theta-coverage",
+  "where": "Results 6.7",
+  "claim": "EIG:mg's ability interval covers the true ability more often than MFI:pi's at N=8 on every synthetic bank",
+  "status": "PASS",
+  "evidence": {
+   "synth_2dim": {
+    "eig:mg": 0.589,
+    "mfi:pi": 0.496
+   },
+   "synth_2pl": {
+    "eig:mg": 0.881,
+    "mfi:pi": 0.752
+   },
+   "synth_guess": {
+    "eig:mg": 0.666,
+    "mfi:pi": 0.52
+   }
+  }
+ },
+ {
+  "id": "syn-ranking-varies-N4",
+  "where": "Results 6.7",
+  "claim": "with four calibrators the best of the four plotted policies (ability error) is not the same on every synthetic bank",
+  "status": "PASS",
+  "evidence": {
+   "synth_2dim": "eig:pi",
+   "synth_2pl": "eig:mg",
+   "synth_guess": "entropy:mg"
+  }
+ },
+ {
+  "id": "syn-mg-ahead-large-N",
+  "where": "Results 6.7",
+  "claim": "from N=16 on, EIG:mg has a smaller ability error than both EIG:pi and MFI:pi on every synthetic bank",
+  "status": "PASS",
+  "evidence": {
+   "16": {
+    "synth_2dim": 0.0188,
+    "synth_2pl": 0.0221,
+    "synth_guess": 0.0221
+   },
+   "32": {
+    "synth_2dim": 0.0178,
+    "synth_2pl": 0.0261,
+    "synth_guess": 0.0233
+   },
+   "64": {
+    "synth_2dim": 0.0153,
+    "synth_2pl": 0.0221,
+    "synth_guess": 0.0188
+   }
+  }
+ },
+ {
+  "id": "syn-theta-cov-falls",
+  "where": "Results 6.7",
+  "claim": "coverage of the true ability is lower at N=64 than at N=8 for every adaptive policy on every synthetic bank",
+  "status": "PASS",
+  "evidence": {
+   "synth_2dim": {
+    "entropy:pi": -0.147,
+    "entropy:mg": -0.182,
+    "mfi:pi": -0.137,
+    "mfi:mg": -0.156,
+    "pwfi:mg": -0.174,
+    "eig:pi": -0.145,
+    "eig:mg": -0.169,
+    "evr:pi": -0.132,
+    "evr:mg": -0.166
+   },
+   "synth_2pl": {
+    "entropy:pi": -0.134,
+    "entropy:mg": -0.171,
+    "mfi:pi": -0.262,
+    "mfi:mg": -0.306,
+    "pwfi:mg": -0.299,
+    "eig:pi": -0.27,
+    "eig:mg": -0.307,
+    "evr:pi": -0.261,
+    "evr:mg": -0.311
+   },
+   "synth_guess": {
+    "entropy:pi": -0.137,
+    "entropy:mg": -0.178,
+    "mfi:pi": -0.095,
+    "mfi:mg": -0.181,
+    "pwfi:mg": -0.171,
+    "eig:pi": -0.098,
+    "eig:mg": -0.18,
+    "evr:pi": -0.103,
+    "evr:mg": -0.169
+   }
+  }
+ },
+ {
+  "id": "syn-coverage-degrades",
+  "where": "Results 6.5",
+  "claim": "EIG:mg's score coverage at N=8 decreases from the well-specified bank to guessing to two dimensions to real data, and is near nominal (within 0.03) on the well-specified bank",
+  "status": "PASS",
+  "evidence": {
+   "2pl": 0.8898999999999997,
+   "guess": 0.8784,
+   "2dim": 0.8135333333333334,
+   "real": 0.7523741743471584
+  }
+ },
+ {
+  "id": "sens-dedup-unchanged",
+  "where": "Results 6.8",
+  "claim": "removing near-duplicate calibrators leaves the H2 gain at N=8 positive and within 2 points of the main analysis on the same banks",
+  "status": "PASS",
+  "evidence": {
+   "dedup": 6.123781910339043,
+   "main_same_banks": 4.948135452541691
+  }
+ },
+ {
+  "id": "sens-fixedprior-essential",
+  "where": "Results 6.8",
+  "claim": "with the fixed item prior the H2 gain at N=8 is smaller than in the main analysis and reverses on some benchmarks",
+  "status": "PASS",
+  "evidence": {
+   "fixed": {
+    "cruxeval_o": 2.16,
+    "livecodebench": -4.11,
+    "ollb_arc": -2.39,
+    "ollb_gsm8k": 7.72,
+    "ollb_hellaswag": -11.15,
+    "ollb_mmlu": 5.64,
+    "ollb_winogrande": 3.51,
+    "swe_verified": 4.0
+   },
+   "main_median": 5.195350342744748
+  }
+ },
+ {
+  "id": "sens-fixedprior-halves",
+  "where": "Introduction",
+  "claim": "without the empirical-Bayes prior the median H2 gain at N=8 roughly halves (ratio between 0.35 and 0.65)",
+  "status": "PASS",
+  "evidence": {
+   "ratio": 0.5453693008019028
+  }
+ },
+ {
+  "id": "sens-1plreg-H1-vanishes",
+  "where": "Results 6.8",
+  "claim": "under the regularized 1PL the EIG-vs-entropy log-loss difference at N=8 is below 1% (both models) and smaller than under the 2PL",
+  "status": "PASS",
+  "evidence": {
+   "sens_1pl_reg": {
+    "mg": 0.43047578781630347,
+    "pi": -0.36638608519755644
+   },
+   "confirm": {
+    "mg": 1.8722183891105304,
+    "pi": 1.5637343922343394
+   }
+  }
+ },
+ {
+  "id": "sens-1plreg-H2-small",
+  "where": "Results 6.8",
+  "claim": "under the regularized 1PL the H2 gain at N=8 is small (median below 2%)",
+  "status": "PASS",
+  "evidence": {
+   "median": 0.7499034056867249
+  }
+ },
+ {
+  "id": "ph1-reproduction-exact",
+  "where": "Results 6.9",
+  "claim": "PH1 reproduced every recomputed confirmatory row exactly",
+  "status": "PASS",
+  "evidence": {
+   "cruxeval_o": 0.0,
+   "livecodebench": 0.0,
+   "ollb_arc": 0.0,
+   "ollb_gsm8k": 0.0,
+   "ollb_hellaswag": 0.0,
+   "ollb_mmlu": 0.0,
+   "ollb_winogrande": 0.0,
+   "swe_verified": 0.0
+  }
+ },
+ {
+  "id": "ph1-eap-worse",
+  "where": "Results 6.9",
+  "claim": "posterior-mean plug-in parameters are significantly worse than EOST-M on log loss at N=8 in >= 5 banks",
+  "status": "PASS",
+  "evidence": {
+   "eost_better": 7
+  }
+ },
+ {
+  "id": "ph1-rasch-close",
+  "where": "Results 6.9 / Abstract",
+  "claim": "vs the regularized Rasch plug-in: EOST-M log loss lower on all banks but by < 3% (median, N=8); the Rasch plug-in has better coverage; rule 1 was triggered",
+  "status": "PASS",
+  "evidence": {
+   "median_ll_%": 2.127177245513,
+   "cov_rasch": 0.8113890552995391,
+   "cov_eost": 0.7523741743471584,
+   "rule1_triggered": true
+  }
+ },
+ {
+  "id": "ph1-rasch-score",
+  "where": "Results 6.9",
+  "claim": "vs the regularized Rasch plug-in, EOST-M's score error is lower on most banks at N=8 and the gap widens at N=16",
+  "status": "PASS",
+  "evidence": {
+   "pos_N8": 5,
+   "med_N8": 2.8844511342326267,
+   "med_N16": 15.262237174220669
+  }
+ },
+ {
+  "id": "ph1-efi-equivalent",
+  "where": "Results 6.9 / Theory / Related work",
+  "claim": "posterior-expected Fisher information selects equally good items: |median log-loss difference| < 0.5% at N=8, no bank significant",
+  "status": "PASS",
+  "evidence": {
+   "median_%": 0.01739892611261339
+  }
+ },
+ {
+  "id": "ph2-no-promising",
+  "where": "Results 6.9",
+  "claim": "PH2: no shrinkage level meets the pre-stated criterion; coverage of EIG:mg@tau stays within 0.05 of EOST-M and log loss rises for every tau",
+  "status": "PASS",
+  "evidence": {
+   "coverage": [
+    0.742,
+    0.737,
+    0.742,
+    0.758
+   ],
+   "ll": [
+    2.42,
+    2.19,
+    1.43,
+    0.15
+   ],
+   "eost_cov": 0.7523741743471584
+  }
+ },
+ {
+  "id": "ph3-wider-not-more-accurate",
+  "where": "Results 6.9 / Discussion / Conclusion",
+  "claim": "PH3: the Rasch-type intervals are wider than EOST-M's on all 8 benchmarks (Holm-significant on all), its score error is not lower on at least half of the benchmarks where its coverage is higher, and the pre-stated verdict is 'wider_intervals'",
+  "status": "PASS",
+  "evidence": {
+   "verdict": "wider_intervals",
+   "wider": 8,
+   "wider_sig": 8,
+   "higher_cov": 7,
+   "iae_not_lower": 4
+  }
+ },
+ {
+  "id": "ph3-coverage-follows-ratio",
+  "where": "Results 6.9 / Discussion",
+  "claim": "PH3: coverage is almost a monotone function of the width-to-IAE ratio (Spearman rho > 0.9 over all bank-model cells), and the ratio is below the calibrated-Gaussian value in every cell",
+  "status": "PASS",
+  "evidence": {
+   "rho": 0.9809384164222872,
+   "max_ratio": 3.971129029761667,
+   "gauss": 4.123036608945911
+  }
+ },
+ {
+  "id": "adaptive-shortfall",
+  "where": "Results 6.9 / Discussion / Conclusion",
+  "claim": "no model-based adaptive policy (confirmatory and post hoc, every N) reaches 0.9 mean coverage on the real banks, while Random:mg is close to nominal (>= 0.85 at N=8) and EOST-M covers >= 0.85 on the well-specified synthetic bank",
+  "status": "PASS",
+  "evidence": {
+   "max_adaptive_cov": {
+    "confirm": 0.8402867895545314,
+    "posthoc_baselines": 0.8380062211981567,
+    "posthoc_shrinkage": 0.7581390360983103
+   },
+   "random_mg_N8": 0.8770923771121352,
+   "synth_2pl_eig_mg_N8": 0.8898999999999998
+  }
+ },
+ {
+  "id": "sens-1pl-degenerate",
+  "where": "Results 6.8",
+  "claim": "the pre-registered one-parameter calibration is degenerate: median common discrimination > 100, EOST-M coverage < 0.5",
+  "status": "PASS",
+  "evidence": {
+   "median_a": 15286.19552211239,
+   "coverage_eig_mg_N8": 0.15128373015873015
+  }
+ },
+ {
+  "id": "sens-1pl-reg-well-behaved",
+  "where": "Results 6.8",
+  "claim": "the post hoc regularized one-parameter calibration is well behaved: median common discrimination < 10, coverage > 0.5",
+  "status": "PASS",
+  "evidence": {
+   "median_a": 2.480390925498206,
+   "coverage_eig_mg_N8": 0.8396200396825397
+  }
+ },
+ {
+  "id": "EVR-like-EIG",
+  "where": "Discussion",
+  "claim": "EVR and EIG give score IAEs within 5% of each other (N=8, both models)",
+  "status": "PASS",
+  "evidence": {
+   "mg": 0.01935666758503307,
+   "pi": 0.0026494683863906854
+  }
+ },
+ {
+  "id": "small-panel-reliable",
+  "where": "Discussion",
+  "claim": "at N=4 and N=8, EIG:mg beats MFI:pi on log loss (H2) and score IAE in most benchmarks, never significantly worse",
+  "status": "PASS",
+  "evidence": {
+   "4": {
+    "H2_fav": 8,
+    "H2_base": 0,
+    "iae_fav": 1,
+    "iae_base": 0,
+    "B": 8
+   },
+   "8": {
+    "H2_fav": 7,
+    "H2_base": 0,
+    "iae_fav": 1,
+    "iae_base": 0,
+    "B": 8
+   }
+  }
+ },
+ {
+  "id": "fades-32-64",
+  "where": "Discussion",
+  "claim": "the H2 gain fades with 32-64 calibrators (median < 2.5%)",
+  "status": "PASS",
+  "evidence": {
+   "32": 1.8807576780550073,
+   "64": 1.1355036147225697
+  }
+ },
+ {
+  "id": "ranking-adaptive-beats-random",
+  "where": "Results 6.4",
+  "claim": "after 25 items, median Kendall tau of EIG:mg and MFI:pi exceeds that of naive subsampling by > 0.1, and EIG:mg and MFI:pi differ by < 0.05",
+  "status": "PASS",
+  "evidence": {
+   "eig:mg": 0.771,
+   "evr:mg": 0.773,
+   "mfi:pi": 0.744,
+   "naive": 0.543
+  }
+ },
+ {
+  "id": "clusters-h2-strict",
+  "where": "Study 1 / cluster-aware re-analysis",
+  "claim": "with strict clusters as units H2 is Holm-significant on fewer than 5 banks (not supported) while its median effect stays above 4% with a cluster-bootstrap interval excluding 0; H3 and H4 stay supported with every unit; with heuristic families all four frozen decisions are unchanged",
+  "status": "PASS",
+  "evidence": {
+   "target": {
+    "H1": [
+     4,
+     false
+    ],
+    "H2": [
+     7,
+     true
+    ],
+    "H3": [
+     7,
+     true
+    ],
+    "H4": [
+     7,
+     true
+    ]
+   },
+   "heuristic": {
+    "H1": [
+     4,
+     false
+    ],
+    "H2": [
+     5,
+     true
+    ],
+    "H3": [
+     7,
+     true
+    ],
+    "H4": [
+     5,
+     true
+    ]
+   },
+   "strict": {
+    "H1": [
+     4,
+     false
+    ],
+    "H2": [
+     4,
+     false
+    ],
+    "H3": [
+     7,
+     true
+    ],
+    "H4": [
+     5,
+     true
+    ]
+   }
+  }
+ },
+ {
+  "id": "kappa-chains",
+  "where": "Design / strict clusters",
+  "claim": "Cohen's kappa >= 0.8 chains more than 300 of the 395 HellaSwag systems into one component, whereas the residual-correlation clusters of the leaderboard have at most 40 members",
+  "status": "PASS",
+  "evidence": {
+   "kappa_component": 353,
+   "residual_max": 39
+  }
+ },
+ {
+  "id": "cost-breakeven",
+  "where": "Cost",
+  "claim": "with 8 fresh calibrators and 100-item tests, the break-even against full evaluation lies between 8 and 10 new systems on every bank; EOST-M matches 100 random items scored by the same model with fewer items on 7 of 8 banks",
+  "status": "PASS",
+  "evidence": {
+   "breakeven_full": [
+    8.66,
+    8.75,
+    8.42,
+    8.69,
+    8.42,
+    10.0,
+    8.84,
+    9.14
+   ],
+   "random_saves": 7
+  }
+ },
+ {
+  "id": "cap-logistic",
+  "where": "Theory, Proposition 4",
+  "claim": "the information of the expected logistic response under N(0, s^2) difficulty uncertainty never exceeds 2/(pi s^2) on a grid of discriminations and abilities",
+  "status": "PASS",
+  "evidence": {
+   "max_info_over_cap": 0.9979493096716019
+  }
+ },
+ {
+  "id": "ppc-extreme",
+  "where": "Study 2 / robustness of the empirical-Bayes hyperprior",
+  "claim": "the share of extreme items is reproduced on average (medians within 0.02) but flagged (p<0.05) on more than 5% of panels, most of them on HellaSwag and MMLU; the spread of proportions correct is flagged on at most 5%",
+  "status": "PASS",
+  "evidence": {
+   "flagged": 0.19444444444444445,
+   "hs_mmlu_share": 0.7857142857142857,
+   "sd_flagged": 0.027777777777777776
+  }
+ },
+ {
+  "id": "ppc-rest-lower",
+  "where": "Study 2 / robustness of the empirical-Bayes hyperprior",
+  "claim": "the item-rest correlation is mostly lower than simulated (flagged below more often than above, median observed below median simulated), mainly on the multiple-choice Open LLM Leaderboard banks",
+  "status": "PASS",
+  "evidence": {
+   "below": 0.25,
+   "above": 0.06944444444444445,
+   "mc_share": 0.9130434782608695
+  }
+ },
+ {
+  "id": "s2-direction",
+  "where": "Study 2 / summary",
+  "claim": "apart from C5b every superiority contrast is positive on at least 7 of 8 banks and no competitor is Holm-significantly better anywhere; the unsupported superiority hypotheses are C2, C4, C5b, C7, C8, and C2, C4, C7, C8 have exactly 4 significant banks and none against; CRUXEval-O has the fewest targets and no significant contrast",
+  "status": "PASS",
+  "evidence": {
+   "positive": {
+    "C1": 7,
+    "C2": 8,
+    "C4": 8,
+    "C5b": 4,
+    "C6": 7,
+    "C7": 8,
+    "C8": 8,
+    "C9": 8,
+    "R2": 8,
+    "R3": 8,
+    "R4": 8
+   },
+   "unsupported": [
+    "C2",
+    "C4",
+    "C5b",
+    "C7",
+    "C8"
+   ]
+  }
+ },
+ {
+  "id": "s2-r2-panel-verdicts",
+  "where": "Study 2 / replication",
+  "claim": "the R2 gain is larger at N=4 than at N=8 and N=16, no bank is significant at N=16, and deterministic and aggregate-verdict banks differ by less than one point",
+  "status": "PASS",
+  "evidence": {
+   "N4": 0.08256933114973664,
+   "N8": 0.05875464021218792,
+   "N16": 0.04617947584602654,
+   "det": 6.08823284211319,
+   "agg": 5.875464021218792
+  }
+ },
+ {
+  "id": "s2-rasch",
+  "where": "Study 2 / integration vs constraint",
+  "claim": "C1 is larger at N=16 than at N=4; on the score EOST-M and the Rasch-type test are close (positive median, no bank significant); the Rasch-type raw coverage exceeds EOST-M's",
+  "status": "PASS",
+  "evidence": {
+   "C1_N4": 0.028733989375156848,
+   "C1_N16": 0.040057688486323934,
+   "iae_med": 0.01594960614163903,
+   "cov": {
+    "mfi:1pr": 0.811625,
+    "eig:mg": 0.7373645833333333
+   }
+  }
+ },
+ {
+  "id": "s2-reduction",
+  "where": "Study 2 / adaptivity and reduction",
+  "claim": "the C4 gain is larger at N=16 than at N=4 and similar (within 5 points) for deterministic and aggregate banks; the ATLAS-style test has the largest score IAE of the model-based policies; MINCE's error at its own n* exceeds EOST-M's error after 100 items; the tinyBenchmarks anchor shortfall at budget 50 is at most 10% of cells and the corrected C8 counts equal the frozen one",
+  "status": "PASS",
+  "evidence": {
+   "worst_iae": "atlas",
+   "nstar_err": 0.02497786838240933
+  }
+ },
+ {
+  "id": "s2-coverage",
+  "where": "Study 2 / calibrated uncertainty",
+  "claim": "model-based raw intervals (EOST-M, fully Bayesian, Rasch-type, plug-in) cover < 0.85 while Random:mg and Naive cover >= 0.88; C5a misses by one bank; C5b is significantly against recalibration exactly on HellaSwag and WinoGrande; recalibrated EOST-M intervals are much narrower than Naive's (ratio < 0.7); the recalibrated Rasch-type test is inside [0.85, 0.95] on all banks with intervals 1.8-2.2 times as wide as recalibrated EOST-M's and is never better on interval score; mixing keeps coverage below 0.80",
+  "status": "PASS",
+  "evidence": {
+   "cov": {
+    "atlas": 0.48,
+    "eig:1prmg": 0.818,
+    "eig:mg": 0.737,
+    "eig:mg+R": 0.86,
+    "eig:tp": 0.701,
+    "eig:xf": 0.741,
+    "fb:bmi": 0.76,
+    "fb:eig": 0.77,
+    "mfi:1pr": 0.812,
+    "mfi:1pr+R": 0.914,
+    "mfi:pi": 0.592,
+    "mince": NaN,
+    "mince:nstar": NaN,
+    "mix:mg": 0.765,
+    "naive": 0.901,
+    "random:mg": 0.884,
+    "tiny:anchor": NaN,
+    "tiny:gpirt": NaN,
+    "tiny:pirt": NaN
+   },
+   "c5b_against": [
+    "ollb_hellaswag",
+    "ollb_winogrande"
+   ]
+  }
+ },
+ {
+  "id": "s2-recal-panel",
+  "where": "Study 2 / calibrated uncertainty",
+  "claim": "recalibrated EOST-M coverage increases from N=4 to 8 to 16; its interval score is worse than the raw interval's at N=4 and better at N=16",
+  "status": "PASS",
+  "evidence": {
+   "4": [
+    0.8200920138888889,
+    0.23458960105617677,
+    0.20921575328178244
+   ],
+   "8": [
+    0.8597048611111111,
+    0.20628335123628697,
+    0.20072145274814018
+   ],
+   "16": [
+    0.877920138888889,
+    0.1786688148119473,
+    0.1844486885505991
+   ]
+  }
+ },
+ {
+  "id": "s2-temporal-eb-synth",
+  "where": "Study 2 / temporal validation, synthetic banks, empirical-Bayes variants",
+  "claim": "temporal: 10 of 11 contrasts significant for EOST-M, none against, C5b not significant; cross-fitted and Student-t hyperpriors change log loss by less than 1% with no bank significant (cross-fitted: median 0.0%; Student-t: worse on every bank); recalibration moves coverage away from 0.9 on the 2PL and guessing banks and towards it on the two-dimensional bank (N=8); no significant contrast of either study has discordant signs",
+  "status": "PASS",
+  "evidence": {
+   "temporal_sig": 10,
+   "signs": 0
+  }
+ },
+ {
+  "id": "s2-fb",
+  "where": "Study 2 / fully Bayesian CAT (post hoc correction)",
+  "claim": "the frozen drift is largest on HellaSwag (more than twice the median of the other banks) and the corrected burn-in at least halves it; at N=8 no fully Bayesian variant (frozen or corrected, BMI or EIG, per-item or joint) differs significantly from EOST-M in log loss or score error; corrected per-item variants have a positive median log-loss difference below 1% and are equivalent on fewer than 6 banks; the joint EIG variant has the smallest absolute median difference and at least as many equivalent banks as any variant; every fully Bayesian coverage is below 0.80 and within 0.05 of EOST-M's; the re-analysed frozen arm reproduces the frozen C3",
+  "status": "PASS",
+  "evidence": {
+   "nosig": true,
+   "corr": true,
+   "joint": true,
+   "cov": true,
+   "repro": true,
+   "drift_hs": [
+    0.5120649857954548,
+    0.24013671874999962
+   ]
+  }
+ },
+ {
+  "id": "s2-fb-n4",
+  "where": "Study 2 / Bayesian CATs at N = 4",
+  "claim": "at N=4 the location drift is larger than at N=8 (median over banks, frozen window), and the corrected fully Bayesian coverage exceeds EOST-M's by less than 0.05",
+  "status": "PASS",
+  "evidence": {
+   "drift4": 0.21527876420454548,
+   "drift8": 0.1689763849431817,
+   "cov_diff": 0.031027777777777765
+  }
+ },
+ {
+  "id": "rf1-clusters",
+  "where": "Robustness follow-ups / RF1",
+  "claim": "the recomputed frozen clustering reproduces the frozen rows exactly; under every alternative panel-exclusion rule R2 and C1 keep their frozen medians (within 0.1 point), R2 is positive on 8/8 and C1 on 7/8 banks, none significantly against, and the rule fixed in advance is met; response-derived links change the clusters substantially only on the Open LLM Leaderboard banks",
+  "status": "PASS",
+  "evidence": {
+   "rule": true,
+   "repro": 0.0
+  }
+ },
+ {
+  "id": "rf3-meta",
+  "where": "Robustness follow-ups / RF3",
+  "claim": "an effect can favour EOST-M on all eight benchmarks and still be declared not supported; the hypotheses whose pooled effect excludes zero although not supported are exactly those that missed the threshold by one bank (4 significant, none against)",
+  "status": "PASS",
+  "evidence": {
+   "unsupported_but_pooled_positive": [
+    "C2",
+    "C4",
+    "C7",
+    "C8"
+   ],
+   "missed_by_one": [
+    "C2",
+    "C4",
+    "C7",
+    "C8"
+   ]
+  }
+ },
+ {
+  "id": "rf2-convergence",
+  "where": "Robustness follow-ups / RF2",
+  "claim": "with the frozen sampler and four long chains the overall location converged (R-hat < 1.05 on at least 90% of panels) but sigma_b, mu_a and sigma_a did not (R-hat < 1.05 on at most 10% of panels), and the ability scale moved with sigma_b and mu_a (median |r| > 0.7, opposite signs)",
+  "status": "PASS",
+  "evidence": {
+   "share_rhat_loc_lt_1.05": 0.917,
+   "share_rhat_sd_b_lt_1.05": 0.0,
+   "share_rhat_mu_a_lt_1.05": 0.021,
+   "share_rhat_sd_a_lt_1.05": 0.083
+  }
+ },
+ {
+  "id": "rf2-rule",
+  "where": "Robustness follow-ups / RF2",
+  "claim": "the pre-specified rule is not confirmed under the reading recorded before the comparison (median absolute change versus burn-in 60 above 0.5% for every long-chain arm) while the signed medians are within 0.5%; the long-chain arms stay within 1% of EOST-M in median held-out log loss with no benchmark sign test below 0.05",
+  "status": "PASS",
+  "evidence": {
+   "pdm_bmi_long": 0.17,
+   "pdm_eig_long": 0.04,
+   "jfb_eig_long": 0.2,
+   "jfb_bmi_long": -0.45
+  }
+ },
+ {
+  "id": "rf2b-partial",
+  "where": "Robustness follow-ups / RF2b",
+  "claim": "the scale move brings R-hat below 1.05 for the ability scale, sigma_b and mu_a on most panels (at least 70%, against at most 2% in RF2) but not for sigma_a (at most 20%), so the convergence criterion is not met; the between-chain spread of held-out log loss falls to at most 10% (RF2: above 40%)",
+  "status": "PASS",
+  "evidence": {
+   "scale": 0.75,
+   "sd_b": 0.729,
+   "mu_a": 0.792,
+   "sd_a": 0.104
+  }
+ },
+ {
+  "id": "rf2d-near",
+  "where": "Robustness follow-ups / RF2c-RF2d",
+  "claim": "RF2c was stopped after 14 panels with the location stuck on HellaSwag (R-hat > 2) while GSM8K converged; RF2d's median R-hat is at most 1.06 for every quantity and its largest R-hat is well below RF2's, no chain stays at the lower bound of sigma_a, yet the 90% convergence criterion is not met",
+  "status": "PASS",
+  "evidence": {
+   "median_rhat_max": 1.058,
+   "rhat_max": 1.245
+  }
+ },
+ {
+  "id": "rf2-all-samplers",
+  "where": "Robustness follow-ups / RF2-RF2d; Introduction; Conclusion",
+  "claim": "across every Bayesian arm and sampler on the RF2 cells (frozen, burn-in 60, long chains, scale move, exact sampler) the median difference from EOST-M in held-out log loss stays below 0.5% and no benchmark-level sign test reaches 0.05; the RF2d arms cover as often as EOST-M (within 0.03) while RF2's long chains covered more; in score error the RF2d arms are ahead on more than half of the cells but on only 4-5 of 8 benchmarks",
+  "status": "PASS",
+  "evidence": {
+   "max_abs_median_pct": 0.446
+  }
+ },
+ {
+  "id": "eb-stability",
+  "where": "Study 2 / robustness of the empirical-Bayes hyperprior",
+  "claim": "at N = 8 resampling items moves every hyperparameter little (item-bootstrap SD at most 0.10); resampling calibrators moves sigma_a and sigma_b more than resampling items, by about as much as the variation between panels (within a factor of 1.5)",
+  "status": "PASS",
+  "evidence": {
+   "sd_log_a": [
+    0.029,
+    0.055,
+    0.047
+   ],
+   "sd_b": [
+    0.071,
+    0.155,
+    0.164
+   ]
+  }
+ },
+ {
+  "id": "rf2-mub-scale",
+  "where": "Robustness follow-ups / RF2 and RF2b",
+  "claim": "with the frozen sampler mu_b converged on most panels (R-hat < 1.05 on at least 75%) and the ability scale on almost none (at most 5%); at least one chain of RF2 and one of RF2b spent most of their sweeps at the lower bound of sigma_a",
+  "status": "PASS",
+  "evidence": {
+   "mu_b": 0.896,
+   "scale": 0.0,
+   "floor": [
+    2,
+    3
+   ]
+  }
+ },
+ {
+  "id": "rf2d-scale-spread",
+  "where": "Robustness follow-ups / RF2d",
+  "claim": "under the exact sampler the posterior mean of the ability scale exceeds EOST-M's point estimate on more than half of the panels, with a median ratio above 1",
+  "status": "PASS",
+  "evidence": {
+   "share": 0.646,
+   "median_ratio": 1.149
+  }
+ },
+ {
+  "id": "rf3b-sources",
+  "where": "Robustness follow-ups / RF3b; Introduction; Discussion (xi); cover letter; README",
+  "claim": "with the five Open LLM Leaderboard benchmarks counted as one source, fewer pooled intervals exclude zero than in RF3; the hypotheses that lose it stay positive in at least 3 of 4 sources; of the four hypotheses that missed the frozen threshold by one benchmark only C2 keeps an interval above zero; the sampling dependence of the OLLB estimates through shared systems is small (|median r| < 0.1)",
+  "status": "PASS",
+  "evidence": {
+   "excl_sources": [
+    "C2",
+    "C6",
+    "C9",
+    "R2",
+    "R3",
+    "R4"
+   ],
+   "lost": [
+    "C1",
+    "C4",
+    "C7",
+    "C8"
+   ]
+  }
+ },
+ {
+  "id": "s2-abstract",
+  "where": "Abstract / Introduction",
+  "claim": "EOST-M is ahead of ATLAS-style CAT, tinyBenchmarks and MINCE on every benchmark, significantly on four or five of eight; under the fully Bayesian model, BMI and EIG selection differ by less than 1% in log loss with no bank significant (N = 4 and 8): the criterion matters little",
+  "status": "PASS",
+  "evidence": {
+   "reduction": true,
+   "criterion": true
+  }
+ }
+]

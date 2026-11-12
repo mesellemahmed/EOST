@@ -1,0 +1,17 @@
+\begin{table}[tbp]
+\centering\footnotesize
+\caption{Clusters under each panel-exclusion rule of follow-up RF1: number of clusters / size of the largest cluster. The five Open LLM Leaderboard banks share their systems and their joint clusters; leave-bank-out clusters differ per leaderboard bank (GSM8K shown).}
+\label{tab:robclustcount}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Rule & Open LLM LB (GSM8K) & SWE-bench V. & LCB & CRUX-O \\
+\midrule
+frozen, $r\ge0.5$ & 176/39 & 92/64 & 15/4 & 12/9 \\
+metadata only & 227/13 & 94/64 & 15/4 & 12/9 \\
+leave-bank-out & 147/72 & 94/64 & 15/4 & 12/9 \\
+joint, $r\ge0.4$ & 134/113 & 92/64 & 15/4 & 12/9 \\
+joint, $r\ge0.6$ & 196/34 & 92/64 & 15/4 & 12/9 \\
+joint, $r\ge0.7$ & 209/27 & 92/64 & 15/4 & 12/9 \\
+\bottomrule
+\end{tabular}
+\end{table}

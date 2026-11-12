@@ -1,0 +1,14 @@
+{
+ "dataset": "cruxeval_o",
+ "panel_sizes": [
+  4,
+  8,
+  16
+ ],
+ "n_targets": 31,
+ "n_rows": 3255,
+ "prior_1pr": {
+  "sd_log_a": 0.05,
+  "sd_b": 2.0
+ }
+}

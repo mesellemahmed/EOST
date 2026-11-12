@@ -1,0 +1,131 @@
+\section{What adaptive evaluation costs}
+\label{sec:cost}
+
+Adaptive testing saves items only after a calibration panel has answered the whole bank.
+Counting one administered item as the unit of cost, evaluating $M$ new systems costs $MI$
+with the full bank of $I$ items and $NI+MT$ with a fresh panel of $N$ calibrators and tests of
+$T$ items, so adaptive testing pays off once $M>NI/(I-T)$. Table~\ref{tab:cost} gives, for
+$N=8$ and $T=100$, this break-even point (between \CostBreakFullMin\ and \CostBreakFullMax\
+new systems), the number of items with which EOST-M matches the score error of 100 items
+sampled uniformly and scored by the sample mean (Naive) or by the same calibrated model
+(Random:mg), and the break-even point against Naive. Uniform subsampling needs no panel, so
+it is the fairer comparison: EOST-M saves about \CostSaveNaive\ items per system against it
+and breaks even after a median of \CostBreakNaiveMed\ new systems (from \CostBreakNaiveMin\
+to \CostBreakNaiveMax). When the calibrators' results already exist---public leaderboards or
+earlier internal evaluations---the panel is free and adaptive testing is cheaper from the
+first system; when items are expensive, as in agentic benchmarks, the per-system saving
+dominates quickly. Calibrating a panel and running a 100-item test take seconds on one CPU
+core.
+
+\input{short/tables/cost}
+
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{Small-panel calibration uncertainty is the problem.} With four or eight
+calibrators a large fraction of items is answered identically by every calibrator, so their
+difficulty is located only by the prior. Plug-in testing treats these
+poorly located parameters as known: Fisher selection credits such items with information
+they do not carry, the plug-in posterior becomes overconfident, and the predicted outcomes of
+the unobserved items inherit the parameter errors---the bias floor of
+Figure~\ref{fig:curves-err}. The expected response function caps the information of such
+items (Proposition~\ref{prop:cap}) and predicts their outcomes with the uncertainty they
+actually have. Both effects fade as the panel grows (Figure~\ref{fig:heatmap}): for the very
+large panels of recent work \citep{li2026atlas}, plug-in Fisher information is an adequate
+approximation; for new, private or expensive benchmarks, self-generated item pools, or the
+panels of four to eight systems that a single laboratory can afford, it is not.
+
+\paragraph{Integrating and constraining are two remedies.} Integrating the item posterior
+(EOST-M) predicted better than constraining the discriminations to a common value (C1), more
+so with sixteen calibrators, whereas the constrained model's intervals were better calibrated
+because they are wider, not because its estimates are more accurate. A small panel must
+therefore not be trusted with item-specific discriminations: integrating their uncertainty is
+preferable when prediction and score accuracy matter most, and constraining them gives a
+simpler and more conservative test.
+
+\paragraph{Why not always use a fully Bayesian adaptive test?} It is the principled answer
+to calibration uncertainty, and \citet{fink2025accounting} found it the most accurate
+correction with hundreds of calibration responses per item. With eight calibrators it did not
+help measurably, although equivalence was not shown either. By Lemma~\ref{lem:exact}, EOST-M
+is the fully Bayesian model with the calibrators' abilities and the hyperprior held fixed; in
+this regime what matters, as far as our data can tell, is the item-level uncertainty that
+both integrate. A fully Bayesian test also needs a Markov chain per panel, whose tuning is a
+source of error in its own right: our frozen burn-in was too short on some banks, and even an
+exact sampler with collapsed moves did not meet our convergence criterion. EOST-M is the
+simpler default. Two leads remain open: the near-converged sampler suggests a possible
+advantage of Bayesian integration for estimating the score, and panel-level uncertainty may
+matter more when the calibrators' abilities are poorly determined, as with short banks.
+
+\paragraph{The criterion matters less than first hypothesized.} The pilot program and
+study~1 agree on the direction of the original thesis---EIG learns more about competence than
+predictive entropy---but bound its size: under the same calibration-marginal model the gain
+on held-out prediction is small, and the information criteria are practically
+interchangeable (a descriptive comparison; the failure of H1 is not a test of equivalence).
+Corollary~\ref{cor:blind} explains why: entropy and information disagree only through the
+spread of discriminations among items with similar success probabilities, which the expected
+response function shrinks, and with a common discrimination the difference vanishes. For the
+bank score, Proposition~\ref{prop:evr} shows that uncertainty sampling becomes the right
+one-step criterion once competence is pinned down relative to the unobserved bank, and the
+score-error curves show both regimes. What an adaptive test for LLMs must get right is the
+treatment of calibration uncertainty, not the choice among information criteria.
+
+\paragraph{Honest uncertainty.} None of the four remedies tried in study~2---integrating
+the calibrators' abilities, leave-one-calibrator-out recalibration, mixing random items into
+the test, recalibrating a constrained model---gave nominal coverage with intervals as narrow as
+EOST-M's. The coverage decomposition and the prior predictive checks locate the problem where
+adaptive selection meets a model that is misspecified in the dependence among real systems'
+verdicts. Recalibration is not yet a validated remedy: it raised coverage, but neither frozen
+criterion for it was met, and on the well-specified synthetic bank it moved coverage away
+from the nominal level. Practitioners should report model-based intervals with the panel size
+and their expected under-coverage, and use a Wilson interval from uniformly sampled items when
+nominal coverage matters more than width.
+
+\paragraph{Adaptive testing or benchmark reduction?} With a handful of calibrators,
+tinyBenchmarks, ATLAS-style CAT and MINCE rely on quantities that a small panel cannot
+determine well. In this regime our evidence favours adaptive selection under calibration
+uncertainty, in the same direction on every benchmark but conclusively by the frozen
+criterion only against MINCE; with large panels the differences should shrink.
+
+\paragraph{Limitations.} (i) All evidence replays recorded verdicts: replay is exact for the
+recorded data but omits the sampling variability of stochastic decoding, and the protocol we
+release for live evaluation could not be run in our environment; the temporal validation
+approximates, but does not replace, a prospective deployment. (ii) LiveCodeBench and
+CRUXEval-O carry binarized pass rates; graded responses would need another measurement model.
+(iii) The unidimensional 2PL is misspecified in the dependence among real systems' verdicts.
+(iv) Strict clusters are a heuristic that may miss distant relatives such as distilled models,
+although R2 and C1 did not depend on how they were built. (v) Recalibration rests on very
+few pseudo-targets, without a finite-sample guarantee. (vi) A fully converged Bayesian
+comparator, for instance by Hamiltonian Monte Carlo, remains to be run. (vii) The analysis
+plans were frozen by hashing and committing them, without an external time stamp. (viii) Item
+exposure was not controlled; an adaptive benchmark that serves the same informative items to
+every model would accelerate their contamination \citep{wainer2000cat}. (ix) Joint MAP
+calibration made the planned one-parameter sensitivity analysis degenerate; marginal maximum
+likelihood would avoid this. (x) Self-generated items were studied only in a historical
+pilot. (xi) The cross-benchmark meta-analysis is secondary and limited by shared systems.
+
+\paragraph{Recommendations.} With a small calibration panel: (1) do not plug in
+item-specific discriminations calibrated on fewer than a few dozen systems, but integrate their
+uncertainty with an empirical-Bayes prior, or constrain them when a simple, conservative test
+matters more than accuracy; (2) select by any information criterion computed from the marginal
+model, and let the score-targeted criterion take over late in the test when the estimand is
+the score; (3) prefer the calibration-marginal model to the Bayesian treatments of the
+calibrators that we ran, which made no significant difference; (4) report model-based
+intervals with the panel size and their expected under-coverage; (5) exclude the target's whole
+cluster from its panel and analyse with clusters as units; (6) count the panel in the cost.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Adaptive testing can make LLM evaluation cheaper, but with the small calibration panels of
+new, private or expensive benchmarks it works only if the uncertainty of the item calibration
+is taken seriously. Integrating it through expected response functions with an empirical-Bayes
+prior is simple, exact given the calibrators, and caps the information of items that a small
+panel cannot locate. Under frozen analysis plans, this predicted held-out verdicts better than
+plug-in Fisher-information testing and a regularized Rasch-type test, estimated scores more
+accurately than uniform subsampling and MINCE, was ahead of random items, ATLAS-style testing
+and tinyBenchmarks on every benchmark without meeting the frozen criterion for these
+comparisons, and was not significantly different from Bayesian CATs that also integrate the
+calibrators' abilities, without being shown equivalent. The thesis that information rather than entropy should be maximized
+holds in sign but is modest once uncertainty is integrated. The open problem is honest
+uncertainty: model-based intervals remain too narrow, and recalibration from the panel improved
+coverage only at the price of width.

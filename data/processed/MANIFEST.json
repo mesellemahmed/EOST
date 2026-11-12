@@ -1,0 +1,2674 @@
+{
+ "datasets": {
+  "cruxeval_i": {
+   "accuracy_range": [
+    0.1375,
+    0.775
+   ],
+   "file": "data/processed/cruxeval_i.npz",
+   "items_always_correct": 21,
+   "items_never_correct": 59,
+   "mean_accuracy": 0.41939516129032256,
+   "meta": {
+    "binarization": "fraction of temperature-0.2 samples judged correct by execution >= 0.5",
+    "domain": "code reasoning (input prediction, execution-checked)",
+    "family_rule": "model line prefix (e.g. all CodeLlama variants form one family)",
+    "source": "cruxeval"
+   },
+   "n_families": 12,
+   "n_items": 800,
+   "n_systems": 31,
+   "raw_inputs": {
+    "data/raw/facebookresearch_cruxeval/samples/evaluation_results.zip": "30438f932e952c66df6f6e2407239ad6b782647114f1434ead18e2448363bfa5"
+   },
+   "sha256": "5ca7f2d9a4d754a05da74aef3dbe1b48a7b1ce9659583ad80471e3c1afe0dc22"
+  },
+  "cruxeval_o": {
+   "accuracy_range": [
+    0.22,
+    0.78
+   ],
+   "file": "data/processed/cruxeval_o.npz",
+   "items_always_correct": 44,
+   "items_never_correct": 98,
+   "mean_accuracy": 0.416491935483871,
+   "meta": {
+    "binarization": "fraction of temperature-0.2 samples judged correct by execution >= 0.5",
+    "domain": "code reasoning (output prediction, execution-checked)",
+    "family_rule": "model line prefix (e.g. all CodeLlama variants form one family)",
+    "source": "cruxeval"
+   },
+   "n_families": 12,
+   "n_items": 800,
+   "n_systems": 31,
+   "raw_inputs": {
+    "data/raw/facebookresearch_cruxeval/samples/evaluation_results.zip": "30438f932e952c66df6f6e2407239ad6b782647114f1434ead18e2448363bfa5"
+   },
+   "sha256": "3e009437bf38e3a9dec83c92322c9b88f2f413e6edf60c4434d846113b8d35ed"
+  },
+  "livecodebench": {
+   "accuracy_range": [
+    0.22938388625592418,
+    0.8729857819905213
+   ],
+   "file": "data/processed/livecodebench.npz",
+   "items_always_correct": 156,
+   "items_never_correct": 46,
+   "mean_accuracy": 0.6937373053486797,
+   "meta": {
+    "binarization": "pass@1 (fraction of sampled programs passing all tests) >= 50%",
+    "domain": "code generation (execution-based tests)",
+    "family_rule": "manual mapping of reasoning-effort / version variants of the same model line",
+    "item_difficulty_label": [
+     "easy",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "easy",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "easy",
+     "hard",
+     "easy",
+     "medium",
+     "hard",
+     "easy",
+     "medium",
+     "easy",
+     "medium",
+     "easy",
+     "medium",
+     "hard",
+     "medium",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "easy",
+     "easy",
+     "easy",
+     "hard",
+     "medium",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "medium",
+     "easy",
+     "medium",
+     "hard",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "easy",
+     "medium",
+     "medium",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "easy",
+     "medium",
+     "easy",
+     "medium",
+     "medium",
+     "easy",
+     "hard",
+     "medium",
+     "hard",
+     "hard",
+     "medium",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "medium",
+     "easy",
+     "hard",
+     "hard",
+     "medium",
+     "medium",
+     "hard",
+     "medium",
+     "easy",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "easy",
+     "medium",
+     "easy",
+     "easy",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "easy",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "medium",
+     "medium",
+     "easy",
+     "easy",
+     "hard",
+     "hard",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "hard",
+     "medium",
+     "medium",
+     "easy",
+     "medium",
+     "medium",
+     "easy",
+     "hard",
+     "medium",
+     "medium",
+     "easy",
+     "medium",
+     "easy",
+     "easy",
+     "hard",
+     "medium",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "hard",
+     "medium",
+     "medium",
+     "medium",
+     "easy",
+     "easy",
+     "easy",
+     "hard",
+     "hard",
+     "medium",
+     "easy",
+     "easy",
+     "hard",
+     "medium",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "easy",
+     "hard",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "hard",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "easy",
+     "easy",
+     "easy",
+     "hard",
+     "medium",
+     "medium",
+     "easy",
+     "hard",
+     "easy",
+     "medium",
+     "hard",
+     "medium",
+     "medium",
+     "easy",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "medium",
+     "hard",
+     "hard",
+     "medium",
+     "easy",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "medium",
+     "medium",
+     "hard",
+     "medium",
+     "medium",
+     "easy",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "easy",
+     "medium",
+     "easy",
+     "hard",
+     "medium",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "easy",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "hard",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "medium",
+     "hard",
+     "medium",
+     "medium",
+     "easy",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "medium",
+     "hard",
+     "medium",
+     "hard",
+     "hard",
+     "medium",
+     "medium",
+     "hard",
+     "medium",
+     "medium",
+     "medium",
+     "easy",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "easy",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "medium",
+     "easy",
+     "hard",
+     "hard",
+     "medium",
+     "easy",
+     "hard",
+     "medium",
+     "hard",
+     "medium",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "easy",
+     "medium",
+     "hard",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "medium",
+     "hard",
+     "medium",
+     "hard",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "easy",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "hard",
+     "medium",
+     "medium",
+     "medium",
+     "easy",
+     "hard",
+     "easy",
+     "hard",
+     "easy",
+     "medium",
+     "hard",
+     "medium",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "hard",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "hard",
+     "medium",
+     "easy",
+     "medium",
+     "hard",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "medium",
+     "medium",
+     "easy",
+     "hard",
+     "medium",
+     "medium",
+     "medium",
+     "medium",
+     "easy",
+     "hard",
+     "medium",
+     "medium",
+     "easy",
+     "easy",
+     "easy",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "easy",
+     "easy",
+     "medium",
+     "medium",
+     "hard",
+     "hard",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "medium",
+     "hard",
+     "hard",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "medium",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard",
+     "hard"
+    ],
+    "source": "livecodebench_site"
+   },
+   "n_families": 15,
+   "n_items": 1055,
+   "n_systems": 28,
+   "raw_inputs": {
+    "data/raw/LiveCodeBench_livecodebench.github.io/build/performances_generation.json": "17f9a1d69e3f6290fc8b967a4dd13fbb46e34dd05716fdee793780a1cfadd0c1"
+   },
+   "sha256": "810cbb47d120e80cd1900cd7587033b4be6baf4d6a0c3acb83d3d78524d07ebc"
+  },
+  "ollb_arc": {
+   "accuracy_range": [
+    0.2645051194539249,
+    0.7337883959044369
+   ],
+   "file": "data/processed/ollb_arc.npz",
+   "items_always_correct": 28,
+   "items_never_correct": 51,
+   "mean_accuracy": 0.5990538730721043,
+   "meta": {
+    "binarization": "binary correctness from Open LLM Leaderboard v1 details",
+    "domain": "multiple choice (log-likelihood)",
+    "family_rule": "organisation namespace of the Hugging Face model id",
+    "source": "tinybenchmarks"
+   },
+   "n_families": 227,
+   "n_items": 1172,
+   "n_systems": 395,
+   "raw_inputs": {
+    "data/raw/felipemaiapolo_tinyBenchmarks/tutorials/data/lb.pickle": "34f44d6a819512ef74d00a95288d252fa679288a10ca167cd97fdbc3aae66437"
+   },
+   "sha256": "25ac94d70edf49b7c712ae606f1ae6cc038256add6907c128af8d87e25894192"
+  },
+  "ollb_gsm8k": {
+   "accuracy_range": [
+    0.0,
+    0.7680060652009097
+   ],
+   "file": "data/processed/ollb_gsm8k.npz",
+   "items_always_correct": 0,
+   "items_never_correct": 13,
+   "mean_accuracy": 0.2801335879694053,
+   "meta": {
+    "binarization": "binary correctness from Open LLM Leaderboard v1 details",
+    "domain": "math word problems (exact match)",
+    "family_rule": "organisation namespace of the Hugging Face model id",
+    "source": "tinybenchmarks"
+   },
+   "n_families": 227,
+   "n_items": 1319,
+   "n_systems": 395,
+   "raw_inputs": {
+    "data/raw/felipemaiapolo_tinyBenchmarks/tutorials/data/lb.pickle": "34f44d6a819512ef74d00a95288d252fa679288a10ca167cd97fdbc3aae66437"
+   },
+   "sha256": "d807233b4b55727117aecae268e9347bf8cda957b7583bb1b93f0220cc523b56"
+  },
+  "ollb_hellaswag": {
+   "accuracy_range": [
+    0.314,
+    0.8995
+   ],
+   "file": "data/processed/ollb_hellaswag.npz",
+   "items_always_correct": 249,
+   "items_never_correct": 43,
+   "mean_accuracy": 0.8151632911392405,
+   "meta": {
+    "binarization": "binary correctness from Open LLM Leaderboard v1 details; uniform random subset of 2000 items (seed 20261029)",
+    "domain": "multiple choice (log-likelihood)",
+    "family_rule": "organisation namespace of the Hugging Face model id",
+    "source": "tinybenchmarks"
+   },
+   "n_families": 227,
+   "n_items": 2000,
+   "n_systems": 395,
+   "raw_inputs": {
+    "data/raw/felipemaiapolo_tinyBenchmarks/tutorials/data/lb.pickle": "34f44d6a819512ef74d00a95288d252fa679288a10ca167cd97fdbc3aae66437"
+   },
+   "sha256": "22f8a71793982638ea2c7c7544895736e9e8be8b5e29df4a10f012c8af09f4d3"
+  },
+  "ollb_mmlu": {
+   "accuracy_range": [
+    0.262,
+    0.799
+   ],
+   "file": "data/processed/ollb_mmlu.npz",
+   "items_always_correct": 1,
+   "items_never_correct": 0,
+   "mean_accuracy": 0.5731253164556962,
+   "meta": {
+    "binarization": "binary correctness from Open LLM Leaderboard v1 details; uniform random subset of 2000 items (seed 20261029)",
+    "domain": "multiple choice (log-likelihood)",
+    "family_rule": "organisation namespace of the Hugging Face model id",
+    "source": "tinybenchmarks"
+   },
+   "n_families": 227,
+   "n_items": 2000,
+   "n_systems": 395,
+   "raw_inputs": {
+    "data/raw/felipemaiapolo_tinyBenchmarks/tutorials/data/lb.pickle": "34f44d6a819512ef74d00a95288d252fa679288a10ca167cd97fdbc3aae66437"
+   },
+   "sha256": "57993301200df43a1b48afad71318057b6e0fe2a394850458a196853dfe67e42"
+  },
+  "ollb_truthfulqa": {
+   "accuracy_range": [
+    0.30354957160342716,
+    0.7282741738066095
+   ],
+   "file": "data/processed/ollb_truthfulqa.npz",
+   "items_always_correct": 25,
+   "items_never_correct": 47,
+   "mean_accuracy": 0.5050524456563841,
+   "meta": {
+    "binarization": "MC2 normalized probability on true answers >= 0.5",
+    "domain": "multiple choice (log-likelihood)",
+    "family_rule": "organisation namespace of the Hugging Face model id",
+    "source": "tinybenchmarks"
+   },
+   "n_families": 227,
+   "n_items": 817,
+   "n_systems": 395,
+   "raw_inputs": {
+    "data/raw/felipemaiapolo_tinyBenchmarks/tutorials/data/lb.pickle": "34f44d6a819512ef74d00a95288d252fa679288a10ca167cd97fdbc3aae66437"
+   },
+   "sha256": "cf19aee602992881c40b13e258de530aecea94043c3e3210443efbdd24796e03"
+  },
+  "ollb_winogrande": {
+   "accuracy_range": [
+    0.5887924230465666,
+    0.8666140489344909
+   ],
+   "file": "data/processed/ollb_winogrande.npz",
+   "items_always_correct": 61,
+   "items_never_correct": 1,
+   "mean_accuracy": 0.7653781982756037,
+   "meta": {
+    "binarization": "binary correctness from Open LLM Leaderboard v1 details",
+    "domain": "multiple choice (log-likelihood)",
+    "family_rule": "organisation namespace of the Hugging Face model id",
+    "source": "tinybenchmarks"
+   },
+   "n_families": 227,
+   "n_items": 1267,
+   "n_systems": 395,
+   "raw_inputs": {
+    "data/raw/felipemaiapolo_tinyBenchmarks/tutorials/data/lb.pickle": "34f44d6a819512ef74d00a95288d252fa679288a10ca167cd97fdbc3aae66437"
+   },
+   "sha256": "7cfe091a17d4682d921e4ea12e7634b3b26c8e37ec5f66adfe9f1fe3ee54802f"
+  },
+  "swe_lite": {
+   "accuracy_range": [
+    0.0033333333333333335,
+    0.6033333333333334
+   ],
+   "file": "data/processed/swe_lite.npz",
+   "items_always_correct": 0,
+   "items_never_correct": 35,
+   "mean_accuracy": 0.3335714285714286,
+   "meta": {
+    "binarization": "instance resolved by the official harness (unresolved, errors and missing patches count as 0)",
+    "domain": "agentic software engineering (execution-based tests)",
+    "family_models": {
+     "20231010_rag_claude2": [
+      "claude-2"
+     ],
+     "20231010_rag_gpt35": [
+      "unknown:20231010_rag_gpt35"
+     ],
+     "20231010_rag_swellama13b": [
+      "unknown:20231010_rag_swellama13b"
+     ],
+     "20231010_rag_swellama7b": [
+      "swe-llama"
+     ],
+     "20240402_rag_claude3opus": [
+      "claude-3-opus"
+     ],
+     "20240402_rag_gpt4": [
+      "gpt-4-1106-preview"
+     ],
+     "20240402_sweagent_claude3opus": [
+      "unknown:20240402_sweagent_claude3opus"
+     ],
+     "20240402_sweagent_gpt4": [
+      "gpt-4-1106-preview"
+     ],
+     "20240509_amazon-q-developer-agent-20240430-dev": [
+      "unknown:20240509_amazon-q-developer-agent-20240430-dev"
+     ],
+     "20240523_aider": [
+      "claude-3-opus",
+      "gpt-4o"
+     ],
+     "20240524_opencsg_starship_gpt4": [
+      "gpt-4-0613"
+     ],
+     "20240530_autocoderover-v20240408": [
+      "gpt-4-0125-preview"
+     ],
+     "20240604_CodeR": [
+      "gpt-4-1106-preview"
+     ],
+     "20240612_IBM_Research_Agent101": [
+      "unknown:20240612_IBM_Research_Agent101"
+     ],
+     "20240612_MASAI_gpt4o": [
+      "gpt-4o"
+     ],
+     "20240615_appmap-navie_gpt4o": [
+      "gpt-4o"
+     ],
+     "20240617_factory_code_droid": [
+      "unknown:20240617_factory_code_droid"
+     ],
+     "20240617_moatless_gpt4o": [
+      "gpt-4o"
+     ],
+     "20240620_sweagent_claude3.5sonnet": [
+      "claude-3-5-sonnet"
+     ],
+     "20240621_autocoderover-v20240620": [
+      "gpt-4o"
+     ],
+     "20240622_Lingma_Agent": [
+      "unknown:20240622_Lingma_Agent"
+     ],
+     "20240623_moatless_claude35sonnet": [
+      "claude-3-5-sonnet"
+     ],
+     "20240627_abanteai_mentatbot_gpt4o": [
+      "gpt-4o"
+     ],
+     "20240630_agentless_gpt4o": [
+      "gpt-4o"
+     ],
+     "20240702_codestory_aide_mixed": [
+      "unknown:20240702_codestory_aide_mixed"
+     ],
+     "20240706_sima_gpt4o": [
+      "gpt-4o"
+     ],
+     "20240721_amazon-q-developer-agent-20240719-dev": [
+      "unknown:20240721_amazon-q-developer-agent-20240719-dev"
+     ],
+     "20240723_marscode-agent-dev": [
+      "gpt-4o"
+     ],
+     "20240725_opendevin_codeact_v1.8_claude35sonnet": [
+      "claude-3-5-sonnet"
+     ],
+     "20240728_sweagent_gpt4o": [
+      "gpt-4o"
+     ],
+     "20240806_SuperCoder2.0": [
+      "unknown:20240806_SuperCoder2.0"
+     ],
+     "20240808_RepoGraph_gpt4o": [
+      "gpt-4o"
+     ],
+     "20240811_gru": [
+      "unknown:20240811_gru"
+     ],
+     "20240820_honeycomb": [
+      "unknown:20240820_honeycomb"
+     ],
+     "20240828_autose_mixed": [
+      "gpt-4o"
+     ],
+     "20240829_Isoform": [
+      "unknown:20240829_Isoform"
+     ],
+     "20240908_infant_gpt4o": [
+      "unknown:20240908_infant_gpt4o"
+     ],
+     "20240912_marscode-agent-dev": [
+      "unknown:20240912_marscode-agent-dev"
+     ],
+     "20240925_hyperagent_lite1": [
+      "gpt-4o"
+     ],
+     "20241016_IBM-SWE-1.0": [
+      "unknown:20241016_IBM-SWE-1.0"
+     ],
+     "20241025_OpenHands-CodeAct-2.1-sonnet-20241022": [
+      "claude-3-5-sonnet"
+     ],
+     "20241028_agentless-1.5_gpt4o": [
+      "gpt-4o"
+     ],
+     "20241030_composio_swekit": [
+      "claude-3-5-sonnet",
+      "o1-mini"
+     ],
+     "20241111_codeshelltester_gpt4o": [
+      "gpt-4o"
+     ],
+     "20241113_navie-2-gpt4o-sonnet": [
+      "claude-3-5-sonnet",
+      "gpt-4o"
+     ],
+     "20241117_moatless_claude-3.5-sonnet-20241022": [
+      "claude-3-5-sonnet"
+     ],
+     "20241117_reproducedRG_gpt4o": [
+      "gpt-4o"
+     ],
+     "20241122_devlo": [
+      "claude-3-5-sonnet"
+     ],
+     "20241127_globant_codefixer_agent": [
+      "unknown:20241127_globant_codefixer_agent"
+     ],
+     "20241128_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor_20241128": [
+      "qwen 2.5"
+     ],
+     "20241202_agentless-1.5_claude-3.5-sonnet-20241022": [
+      "claude-3-5-sonnet"
+     ],
+     "20241203_KortixAI-AgentPress-sonnet-20241022": [
+      "claude-3-5-sonnet"
+     ],
+     "20241207_kodu_sonnet_v1": [
+      "claude-3-5-sonnet"
+     ],
+     "20241208_gru": [
+      "unknown:20241208_gru"
+     ],
+     "20241220_PatchKitty-0.9_claude-3.5-sonnet-20241022": [
+      "claude-3-5-sonnet"
+     ],
+     "20241220_blackboxai_agent_v1": [
+      "unknown:20241220_blackboxai_agent_v1"
+     ],
+     "20250104_codefuse-aais": [
+      "unknown:20250104_codefuse-aais"
+     ],
+     "20250104_patched_codes_claude-3.5-sonnet-20241022": [
+      "claude-3-5-sonnet"
+     ],
+     "20250111_moatless_deepseek_v3": [
+      "deepseek-chat"
+     ],
+     "20250113_OpenCSG-Starship-Agentic-Coder_gpt4o": [
+      "gpt-4o"
+     ],
+     "20250113_OrcaLoca": [
+      "claude-3-5-sonnet"
+     ],
+     "20250114_Isoform": [
+      "unknown:20250114_Isoform"
+     ],
+     "20250114_moatless_claude-3.5-sonnet-20241022": [
+      "claude-3-5-sonnet"
+     ],
+     "20250205_dars_agent_claude_3.5_sonnet_deepseek_r1": [
+      "claude-3-5-sonnet",
+      "deepseek-reasoner"
+     ],
+     "20250207_aegis_o3mini": [
+      "o3-mini"
+     ],
+     "20250214_agentless_lite_o3_mini": [
+      "o3-mini"
+     ],
+     "20250226_sweagent_claude-3-7-sonnet-20250219": [
+      "claude-3-7-sonnet"
+     ],
+     "20250306_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor": [
+      "qwen 2.5"
+     ],
+     "20250310_codefuse-cgm": [
+      "unknown:20250310_codefuse-cgm"
+     ],
+     "20250425_Refact_Agent": [
+      "claude-3-7-sonnet",
+      "o4-mini"
+     ],
+     "20250509_Lingxi_claude-3-5-sonnet-20241022": [
+      "claude-3-5-sonnet"
+     ],
+     "20250515_codartai": [
+      "claude-3-5-haiku-latest",
+      "claude-3.5-sonnet-latest"
+     ],
+     "20250526_sweagent_claude-4-sonnet-20250514": [
+      "claude-4-sonnet"
+     ],
+     "20250528_Codev": [
+      "claude-3-5-haiku",
+      "claude-3-7-sonnet",
+      "gemini-2.5-flash-preview-04-17",
+      "gemini-2.5-pro-preview-05-06",
+      "gpt-4o-mini",
+      "o4-mini",
+      "text-embedding-3-small"
+     ],
+     "20250609_KGCompass_deepseek-v3": [
+      "deepseek-v3"
+     ],
+     "20250613_ExpeRepair-v1.0": [
+      "claude-3.5-sonnet",
+      "o3-mini",
+      "o4-mini"
+     ],
+     "20250619_KGCompass_claude-3.5-sonnet-20241022": [
+      "claude-3-5-sonnet"
+     ],
+     "20250625_ExpeRepair-v1_claude-4-sonnet-20250514": [
+      "claude-4-sonnet",
+      "o3-mini",
+      "o4-mini"
+     ],
+     "20250625_SemAgent_Multi-v1_Claude3.7Sonnet_Gemini2.5Pro": [
+      "claude-3-7-sonnet",
+      "gemini-2.5-pro-preview-05-06"
+     ],
+     "20250627_agentless_MCTS-Refine-7B": [
+      "mcts-refine-7b"
+     ],
+     "20250901_entroPO_R2E_QwenCoder30BA3B": [
+      "qwen3-coder-30b-a3b-instruct"
+     ],
+     "20250901_entroPO_R2E_QwenCoder30BA3B_tts": [
+      "qwen3-coder-30b-a3b-instruct"
+     ],
+     "20250906_KGCompass_claude-4-sonnet-20250514": [
+      "claude-4-sonnet"
+     ],
+     "20250911_isea_claude-3.5-sonnet-20241022": [
+      "claude-3.5-sonnet"
+     ]
+    },
+    "family_rule": "set of underlying LLMs declared in metadata.yaml tags.model; systems sharing any LLM are excluded from the target's panel",
+    "source": "swe_bench_experiments"
+   },
+   "n_families": 49,
+   "n_items": 300,
+   "n_systems": 84,
+   "raw_inputs": {
+    "data/raw/swe_exp/evaluation/lite/20231010_rag_claude2/metadata.yaml": "cafccf7d698edd6c25d3c24f2d1648748041249e3ab29c5fa2ef6890d84277be",
+    "data/raw/swe_exp/evaluation/lite/20231010_rag_claude2/results/results.json": "2ab59b66822fb00237c8a09372cd0e59c94073247d48f49cd26a731120933147",
+    "data/raw/swe_exp/evaluation/lite/20231010_rag_gpt35/metadata.yaml": "a83ca30650489b51c16b1d1270be46632b99c7d0f90ee141d93c01609cc70226",
+    "data/raw/swe_exp/evaluation/lite/20231010_rag_gpt35/results/results.json": "f8d4c4da1211795244fd1f0cadf632ea4cc1237675134254ba9bb743bc4f01f8",
+    "data/raw/swe_exp/evaluation/lite/20231010_rag_swellama13b/metadata.yaml": "8b7ede55952139c38bb7e09855bfe22c450cba51e75fc460d21cc1a518190ce6",
+    "data/raw/swe_exp/evaluation/lite/20231010_rag_swellama13b/results/results.json": "4e43afbcc0b7378a17c9d3691940903c4ba83f3983b93a049ce1d93c0d34d4bb",
+    "data/raw/swe_exp/evaluation/lite/20231010_rag_swellama7b/metadata.yaml": "c421d48f3bebf2b5261dd15e8d9d2d793a2391339bd3eb37511be7393b66ce21",
+    "data/raw/swe_exp/evaluation/lite/20231010_rag_swellama7b/results/results.json": "376839cbc382ceb700160555e7b828c68a924bc16f8a7bf501a75d9232bf67c7",
+    "data/raw/swe_exp/evaluation/lite/20240402_rag_claude3opus/metadata.yaml": "331e5168e9fa62572d252923af4d47787cc657c74b94e15073360a45627f509c",
+    "data/raw/swe_exp/evaluation/lite/20240402_rag_claude3opus/results/results.json": "45ed177bc2b38959d88756ae727344266aac49e36e01586dc9f6d18b56eb3f46",
+    "data/raw/swe_exp/evaluation/lite/20240402_rag_gpt4/metadata.yaml": "7e253b63a842980e517d28f412176e023037bd3eb3d9df82945148c1ef582516",
+    "data/raw/swe_exp/evaluation/lite/20240402_rag_gpt4/results/results.json": "79c222673fdaea1128b17b15a67b94601077613f347b91045466c3ff94ae06ee",
+    "data/raw/swe_exp/evaluation/lite/20240402_sweagent_claude3opus/metadata.yaml": "9015ede3c183432372d901ebb02e340849952777cd333e2b92eeb4b78132cc12",
+    "data/raw/swe_exp/evaluation/lite/20240402_sweagent_claude3opus/results/results.json": "45c067d32cfa6234e4c47b65b713c8adcf7d6ea26aa40dd448462a475b47203f",
+    "data/raw/swe_exp/evaluation/lite/20240402_sweagent_gpt4/metadata.yaml": "bc4ce6d27afcad9f9906b1ac36d516eba6d1891013223242f256c3b5e3613562",
+    "data/raw/swe_exp/evaluation/lite/20240402_sweagent_gpt4/results/results.json": "ffb306d5423a791a2d9e783c6182d6d6b4422ab878f2efbba6aa12f5843280b7",
+    "data/raw/swe_exp/evaluation/lite/20240509_amazon-q-developer-agent-20240430-dev/metadata.yaml": "efbba88cf513d2a8dcd43afd0197f300177f3868c11d74ebf9f7924486020ea7",
+    "data/raw/swe_exp/evaluation/lite/20240509_amazon-q-developer-agent-20240430-dev/results/results.json": "2549a0ba70d2812b5980a17a52623e9dd002e96a03acca17dce30c59b6e8acd3",
+    "data/raw/swe_exp/evaluation/lite/20240523_aider/metadata.yaml": "dfd0585ea62c6b7c86821fbf57ef1ca1d7b67d981d1d2144e87284dd4e5c35f9",
+    "data/raw/swe_exp/evaluation/lite/20240523_aider/results/results.json": "e63bbdaf9236dfc7c39f15bc3fe233671627869c1010092e29ca4556838b02a2",
+    "data/raw/swe_exp/evaluation/lite/20240524_opencsg_starship_gpt4/metadata.yaml": "a906a9b698d6517735b21c8c511e30002a8cd2d590ac7fa46140837e0bf8f3cd",
+    "data/raw/swe_exp/evaluation/lite/20240524_opencsg_starship_gpt4/results/results.json": "e5ba2f11eae06c6ebce61e46b71baa5254c0e92b3773350983169313e90a2b33",
+    "data/raw/swe_exp/evaluation/lite/20240530_autocoderover-v20240408/metadata.yaml": "330ed180dadaeca3e8a266ac08ee8ea814338fa14686039497b118b06f6f4cac",
+    "data/raw/swe_exp/evaluation/lite/20240530_autocoderover-v20240408/results/results.json": "8932949b82106d7507dde1ed36d45528630b5714c0af4472edbe3df4d00958a5",
+    "data/raw/swe_exp/evaluation/lite/20240604_CodeR/metadata.yaml": "02e6202a128d1b01d2f62d48f7d8b69319757da92caadd84feb485796166747b",
+    "data/raw/swe_exp/evaluation/lite/20240604_CodeR/results/results.json": "296c29e27b941c271caafcae34e49a2f0fe80b4339fe0d94813b552f61c24f28",
+    "data/raw/swe_exp/evaluation/lite/20240612_IBM_Research_Agent101/metadata.yaml": "b492649bc2f4c38cba57c2917bb475e2c9e5a5764cfd203c98ec56f94acaa8f8",
+    "data/raw/swe_exp/evaluation/lite/20240612_IBM_Research_Agent101/results/results.json": "9f65a5552697b1a5de466ab04e2b01d7b79f2cfaf31a33be9dad066ab452a62a",
+    "data/raw/swe_exp/evaluation/lite/20240612_MASAI_gpt4o/metadata.yaml": "32b6c7eb11c29552b971f928c7490be7df1fbd89e1908bc313abc414ca9c4162",
+    "data/raw/swe_exp/evaluation/lite/20240612_MASAI_gpt4o/results/results.json": "3a4ca359506dbc9de644638925ed954fdbfa90a142d638c400e574309ad6da7c",
+    "data/raw/swe_exp/evaluation/lite/20240615_appmap-navie_gpt4o/metadata.yaml": "00ee03cc6c5d08d7d5831f0611990c51e1ea0fee99b0dd4a68dfcaf34394a6c9",
+    "data/raw/swe_exp/evaluation/lite/20240615_appmap-navie_gpt4o/results/results.json": "6fd9085f208ef805575d432e0b51cf582720a9f7e8acfc36ad8f6518abd40a1f",
+    "data/raw/swe_exp/evaluation/lite/20240617_factory_code_droid/metadata.yaml": "877e7ebfd09532197b7d48fa0aa303bcc265507261447583e02cf7186e03046e",
+    "data/raw/swe_exp/evaluation/lite/20240617_factory_code_droid/results/results.json": "c8260468a96548f0d4018ecbaf6feab38a62b8fd056b8c1959a04426241000ff",
+    "data/raw/swe_exp/evaluation/lite/20240617_moatless_gpt4o/metadata.yaml": "f54b3642d4c99bf0a6713745074d68f5c288ebb6910d8e5793252c9b32c19bd5",
+    "data/raw/swe_exp/evaluation/lite/20240617_moatless_gpt4o/results/results.json": "5b402a7122484d473493234a4931e2464d7c231e29d7149ae5ce872d08670931",
+    "data/raw/swe_exp/evaluation/lite/20240620_sweagent_claude3.5sonnet/metadata.yaml": "02ce5509a82d4f9895712b0ef3e805941ccf1bf6b9f79a142b252efe5ae0871e",
+    "data/raw/swe_exp/evaluation/lite/20240620_sweagent_claude3.5sonnet/results/results.json": "4b545e59f05c1ac5bd13eeca43150ba6f39f835cf6ff36660fbf2a036112f34f",
+    "data/raw/swe_exp/evaluation/lite/20240621_autocoderover-v20240620/metadata.yaml": "f7bb4ff6104996cdba6335f0eee2c615bc6d8062734456aa112eba0874993421",
+    "data/raw/swe_exp/evaluation/lite/20240621_autocoderover-v20240620/results/results.json": "18efde1a8299629f33a09b6063140d14464abff632bde8411ef6763962930484",
+    "data/raw/swe_exp/evaluation/lite/20240622_Lingma_Agent/metadata.yaml": "313418b1fd45afee6c6e6c43680aa0de561aabe0d05f10b00ff0381b706f7557",
+    "data/raw/swe_exp/evaluation/lite/20240622_Lingma_Agent/results/results.json": "edd2bf871a2ac7c5aa19716b8872e7b2140ee95e889642b597a5930c471ab095",
+    "data/raw/swe_exp/evaluation/lite/20240623_moatless_claude35sonnet/metadata.yaml": "d73828b18f5dbf07f6085b61cfb3cd0fca0df2f27d11422908bf7cb8d8e0b955",
+    "data/raw/swe_exp/evaluation/lite/20240623_moatless_claude35sonnet/results/results.json": "d0a98c9ba67c7d1f6649c7f883a137a66ab4bc2f9558dde82039a8a83c28cff5",
+    "data/raw/swe_exp/evaluation/lite/20240627_abanteai_mentatbot_gpt4o/metadata.yaml": "69172a6ec8dc9b94f0139de63bd7055da82e21f95991b1539ca805fd64efa90b",
+    "data/raw/swe_exp/evaluation/lite/20240627_abanteai_mentatbot_gpt4o/results/results.json": "62088306a480121ff00e0daa8dd786b0595ddcb8303776ed9188942d8f96eb9d",
+    "data/raw/swe_exp/evaluation/lite/20240630_agentless_gpt4o/metadata.yaml": "609dc711b62c45533c0f675968683b499bd998ccff1c37a2728a5f4edded4443",
+    "data/raw/swe_exp/evaluation/lite/20240630_agentless_gpt4o/results/results.json": "96c3a94579c07e3ac8c2477a08253f9124501ed8ea5c95129ff9866ce61682c0",
+    "data/raw/swe_exp/evaluation/lite/20240702_codestory_aide_mixed/metadata.yaml": "4204c96d2fe457533da35c04f9b0329f22fd6cb41d25fbd9f6d0dc1754f44d6a",
+    "data/raw/swe_exp/evaluation/lite/20240702_codestory_aide_mixed/results/results.json": "1818778665e894757d5097faf6d706054b1d77c74a000114569ce6c54437c77b",
+    "data/raw/swe_exp/evaluation/lite/20240706_sima_gpt4o/metadata.yaml": "63a84c08205a2ba765107a108b3c186bad7a244dc5ce67707f4f027e197d3812",
+    "data/raw/swe_exp/evaluation/lite/20240706_sima_gpt4o/results/results.json": "a9fdf506ab2577458548902ff696ec96f596ed4bbe0e617917ca14ccb713e3c9",
+    "data/raw/swe_exp/evaluation/lite/20240721_amazon-q-developer-agent-20240719-dev/metadata.yaml": "6d34b2c1e6c4e69dda05609a3218642023c448a45b252e1d54f389ee11d25379",
+    "data/raw/swe_exp/evaluation/lite/20240721_amazon-q-developer-agent-20240719-dev/results/results.json": "d06cd75c17df657b14e2f20113f9f4c98552837af0b1d46bb4e197ace6ebf394",
+    "data/raw/swe_exp/evaluation/lite/20240723_marscode-agent-dev/metadata.yaml": "d0d1fc9a7b894dd6d17803dece82d7f460efc3837de9a966a94a48bfabe2c395",
+    "data/raw/swe_exp/evaluation/lite/20240723_marscode-agent-dev/results/results.json": "8a90663dc696a2b1ef5c0a09e4bfae6b434c7e9bd027f48a5224f4e3dc7b6ef2",
+    "data/raw/swe_exp/evaluation/lite/20240725_opendevin_codeact_v1.8_claude35sonnet/metadata.yaml": "30427a90f2b0afa62fe799192d25b15110501337fde96bcd93558dec0aa53e70",
+    "data/raw/swe_exp/evaluation/lite/20240725_opendevin_codeact_v1.8_claude35sonnet/results/results.json": "97482eebd30c9d38d550fb640c1adfde8f3ebf6297328d9debab653b2e6cbffe",
+    "data/raw/swe_exp/evaluation/lite/20240728_sweagent_gpt4o/metadata.yaml": "de08936e1c4687a2bee31448c0dd27b4ec53e303d0eff243b6a0c08d9b4b143f",
+    "data/raw/swe_exp/evaluation/lite/20240728_sweagent_gpt4o/results/results.json": "343add471c08f1dd2cd00421ee7fdcaa913975a35000926d706bd30817c95f11",
+    "data/raw/swe_exp/evaluation/lite/20240806_SuperCoder2.0/metadata.yaml": "8ddd7aa0a429eb1ffb41713f9dc0d96fcb7dfd5ee01146aec9115ee875df22dd",
+    "data/raw/swe_exp/evaluation/lite/20240806_SuperCoder2.0/results/results.json": "248dffb5ca534ccf84d4287b168cb733376ceac3da9c941af9194f2cda1d1473",
+    "data/raw/swe_exp/evaluation/lite/20240808_RepoGraph_gpt4o/metadata.yaml": "6e208059a0b876a68763492c084becc3cc876e19d001cb1395bd15bf7371d789",
+    "data/raw/swe_exp/evaluation/lite/20240808_RepoGraph_gpt4o/results/results.json": "1785290cebf11357c85159df7ef48b3c08aee54224057796d81446971f33e9d4",
+    "data/raw/swe_exp/evaluation/lite/20240811_gru/metadata.yaml": "2709186ff44bc1cfe9270ae93d3c4745356dff6aa31fe1513c6660408f2e108e",
+    "data/raw/swe_exp/evaluation/lite/20240811_gru/results/results.json": "616e4734a050faafa0b9d288267ea7d4ef539e5c4ffe9668f8a1a9b20103f263",
+    "data/raw/swe_exp/evaluation/lite/20240820_honeycomb/metadata.yaml": "7ac59b0dba58708cce403fc2b7faee59a8307954c5a80a7a8a3510763cd91775",
+    "data/raw/swe_exp/evaluation/lite/20240820_honeycomb/results/results.json": "2f47fdc1a7b20c08485842531ae4a4d1fd9eb4ba475c805293f6dc72ea6720bc",
+    "data/raw/swe_exp/evaluation/lite/20240828_autose_mixed/metadata.yaml": "bdca29496b58c0230d14c1c13a14bfcc24005cb88f8a35cc1c85d4e3895fb688",
+    "data/raw/swe_exp/evaluation/lite/20240828_autose_mixed/results/results.json": "f314fde0478622bedfb5308721e054292da40b0056850d6281d93431a76b8b6d",
+    "data/raw/swe_exp/evaluation/lite/20240829_Isoform/metadata.yaml": "d0436bc0d8f374c4d92ff168d9913a1a2658aedf8adaf78794084ded8d2fa250",
+    "data/raw/swe_exp/evaluation/lite/20240829_Isoform/results/results.json": "92a677a6d1c3a7339a710b6226d4ccff8034e7cf1038995f49241c879e9cd4af",
+    "data/raw/swe_exp/evaluation/lite/20240908_infant_gpt4o/metadata.yaml": "e9bf048564fe05cd7c5ec8f2956629cf04ceca6b2525cb2f64b70d692e7ca578",
+    "data/raw/swe_exp/evaluation/lite/20240908_infant_gpt4o/results/results.json": "2f2d9b2cc72a8cf4fb8f8fc64bb7a680d46795b2e571572bceac2b05632776d3",
+    "data/raw/swe_exp/evaluation/lite/20240912_marscode-agent-dev/metadata.yaml": "dcb21c54222a050db0a67b5cee0505fe08e7ddf413dcd0ce38b81ae03c9f5abd",
+    "data/raw/swe_exp/evaluation/lite/20240912_marscode-agent-dev/results/results.json": "b8c149913a79352b74efac1823529b5f064f216c2d4868530183143a9e70645b",
+    "data/raw/swe_exp/evaluation/lite/20240925_hyperagent_lite1/metadata.yaml": "82b3b435025dde33fb5ba71f2334c84b29985b10d727c9f5fbee736beb0774aa",
+    "data/raw/swe_exp/evaluation/lite/20240925_hyperagent_lite1/results/results.json": "fde62afbe5cee0176814c3d42ce86a243da3c42efce2b14ef90a2fa6daf1118b",
+    "data/raw/swe_exp/evaluation/lite/20241016_IBM-SWE-1.0/metadata.yaml": "e43f2fad062dd30fe2220b8d117c14aead0cc790bd6d0ec64e99a034ab3a0350",
+    "data/raw/swe_exp/evaluation/lite/20241016_IBM-SWE-1.0/results/results.json": "ae2f4c735faf8ecc80faa0027b476889a7a13adb5865a05b40af9797810357b0",
+    "data/raw/swe_exp/evaluation/lite/20241025_OpenHands-CodeAct-2.1-sonnet-20241022/metadata.yaml": "96e76208c1f12772d1e75065b3ab3f96d1dea90b42c3fb7b8cd77aed13338ebb",
+    "data/raw/swe_exp/evaluation/lite/20241025_OpenHands-CodeAct-2.1-sonnet-20241022/results/results.json": "dae3d60c84d02e6bab6dd28ba9cc5df0b6e7f1beb5e15adb4bd162fcc63db1ad",
+    "data/raw/swe_exp/evaluation/lite/20241028_agentless-1.5_gpt4o/metadata.yaml": "8f47a0bad1b1f956b1cf2aee289df366ad901e40daf3b5977acc79566e0e206a",
+    "data/raw/swe_exp/evaluation/lite/20241028_agentless-1.5_gpt4o/results/results.json": "b38533bcb21bd9f6a750712e71ce92e6502fe08b25db36d40c16b889d66204af",
+    "data/raw/swe_exp/evaluation/lite/20241030_composio_swekit/metadata.yaml": "10cdda844e31e2333bfe49c996017ecdfa6ed7c47cf85b9451b4344d6b4d421b",
+    "data/raw/swe_exp/evaluation/lite/20241030_composio_swekit/results/results.json": "51ccfa96d89c3ff09db4330bf38bb850954f4a6b71e40905dbe98e47c763593c",
+    "data/raw/swe_exp/evaluation/lite/20241111_codeshelltester_gpt4o/metadata.yaml": "386efed69364bbdf1a2f8a16ac9d1c7001008c59280477c0520165531df0dfaf",
+    "data/raw/swe_exp/evaluation/lite/20241111_codeshelltester_gpt4o/results/results.json": "30522ff4022decd2e450cc06f68402b4d9432fd8040733b27e2559d324b2ebe4",
+    "data/raw/swe_exp/evaluation/lite/20241113_navie-2-gpt4o-sonnet/metadata.yaml": "9f39b9b88d2b09bc7982b47aa10bab3d147e3d83404a3787a4f1bfe8728be7d3",
+    "data/raw/swe_exp/evaluation/lite/20241113_navie-2-gpt4o-sonnet/results/results.json": "9711f2286153e3caf39e79550fd42308e3285177ecea9623e02422b034726b91",
+    "data/raw/swe_exp/evaluation/lite/20241117_moatless_claude-3.5-sonnet-20241022/metadata.yaml": "251cd79f66a669e0340b16dbc03c7efda23de1ade5b08ca9092862cf578cb96a",
+    "data/raw/swe_exp/evaluation/lite/20241117_moatless_claude-3.5-sonnet-20241022/results/results.json": "acedc69bd8eb4af02841e38cc969c3c4ccbe8b5d95f00fadad12900f1dd90996",
+    "data/raw/swe_exp/evaluation/lite/20241117_reproducedRG_gpt4o/metadata.yaml": "9eee8b0fb3191b7f966ce05d3e5452d2f08c890e6aeeb02063212e125f719bc0",
+    "data/raw/swe_exp/evaluation/lite/20241117_reproducedRG_gpt4o/results/results.json": "297944fece8b372257b46c46e5987a27d1b3d538be8286e00cc151e1f6f46325",
+    "data/raw/swe_exp/evaluation/lite/20241122_devlo/metadata.yaml": "49e69066c2cae3f09f4228b0ac7807bf9a4e3e49f3f72b4230064cf1e63f22ee",
+    "data/raw/swe_exp/evaluation/lite/20241122_devlo/results/results.json": "d8a38b6e6c3cfaf7da32f089a2a166c122c5906490b7d4f808b4b066d5b72ba2",
+    "data/raw/swe_exp/evaluation/lite/20241127_globant_codefixer_agent/metadata.yaml": "1dc3acd8a823c9848054dfc5d834c0a8374ab249c4a9671ad58aaba827433601",
+    "data/raw/swe_exp/evaluation/lite/20241127_globant_codefixer_agent/results/results.json": "212dbd2464d681ca5da36c2675e3bf419f1708ca77c57a703d922bc579bd93f9",
+    "data/raw/swe_exp/evaluation/lite/20241128_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor_20241128/metadata.yaml": "6b838a032ee00c5727a2ec98f39362d8f62fe2cf484db00010616defd5ef48ec",
+    "data/raw/swe_exp/evaluation/lite/20241128_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor_20241128/results/results.json": "ada4e1dc7c4bcd6288d90f2cd66a42631fb4fd458f45c39d3a627662747208f6",
+    "data/raw/swe_exp/evaluation/lite/20241202_agentless-1.5_claude-3.5-sonnet-20241022/metadata.yaml": "a48c197ceaee5eff46ded353b55bebd2c181a9442ef7e699e7367cdfbfb59987",
+    "data/raw/swe_exp/evaluation/lite/20241202_agentless-1.5_claude-3.5-sonnet-20241022/results/results.json": "0322412353d279428a939b7518fcfb55b2dedeb4b4bb7ce6e1cc7968fa4d9c04",
+    "data/raw/swe_exp/evaluation/lite/20241203_KortixAI-AgentPress-sonnet-20241022/metadata.yaml": "1f0a873cd3ef3a9f90902af25cb975671a489410b4470d92b6e772dde4f363ea",
+    "data/raw/swe_exp/evaluation/lite/20241203_KortixAI-AgentPress-sonnet-20241022/results/results.json": "67e8bf40cf5554919fc499dadbf473442e9b38c4d38463277c3c0e5933725aa5",
+    "data/raw/swe_exp/evaluation/lite/20241207_kodu_sonnet_v1/metadata.yaml": "f8fe0376561c7cafd0a167afd8fc86ab70c3eec8cbfcc40cc3afc701b42c4c60",
+    "data/raw/swe_exp/evaluation/lite/20241207_kodu_sonnet_v1/results/results.json": "6dda39ce5b41f93157f232029245d9a53a54f0def71732c901f58abd2ea49abf",
+    "data/raw/swe_exp/evaluation/lite/20241208_gru/metadata.yaml": "36ccdde7dd72fa0d48c2cabb8cc08d83532d0e389283f96eeaebea0ab569852f",
+    "data/raw/swe_exp/evaluation/lite/20241208_gru/results/results.json": "e751722f4030298ef35ff95fd7f792d54ab24027eb11c50c5c978d17d869d6c1",
+    "data/raw/swe_exp/evaluation/lite/20241220_PatchKitty-0.9_claude-3.5-sonnet-20241022/metadata.yaml": "367d35d542377a177bc12c7e0cf0a6e7bac4608e9448774e533b12aac93391f5",
+    "data/raw/swe_exp/evaluation/lite/20241220_PatchKitty-0.9_claude-3.5-sonnet-20241022/results/results.json": "0d6a4a36f6a0623af936dfbef3fdfb2fe99eb592e6c9dfd3eabb1f97182778cb",
+    "data/raw/swe_exp/evaluation/lite/20241220_blackboxai_agent_v1/metadata.yaml": "bc841823155301f1ee2d503712c3217ac9782cd8ad6bb154806b4f0a162a014c",
+    "data/raw/swe_exp/evaluation/lite/20241220_blackboxai_agent_v1/results/results.json": "29e4685318a8435abb63f2a2551ed6972ad1e1c0be837a3318192621214d484d",
+    "data/raw/swe_exp/evaluation/lite/20250104_codefuse-aais/metadata.yaml": "1124790a0b4d731747bab471257c72bdb613a65f635088006b32860c04737530",
+    "data/raw/swe_exp/evaluation/lite/20250104_codefuse-aais/results/results.json": "93bacac4aea2552be2fb205ff3d9be424a4768cace011972b7b7df6141140c9c",
+    "data/raw/swe_exp/evaluation/lite/20250104_patched_codes_claude-3.5-sonnet-20241022/metadata.yaml": "62b99a6729499576a8624cc2146710d9e166fee87cd00b9ab91557a1daa3fb0d",
+    "data/raw/swe_exp/evaluation/lite/20250104_patched_codes_claude-3.5-sonnet-20241022/results/results.json": "c85a1ebd8fe2cf745ec9a50d6353b7fc589dbccba254a9d6a90d85d52bd3ade3",
+    "data/raw/swe_exp/evaluation/lite/20250111_moatless_deepseek_v3/metadata.yaml": "c6818f7f041acc7e47eba96410673996a5d7354df46e4c025af9a286b10dcfbb",
+    "data/raw/swe_exp/evaluation/lite/20250111_moatless_deepseek_v3/results/results.json": "eb15c1af4e3ad52e817e98395c9fde2ae20350f495f94c9087c53968764bee9b",
+    "data/raw/swe_exp/evaluation/lite/20250113_OpenCSG-Starship-Agentic-Coder_gpt4o/metadata.yaml": "4d92325a703dadcd959ab68de0b2ba92117a5204139cc11dfe7599d9021f99d5",
+    "data/raw/swe_exp/evaluation/lite/20250113_OpenCSG-Starship-Agentic-Coder_gpt4o/results/results.json": "8729b1247771b84b900aed5c0090aa0404088671fb9c2bcf885c0d032128a7cc",
+    "data/raw/swe_exp/evaluation/lite/20250113_OrcaLoca/metadata.yaml": "662974643b998e360ceb5e5b7c5e46c9e7f8893d1e8fa7b43efad47202920fdc",
+    "data/raw/swe_exp/evaluation/lite/20250113_OrcaLoca/results/results.json": "b77dfb9cd91b9058e22a3ba70148ca341cdf1353b08203e8e261c1ac697e0621",
+    "data/raw/swe_exp/evaluation/lite/20250114_Isoform/metadata.yaml": "b997c9f472004925ad3b379546ab463cb3665281a14506f60ff4e1f12ed8b171",
+    "data/raw/swe_exp/evaluation/lite/20250114_Isoform/results/results.json": "ed6da9f20932c7ce7fbf6b5844b1d453a6631d35a468f3f33a199ce5450df038",
+    "data/raw/swe_exp/evaluation/lite/20250114_moatless_claude-3.5-sonnet-20241022/metadata.yaml": "4fef23f974d802ac655b4db90dcc1aecfb4f63c5267bdaa4aa65db24072cdbee",
+    "data/raw/swe_exp/evaluation/lite/20250114_moatless_claude-3.5-sonnet-20241022/results/results.json": "e2e470da89d55e67b67126b59688db941956f2cb7b2670ab8fe29e5eb35becc9",
+    "data/raw/swe_exp/evaluation/lite/20250205_dars_agent_claude_3.5_sonnet_deepseek_r1/metadata.yaml": "d5352caca17f73f7c7ed6f36917e4b2210c26119d5dc84e1735d93b1076ac755",
+    "data/raw/swe_exp/evaluation/lite/20250205_dars_agent_claude_3.5_sonnet_deepseek_r1/results/results.json": "e71075676fb5226bd0620433832c1f2f8894115aa945534315ff001d34533b41",
+    "data/raw/swe_exp/evaluation/lite/20250207_aegis_o3mini/metadata.yaml": "55508a2ca274979799d9420e5dfabf592ec2b47462ab8b3731c9f99742fa1a9f",
+    "data/raw/swe_exp/evaluation/lite/20250207_aegis_o3mini/results/results.json": "0c806c72b773f184e765f346e955b6304ee43257067bffb4d1f852c9d92b179f",
+    "data/raw/swe_exp/evaluation/lite/20250214_agentless_lite_o3_mini/metadata.yaml": "e0e7f897dadab2dd5dc80a82373042be6950fd9c20147a6c4b3b06dfa0217da7",
+    "data/raw/swe_exp/evaluation/lite/20250214_agentless_lite_o3_mini/results/results.json": "13a7a988738e64027e9399b5bd518e20469faaa06118021c7f4fd4844e9f2905",
+    "data/raw/swe_exp/evaluation/lite/20250226_sweagent_claude-3-7-sonnet-20250219/metadata.yaml": "082713532f831b42c6100c6fdfe46b5489dbc11dc2a403a28958ad77c975d6e2",
+    "data/raw/swe_exp/evaluation/lite/20250226_sweagent_claude-3-7-sonnet-20250219/results/results.json": "5d3534061eaaa5be5c3058da35cb2ee9f4ed7610f416fa1aabdb3f3ff31107c9",
+    "data/raw/swe_exp/evaluation/lite/20250306_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor/metadata.yaml": "26609c02739b9df787c8b64e9b390d0fc9685843e6aec7bb5811d6895e1c34ea",
+    "data/raw/swe_exp/evaluation/lite/20250306_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor/results/results.json": "37a3fe2e9802a94c9df1fef7e99d7f6c75099a6d3f20f6b40ff6a102142c46b8",
+    "data/raw/swe_exp/evaluation/lite/20250310_codefuse-cgm/metadata.yaml": "827d3f9d1f60ef2c031a2ed067f880076417dceba7f066d11edd28c043887911",
+    "data/raw/swe_exp/evaluation/lite/20250310_codefuse-cgm/results/results.json": "a8bdf7b1b3593e36d0375b21906a75da0fb8b64cc77ace8c1c6f1f59b60f7bf1",
+    "data/raw/swe_exp/evaluation/lite/20250425_Refact_Agent/metadata.yaml": "a0516e48b12c5d8155f892a6ac45148b623044b8919b0c9492041de710838283",
+    "data/raw/swe_exp/evaluation/lite/20250425_Refact_Agent/results/results.json": "43e02ad8ab3578f0c30e39d0bd00d40c0a9044188eccc4000e1cd7a7ec40404d",
+    "data/raw/swe_exp/evaluation/lite/20250509_Lingxi_claude-3-5-sonnet-20241022/metadata.yaml": "d5e6cf90d011445e901ad6e46570ee25ad7bc03e2e73f367051e5f3edc583927",
+    "data/raw/swe_exp/evaluation/lite/20250509_Lingxi_claude-3-5-sonnet-20241022/results/results.json": "a6a67ed30a84a59057ece080e4a8551972186cbbfbb9461af876bb6407b5d320",
+    "data/raw/swe_exp/evaluation/lite/20250515_codartai/metadata.yaml": "3d690a8affd554822b78f3bf848df21277147dbed445c6a6fdcbfe25cbaef1a2",
+    "data/raw/swe_exp/evaluation/lite/20250515_codartai/results/results.json": "8904015035528aee0574e848c0f2e0f5f8e91e4335fc5a2e8e821d6eb6bf96f0",
+    "data/raw/swe_exp/evaluation/lite/20250526_sweagent_claude-4-sonnet-20250514/metadata.yaml": "4fab90f15f6dbdcb88600260a831e7657de69bdda0668c99d7c199e2e5f05c56",
+    "data/raw/swe_exp/evaluation/lite/20250526_sweagent_claude-4-sonnet-20250514/results/results.json": "0495c91afed9dc0130490f68c3daf9caf37ad9522ccc983089d4b7bd7f52cf61",
+    "data/raw/swe_exp/evaluation/lite/20250528_Codev/metadata.yaml": "612c287598c66c4472b75b1dd50cb823de8d6baed1efe22513fa4995f8a48d41",
+    "data/raw/swe_exp/evaluation/lite/20250528_Codev/results/results.json": "346bc97277102ab3710331e8f5c26890ad5271e3903bee75e5be78085081eeeb",
+    "data/raw/swe_exp/evaluation/lite/20250609_KGCompass_deepseek-v3/metadata.yaml": "7ea19476072ed2510e769e39ebc70b6bf922dc3311c239daa612ca7611aaad79",
+    "data/raw/swe_exp/evaluation/lite/20250609_KGCompass_deepseek-v3/results/results.json": "670bf4155a3cd683212ef16587971a64e6142dc44609d60f402df2e6176695e9",
+    "data/raw/swe_exp/evaluation/lite/20250613_ExpeRepair-v1.0/metadata.yaml": "5fdc3ecb03f5fe79e7f6a097c38fe8fa6d5266d1b57cfd9cd655767e59b8ab1c",
+    "data/raw/swe_exp/evaluation/lite/20250613_ExpeRepair-v1.0/results/results.json": "c1c1d7064210eae8780a2abc34b83a4fc81959cb73ae65a54b156aac6370a002",
+    "data/raw/swe_exp/evaluation/lite/20250619_KGCompass_claude-3.5-sonnet-20241022/metadata.yaml": "e732626ec221e613f15a1a5fd39b0b464fb8ed98ab2908b6a9602a645850f3eb",
+    "data/raw/swe_exp/evaluation/lite/20250619_KGCompass_claude-3.5-sonnet-20241022/results/results.json": "e9bf23a386059c9f4194edf2ca101d574dd882e8d00dedf23e48435f6d9a804c",
+    "data/raw/swe_exp/evaluation/lite/20250625_ExpeRepair-v1_claude-4-sonnet-20250514/metadata.yaml": "0b75601f9b67cbcb12a8343d32a217d7c236efdb869d2cbd0e3253e26a39705b",
+    "data/raw/swe_exp/evaluation/lite/20250625_ExpeRepair-v1_claude-4-sonnet-20250514/results/results.json": "39cf191362dbf1e90aed3ca48e05b10d8cbc548ae102388a5059c56fae9c50ed",
+    "data/raw/swe_exp/evaluation/lite/20250625_SemAgent_Multi-v1_Claude3.7Sonnet_Gemini2.5Pro/metadata.yaml": "802d7e7a8838d013bdac62d22ccda2982c7268a337df5330da5e2c52847a4631",
+    "data/raw/swe_exp/evaluation/lite/20250625_SemAgent_Multi-v1_Claude3.7Sonnet_Gemini2.5Pro/results/results.json": "1407e51eafbf0c6b2b86735ba6c6669d0256138482e5d35b3e34d6bf9926f0a1",
+    "data/raw/swe_exp/evaluation/lite/20250627_agentless_MCTS-Refine-7B/metadata.yaml": "64f3885e26d74124800c159ea9c8a1929242259978ca3b9e32657ff108e98f90",
+    "data/raw/swe_exp/evaluation/lite/20250627_agentless_MCTS-Refine-7B/results/results.json": "6d3713825ebfff0f13ec8b059d95ef6465fc47caa984dfff6337ddc1c4a80fbe",
+    "data/raw/swe_exp/evaluation/lite/20250901_entroPO_R2E_QwenCoder30BA3B/metadata.yaml": "25a7b9c2784a2093722407f4e85476f2b0ddf140309eb1f1013a7eb00d57e945",
+    "data/raw/swe_exp/evaluation/lite/20250901_entroPO_R2E_QwenCoder30BA3B/results/results.json": "6d8bee100e4c34d04a06de418fb6a22203dde452e6006d92960076c48ace1579",
+    "data/raw/swe_exp/evaluation/lite/20250901_entroPO_R2E_QwenCoder30BA3B_tts/metadata.yaml": "22e52868437679c6613fffad5081da23ff8d82cfa56ec65c7b3043db78706217",
+    "data/raw/swe_exp/evaluation/lite/20250901_entroPO_R2E_QwenCoder30BA3B_tts/results/results.json": "498ec3f11742f31ae8bf7f33fd2f1d9efb166f7ac5b5327bc4303517c2abc5b3",
+    "data/raw/swe_exp/evaluation/lite/20250906_KGCompass_claude-4-sonnet-20250514/metadata.yaml": "b6ee7c3adf279ee7e0f5120bd9249cbbb11f271fed45c45b75a217a6d13e38c4",
+    "data/raw/swe_exp/evaluation/lite/20250906_KGCompass_claude-4-sonnet-20250514/results/results.json": "a9e4b0a11cda3be99c5cfd0afb090ca86c3396836e9ce537091981db7360163c",
+    "data/raw/swe_exp/evaluation/lite/20250911_isea_claude-3.5-sonnet-20241022/metadata.yaml": "54cec1e74401bcd854b6aa081f25118bcaf3b52e430565f28311c22a782797b0",
+    "data/raw/swe_exp/evaluation/lite/20250911_isea_claude-3.5-sonnet-20241022/results/results.json": "236a889c0e0acaf3fe264fab303e3948aa2ecb5612f1b9d3de0db32d2f093427"
+   },
+   "sha256": "cc40f74417f39e915de682cb6dd057fccbdc7d16898790315396333b92370195"
+  },
+  "swe_verified": {
+   "accuracy_range": [
+    0.0,
+    0.792
+   ],
+   "file": "data/processed/swe_verified.npz",
+   "items_always_correct": 0,
+   "items_never_correct": 26,
+   "mean_accuracy": 0.5293714285714286,
+   "meta": {
+    "binarization": "instance resolved by the official harness (unresolved, errors and missing patches count as 0)",
+    "domain": "agentic software engineering (execution-based tests)",
+    "family_models": {
+     "20231010_rag_claude2": [
+      "claude-2"
+     ],
+     "20231010_rag_gpt35": [
+      "unknown:20231010_rag_gpt35"
+     ],
+     "20231010_rag_swellama13b": [
+      "unknown:20231010_rag_swellama13b"
+     ],
+     "20231010_rag_swellama7b": [
+      "swe-llama"
+     ],
+     "20240402_rag_claude3opus": [
+      "claude-3-opus"
+     ],
+     "20240402_rag_gpt4": [
+      "gpt-4-1106-preview"
+     ],
+     "20240402_sweagent_claude3opus": [
+      "claude-3-opus"
+     ],
+     "20240402_sweagent_gpt4": [
+      "gpt-4-1106-preview"
+     ],
+     "20240509_amazon-q-developer-agent-20240430-dev": [
+      "unknown:20240509_amazon-q-developer-agent-20240430-dev"
+     ],
+     "20240612_MASAI_gpt4o": [
+      "gpt-4o"
+     ],
+     "20240615_appmap-navie_gpt4o": [
+      "gpt-4o"
+     ],
+     "20240617_factory_code_droid": [
+      "unknown:20240617_factory_code_droid"
+     ],
+     "20240620_sweagent_claude3.5sonnet": [
+      "claude-3-5-sonnet"
+     ],
+     "20240628_autocoderover-v20240620": [
+      "gpt-4o"
+     ],
+     "20240721_amazon-q-developer-agent-20240719-dev": [
+      "unknown:20240721_amazon-q-developer-agent-20240719-dev"
+     ],
+     "20240728_sweagent_gpt4o": [
+      "gpt-4o"
+     ],
+     "20240820_epam-ai-run-gpt-4o": [
+      "gpt-4o"
+     ],
+     "20240820_honeycomb": [
+      "unknown:20240820_honeycomb"
+     ],
+     "20240824_gru": [
+      "unknown:20240824_gru"
+     ],
+     "20240918_lingma-agent_lingma-swe-gpt-72b": [
+      "unknown:20240918_lingma-agent_lingma-swe-gpt-72b"
+     ],
+     "20240918_lingma-agent_lingma-swe-gpt-7b": [
+      "unknown:20240918_lingma-agent_lingma-swe-gpt-7b"
+     ],
+     "20240920_solver": [
+      "unknown:20240920_solver"
+     ],
+     "20240924_solver": [
+      "unknown:20240924_solver"
+     ],
+     "20241001_nfactorial": [
+      "unknown:20241001_nfactorial"
+     ],
+     "20241002_lingma-agent_lingma-swe-gpt-72b": [
+      "unknown:20241002_lingma-agent_lingma-swe-gpt-72b"
+     ],
+     "20241002_lingma-agent_lingma-swe-gpt-7b": [
+      "unknown:20241002_lingma-agent_lingma-swe-gpt-7b"
+     ],
+     "20241007_nfactorial": [
+      "unknown:20241007_nfactorial"
+     ],
+     "20241016_composio_swekit": [
+      "claude-3-5-sonnet",
+      "claude-3.5-sonnet"
+     ],
+     "20241016_epam-ai-run-gpt-4o": [
+      "gpt-4o"
+     ],
+     "20241022_tools_claude-3-5-haiku": [
+      "claude-3-haiku"
+     ],
+     "20241022_tools_claude-3-5-sonnet-updated": [
+      "claude-3-5-sonnet",
+      "claude-3.5-sonnet"
+     ],
+     "20241023_emergent": [
+      "claude-3-5-sonnet",
+      "gpt-4o"
+     ],
+     "20241025_composio_swekit": [
+      "claude-3-5-sonnet",
+      "o1-mini"
+     ],
+     "20241028_agentless-1.5_gpt4o": [
+      "gpt-4o"
+     ],
+     "20241028_solver": [
+      "unknown:20241028_solver"
+     ],
+     "20241029_OpenHands-CodeAct-2.1-sonnet-20241022": [
+      "unknown:20241029_OpenHands-CodeAct-2.1-sonnet-20241022"
+     ],
+     "20241029_epam-ai-run-claude-3-5-sonnet": [
+      "claude-3-5-sonnet"
+     ],
+     "20241030_nfactorial": [
+      "claude-3-5-sonnet",
+      "gpt-4o",
+      "o1-preview"
+     ],
+     "20241105_nfactorial": [
+      "claude-3-5-sonnet",
+      "gpt-4o"
+     ],
+     "20241106_navie-2-gpt4o-sonnet": [
+      "claude-3-5-sonnet",
+      "gpt-4o"
+     ],
+     "20241108_autocoderover-v2.0-claude-3-5-sonnet-20241022": [
+      "claude-3-5-sonnet"
+     ],
+     "20241108_devlo": [
+      "claude-3-5-sonnet"
+     ],
+     "20241113_nebius-search-open-weight-models-11-24": [
+      "llama 3.1",
+      "qwen 2.5"
+     ],
+     "20241120_artemis_agent": [
+      "unknown:20241120_artemis_agent"
+     ],
+     "20241125_enginelabs": [
+      "claude-3-5-sonnet"
+     ],
+     "20241125_marscode-agent-dev": [
+      "unknown:20241125_marscode-agent-dev"
+     ],
+     "20241128_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor_20241128": [
+      "qwen 2.5"
+     ],
+     "20241202_agentless-1.5_claude-3.5-sonnet-20241022": [
+      "claude-3-5-sonnet"
+     ],
+     "20241202_amazon-q-developer-agent-20241202-dev": [
+      "unknown:20241202_amazon-q-developer-agent-20241202-dev"
+     ],
+     "20241208_gru": [
+      "unknown:20241208_gru"
+     ],
+     "20241212_epam-ai-run-claude-3-5-sonnet": [
+      "claude-3-5-sonnet"
+     ],
+     "20241212_google_jules_gemini_2.0_flash_experimental": [
+      "unknown:20241212_google_jules_gemini_2.0_flash_experimental"
+     ],
+     "20241213_devlo": [
+      "unknown:20241213_devlo"
+     ],
+     "20241221_codestory_midwit_claude-3-5-sonnet_swe-search": [
+      "claude-3-5-sonnet"
+     ],
+     "20241223_emergent": [
+      "claude-3-5-sonnet",
+      "gpt-4o"
+     ],
+     "20250110_blackboxai_agent_v1.1": [
+      "unknown:20250110_blackboxai_agent_v1.1"
+     ],
+     "20250110_learn_by_interact_claude3.5": [
+      "claude-3-5-sonnet"
+     ],
+     "20250112_ugaiforge": [
+      "unknown:20250112_ugaiforge"
+     ],
+     "20250117_wandb_programmer_o1_crosscheck5": [
+      "o1-preview"
+     ],
+     "20250118_codeshellagent_gemini_2.0_flash_experimental": [
+      "gemini-2.0-flash-exp"
+     ],
+     "20250120_Bracket": [
+      "unknown:20250120_Bracket"
+     ],
+     "20250122_autocoderover-v2.1-claude-3-5-sonnet-20241022": [
+      "claude-3-5-sonnet"
+     ],
+     "20250203_openhands_4x_scaled": [
+      "unknown:20250203_openhands_4x_scaled"
+     ],
+     "20250206_agentscope": [
+      "claude-3-5-sonnet"
+     ],
+     "20250214_agentless_lite_o3_mini": [
+      "o3-mini"
+     ],
+     "20250224_tools_claude-3-7-sonnet": [
+      "unknown:20250224_tools_claude-3-7-sonnet"
+     ],
+     "20250225_sweagent_claude-3-7-sonnet": [
+      "claude-3-7-sonnet"
+     ],
+     "20250226_swerl_llama3_70b": [
+      "llama3-swe-rl-70b"
+     ],
+     "20250228_epam-ai-run-claude-3-5-sonnet": [
+      "claude-3-5-sonnet"
+     ],
+     "20250306_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor": [
+      "qwen 2.5"
+     ],
+     "20250316_augment_agent_v0": [
+      "unknown:20250316_augment_agent_v0"
+     ],
+     "20250405_amazon-q-developer-agent-20250405-dev": [
+      "unknown:20250405_amazon-q-developer-agent-20250405-dev"
+     ],
+     "20250405_swe-rizzo_claude37": [
+      "unknown:20250405_swe-rizzo_claude37"
+     ],
+     "20250410_cortexa": [
+      "claude-3-5-sonnet",
+      "deepseek-v3",
+      "gpt-4-turbo",
+      "gpt-4o",
+      "meta-llama/llama-3.1-405b-instruct",
+      "meta-llama/llama-3.3-70b-instruct",
+      "nv-embedcode",
+      "o3-mini",
+      "qwen/qwen2.5-72b-instruct"
+     ],
+     "20250415_openhands": [
+      "unknown:20250415_openhands"
+     ],
+     "20250430_zencoder_ai": [
+      "claude-3-7-sonnet",
+      "o4-mini"
+     ],
+     "20250503_patchpilot-v1.1-o4-mini": [
+      "o4-mini"
+     ],
+     "20250511_sweagent_lm_32b": [
+      "qwen 2.5"
+     ],
+     "20250514_aime_coder": [
+      "claude-3-7-sonnet"
+     ],
+     "20250515_Refact_Agent": [
+      "claude-3-7-sonnet",
+      "o3",
+      "o4-mini"
+     ],
+     "20250516_cortexa_o3": [
+      "claude-3-7-sonnet",
+      "deepseek-v3",
+      "gpt-4-turbo",
+      "gpt-4.1",
+      "gpt-4o",
+      "meta-llama/llama-3.1-405b-instruct",
+      "meta-llama/llama-3.3-70b-instruct",
+      "nv-embedcode",
+      "o1",
+      "o3",
+      "o3-mini",
+      "qwen/qwen2.5-72b-instruct"
+     ],
+     "20250519_devlo": [
+      "claude-3-7-sonnet",
+      "gemini-2.5-pro",
+      "o3"
+     ],
+     "20250519_trae": [
+      "unknown:20250519_trae"
+     ],
+     "20250520_openhands_devstral_small": [
+      "mistralai/devstral-small-2505"
+     ],
+     "20250522_sweagent_claude-4-sonnet-20250514": [
+      "claude-4-sonnet"
+     ],
+     "20250522_tools_claude-4-opus": [
+      "claude-4-opus"
+     ],
+     "20250522_tools_claude-4-sonnet": [
+      "claude-4-sonnet"
+     ],
+     "20250524_openhands_claude_4_sonnet": [
+      "claude-4-sonnet"
+     ],
+     "20250527_amazon.nova-premier-v1.0": [
+      "amazon.nova-premier-v1:0"
+     ],
+     "20250528_patchpilot_Co-PatcheR": [
+      "unknown:20250528_patchpilot_Co-PatcheR"
+     ],
+     "20250603_Refact_Agent_claude-4-sonnet": [
+      "claude-4-sonnet",
+      "o4-mini"
+     ],
+     "20250610_augment_agent_v1": [
+      "unknown:20250610_augment_agent_v1"
+     ],
+     "20250611_moatless_claude-4-sonnet-20250514": [
+      "claude-4-sonnet"
+     ],
+     "20250612_trae": [
+      "claude-3-7-sonnet",
+      "claude-4-opus",
+      "claude-4-sonnet",
+      "gemini-2.5-pro-preview-06-05"
+     ],
+     "20250616_Skywork-SWE-32B": [
+      "qwen2.5-coder-32b-instruct"
+     ],
+     "20250616_Skywork-SWE-32B+TTS_Bo8": [
+      "qwen2.5-coder-32b-instruct"
+     ],
+     "20250623_warp": [
+      "claude-3-7-sonnet",
+      "claude-sonnet-4",
+      "gemini-2.5-pro",
+      "gpt-4.1"
+     ],
+     "20250627_agentless_MCTS-Refine-7B": [
+      "mcts-refine-7b"
+     ],
+     "20250629_deepswerl_r2eagent": [
+      "https://huggingface.co/agentica-org/deepswe-preview"
+     ],
+     "20250629_deepswerl_r2eagent_tts": [
+      "https://huggingface.co/agentica-org/deepswe-preview"
+     ],
+     "20250710_bloop": [
+      "claude-4-sonnet"
+     ],
+     "20250715_qodo_command": [
+      "claude-sonnet-4",
+      "gpt-4o"
+     ],
+     "20250716_openhands_kimi_k2": [
+      "moonshot/kimi-k2-0711-preview"
+     ],
+     "20250720_Lingxi-v1.5_claude-4-sonnet-20250514": [
+      "claude-4-sonnet"
+     ],
+     "20250720_mini-v0.0.0-Llama-4-Maverick-17B-Instruct": [
+      "llama-4-maverick-instruct"
+     ],
+     "20250720_mini-v0.0.0-claude-3-7-sonnet-20250219": [
+      "claude-3-7-sonnet"
+     ],
+     "20250725_sweagent_devstral_small_2507": [
+      "devstral-small-2507"
+     ],
+     "20250726_mini-v1.0.0_claude-sonnet-4-20250514": [
+      "claude-4-sonnet"
+     ],
+     "20250726_mini-v1.0.0_gemini-2.5-pro": [
+      "gemini-2.5-pro"
+     ],
+     "20250726_mini-v1.0.0_o3-2025-04-16": [
+      "o3"
+     ],
+     "20250726_mini-v1.0.0_o4-mini-2025-04-16": [
+      "o4-mini"
+     ],
+     "20250728_zai_glm4-5": [
+      "unknown:20250728_zai_glm4-5"
+     ],
+     "20250731_harness_ai": [
+      "claude-sonnet-4"
+     ],
+     "20250802_mini-v1.0.0_claude-4-opus-20250514": [
+      "claude-4-opus"
+     ],
+     "20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct": [
+      "qwen3-coder-480b-a35b-instruct"
+     ],
+     "20250803_mini-v1.0.0_qwen2-5-coder-32b-instruct": [
+      "qwen2.5-coder-32b-instruct"
+     ],
+     "20250804_codesweep_sweagent_kimi_k2_instruct": [
+      "kimi-k2-instruct"
+     ],
+     "20250804_epam-ai-run-claude-4-sonnet": [
+      "claude-sonnet-4"
+     ],
+     "20250805_openhands-Qwen3-Coder-30B-A3B-Instruct": [
+      "unknown:20250805_openhands-Qwen3-Coder-30B-A3B-Instruct"
+     ],
+     "20250805_openhands-Qwen3-Coder-480B-A35B-Instruct": [
+      "unknown:20250805_openhands-Qwen3-Coder-480B-A35B-Instruct"
+     ],
+     "20250806_SWE-Exp_DeepSeek-V3": [
+      "unknown:20250806_SWE-Exp_DeepSeek-V3"
+     ],
+     "20250807_mini-v1.7.0_gpt-5": [
+      "gpt-5"
+     ],
+     "20250807_mini-v1.7.0_gpt-5-mini": [
+      "gpt-5-mini"
+     ],
+     "20250807_mini-v1.7.0_gpt-5-nano": [
+      "gpt-5-nano"
+     ],
+     "20250807_mini-v1.7.0_gpt-oss-120b": [
+      "gpt-oss-120b"
+     ],
+     "20250807_mini-v1.7.0_kimi-k2-instruct": [
+      "kimi-k2-instruct"
+     ],
+     "20250807_openhands_gpt5": [
+      "openai/gpt-5"
+     ],
+     "20250819_ACoder": [
+      "claude-4-sonnet",
+      "claude-4.1-opus",
+      "gemini-2.5-pro-06-17",
+      "gpt-5-0807-global"
+     ],
+     "20250822_mini-v1.9.1_glm-4.5": [
+      "glm-4.5"
+     ],
+     "20250901_entroPO_R2E_QwenCoder30BA3B": [
+      "qwen3-coder-30b-a3b-instruct"
+     ],
+     "20250901_entroPO_R2E_QwenCoder30BA3B_tts": [
+      "qwen3-coder-30b-a3b-instruct"
+     ],
+     "20250901_warp": [
+      "claude-sonnet-4",
+      "gpt-5"
+     ],
+     "20250902_atlassian-rovo-dev": [
+      "claude-sonnet-4",
+      "gpt-5"
+     ],
+     "20250915_JoyCode": [
+      "claude-4-sonnet",
+      "gpt-4.1"
+     ],
+     "20250924_artemis_agent_v2": [
+      "claude-sonnet-4"
+     ],
+     "20250928_trae_doubao_seed_code": [
+      "doubao-seed-1.6",
+      "doubao-seed-code"
+     ],
+     "20250929_Prometheus_v1.2_gpt5": [
+      "unknown:20250929_Prometheus_v1.2_gpt5"
+     ],
+     "20250929_mini-v1.13.3_sonnet-4-5-20250929": [
+      "claude-sonnet-4-5"
+     ],
+     "20250930_zai_glm4-6": [
+      "unknown:20250930_zai_glm4-6"
+     ],
+     "20251014_Lingxi_kimi_k2": [
+      "kimi-k2-0905-preview"
+     ],
+     "20251015_Prometheus_v1.2.1_gpt5": [
+      "unknown:20251015_Prometheus_v1.2.1_gpt5"
+     ],
+     "20251021_SalesforceAIResearch_SAGE_bash_only": [
+      "claude-sonnet-4.5",
+      "gpt-5"
+     ],
+     "20251103_SalesforceAIResearch_SAGE_OpenHands": [
+      "claude-sonnet-4.5",
+      "gpt-5"
+     ],
+     "20251103_sonar-foundation-agent_claude-sonnet-4-5": [
+      "claude-sonnet-4-5"
+     ],
+     "20251110_frogboss-32b": [
+      "frogboss-32b-2510"
+     ],
+     "20251110_frogmini-14b": [
+      "frogmini-14b-2510"
+     ],
+     "20251118_mini-v1.15.0_gemini-3-pro-preview-20251118": [
+      "gemini-3-pro-preview"
+     ],
+     "20251120_livesweagent_gemini-3-pro-preview": [
+      "gemini-3-pro-preview"
+     ],
+     "20251120_mini-v1.15.0_gpt-5.1-2025-11-13": [
+      "gpt-5.1"
+     ],
+     "20251124_mini-v1.16.0_claude-opus-4-5-20251101": [
+      "claude-opus-4-5"
+     ],
+     "20251124_mini-v1.16.0_gpt-5.1-codex": [
+      "gpt-5.1-codex"
+     ],
+     "20251124_mini-v1.17.0_minimax-m2": [
+      "minimax-m2"
+     ],
+     "20251127_openhands_claude-opus-4-5": [
+      "unknown:20251127_openhands_claude-opus-4-5"
+     ],
+     "20251201_mini-v1.17.1_deepseek-v3.2-reasoner": [
+      "deepseek-v3.2-reasoner"
+     ],
+     "20251201_mini-v1.17.1_glm-4.6": [
+      "glm-4.6"
+     ],
+     "20251205_sonar-foundation-agent_claude-opus-4-5": [
+      "claude-opus-4-5"
+     ],
+     "20251209_mini-v1.17.2_devstral-2512": [
+      "devstral-2512"
+     ],
+     "20251209_mini-v1.17.2_devstral-small-2512": [
+      "devstral-small-2512"
+     ],
+     "20251210_mini-v1.17.2_kimi-k2-thinking": [
+      "kimi-k2-thinking"
+     ],
+     "20251211_mini-v1.17.2_gpt-5.2-2025-12-11": [
+      "gpt-5.2"
+     ],
+     "20251211_mini-v1.17.2_gpt-5.2-2025-12-11-high": [
+      "gpt-5.2"
+     ],
+     "20251215_livesweagent_claude-opus-4-5": [
+      "claude-opus-4-5"
+     ],
+     "20260217_mini-v2.0.0_claude-4-5-haiku-high": [
+      "claude-haiku-4-5"
+     ],
+     "20260217_mini-v2.0.0_claude-4-5-opus-high": [
+      "claude-4-5-opus"
+     ],
+     "20260217_mini-v2.0.0_claude-4-5-sonnet-high": [
+      "claude-sonnet-4-5"
+     ],
+     "20260217_mini-v2.0.0_claude-4-6-opus": [
+      "claude-opus-4-6"
+     ],
+     "20260217_mini-v2.0.0_deepseek-3-2-high": [
+      "deepseek-v3.2"
+     ],
+     "20260217_mini-v2.0.0_gemini-3-flash-high": [
+      "gemini-3-flash-preview"
+     ],
+     "20260217_mini-v2.0.0_glm-5-high": [
+      "glm-5"
+     ],
+     "20260217_mini-v2.0.0_gpt-5-2-high": [
+      "gpt-5-2"
+     ],
+     "20260217_mini-v2.0.0_gpt-5-mini": [
+      "gpt-5-mini"
+     ],
+     "20260217_mini-v2.0.0_kimi-k2-5-high": [
+      "kimi-k2.5"
+     ],
+     "20260217_mini-v2.0.0_minimax-2-5-high": [
+      "minimax-m2.5"
+     ],
+     "20260226_mini-v2.0.0_gemini-3-pro-high": [
+      "gemini-3-pro-preview"
+     ],
+     "20260901_mini-v2.4.2_gemini-3-5-flash": [
+      "gemini-3-5-flash"
+     ]
+    },
+    "family_rule": "set of underlying LLMs declared in metadata.yaml tags.model; systems sharing any LLM are excluded from the target's panel",
+    "source": "swe_bench_experiments"
+   },
+   "n_families": 123,
+   "n_items": 500,
+   "n_systems": 175,
+   "raw_inputs": {
+    "data/raw/swe_exp/evaluation/verified/20231010_rag_claude2/metadata.yaml": "736147456f1cd4a81541e613b038245a348bf0dcdcb4986099c1f91b1a897f54",
+    "data/raw/swe_exp/evaluation/verified/20231010_rag_claude2/results/results.json": "218ffade97aafd6792dcef813f4ddd1a9a1bf1a629ff13ac28787a59a1e10e98",
+    "data/raw/swe_exp/evaluation/verified/20231010_rag_gpt35/metadata.yaml": "2eedb382cfbdee7f29092cd639a14162039590bc852419e98c03e73c506d405b",
+    "data/raw/swe_exp/evaluation/verified/20231010_rag_gpt35/results/results.json": "7166b22c32d1efe1433cbe4ebb3930e887d7f471045f29354ce3236b7b1163d9",
+    "data/raw/swe_exp/evaluation/verified/20231010_rag_swellama13b/metadata.yaml": "b462408ea36c093afd75c0dea94575c3fb899228cef40318531917f45581fe23",
+    "data/raw/swe_exp/evaluation/verified/20231010_rag_swellama13b/results/results.json": "355ca26e562709206930e6991d89a2267839cea5c4f67d764999bcc5e2f2e7d5",
+    "data/raw/swe_exp/evaluation/verified/20231010_rag_swellama7b/metadata.yaml": "8f40c3e64ae855618f093c047a44d53bffd726cf7174b2cc066ec55ae81e34ab",
+    "data/raw/swe_exp/evaluation/verified/20231010_rag_swellama7b/results/results.json": "6e2537b9475e7c5069553a8464bfdf4de6d30649f7f710f2decf2dd9876e726d",
+    "data/raw/swe_exp/evaluation/verified/20240402_rag_claude3opus/metadata.yaml": "cde5e150a7242940f9959487f554250d6d5c6034c156dc347a9bc2d443458307",
+    "data/raw/swe_exp/evaluation/verified/20240402_rag_claude3opus/results/results.json": "0fb5701e9dadc900caa4a105638abd3392aca5948098d45519dd1b3e2e111294",
+    "data/raw/swe_exp/evaluation/verified/20240402_rag_gpt4/metadata.yaml": "3e8a80c9b5f623aa9aeebc1dfadc2e3b5db252d91e8b625a660b56d117b37148",
+    "data/raw/swe_exp/evaluation/verified/20240402_rag_gpt4/results/results.json": "be92af9364bc976c274067ee3be7eb5561659a2699812b4587902f90585bac97",
+    "data/raw/swe_exp/evaluation/verified/20240402_sweagent_claude3opus/metadata.yaml": "02986df6fca37cbf0febe2a36d784e6813b1e1331d30a50ee2a4386d70bd66ca",
+    "data/raw/swe_exp/evaluation/verified/20240402_sweagent_claude3opus/results/results.json": "18a7f9f8ac2ede71046c3d961ce4a7478b025549a5c4298ff811d60245e692b7",
+    "data/raw/swe_exp/evaluation/verified/20240402_sweagent_gpt4/metadata.yaml": "cdf0036abeea8b2766be27f7139bd689c90e4eea7bfdc431d67dd718c199a44d",
+    "data/raw/swe_exp/evaluation/verified/20240402_sweagent_gpt4/results/results.json": "26971f1a55d711fd7c5f585443ce6945ff612f7ced94b3bca70268d2d030f65a",
+    "data/raw/swe_exp/evaluation/verified/20240509_amazon-q-developer-agent-20240430-dev/metadata.yaml": "59e0e1f4bf88a136d7b335bc1674331c745c0d4f30c08ea83da1207dd314d5eb",
+    "data/raw/swe_exp/evaluation/verified/20240509_amazon-q-developer-agent-20240430-dev/results/results.json": "1db605c4bdedf41565e9b664a090ad28cb1308f41da8bb95863e125c30768652",
+    "data/raw/swe_exp/evaluation/verified/20240612_MASAI_gpt4o/metadata.yaml": "9a4262ee04707dab77eeaaa2c53b920b931b940281d25fb5793203b397c27174",
+    "data/raw/swe_exp/evaluation/verified/20240612_MASAI_gpt4o/results/results.json": "da1756a0cf869ad40bc549bd20686674426a221167a257431348974d8cf18a44",
+    "data/raw/swe_exp/evaluation/verified/20240615_appmap-navie_gpt4o/metadata.yaml": "65c816137a9db62939a2d1f0d60ff2cfbbeff7f985de6c9022dcb675bb6265c5",
+    "data/raw/swe_exp/evaluation/verified/20240615_appmap-navie_gpt4o/results/results.json": "6d77257699e32ef112b943345f89c3856327584bc323507a65fb4dea2bbce484",
+    "data/raw/swe_exp/evaluation/verified/20240617_factory_code_droid/metadata.yaml": "28dc4f16100f69e5408eafbf619a6e8f69b6413274057d96039d45ddeba1cf38",
+    "data/raw/swe_exp/evaluation/verified/20240617_factory_code_droid/results/results.json": "54ca7781c1bd7b5fc8d05dd5e8455747dd44c972872ebca9b2738d75b26817a3",
+    "data/raw/swe_exp/evaluation/verified/20240620_sweagent_claude3.5sonnet/metadata.yaml": "f6b6fb9a11c96a83b4ba423ea585b511e2179192268f53ae178fb7b08e49bc0f",
+    "data/raw/swe_exp/evaluation/verified/20240620_sweagent_claude3.5sonnet/results/results.json": "faeb65b4fc3743deea29216455849b8e1b2298c75691a60329c563da2cf81bb1",
+    "data/raw/swe_exp/evaluation/verified/20240628_autocoderover-v20240620/metadata.yaml": "e268b078650aef0c88ecf1b4de0a8e1a0d4fbbe5adfd612b5af31256ff2fceb6",
+    "data/raw/swe_exp/evaluation/verified/20240628_autocoderover-v20240620/results/results.json": "aede356c9ac372a25626e8cb41df456f7523a7ba300a18a82d73be9bec283aee",
+    "data/raw/swe_exp/evaluation/verified/20240721_amazon-q-developer-agent-20240719-dev/metadata.yaml": "6e130ca6bf5d36bfba61f336e267725363ec3dc15193f58de2cf3e65c6aec699",
+    "data/raw/swe_exp/evaluation/verified/20240721_amazon-q-developer-agent-20240719-dev/results/results.json": "7dfd78f25aa2611fb72c0da11a7cf6ac602e770c532d11d91bc3a9d3f887f191",
+    "data/raw/swe_exp/evaluation/verified/20240728_sweagent_gpt4o/metadata.yaml": "dfc04169ae8218fc42436d53142029302001d9cc0f5a2f261fc7c51aae388708",
+    "data/raw/swe_exp/evaluation/verified/20240728_sweagent_gpt4o/results/results.json": "05644958c59c9e7d7992f2e6787a926e938f23803c3cd3d64901e0df951cd434",
+    "data/raw/swe_exp/evaluation/verified/20240820_epam-ai-run-gpt-4o/metadata.yaml": "c98cc802702bc520fa970cc863c9d9543a21af01aa12ff17c68f757fd79d492b",
+    "data/raw/swe_exp/evaluation/verified/20240820_epam-ai-run-gpt-4o/results/results.json": "c924fac76ace6edcaa94b231b07a50cd76f10bef01a0282e731ad2d7100b87a3",
+    "data/raw/swe_exp/evaluation/verified/20240820_honeycomb/metadata.yaml": "bdd1a4240586de1265e1b1476f9a141b8e25e838326813977f421ad490fc5b66",
+    "data/raw/swe_exp/evaluation/verified/20240820_honeycomb/results/results.json": "d26b66e7f49111eca9c638858a88bc262bf793c0f06dbb10c009c6f4f5491e4d",
+    "data/raw/swe_exp/evaluation/verified/20240824_gru/metadata.yaml": "a21480907cdb826c8ce860d33002af290d53a3c9c097896f0d3d30b3a8183821",
+    "data/raw/swe_exp/evaluation/verified/20240824_gru/results/results.json": "95842d1dc6f289154ab5a551ab0c11e9877c437d43fc959c67ac1d3420a8a3b6",
+    "data/raw/swe_exp/evaluation/verified/20240918_lingma-agent_lingma-swe-gpt-72b/metadata.yaml": "32d2bda54503ae44d27a441130c0647bd1c58aaccfb84f8ca25990b44f198bd9",
+    "data/raw/swe_exp/evaluation/verified/20240918_lingma-agent_lingma-swe-gpt-72b/results/results.json": "5f7daf4dc9f3e4f6b6257156cb1d69e8e31f42a232c25a044d9eb19cb94a838d",
+    "data/raw/swe_exp/evaluation/verified/20240918_lingma-agent_lingma-swe-gpt-7b/metadata.yaml": "f8288bbf8c4978edbf82e2f8b633e6c7c4582b544475891bb9e04dcee3686a6f",
+    "data/raw/swe_exp/evaluation/verified/20240918_lingma-agent_lingma-swe-gpt-7b/results/results.json": "ff1fe0c0b679f7eae11f38e74c265194a8bbc198e867273d3f84c9de25efc871",
+    "data/raw/swe_exp/evaluation/verified/20240920_solver/metadata.yaml": "4218524b253a9f2e3e76bbad23c950de6498fbfc7d1def468a3c99b776940d59",
+    "data/raw/swe_exp/evaluation/verified/20240920_solver/results/results.json": "8eef954fc26033430e5c78a758da316ed2419c18bb348f1d0184653282704647",
+    "data/raw/swe_exp/evaluation/verified/20240924_solver/metadata.yaml": "1d038a40e579da31ee4a98145ac4c15d41300b542483a544a776a5b43251af2c",
+    "data/raw/swe_exp/evaluation/verified/20240924_solver/results/results.json": "8e85ffce6de89661ab051503144739d425a8b6cb42020b0bae09291acebe9063",
+    "data/raw/swe_exp/evaluation/verified/20241001_nfactorial/metadata.yaml": "f76c121869b80edbbfd56a18f0981b3a08f964db24362acddfdba08948c4af9c",
+    "data/raw/swe_exp/evaluation/verified/20241001_nfactorial/results/results.json": "48cceca41fc88e6bb8be79864466b12d4aebe3ce18fc2d59538b5343d77d6453",
+    "data/raw/swe_exp/evaluation/verified/20241002_lingma-agent_lingma-swe-gpt-72b/metadata.yaml": "c3ad717f48aad16fbf3d994f84c0f81ff874ad316c7ebaa8d8d1cc4c2cc12a42",
+    "data/raw/swe_exp/evaluation/verified/20241002_lingma-agent_lingma-swe-gpt-72b/results/results.json": "fa8075c4fb1e1f2ec6e31e52d6ad6d4d2983a0018d049b5e74850e358e6ca62d",
+    "data/raw/swe_exp/evaluation/verified/20241002_lingma-agent_lingma-swe-gpt-7b/metadata.yaml": "5bdb05f480099cedec8b900bff4827959c9b879a6f20dff0dcfb5066c9c932da",
+    "data/raw/swe_exp/evaluation/verified/20241002_lingma-agent_lingma-swe-gpt-7b/results/results.json": "148888241d330c078cd2afeebbb0634ef8627de8fd97078828bb31a1178c2768",
+    "data/raw/swe_exp/evaluation/verified/20241007_nfactorial/metadata.yaml": "f0b4d0c91a1239d4e6ce46430ce24b35a3fadefd49b0f0b9dca072e8d31c0b1a",
+    "data/raw/swe_exp/evaluation/verified/20241007_nfactorial/results/results.json": "d47bb802da0c7077e781e920a1a2a1a5d85ed83c63f216b14ad8269030b973a9",
+    "data/raw/swe_exp/evaluation/verified/20241016_composio_swekit/metadata.yaml": "0853dc3e7991585821c6e6ca71e320e8eb23471f71b956ddf742f7a0d1e3ffe1",
+    "data/raw/swe_exp/evaluation/verified/20241016_composio_swekit/results/results.json": "c2d0f700f5b8ba67164e887f12a9f485b2085a8865c8e6422995b16995efb8c6",
+    "data/raw/swe_exp/evaluation/verified/20241016_epam-ai-run-gpt-4o/metadata.yaml": "c4b8b65a9dd6b20074e92ea2659d59dc9710192c59b78874ee607151e6294b48",
+    "data/raw/swe_exp/evaluation/verified/20241016_epam-ai-run-gpt-4o/results/results.json": "a2f10b2d5444c94ee2cfa3c6b0a87fc6790aaa14412173cf622747be30498a5c",
+    "data/raw/swe_exp/evaluation/verified/20241022_tools_claude-3-5-haiku/metadata.yaml": "f4569aa3f869d4e0ad3297a5c5f8b37da859a22786c9cd39bf4c4d117a0ef5db",
+    "data/raw/swe_exp/evaluation/verified/20241022_tools_claude-3-5-haiku/results/results.json": "ad182915863e5d120e6bc7b99902b43b8c8a4d54cd1ecb0d139ec6013ce5df35",
+    "data/raw/swe_exp/evaluation/verified/20241022_tools_claude-3-5-sonnet-updated/metadata.yaml": "64a6700848a48fc249b18a8280cd1e8474f14583816cd45a0fb2f3a0dc5c1b6a",
+    "data/raw/swe_exp/evaluation/verified/20241022_tools_claude-3-5-sonnet-updated/results/results.json": "eb2b4bb8052434b389c513ae1edd9a7e552dddafddf3ef8a865801190f347a0c",
+    "data/raw/swe_exp/evaluation/verified/20241023_emergent/metadata.yaml": "f2177d2726cdad18e9a93b9e90217c35a6c649e6de54b22c5566d800687087c8",
+    "data/raw/swe_exp/evaluation/verified/20241023_emergent/results/results.json": "5077cb3578544b1381b6e9dce9c59990ae34bb25a466bc67e05c127dec67c20a",
+    "data/raw/swe_exp/evaluation/verified/20241025_composio_swekit/metadata.yaml": "5c3bec04b3b48da9c077d3bfc372e4abd67cce533c841bfa87de4538a4fa9678",
+    "data/raw/swe_exp/evaluation/verified/20241025_composio_swekit/results/results.json": "066628505cbfff463283147e3ccadd004631be472fa0d33ae3da2db339fcb076",
+    "data/raw/swe_exp/evaluation/verified/20241028_agentless-1.5_gpt4o/metadata.yaml": "e48debc40de29a65abf4b291bb4bd5b0ce275e508471e306d2767547fb44cc66",
+    "data/raw/swe_exp/evaluation/verified/20241028_agentless-1.5_gpt4o/results/results.json": "d4348eed42bb970040e057b353ddc04e94b9e0c0a1b3685242c9e1647a8c82a2",
+    "data/raw/swe_exp/evaluation/verified/20241028_solver/metadata.yaml": "2c1d4bf122d2b64c881c4e599a03785b813f4100ce9c92adbcdac41aa34ff336",
+    "data/raw/swe_exp/evaluation/verified/20241028_solver/results/results.json": "9cf0f4dc46941da230de472d949a839ba374ddc094a323bc7a81e3f299e22c2c",
+    "data/raw/swe_exp/evaluation/verified/20241029_OpenHands-CodeAct-2.1-sonnet-20241022/metadata.yaml": "f7f0f71e54694772ec8bd1b0700d8e7ffe8349fdbbe7e8ccbde094ac9268eb61",
+    "data/raw/swe_exp/evaluation/verified/20241029_OpenHands-CodeAct-2.1-sonnet-20241022/results/results.json": "4dcf8bbaa5c2a7d77ba0c5aea3940449aabd307c9e72eaad58da119301ff767b",
+    "data/raw/swe_exp/evaluation/verified/20241029_epam-ai-run-claude-3-5-sonnet/metadata.yaml": "c5e4a1dcfd8c99d16908d32b2ec54eb84bb4dd9e4e2075737e2a30aa384c2d07",
+    "data/raw/swe_exp/evaluation/verified/20241029_epam-ai-run-claude-3-5-sonnet/results/results.json": "efe7972146a1eeb09647d5046b9dd649ac468ca6eb3aeed5f9d23850dc62560a",
+    "data/raw/swe_exp/evaluation/verified/20241030_nfactorial/metadata.yaml": "6fc94aee377fda7ce0bb3b01580e5730349402b68d4ae062b54df852884084c2",
+    "data/raw/swe_exp/evaluation/verified/20241030_nfactorial/results/results.json": "5be34da6e9fda60f0777f3de738441875eb8233b390c2aef22c5cee5c843badb",
+    "data/raw/swe_exp/evaluation/verified/20241105_nfactorial/metadata.yaml": "395e60dd4843db4f267681594603b7ec9157445fec443e984bb85cfdd7fdd7e1",
+    "data/raw/swe_exp/evaluation/verified/20241105_nfactorial/results/results.json": "05498339c859c3f9b1cbb42540152f364cef7a3af0a1cd3b78c110a5ad7490cd",
+    "data/raw/swe_exp/evaluation/verified/20241106_navie-2-gpt4o-sonnet/metadata.yaml": "d6effacc2417a658fc6682a6150c72442c70f5c240b56510fb5de99eccde65aa",
+    "data/raw/swe_exp/evaluation/verified/20241106_navie-2-gpt4o-sonnet/results/results.json": "2fdb59b1f1fca5cedd57f24cf2286c80e036618609343f36463812be871b46a0",
+    "data/raw/swe_exp/evaluation/verified/20241108_autocoderover-v2.0-claude-3-5-sonnet-20241022/metadata.yaml": "1329c68abe4bca69b4ea6b03532b815a824b871396787cc4a765097ac66b5e84",
+    "data/raw/swe_exp/evaluation/verified/20241108_autocoderover-v2.0-claude-3-5-sonnet-20241022/results/results.json": "227c31d32e0880c33c68d4bfd81899a2ca65e9ac4837b2e191e5e809de21473d",
+    "data/raw/swe_exp/evaluation/verified/20241108_devlo/metadata.yaml": "c28fdb515ec8ec0fdcde9c6dc06351ef671700d91a7b6deb5448a3331b987560",
+    "data/raw/swe_exp/evaluation/verified/20241108_devlo/results/results.json": "0b941ff384061d00715fc8b20be2b2a05425e0264ceff8dfec77ee521e3143cd",
+    "data/raw/swe_exp/evaluation/verified/20241113_nebius-search-open-weight-models-11-24/metadata.yaml": "0800496bf0b72779201f97128c24d74d1252be1274e537461850cf4cb98b3cfb",
+    "data/raw/swe_exp/evaluation/verified/20241113_nebius-search-open-weight-models-11-24/results/results.json": "a4fcf297a7c17b745e12ca769bef79dfa8c4ba157a63e5d958245e41d28e39cc",
+    "data/raw/swe_exp/evaluation/verified/20241120_artemis_agent/metadata.yaml": "282333341d59cd36a8472838a3191bfdfcb160ed69b50ff87410c467a7ab1be8",
+    "data/raw/swe_exp/evaluation/verified/20241120_artemis_agent/results/results.json": "35bc6514760d8cfb7edce89c884c183db0adb01959a70f7f565a3a02dffafbff",
+    "data/raw/swe_exp/evaluation/verified/20241125_enginelabs/metadata.yaml": "dd8ea5017953a1fe86c19bd5cbb7fa39804ed5ca244966f78e26a1bb7fc9426d",
+    "data/raw/swe_exp/evaluation/verified/20241125_enginelabs/results/results.json": "4be9df9ccfe86ad0b4af2264793fc30400ccc3c4073d9d3f90a644bd653b6963",
+    "data/raw/swe_exp/evaluation/verified/20241125_marscode-agent-dev/metadata.yaml": "7e1a92ee1fea6bc186bce52cec96b937239dd34cc57f352edddfe636cca660d6",
+    "data/raw/swe_exp/evaluation/verified/20241125_marscode-agent-dev/results/results.json": "4a9908df803e987bc350f3c502aa2e7a07d0fc9f4950b5592c1475e167745f68",
+    "data/raw/swe_exp/evaluation/verified/20241128_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor_20241128/metadata.yaml": "998b1d7d1f303ede3169cb5a96a0ed91dcd1870a8471fb4fd23447db8c655c1b",
+    "data/raw/swe_exp/evaluation/verified/20241128_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor_20241128/results/results.json": "09ce09aa7294172132272ecb825a0a9cd27c433588a6725d0b64ecf8061bf36a",
+    "data/raw/swe_exp/evaluation/verified/20241202_agentless-1.5_claude-3.5-sonnet-20241022/metadata.yaml": "74c50d4a525350b67e68fe89a9ecff66ed687a970724c199a85a20733eb6ce3c",
+    "data/raw/swe_exp/evaluation/verified/20241202_agentless-1.5_claude-3.5-sonnet-20241022/results/results.json": "b022851abf1b7dcd9c47b0c1007130799015bfe28abf1d7385718e2687e0595c",
+    "data/raw/swe_exp/evaluation/verified/20241202_amazon-q-developer-agent-20241202-dev/metadata.yaml": "9b671bd1536e7fd63d09a64a7b48b77f4b6ede63af71c902399789acd01c95f7",
+    "data/raw/swe_exp/evaluation/verified/20241202_amazon-q-developer-agent-20241202-dev/results/results.json": "b7e19d75f9d93f40e6f598c9b6b0318fc9bf9d5cfbff3622170969463c297fd8",
+    "data/raw/swe_exp/evaluation/verified/20241208_gru/metadata.yaml": "45c02830bf796064543d623404b1b476e17c96930ff0f85e2a391c1bdc2edb0a",
+    "data/raw/swe_exp/evaluation/verified/20241208_gru/results/results.json": "8b9da5e09b77b635c8698c394e2bbc06d9b031ba89cf79700f8f96fc23ed92f2",
+    "data/raw/swe_exp/evaluation/verified/20241212_epam-ai-run-claude-3-5-sonnet/metadata.yaml": "e880e688cde396fd3769e2d15e80a42aafbff1dec5532547dd5c08aec8b7cbb2",
+    "data/raw/swe_exp/evaluation/verified/20241212_epam-ai-run-claude-3-5-sonnet/results/results.json": "908a5b24e7248e65e985b859071440fee5760fffe3b622382a50d538f15d4d78",
+    "data/raw/swe_exp/evaluation/verified/20241212_google_jules_gemini_2.0_flash_experimental/metadata.yaml": "a229ab4b76b816dcb11b072d7a56a14f15263990de66629c1fdce46a602ff16c",
+    "data/raw/swe_exp/evaluation/verified/20241212_google_jules_gemini_2.0_flash_experimental/results/results.json": "79d942153d11bf0262b0ee7fe4e2f12e3cd3a92e070371e1de0067d6ea5abb5a",
+    "data/raw/swe_exp/evaluation/verified/20241213_devlo/metadata.yaml": "5d4bbe8176bdcb49ef02f964ebf5519eac49f91b0993b3e49498dee00d8c8556",
+    "data/raw/swe_exp/evaluation/verified/20241213_devlo/results/results.json": "6dedc89e97d67390660c7d2c4fc5bf88e0119125f417c5791d058e5ea6c6c7fd",
+    "data/raw/swe_exp/evaluation/verified/20241221_codestory_midwit_claude-3-5-sonnet_swe-search/metadata.yaml": "953a14d689513666ba2b916e73da0b96b6987bfdb972f4e16da178df0b3c6718",
+    "data/raw/swe_exp/evaluation/verified/20241221_codestory_midwit_claude-3-5-sonnet_swe-search/results/results.json": "77b12ce70290b0f12c43c6196eb0a3fc49cec57d24cfa21f9513a2c4d6260fc8",
+    "data/raw/swe_exp/evaluation/verified/20241223_emergent/metadata.yaml": "53b8c27f9f123427b06526baeb942337eb7df8b2c3a1682fdfbd1db1149072f6",
+    "data/raw/swe_exp/evaluation/verified/20241223_emergent/results/results.json": "2f912979ae1b80c9727b99610f82d7f9215678eb8ccbd909027151262c0d01ae",
+    "data/raw/swe_exp/evaluation/verified/20250110_blackboxai_agent_v1.1/metadata.yaml": "d0330470eff804f6ccf41b46cd2ba4367ac2900edb4296390c54b5a4e4ba4477",
+    "data/raw/swe_exp/evaluation/verified/20250110_blackboxai_agent_v1.1/results/results.json": "d5a86ed6bca42d0ce0bcbed8b81bf7af54cb97b2157d6ae14003a5f69a7b3282",
+    "data/raw/swe_exp/evaluation/verified/20250110_learn_by_interact_claude3.5/metadata.yaml": "f1509e33603d5059df1938d3220443f721a99d97a4eb28c9258e4605ff4ca6a7",
+    "data/raw/swe_exp/evaluation/verified/20250110_learn_by_interact_claude3.5/results/results.json": "9b980027f8badcb56c8ffadc801bac25f81e0dfc948f529f733878f722c09773",
+    "data/raw/swe_exp/evaluation/verified/20250112_ugaiforge/metadata.yaml": "c8db511b48c1075ad3515cbb297cd213e2404e7be6f7c18670297f5fcc9f1b19",
+    "data/raw/swe_exp/evaluation/verified/20250112_ugaiforge/results/results.json": "cc1e38ed3037272d610d4c5ee996965eb99b014a0da978ed8c1d67f2a5614fb8",
+    "data/raw/swe_exp/evaluation/verified/20250117_wandb_programmer_o1_crosscheck5/metadata.yaml": "43947b168dc1483ea82f3551641605c61edeb6e3ca02a9b636d609138afa4135",
+    "data/raw/swe_exp/evaluation/verified/20250117_wandb_programmer_o1_crosscheck5/results/results.json": "76d1b83460b9e57d7eb0b81cc2e931d367f1efa721197b4ebc574d69dded6c5c",
+    "data/raw/swe_exp/evaluation/verified/20250118_codeshellagent_gemini_2.0_flash_experimental/metadata.yaml": "8ce158e2ec7c97f5fd54b851c237d5afdb19a536d5ff2b3ce566b142c23d9f66",
+    "data/raw/swe_exp/evaluation/verified/20250118_codeshellagent_gemini_2.0_flash_experimental/results/results.json": "a248ea6d4aebeda01483729244b7db738e757e8b44269d7139adad4bf44688ce",
+    "data/raw/swe_exp/evaluation/verified/20250120_Bracket/metadata.yaml": "098e5876c52673d79fb8ab924a1582f02f09ecc46c36a00c1e8387e817729654",
+    "data/raw/swe_exp/evaluation/verified/20250120_Bracket/results/results.json": "748b71aacf69b84e1e85a0db6ead6dcbc8941869c7a43e12dfa2aa44cb0d7606",
+    "data/raw/swe_exp/evaluation/verified/20250122_autocoderover-v2.1-claude-3-5-sonnet-20241022/metadata.yaml": "3020b9bef7eb69942416eaa98e669a7c0fa90a63400a113574a4d1dabda4751b",
+    "data/raw/swe_exp/evaluation/verified/20250122_autocoderover-v2.1-claude-3-5-sonnet-20241022/results/results.json": "ca9d98bd0a85da2a46e27f4e2fbd5494f567343076dfdb26108b35f7b34263b2",
+    "data/raw/swe_exp/evaluation/verified/20250203_openhands_4x_scaled/metadata.yaml": "c04367c2bf52ad52708007d35c26c1665e950986008f951fc67e185afa8b10ef",
+    "data/raw/swe_exp/evaluation/verified/20250203_openhands_4x_scaled/results/results.json": "71e907434179ae2e949717fbd099106121de9f16299884f6a2bb2d2c8cc66a02",
+    "data/raw/swe_exp/evaluation/verified/20250206_agentscope/metadata.yaml": "ea7745dbc5628339a9bbb84fd3449e98129a3cb2365b42595b0461380cdddf18",
+    "data/raw/swe_exp/evaluation/verified/20250206_agentscope/results/results.json": "59cd0e9e8a074964a160680c6cb6029d0abe2db034a443068e952f04fb71b6e9",
+    "data/raw/swe_exp/evaluation/verified/20250214_agentless_lite_o3_mini/metadata.yaml": "da0e3b7dfdbe4e36dfeee10de60e785be7c173fdeff062b3d42db221aee2d04b",
+    "data/raw/swe_exp/evaluation/verified/20250214_agentless_lite_o3_mini/results/results.json": "31c9f1261ae108fe05311c09990214e835a19174530a02dee825b5b04949107d",
+    "data/raw/swe_exp/evaluation/verified/20250224_tools_claude-3-7-sonnet/metadata.yaml": "75a6625eb7b3bf7c0dfb298c612ac98f1c940d49c01be8ab46456cb8194d65c8",
+    "data/raw/swe_exp/evaluation/verified/20250224_tools_claude-3-7-sonnet/results/results.json": "bfe3f1d5014bf319babe5569a0ff013c0064e2846ba000da0ecdea654abf1714",
+    "data/raw/swe_exp/evaluation/verified/20250225_sweagent_claude-3-7-sonnet/metadata.yaml": "0ba608c8e94ac5a738ba1b6a3477eb56b5a97812ce0839c2eb24414af7cbe00e",
+    "data/raw/swe_exp/evaluation/verified/20250225_sweagent_claude-3-7-sonnet/results/results.json": "495b0f9398f46d766d86935ebfca32a38b0f3fa2e18a1d1209c11ab51dd4db55",
+    "data/raw/swe_exp/evaluation/verified/20250226_swerl_llama3_70b/metadata.yaml": "e6ca87fb7c92abc9073c4684dd41ef67c280d86bda78779e24a1ad08a6ab6dd8",
+    "data/raw/swe_exp/evaluation/verified/20250226_swerl_llama3_70b/results/results.json": "8fd045508d6b9a084990059e8cf83ab312c022bcdd5672bff45cd107fbdc7ee2",
+    "data/raw/swe_exp/evaluation/verified/20250228_epam-ai-run-claude-3-5-sonnet/metadata.yaml": "74bd0bdbaf4265bd60cd9865a2343974874721fb25bb540d4f2386079243a8ff",
+    "data/raw/swe_exp/evaluation/verified/20250228_epam-ai-run-claude-3-5-sonnet/results/results.json": "a01e8abff7e9fcf0c85ebaf123ff8dae121bb3ddf32d307e4d0e1ccf5d9bdaa0",
+    "data/raw/swe_exp/evaluation/verified/20250306_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor/metadata.yaml": "a6e5b38815023992f22b97d273d5e73fb346dc3ebc39c88f287183e20f935227",
+    "data/raw/swe_exp/evaluation/verified/20250306_SWE-Fixer_Qwen2.5-7b-retriever_Qwen2.5-72b-editor/results/results.json": "1d6150cdedac6b865ef6031f2e0251733f718146f2186d37cfb2d9fb51c601f1",
+    "data/raw/swe_exp/evaluation/verified/20250316_augment_agent_v0/metadata.yaml": "d18ae3fe720c238cd4bcc4384950c2a840f3b74bbe9b91b4808c83b8c625fa32",
+    "data/raw/swe_exp/evaluation/verified/20250316_augment_agent_v0/results/results.json": "4bfbec643334e1d8fd7ea850acd34ab0efff92772e9ddc6058eaed98872a1021",
+    "data/raw/swe_exp/evaluation/verified/20250405_amazon-q-developer-agent-20250405-dev/metadata.yaml": "f5b691b566f62ea5ccffbe2de1cdb54fdab8910858894ee84d650b8ed2357359",
+    "data/raw/swe_exp/evaluation/verified/20250405_amazon-q-developer-agent-20250405-dev/results/results.json": "ccac182c11d189cc58058961ab5e057e3134810867b665a67041c1df6202eaa0",
+    "data/raw/swe_exp/evaluation/verified/20250405_swe-rizzo_claude37/metadata.yaml": "a76f1f134a848b99212a161cf6619054ff4aa6370393f4137560dde15ba8c436",
+    "data/raw/swe_exp/evaluation/verified/20250405_swe-rizzo_claude37/results/results.json": "75ebf21586fa198a7923c7250f2d9a3129032e5b6dc9ae8d63be273d852533a1",
+    "data/raw/swe_exp/evaluation/verified/20250410_cortexa/metadata.yaml": "ff3bd2e6cc0797506b146efaae4600c673d19e5ba748b05d7f7498fcd64f641b",
+    "data/raw/swe_exp/evaluation/verified/20250410_cortexa/results/results.json": "f017a1ef93a7d27347233aa0b8bf4a259e246edce1facf2c0b246611f555fd02",
+    "data/raw/swe_exp/evaluation/verified/20250415_openhands/metadata.yaml": "5cf22bc12409ed9b2154304970c465890dba8bfcd5c69fdc7a2728ea7b4923b7",
+    "data/raw/swe_exp/evaluation/verified/20250415_openhands/results/results.json": "69e597d2147e519116a870fd482bb06254954894f356618cfdef645b516711d3",
+    "data/raw/swe_exp/evaluation/verified/20250430_zencoder_ai/metadata.yaml": "c3ba6af5befce0c9ccf55760ed3bbde92a919f27a76f9fc654035614d69b576b",
+    "data/raw/swe_exp/evaluation/verified/20250430_zencoder_ai/results/results.json": "f77574545d9c662c11391537f04735ddfdbab592937e10b16735895abebfccff",
+    "data/raw/swe_exp/evaluation/verified/20250503_patchpilot-v1.1-o4-mini/metadata.yaml": "20da8d1283eb6ea6eaebebd69f7f05c6010dd9c6488fd0d4208c4e4ad64b09b0",
+    "data/raw/swe_exp/evaluation/verified/20250503_patchpilot-v1.1-o4-mini/results/results.json": "e576e70ba55db46af45ff3f676ce6cd65c53c1608a35b2af2208c9ab14f64b28",
+    "data/raw/swe_exp/evaluation/verified/20250511_sweagent_lm_32b/metadata.yaml": "5953d2ae0bc8f289c8306905e5350441c7b56db3c4d747178d91f1bae135da83",
+    "data/raw/swe_exp/evaluation/verified/20250511_sweagent_lm_32b/results/results.json": "d41fad32cbe3f421c9f2d6dc2badf25db6bd4a07b5e9545597220189eb10c77c",
+    "data/raw/swe_exp/evaluation/verified/20250514_aime_coder/metadata.yaml": "4118861b8525ada534a60f8288ee684ee64806b9762c9194a57ca6db9f0a284c",
+    "data/raw/swe_exp/evaluation/verified/20250514_aime_coder/results/results.json": "49e6a885a96dd3205e49aaf05ad928994c87561fb3ea002d6adebeb6a2759e78",
+    "data/raw/swe_exp/evaluation/verified/20250515_Refact_Agent/metadata.yaml": "8c6a233f30d7cc127b0a38c368f8b0d87a37e7909267657f40957da2060a16f7",
+    "data/raw/swe_exp/evaluation/verified/20250515_Refact_Agent/results/results.json": "19d5afb833558901db5fb49158cf06aa3c363dfee4f088ce4c7a35aa789edd42",
+    "data/raw/swe_exp/evaluation/verified/20250516_cortexa_o3/metadata.yaml": "6cedd66cb6ca87c0a7ce4ff0c65dc954909f2590e7d32b0bc634d1da2562b770",
+    "data/raw/swe_exp/evaluation/verified/20250516_cortexa_o3/results/results.json": "a9dbb0ec9cd85d88e6277649d41324ab7109bc252782bb4d50bf05447e8d072f",
+    "data/raw/swe_exp/evaluation/verified/20250519_devlo/metadata.yaml": "e80cfe0a9f819a781b6194d81592ebd1b9854f7c02ebe331ab11449262e307a0",
+    "data/raw/swe_exp/evaluation/verified/20250519_devlo/results/results.json": "78386b9b0d8fccb28e347a831b50f90a51c10d535a74d675f18938ba273b5b01",
+    "data/raw/swe_exp/evaluation/verified/20250519_trae/metadata.yaml": "12025e7ddcb2cf8ea0c226914414de32249b58780a045dadf6cd0e04de5d65f1",
+    "data/raw/swe_exp/evaluation/verified/20250519_trae/results/results.json": "9b9ab84d14643852a7d9ad0d270aaa3baf1bdf360f18f4c209a75984c11ecdc6",
+    "data/raw/swe_exp/evaluation/verified/20250520_openhands_devstral_small/metadata.yaml": "1c5ad1fd49cf0b51a9a3998a11869c74abb5038bc98d034338d4ffe060528de0",
+    "data/raw/swe_exp/evaluation/verified/20250520_openhands_devstral_small/results/results.json": "827f08f5265be14218dee26bbf42acf1c0cb9fd1c56948c2611339ce3467a30a",
+    "data/raw/swe_exp/evaluation/verified/20250522_sweagent_claude-4-sonnet-20250514/metadata.yaml": "652f2cf92f9a9b1c91ffb77da03bf94a139a6f98ce859f3910c1bd22695b01a8",
+    "data/raw/swe_exp/evaluation/verified/20250522_sweagent_claude-4-sonnet-20250514/results/results.json": "7aff3cfcbfe5eac6239982f5eb55e3e34387ed0e93b5a41b880b235e39cc4355",
+    "data/raw/swe_exp/evaluation/verified/20250522_tools_claude-4-opus/metadata.yaml": "a1c8c8bc5ca8045cd0fcbbb264e4fd0c396d91d36a825d33a3c361c1063de43c",
+    "data/raw/swe_exp/evaluation/verified/20250522_tools_claude-4-opus/results/results.json": "10f604291ca3a1403c8a0f213be9e6e95fa551acc03ea4a2ba7f79c547ca1b88",
+    "data/raw/swe_exp/evaluation/verified/20250522_tools_claude-4-sonnet/metadata.yaml": "28e7b5f02cb7a0977719721d6dd4a878e7b23794d30415571dc102cc91c9a998",
+    "data/raw/swe_exp/evaluation/verified/20250522_tools_claude-4-sonnet/results/results.json": "e72cdc7a4d9ce6d04f61cea1920c26448aae403ea3100fda2c13cd3013533e62",
+    "data/raw/swe_exp/evaluation/verified/20250524_openhands_claude_4_sonnet/metadata.yaml": "ab05dd08d732dc23643b58a5d3d056a11f0b9c1fe30f90deb2631b94848b58b0",
+    "data/raw/swe_exp/evaluation/verified/20250524_openhands_claude_4_sonnet/results/results.json": "14bc7bdfcf3201976fd39c15f23905b112d2ed35ecbebfe656368935e34895d8",
+    "data/raw/swe_exp/evaluation/verified/20250527_amazon.nova-premier-v1.0/metadata.yaml": "3728b9b050e9d5afaa90a15435bbcb7b88c88dfe5a5efcd3792d5f3a632ed755",
+    "data/raw/swe_exp/evaluation/verified/20250527_amazon.nova-premier-v1.0/results/results.json": "7cd6efad05f1202854f41e70d8221219c94e113f2ee5dcb8002c80124d8d5a1f",
+    "data/raw/swe_exp/evaluation/verified/20250528_patchpilot_Co-PatcheR/metadata.yaml": "8d5d80144589c2da8b01bfc35ec4e282542eb6bbfc04499bf1e1c82b45794db4",
+    "data/raw/swe_exp/evaluation/verified/20250528_patchpilot_Co-PatcheR/results/results.json": "cc847cf10dcb495c393fe249933dbe147a83ff9ea95fa26c7698f4f815335139",
+    "data/raw/swe_exp/evaluation/verified/20250603_Refact_Agent_claude-4-sonnet/metadata.yaml": "4a61e9041c31b69ee421e89f81afa8ab03a59b1d086f38367f5577a6350e1ca2",
+    "data/raw/swe_exp/evaluation/verified/20250603_Refact_Agent_claude-4-sonnet/results/results.json": "f214e1f23a22ff83632b699cf5dfd050d316417fadcb9a1f71f30dcdbffbd075",
+    "data/raw/swe_exp/evaluation/verified/20250610_augment_agent_v1/metadata.yaml": "91ed3e4c638ed4bda2de53d8ec70efbc0b355e634557cd7047ef8d98d0c7a40e",
+    "data/raw/swe_exp/evaluation/verified/20250610_augment_agent_v1/results/results.json": "0379a497c9c9248e1a1ba49641dbd36e5fa62f32cb709dd36c107800dc4ba811",
+    "data/raw/swe_exp/evaluation/verified/20250611_moatless_claude-4-sonnet-20250514/metadata.yaml": "55e73d99dcbc0e8d9bb9cc95d95119894158b620ddf5efc05b860fdecfda4dc9",
+    "data/raw/swe_exp/evaluation/verified/20250611_moatless_claude-4-sonnet-20250514/results/results.json": "4ac4b95d09c22f0c6ebd73783a84d4578df749d27799983b7a6995f2f19c7f72",
+    "data/raw/swe_exp/evaluation/verified/20250612_trae/metadata.yaml": "7a02e28bc2e6af3929a8e4938dcbc3f152d7e6fcb35ced5a80dd5a701a0f06c3",
+    "data/raw/swe_exp/evaluation/verified/20250612_trae/results/results.json": "b9b67280f5825ba901d454d9ef6a7a79874a1637baca935c1445d2c0d47ea605",
+    "data/raw/swe_exp/evaluation/verified/20250616_Skywork-SWE-32B+TTS_Bo8/metadata.yaml": "8a32d6c8e1923ea588910100b5727fdd9b9d3e871baec8eb544c9e129fb375a4",
+    "data/raw/swe_exp/evaluation/verified/20250616_Skywork-SWE-32B+TTS_Bo8/results/results.json": "d7b442d960cecffe4e9f1d6677ce4cd3b4d8660c8894ace3a2159bacd4f981a2",
+    "data/raw/swe_exp/evaluation/verified/20250616_Skywork-SWE-32B/metadata.yaml": "fc3df6d65dee7fd6e6630f9c8d4e6217af2ed3c2772c9d0e0d5c667871d1c6cf",
+    "data/raw/swe_exp/evaluation/verified/20250616_Skywork-SWE-32B/results/results.json": "e31bf2f349b1428ce8f76fedc9de07d37948763d5147eecc5ffec757a909364d",
+    "data/raw/swe_exp/evaluation/verified/20250623_warp/metadata.yaml": "2982d1a5dbab60a5573331398c915464d320e145482745ad057a04522d310251",
+    "data/raw/swe_exp/evaluation/verified/20250623_warp/results/results.json": "406eac700b76585714ba60c771162ad94ad48d7fc98201e7e5a46889de921422",
+    "data/raw/swe_exp/evaluation/verified/20250627_agentless_MCTS-Refine-7B/metadata.yaml": "bb551c3bf28c11bda5090585c45b2db84636fcbb717f25f9020d18384be86885",
+    "data/raw/swe_exp/evaluation/verified/20250627_agentless_MCTS-Refine-7B/results/results.json": "e2583d7735e88e2c0ecd8632f70f2e9e4c4c9bda0ceb0f052ca11fde94dd9199",
+    "data/raw/swe_exp/evaluation/verified/20250629_deepswerl_r2eagent/metadata.yaml": "4ccd3bf9bf9710825aeaa0ca870b4361b1719f94fbd22b156693741f40390438",
+    "data/raw/swe_exp/evaluation/verified/20250629_deepswerl_r2eagent/results/results.json": "d6b6f94b339e23afe10c0be96e50dfc12ce38d95eef3a9e29e174a92e0de1d3d",
+    "data/raw/swe_exp/evaluation/verified/20250629_deepswerl_r2eagent_tts/metadata.yaml": "8815d6a1a80eadea238b8620fe126bfc7e882bf652f2f08e3afa62d2b9a2f5ff",
+    "data/raw/swe_exp/evaluation/verified/20250629_deepswerl_r2eagent_tts/results/results.json": "0f3608f78c35a2a9ca62104327293dee250cfda5e6ad90716e5e731b5a95e2ad",
+    "data/raw/swe_exp/evaluation/verified/20250710_bloop/metadata.yaml": "abc0cf418862c41bd771e388f5d112d9a42e020fb7218758f58bb8cc31ff698b",
+    "data/raw/swe_exp/evaluation/verified/20250710_bloop/results/results.json": "26ba9857ba26e2daf2f3ec60727ef4d892c566f246e28ef342950277504aec97",
+    "data/raw/swe_exp/evaluation/verified/20250715_qodo_command/metadata.yaml": "923e26a551d10a4cb326543b1304b34ed7082a657c3a8aa591c79c5b4a8a9d04",
+    "data/raw/swe_exp/evaluation/verified/20250715_qodo_command/results/results.json": "0453dab33b78b88d1fd8e17321b8c06fa07b1e990445714ce8aa42b2f2075ff5",
+    "data/raw/swe_exp/evaluation/verified/20250716_openhands_kimi_k2/metadata.yaml": "4f47d229d1072e34bf8c067fa5fb115c8ebf330480deda57ad2095eb9f8a8c45",
+    "data/raw/swe_exp/evaluation/verified/20250716_openhands_kimi_k2/results/results.json": "0472a5f20a09ef96b60cf45d544d7d19386d845a74a458f25fc30e9c6f898846",
+    "data/raw/swe_exp/evaluation/verified/20250720_Lingxi-v1.5_claude-4-sonnet-20250514/metadata.yaml": "837d5fdb3bcf71cb074a92daa1b9d956def6769c1b61f4b0f86456c0bcc5cd94",
+    "data/raw/swe_exp/evaluation/verified/20250720_Lingxi-v1.5_claude-4-sonnet-20250514/results/results.json": "3489cc4e2eb05df2375ebd3d053df1083b2771fd08b0413b0b733f64863a43ee",
+    "data/raw/swe_exp/evaluation/verified/20250720_mini-v0.0.0-Llama-4-Maverick-17B-Instruct/metadata.yaml": "a4d460d3b63398cb218c151b83ab8fd4f5151a3a73ef647fcb8d14b340ecfa10",
+    "data/raw/swe_exp/evaluation/verified/20250720_mini-v0.0.0-Llama-4-Maverick-17B-Instruct/per_instance_details.json": "ad0da084e3f0117af1e32e48fe7374c224654c334b125718cdf05965fb9e9ff4",
+    "data/raw/swe_exp/evaluation/verified/20250720_mini-v0.0.0-claude-3-7-sonnet-20250219/metadata.yaml": "6c557ee092f6c0a62f6d592bc9a45eebc100e3720ed61007ec64385b5ef7eb31",
+    "data/raw/swe_exp/evaluation/verified/20250720_mini-v0.0.0-claude-3-7-sonnet-20250219/per_instance_details.json": "d2facb50a640459976ff2b3755f1db0931d4620aaf7d795183c55507d2d599ac",
+    "data/raw/swe_exp/evaluation/verified/20250725_sweagent_devstral_small_2507/metadata.yaml": "db7417093daa3d0117e6ec85edb6c0e4f1c0fce9d054d3ed22e3c4039a465d6b",
+    "data/raw/swe_exp/evaluation/verified/20250725_sweagent_devstral_small_2507/results/results.json": "a9ef4c3ccf4155a80b02a372c9876281e9ff5ca61055031df85aee0a06c54649",
+    "data/raw/swe_exp/evaluation/verified/20250726_mini-v1.0.0_claude-sonnet-4-20250514/metadata.yaml": "a9bff85714e0073a41afa11913e098015b6f17fb39f20eb8e1b58af0c8aa6ef8",
+    "data/raw/swe_exp/evaluation/verified/20250726_mini-v1.0.0_claude-sonnet-4-20250514/per_instance_details.json": "e7c3bd165ec27a42934e142f1088956e6f3102463805e54bde8d45ba05a8ee63",
+    "data/raw/swe_exp/evaluation/verified/20250726_mini-v1.0.0_gemini-2.5-pro/metadata.yaml": "2e66c13714f9c7107ae92fc94605ac31987938a8f8fc13fd66096394b78967a5",
+    "data/raw/swe_exp/evaluation/verified/20250726_mini-v1.0.0_gemini-2.5-pro/per_instance_details.json": "437b50249efd04104104424bf75ee99301bc7f011cca0516dd38b953e7d00069",
+    "data/raw/swe_exp/evaluation/verified/20250726_mini-v1.0.0_o3-2025-04-16/metadata.yaml": "ddf01cdc10e7a944fad4d2062b7d492c94d857345651c6990f2f9f8952b23cf2",
+    "data/raw/swe_exp/evaluation/verified/20250726_mini-v1.0.0_o3-2025-04-16/per_instance_details.json": "992f304520cdd20964debad8ee7d577617e5646e37460c4925ceb386424f222a",
+    "data/raw/swe_exp/evaluation/verified/20250726_mini-v1.0.0_o4-mini-2025-04-16/metadata.yaml": "16df7f32d0d7743923a3e2fa03ed6680d1174a1c5361f6acd84160d68b7184f3",
+    "data/raw/swe_exp/evaluation/verified/20250726_mini-v1.0.0_o4-mini-2025-04-16/per_instance_details.json": "fc0c021da4b1b77a5013eec38c81eaec0918a5bc421dec0247d55fc6bb3fb5fd",
+    "data/raw/swe_exp/evaluation/verified/20250728_zai_glm4-5/results/results.json": "e0ee02e9c7e16274365572ebf568d95aa97825edeccca1ea1a6b9bcae9d1d464",
+    "data/raw/swe_exp/evaluation/verified/20250731_harness_ai/metadata.yaml": "02b05f8cdfe410c62e35bfe6f59a29bb621768bbb07d461cb311febbd862675b",
+    "data/raw/swe_exp/evaluation/verified/20250731_harness_ai/results/results.json": "fb8d4e625a0d3becfee18dee36218ee289dbda10d2d059646d54dd7e32b4f37a",
+    "data/raw/swe_exp/evaluation/verified/20250802_mini-v1.0.0_claude-4-opus-20250514/metadata.yaml": "4e975fb7d215633b7b6eb38974f6b54d6544d8206c16e68eda2fcadf9cb875b9",
+    "data/raw/swe_exp/evaluation/verified/20250802_mini-v1.0.0_claude-4-opus-20250514/per_instance_details.json": "3b0e8ffebf10cc909823f79a96c61e43ab410c355ac8ed1b4f48be35e87508bc",
+    "data/raw/swe_exp/evaluation/verified/20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct/metadata.yaml": "7813690b363324f8d13a307e158f1899d5fc78a2638ee8b8e681ef182709f1b1",
+    "data/raw/swe_exp/evaluation/verified/20250802_mini-v1.0.0_qwen3-coder-480b-a35b-instruct/per_instance_details.json": "609f68c73bc402fb40fd3c793b13b4a44c328b4aee8943b01648a6e948e5c04a",
+    "data/raw/swe_exp/evaluation/verified/20250803_mini-v1.0.0_qwen2-5-coder-32b-instruct/metadata.yaml": "ddfadfa69d09183a869d7dd19d1dee619531aa7f513fd541b0e03ab2e7e4fb0c",
+    "data/raw/swe_exp/evaluation/verified/20250803_mini-v1.0.0_qwen2-5-coder-32b-instruct/per_instance_details.json": "1e1b660b44d4c278c83dd35ac6c54e8d267cbfbe94dd7c4b41877125e5ab9f29",
+    "data/raw/swe_exp/evaluation/verified/20250804_codesweep_sweagent_kimi_k2_instruct/metadata.yaml": "df36c2908f46c183a1062197def5a3faa7aef3b82acc3f6b4ba18c4701e8bd9f",
+    "data/raw/swe_exp/evaluation/verified/20250804_codesweep_sweagent_kimi_k2_instruct/results/results.json": "2ed47cb32dcbbbc01d235f6b64e48f5c1b579f60d60afc3f9a52456c24b57262",
+    "data/raw/swe_exp/evaluation/verified/20250804_epam-ai-run-claude-4-sonnet/metadata.yaml": "6591ab546ee1b043fd0651925017d6bfd1c72e0d7b68129aa3bc8cc6d726ee3e",
+    "data/raw/swe_exp/evaluation/verified/20250804_epam-ai-run-claude-4-sonnet/results/results.json": "baf0f288f2c33bbcb6e38dd2df0483664dd54cacfdee2ee2d1143d41efa2c820",
+    "data/raw/swe_exp/evaluation/verified/20250805_openhands-Qwen3-Coder-30B-A3B-Instruct/results/results.json": "1730846aa8e8f1d91ed6274aee798a02d89ba12a9ef1a66555a3cf12a1a0eac2",
+    "data/raw/swe_exp/evaluation/verified/20250805_openhands-Qwen3-Coder-480B-A35B-Instruct/results/results.json": "32e7e5b912600a6064b6c41bd07b81117e837ff7bf9db2fbf2f64e9dae83b32c",
+    "data/raw/swe_exp/evaluation/verified/20250806_SWE-Exp_DeepSeek-V3/results/results.json": "7f4eb166138f08328e4a1e2ebdca87975193adb2b3f84e01ee542ddb445b48f5",
+    "data/raw/swe_exp/evaluation/verified/20250807_mini-v1.7.0_gpt-5-mini/metadata.yaml": "1b8038e8839560b2b30ff62a7d443e6692674895e0455f14fe0215f1b69be125",
+    "data/raw/swe_exp/evaluation/verified/20250807_mini-v1.7.0_gpt-5-mini/per_instance_details.json": "325d43131ff0d2309db74b3bb27a9ec5ff7bc00688a18106d3dd7f62adb8f170",
+    "data/raw/swe_exp/evaluation/verified/20250807_mini-v1.7.0_gpt-5-nano/metadata.yaml": "d3ad6540817ee349eb928bdac917476e51bf8c8f18ebb993db45236a18f9f70f",
+    "data/raw/swe_exp/evaluation/verified/20250807_mini-v1.7.0_gpt-5-nano/per_instance_details.json": "5574280cd3715586cf7de80848313ccd4118c068aedb4559e07ae86265b06645",
+    "data/raw/swe_exp/evaluation/verified/20250807_mini-v1.7.0_gpt-5/metadata.yaml": "7f0e6ae1b9866c01dc3cc5513820118514ddc9c7c557ba01915ea2407160d6eb",
+    "data/raw/swe_exp/evaluation/verified/20250807_mini-v1.7.0_gpt-5/per_instance_details.json": "e3c909bb4b7c922782f0787a73c9f1136463c3b77a23e4683d611da23fdf6ec9",
+    "data/raw/swe_exp/evaluation/verified/20250807_mini-v1.7.0_gpt-oss-120b/metadata.yaml": "02c5d1663e01c9f971991849f43a8f528ec8a8f3933d3525dced872e97b2a45d",
+    "data/raw/swe_exp/evaluation/verified/20250807_mini-v1.7.0_gpt-oss-120b/per_instance_details.json": "cb76c03959b27dab0d33c49b09ba5ec1662fe6d770c2ead3477bcadf71241eb7",
+    "data/raw/swe_exp/evaluation/verified/20250807_mini-v1.7.0_kimi-k2-instruct/metadata.yaml": "726fc24ffc569051a779e799bc2eb365e833019b08b7575985cf8a11b965470a",
+    "data/raw/swe_exp/evaluation/verified/20250807_mini-v1.7.0_kimi-k2-instruct/per_instance_details.json": "c11d3ccc65b5babd99c544404ec8c8b1e5fb9a6038e6662cff82d3f27b37fe36",
+    "data/raw/swe_exp/evaluation/verified/20250807_openhands_gpt5/metadata.yaml": "ae9131e63a403487454cd7d55e632704f646451b5bcaffe8075fafd1bd99d6c5",
+    "data/raw/swe_exp/evaluation/verified/20250807_openhands_gpt5/results/results.json": "4aba4bbf158e4cfb76d717cd617954749058cefecd364aec117bb45415f9b907",
+    "data/raw/swe_exp/evaluation/verified/20250819_ACoder/metadata.yaml": "dcc85f74e3b76e55867f621a6f5014bd536c34879081d637dfe2f3cd5149bd87",
+    "data/raw/swe_exp/evaluation/verified/20250819_ACoder/results/results.json": "8d0a9574fac4d98af2f38247a17b95e570e5fdad0f832df1f4fd9f501e536584",
+    "data/raw/swe_exp/evaluation/verified/20250822_mini-v1.9.1_glm-4.5/metadata.yaml": "ea4e3b87c71b0aea17343ecf67406094e3424f54ea8e5649b7049e8ed740e4d7",
+    "data/raw/swe_exp/evaluation/verified/20250822_mini-v1.9.1_glm-4.5/per_instance_details.json": "bac256369d7e659dd1bde1b152f14f23f0b0fcc469b48db38125fb1ef2612cbb",
+    "data/raw/swe_exp/evaluation/verified/20250901_entroPO_R2E_QwenCoder30BA3B/metadata.yaml": "ea73744529df557b7fec5a79aec366c1fce8d47e6d2c078c574ea59637187793",
+    "data/raw/swe_exp/evaluation/verified/20250901_entroPO_R2E_QwenCoder30BA3B/results/results.json": "1b27b43c97617f9562f1d48becd2177945b5f3b7b002a195198578c9c2b6dc4b",
+    "data/raw/swe_exp/evaluation/verified/20250901_entroPO_R2E_QwenCoder30BA3B_tts/metadata.yaml": "e7ec0a9b75fcba5caa548be9a653e6d60ec87f3aa570308e68fda80fdbe6cc0a",
+    "data/raw/swe_exp/evaluation/verified/20250901_entroPO_R2E_QwenCoder30BA3B_tts/results/results.json": "edadd85c008556c4f6905f2a93dbe36b829bc5e7766662cb4d92fc66b2d065b3",
+    "data/raw/swe_exp/evaluation/verified/20250901_warp/metadata.yaml": "8ac15ddc6543918d36a27d2e682107b24f5d506fef2ba50f8f79cce4257b98ee",
+    "data/raw/swe_exp/evaluation/verified/20250901_warp/results/results.json": "b8e6349a8497133c302cbec9c70468a2b98877757a17363d9d32efe9f3e6bc20",
+    "data/raw/swe_exp/evaluation/verified/20250902_atlassian-rovo-dev/metadata.yaml": "07d832340813ded4d22e7e324c398c6218826453f66f720c54661e19fc076ef8",
+    "data/raw/swe_exp/evaluation/verified/20250902_atlassian-rovo-dev/results/results.json": "f82071634166a4512d8b311961f5c380585cb78eec22a27b9b773d2bedf877bd",
+    "data/raw/swe_exp/evaluation/verified/20250915_JoyCode/metadata.yaml": "9dc30fae3bd0a68a11822bd12ffe8cd24cdfac1bf2e16c47b1501e23e2df318d",
+    "data/raw/swe_exp/evaluation/verified/20250915_JoyCode/results/results.json": "a324b384a8884a871e9cdce0a6fbbf442ec6b6cb64a57814baa5abcceb1882fb",
+    "data/raw/swe_exp/evaluation/verified/20250924_artemis_agent_v2/metadata.yaml": "625b21a4e2eb745745860897c59b575d0ba2e3aeee780adf1f7dae54f5d14fd9",
+    "data/raw/swe_exp/evaluation/verified/20250924_artemis_agent_v2/results/results.json": "02f9ac47d88543ca79e3676e19ba33ba525076ba892796d28bffeeb5cc6217d2",
+    "data/raw/swe_exp/evaluation/verified/20250928_trae_doubao_seed_code/metadata.yaml": "24d90afb90dae6b11436343c139a137ade34b7d208497d5c19d2ce0e33d6db1a",
+    "data/raw/swe_exp/evaluation/verified/20250928_trae_doubao_seed_code/results/results.json": "b35df378764d1d43bd833862e5d08b6be7ddfa99a3db60bba1af59edc5534ebc",
+    "data/raw/swe_exp/evaluation/verified/20250929_Prometheus_v1.2_gpt5/results/results.json": "064880de00d0204ce8cc26e796ca560bfa4947485008aeed2ba895b01e07477b",
+    "data/raw/swe_exp/evaluation/verified/20250929_mini-v1.13.3_sonnet-4-5-20250929/metadata.yaml": "b503534bedc81a0512868990d8dd2f538986ffee5738d4c5883f708ca223244a",
+    "data/raw/swe_exp/evaluation/verified/20250929_mini-v1.13.3_sonnet-4-5-20250929/per_instance_details.json": "17e6c6debce65aa3b9942462a2294636b6d143f77af770578dd3a3bd528aed79",
+    "data/raw/swe_exp/evaluation/verified/20250930_zai_glm4-6/results/results.json": "45a92f795fe877816b83d3ec41196ffd9e1645b646d7584bf00bf4ecc47bb15e",
+    "data/raw/swe_exp/evaluation/verified/20251014_Lingxi_kimi_k2/metadata.yaml": "e79faef56d2d976723ab3870a5e351a4cee3bdefff84a979a6e356d95f5c80cc",
+    "data/raw/swe_exp/evaluation/verified/20251014_Lingxi_kimi_k2/results/results.json": "07c1de9381a3b6a6ae4697aa2c1801220115c3f9657991401001d65977c521ae",
+    "data/raw/swe_exp/evaluation/verified/20251015_Prometheus_v1.2.1_gpt5/results/results.json": "5dd5f9d1fb2f0fa14057409475d2a87a013d04391c8ef2599d8a00ba7678a826",
+    "data/raw/swe_exp/evaluation/verified/20251021_SalesforceAIResearch_SAGE_bash_only/metadata.yaml": "61445182d8637d016c0cb7f866eadea133ad174a16f515a8b0078caf841d6c6c",
+    "data/raw/swe_exp/evaluation/verified/20251021_SalesforceAIResearch_SAGE_bash_only/results/results.json": "81a27e2894dcc743975c085259c9878e0d04d2fc642c49a0255c00fc7c1ba703",
+    "data/raw/swe_exp/evaluation/verified/20251103_SalesforceAIResearch_SAGE_OpenHands/metadata.yaml": "1c19debb779b36232faebab65e714e18af1ca68bc2beb483ee23ae18decef11b",
+    "data/raw/swe_exp/evaluation/verified/20251103_SalesforceAIResearch_SAGE_OpenHands/results/results.json": "800c2c391aa5cea5ff0fb3c5e0b8cc4bfc7f2f2c323a8d7f97e7651d05ec2225",
+    "data/raw/swe_exp/evaluation/verified/20251103_sonar-foundation-agent_claude-sonnet-4-5/metadata.yaml": "9e31d13be81faecd4c9953e55193b7e7c0d2ecfd5019947904cfb1705ddda869",
+    "data/raw/swe_exp/evaluation/verified/20251103_sonar-foundation-agent_claude-sonnet-4-5/results/results.json": "aedee2bbd83c762bb1bdd23fede019724a8fb0679805e405cf1c44e5dd0171e5",
+    "data/raw/swe_exp/evaluation/verified/20251110_frogboss-32b/metadata.yaml": "c5c3fb13e630045452d5eef8d8ee732eeba1ca616f5895e41f7eca079c1f99c0",
+    "data/raw/swe_exp/evaluation/verified/20251110_frogboss-32b/results/results.json": "23d8b139ca49686547d853adbb36b9e8ecebcf5b472530ccb7d231177d8c024c",
+    "data/raw/swe_exp/evaluation/verified/20251110_frogmini-14b/metadata.yaml": "f4441f15bb8bc07a623c3c42d78c99af417184b13870ae5ac95ec576dbfb8f7a",
+    "data/raw/swe_exp/evaluation/verified/20251110_frogmini-14b/results/results.json": "0a0edc42142afacef5d5815a8fe429953058ce7d042e4b27741ca4458ddf742a",
+    "data/raw/swe_exp/evaluation/verified/20251118_mini-v1.15.0_gemini-3-pro-preview-20251118/metadata.yaml": "097d21ecb260cdf2504190cf98cc78ce758c258046c3981dab7c53e918c29596",
+    "data/raw/swe_exp/evaluation/verified/20251118_mini-v1.15.0_gemini-3-pro-preview-20251118/per_instance_details.json": "fbfcf3e7d8bed4811e509cbc5603b2b2a39e0dfb1b7f2b1279b82780b0f86f1d",
+    "data/raw/swe_exp/evaluation/verified/20251120_livesweagent_gemini-3-pro-preview/metadata.yaml": "7b8ffd984cd0a58c2042a9dd28ef6786d31c492b21dd14fb573ff6e54d5b5d37",
+    "data/raw/swe_exp/evaluation/verified/20251120_livesweagent_gemini-3-pro-preview/results/results.json": "d76733268a0e59ee9ec00e357217591372eea643dd2d27520220c375e04b97bc",
+    "data/raw/swe_exp/evaluation/verified/20251120_mini-v1.15.0_gpt-5.1-2025-11-13/metadata.yaml": "895675ac22b8ab075fcfc0183c3d388de2828312f7cd2ff38013bdc447e7e22c",
+    "data/raw/swe_exp/evaluation/verified/20251120_mini-v1.15.0_gpt-5.1-2025-11-13/per_instance_details.json": "c890863d77deeedd33a0205539561e7c75bf98a7a2b78febba3e08086fdc6d76",
+    "data/raw/swe_exp/evaluation/verified/20251124_mini-v1.16.0_claude-opus-4-5-20251101/metadata.yaml": "6fdc6221fb084bfc237f4927592a0becaabc5b392d62213fbec464c585a09916",
+    "data/raw/swe_exp/evaluation/verified/20251124_mini-v1.16.0_claude-opus-4-5-20251101/per_instance_details.json": "3d2381021e1f1288619084fb4196fd0077d8e6641cf6ba00e52d002d4bdecfc7",
+    "data/raw/swe_exp/evaluation/verified/20251124_mini-v1.16.0_gpt-5.1-codex/metadata.yaml": "636b834c823de28179be47f03962a1b77f494ae360809a503d66418b5a25161b",
+    "data/raw/swe_exp/evaluation/verified/20251124_mini-v1.16.0_gpt-5.1-codex/per_instance_details.json": "01c83a9c58b823ff4cb73eb0d5244820317deb5768ac87269dc27093b1e61a94",
+    "data/raw/swe_exp/evaluation/verified/20251124_mini-v1.17.0_minimax-m2/metadata.yaml": "efb58f4427c0a7cb0be290e940a89a621921c85fe0698fca192a3a8db8fb80f3",
+    "data/raw/swe_exp/evaluation/verified/20251124_mini-v1.17.0_minimax-m2/per_instance_details.json": "d6df08faea1acee5d60685dfacc04dba52c505969c722c4dd8755b3b89ecb2bf",
+    "data/raw/swe_exp/evaluation/verified/20251127_openhands_claude-opus-4-5/metadata.yaml": "242dadf819b39d4a816f0a1af996cca22ce728d5193fc2c759124bf290733e3e",
+    "data/raw/swe_exp/evaluation/verified/20251127_openhands_claude-opus-4-5/results/results.json": "d5c91e5bb2e0fa418eee578a0e5f91e79c08513e1797982193053e8d26690e57",
+    "data/raw/swe_exp/evaluation/verified/20251201_mini-v1.17.1_deepseek-v3.2-reasoner/metadata.yaml": "f56e5cce5bf9da4e64194548f6285c6cbc1641346ad91952755d220df8c673eb",
+    "data/raw/swe_exp/evaluation/verified/20251201_mini-v1.17.1_deepseek-v3.2-reasoner/per_instance_details.json": "c3ffaeb87be42605c4f77028ceb3d90a1c0342ef34142ad5b049b26cb9fd23fd",
+    "data/raw/swe_exp/evaluation/verified/20251201_mini-v1.17.1_glm-4.6/metadata.yaml": "849cb771bd7558829599bb84a0d600c634adaf40d01156a94ad19029e2e03bd1",
+    "data/raw/swe_exp/evaluation/verified/20251201_mini-v1.17.1_glm-4.6/per_instance_details.json": "3aef887fa492c8f5626e212469b614ea16e1439aae99d130f782e2917e61e418",
+    "data/raw/swe_exp/evaluation/verified/20251205_sonar-foundation-agent_claude-opus-4-5/metadata.yaml": "8308a7a2259d243a7ae02294a84ee3f00b7da59d2ce824d95354b130ab9a0f10",
+    "data/raw/swe_exp/evaluation/verified/20251205_sonar-foundation-agent_claude-opus-4-5/results/results.json": "6cb862304137d5ce17a2c260cecac17c54cd668e0f9ee4ab44d5a294726562e9",
+    "data/raw/swe_exp/evaluation/verified/20251209_mini-v1.17.2_devstral-2512/metadata.yaml": "24ec5438fd7032c9a609e0f60d794c0d26243afbf0531bd008329213e8275261",
+    "data/raw/swe_exp/evaluation/verified/20251209_mini-v1.17.2_devstral-2512/per_instance_details.json": "45d50ca417378b4a886ad05937a74535d3b244adea38675ab4af5af8d31752f9",
+    "data/raw/swe_exp/evaluation/verified/20251209_mini-v1.17.2_devstral-small-2512/metadata.yaml": "a52bb2dc1febd13244ad69f8246f02714389ffbed69e6b847d91698387305b15",
+    "data/raw/swe_exp/evaluation/verified/20251209_mini-v1.17.2_devstral-small-2512/per_instance_details.json": "a4cac121a0d4673d61a94586650a5be35581d86c3f0703ad0fc54483b07ccfb1",
+    "data/raw/swe_exp/evaluation/verified/20251210_mini-v1.17.2_kimi-k2-thinking/metadata.yaml": "439cf941cdd6a2f2cb9e82554c528b2fed599027a28dce138653aca71b0004c2",
+    "data/raw/swe_exp/evaluation/verified/20251210_mini-v1.17.2_kimi-k2-thinking/per_instance_details.json": "8ccead1c62ccf78e24ef772f2675b7365e0a5fa7ba54c02ef5ad47282b2bca57",
+    "data/raw/swe_exp/evaluation/verified/20251211_mini-v1.17.2_gpt-5.2-2025-12-11-high/metadata.yaml": "ea176d7aabb29bb831850eb4e9aef174d3da6768d8cc427b57af12287c7a51cc",
+    "data/raw/swe_exp/evaluation/verified/20251211_mini-v1.17.2_gpt-5.2-2025-12-11-high/per_instance_details.json": "e5362fa944a5c52ee3dce7e4f38cf38ba4e797ccbe937d196d7f691a642a7674",
+    "data/raw/swe_exp/evaluation/verified/20251211_mini-v1.17.2_gpt-5.2-2025-12-11/metadata.yaml": "282706e41ed5934e29caec94332461b8410ca3e5a91169ec9134286894114056",
+    "data/raw/swe_exp/evaluation/verified/20251211_mini-v1.17.2_gpt-5.2-2025-12-11/per_instance_details.json": "de4f7398dcc2a4aaa404730eeda29df73a58350d9598475fd51811598e1450e8",
+    "data/raw/swe_exp/evaluation/verified/20251215_livesweagent_claude-opus-4-5/metadata.yaml": "b70777f746f1d2072d2e4b144f33f1f6ac73898b6f3a3c31cc105a26ecba5556",
+    "data/raw/swe_exp/evaluation/verified/20251215_livesweagent_claude-opus-4-5/results/results.json": "c9f7caf40ec323e41d23e6e67d7b0edba48ae5e2f980f6f14e2932a6a49c4a8b",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_claude-4-5-haiku-high/metadata.yaml": "bac88a3b1c50cbf8784fe98070fa77e0dd8f2b2809e0b9bee9fb1ed8779cf868",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_claude-4-5-haiku-high/per_instance_details.json": "4104e3cf041d57048ac22bf1ffc0805b154a064dfcbb1c0666647e4613008533",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_claude-4-5-opus-high/metadata.yaml": "65f42343f076d47de2b7fe175469bea9123ea61d033c67bb9c3bbc5f9a508f3f",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_claude-4-5-opus-high/per_instance_details.json": "e9657d90a145b9b22db233eb8a796d978ef9f8ecb9434570d0d599a635831907",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_claude-4-5-sonnet-high/metadata.yaml": "a158a82473a28ec37c2639d5d309dbba23cd4f75d22763c9b5e67b4b5830d308",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_claude-4-5-sonnet-high/per_instance_details.json": "c7f61049937deafa6327e0d5f17c0baf482751388530530bb9f5d53ce0fbf7cc",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_claude-4-6-opus/metadata.yaml": "57c9de0e30a7299338f659f0526e8e6bceb6e4e59e7c5a533528f3b7c3017264",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_claude-4-6-opus/per_instance_details.json": "c669276c9b7c23ffe967df0d7cc9f1f6406001ae02095761ddb2ac067103430d",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_deepseek-3-2-high/metadata.yaml": "cc7f67a07a5059e6cd884ef5d000d25b6284845d4bb09253636a885af58cff43",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_deepseek-3-2-high/per_instance_details.json": "5eeebd0aa53aa6234f36380d14141597f7776b32b0ba1a020dc2abaf005b50c1",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_gemini-3-flash-high/metadata.yaml": "1f0567e39e292e9216cb669def83e6f6a9bd02ee3d9731c4f23cad13ac42816b",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_gemini-3-flash-high/per_instance_details.json": "6e49e555537839726c02dbbefd45cdf63bbed8c138eaf349d783381ca0716e33",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_glm-5-high/metadata.yaml": "51caca169f8ea93795ea15d67cdb3c78740612dbc4040a5d30cbf65e0d660013",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_glm-5-high/per_instance_details.json": "cd139949a7a4044709f28d628c0a6ae9861da3e334033ae736a92a44d1d0a57c",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_gpt-5-2-high/metadata.yaml": "969a7c91b351fd0ac9ce47fddec706a9babbc15a84bc2022dd6f138461858d75",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_gpt-5-2-high/per_instance_details.json": "8bac088fcc87374906a207a3cf93e25df715546ace895b3a588cc075f6353fd1",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_gpt-5-mini/metadata.yaml": "599f40af8d63b5971e73ab8afe1362a4dc8e3a6765b31e46c518d836e3ac1c16",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_gpt-5-mini/per_instance_details.json": "b98b3f03cf9fbcf0eaa878ccde6d34a72483149ceb04559c90fd52277cb9d1ae",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_kimi-k2-5-high/metadata.yaml": "205dab6b9d0851bc1080baf7af7e845ea95b4908997a29095c6b7bb2c2b70484",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_kimi-k2-5-high/per_instance_details.json": "3794b2c4b853845d97cf89db10f4264a0b27ba75f6b1bbbf1e34ddf6fa8a5c1f",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_minimax-2-5-high/metadata.yaml": "9d11723206b90a1a3dc02b0a3c2c3870e8c487b756c36aff13120ad397e7abbc",
+    "data/raw/swe_exp/evaluation/verified/20260217_mini-v2.0.0_minimax-2-5-high/per_instance_details.json": "62a26211006b557f1a31371ee6cf3119be5bdaed43dcce3fe6efedc0912c012c",
+    "data/raw/swe_exp/evaluation/verified/20260226_mini-v2.0.0_gemini-3-pro-high/metadata.yaml": "ea89e3be751dad7ecfeb1c535118dd87f2560826455dc3304c384bfd98ec10eb",
+    "data/raw/swe_exp/evaluation/verified/20260226_mini-v2.0.0_gemini-3-pro-high/per_instance_details.json": "b597f9c833c8a90af39e7e9bd4c68675b1cd863d815670d2a69bbd4136194cd5",
+    "data/raw/swe_exp/evaluation/verified/20260901_mini-v2.4.2_gemini-3-5-flash/metadata.yaml": "f952e0e14fc11be7467a9cbebb70040a92d4e1e66bd6fdb909cf575d894e064d",
+    "data/raw/swe_exp/evaluation/verified/20260901_mini-v2.4.2_gemini-3-5-flash/results/results.json": "9fc1d88077468b2c655ba76d3de799094c565567ec175e389a3ab7a198949e57"
+   },
+   "sha256": "3835c8407ee4bcd00ecc6259e278f0e274d157b006c74f35dbfe11640d84bc17"
+  }
+ },
+ "max_items_large": 2000,
+ "subsample_seed": 20261029
+}

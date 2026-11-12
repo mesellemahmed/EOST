@@ -1,0 +1,90 @@
+{
+ "dataset": "ollb_winogrande",
+ "component": "main",
+ "config": {
+  "master_seed": 20261104,
+  "n_targets": 40,
+  "replicates": 3,
+  "panel_sizes": [
+   4,
+   8,
+   16
+  ],
+  "primary_N": 8,
+  "budget": 100,
+  "holdout_frac": 0.2,
+  "theta_lo": -5.0,
+  "theta_hi": 5.0,
+  "theta_K": 201,
+  "resid_thr": 0.5,
+  "loco_N": [
+   4,
+   8,
+   16
+  ],
+  "fb_N": [
+   4,
+   8
+  ],
+  "eb_arms_N": [
+   8
+  ],
+  "fb_burn": 10,
+  "fb_draws": 8,
+  "fb_thin": 4,
+  "reduction_T": [
+   25,
+   50,
+   100
+  ],
+  "mince_R": 2000,
+  "mince_step": 25,
+  "mince_tau": 0.01,
+  "mix_every": 4,
+  "recal_window": 1.5
+ },
+ "targets": [
+  15,
+  28,
+  35,
+  73,
+  75,
+  99,
+  100,
+  136,
+  141,
+  151,
+  156,
+  161,
+  174,
+  180,
+  186,
+  189,
+  199,
+  203,
+  204,
+  207,
+  209,
+  220,
+  250,
+  253,
+  261,
+  273,
+  277,
+  333,
+  342,
+  345,
+  347,
+  350,
+  353,
+  357,
+  374,
+  378,
+  379,
+  382,
+  383,
+  391
+ ],
+ "n_rows": 8280,
+ "cpu_seconds": 2631.0
+}

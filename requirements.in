@@ -1,0 +1,9 @@
+# Top-level scientific dependencies for EOST v2 (resolved and frozen into requirements.lock)
+numpy
+scipy
+pandas
+matplotlib
+pyyaml
+pytest
+jax[cpu]
+numpyro

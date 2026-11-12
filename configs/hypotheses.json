@@ -1,0 +1,29 @@
+{
+  "version": "EOST-v2-confirmatory-1",
+  "unit_of_analysis": "target system (per-target mean over replicates)",
+  "test": "two-sided Wilcoxon signed-rank on paired per-target values",
+  "multiplicity": "Holm over the full confirmatory family (all benchmarks x panel sizes x hypotheses)",
+  "alpha": 0.05,
+  "primary_panel_size": 8,
+  "confirmatory_datasets": ["ollb_gsm8k", "ollb_arc", "ollb_hellaswag", "ollb_winogrande", "ollb_mmlu",
+                            "swe_verified", "livecodebench", "cruxeval_o"],
+  "panel_sizes": [4, 8, 16, 32, 64],
+  "decision_rule": "Hypothesis supported at the primary panel size if the Holm-adjusted test favours the new policy in >= 5 of the 8 confirmatory benchmarks and significantly favours the baseline in none.",
+  "hypotheses": [
+    {"id": "H1", "name": "information vs predictive entropy", "new": "eig:mg", "base": "entropy:mg",
+     "metric": "ilogloss", "lower_is_better": true},
+    {"id": "H2", "name": "calibration-marginal EIG vs plug-in Fisher CAT", "new": "eig:mg", "base": "mfi:pi",
+     "metric": "ilogloss", "lower_is_better": true},
+    {"id": "H3", "name": "adaptive EOST-M vs naive subsampling (score error)", "new": "eig:mg", "base": "naive",
+     "metric": "iae", "lower_is_better": true},
+    {"id": "H4", "name": "interval calibration (|coverage - 0.90|)", "new": "eig:mg", "base": "mfi:pi",
+     "metric": "covgap", "lower_is_better": true}
+  ],
+  "secondary_contrasts": [
+    ["eig:mg", "mfi:pi", "iae"], ["eig:mg", "entropy:mg", "iae"], ["eig:mg", "eig:pi", "ilogloss"],
+    ["eig:mg", "eig:pi", "iae"], ["eig:pi", "entropy:pi", "ilogloss"], ["eig:mg", "random:mg", "ilogloss"],
+    ["eig:mg", "random:mg", "iae"], ["evr:mg", "eig:mg", "iae"], ["evr:mg", "mfi:pi", "iae"],
+    ["pwfi:mg", "eig:mg", "ilogloss"], ["mfi:mg", "eig:mg", "ilogloss"], ["eig:mg", "mfi:pi", "ibrier"],
+    ["eig:mg", "mfi:pi", "ttol_03"]
+  ]
+}

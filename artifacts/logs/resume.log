@@ -1,0 +1,1357 @@
+2026-10-29T19:40:56Z skip confirm/ollb_gsm8k (complete)
+2026-10-29T19:40:56Z skip confirm/ollb_arc (complete)
+2026-10-29T19:40:56Z start confirm/ollb_hellaswag --targets 60 --reps 5
+[ollb_hellaswag] 5/60 targets  258s
+2026-10-29T20:02:21Z --- relaunch after second infrastructure restart (checkpointed runner) ---
+2026-10-29T20:02:21Z skip confirm/ollb_gsm8k (complete)
+2026-10-29T20:02:21Z skip confirm/ollb_arc (complete)
+2026-10-29T20:02:21Z start confirm/ollb_hellaswag --targets 60 --reps 5
+[ollb_hellaswag] 0/60 targets already checkpointed
+[ollb_hellaswag] 1/60 targets  82s
+[ollb_hellaswag] 2/60 targets  83s
+[ollb_hellaswag] 3/60 targets  163s
+[ollb_hellaswag] 4/60 targets  167s
+[ollb_hellaswag] 5/60 targets  247s
+[ollb_hellaswag] 6/60 targets  247s
+[ollb_hellaswag] 7/60 targets  329s
+[ollb_hellaswag] 8/60 targets  330s
+[ollb_hellaswag] 9/60 targets  409s
+[ollb_hellaswag] 10/60 targets  411s
+[ollb_hellaswag] 11/60 targets  492s
+[ollb_hellaswag] 12/60 targets  496s
+[ollb_hellaswag] 13/60 targets  576s
+[ollb_hellaswag] 14/60 targets  580s
+[ollb_hellaswag] 15/60 targets  657s
+[ollb_hellaswag] 16/60 targets  662s
+[ollb_hellaswag] 17/60 targets  741s
+[ollb_hellaswag] 18/60 targets  750s
+[ollb_hellaswag] 19/60 targets  825s
+[ollb_hellaswag] 20/60 targets  833s
+[ollb_hellaswag] 21/60 targets  912s
+[ollb_hellaswag] 22/60 targets  925s
+[ollb_hellaswag] 23/60 targets  999s
+[ollb_hellaswag] 24/60 targets  1012s
+[ollb_hellaswag] 25/60 targets  1088s
+[ollb_hellaswag] 26/60 targets  1101s
+[ollb_hellaswag] 27/60 targets  1169s
+[ollb_hellaswag] 28/60 targets  1184s
+[ollb_hellaswag] 29/60 targets  1260s
+[ollb_hellaswag] 30/60 targets  1272s
+[ollb_hellaswag] 31/60 targets  1341s
+[ollb_hellaswag] 32/60 targets  1355s
+[ollb_hellaswag] 33/60 targets  1420s
+[ollb_hellaswag] 34/60 targets  1439s
+[ollb_hellaswag] 35/60 targets  1504s
+[ollb_hellaswag] 36/60 targets  1520s
+[ollb_hellaswag] 37/60 targets  1583s
+[ollb_hellaswag] 38/60 targets  1604s
+[ollb_hellaswag] 39/60 targets  1662s
+[ollb_hellaswag] 40/60 targets  1684s
+[ollb_hellaswag] 41/60 targets  1742s
+[ollb_hellaswag] 42/60 targets  1764s
+[ollb_hellaswag] 43/60 targets  1823s
+[ollb_hellaswag] 44/60 targets  1848s
+[ollb_hellaswag] 45/60 targets  1905s
+[ollb_hellaswag] 46/60 targets  1930s
+[ollb_hellaswag] 47/60 targets  1988s
+[ollb_hellaswag] 48/60 targets  2011s
+[ollb_hellaswag] 49/60 targets  2070s
+[ollb_hellaswag] 50/60 targets  2092s
+[ollb_hellaswag] 51/60 targets  2150s
+[ollb_hellaswag] 52/60 targets  2172s
+[ollb_hellaswag] 53/60 targets  2230s
+[ollb_hellaswag] 54/60 targets  2252s
+[ollb_hellaswag] 55/60 targets  2311s
+[ollb_hellaswag] 56/60 targets  2331s
+[ollb_hellaswag] 57/60 targets  2389s
+[ollb_hellaswag] 58/60 targets  2410s
+[ollb_hellaswag] 59/60 targets  2468s
+[ollb_hellaswag] 60/60 targets  2489s
+RUN_GATE=PASS ollb_hellaswag rows=18000 targets=60 seconds=2478.3
+2026-10-29T20:43:57Z done confirm/ollb_hellaswag
+2026-10-29T20:43:57Z skip confirm/ollb_winogrande (complete)
+2026-10-29T20:43:57Z skip confirm/ollb_mmlu (complete)
+2026-10-29T20:43:57Z skip confirm/swe_verified (complete)
+2026-10-29T20:43:57Z skip confirm/livecodebench (complete)
+2026-10-29T20:43:57Z skip confirm/cruxeval_o (complete)
+2026-10-29T20:43:57Z start confirm/synth_2pl --targets 60 --reps 5
+[synth_2pl] 0/60 targets already checkpointed
+[synth_2pl] 1/60 targets  26s
+[synth_2pl] 2/60 targets  26s
+[synth_2pl] 3/60 targets  52s
+[synth_2pl] 4/60 targets  53s
+[synth_2pl] 5/60 targets  74s
+[synth_2pl] 6/60 targets  75s
+[synth_2pl] 7/60 targets  95s
+[synth_2pl] 8/60 targets  97s
+[synth_2pl] 9/60 targets  117s
+[synth_2pl] 10/60 targets  119s
+[synth_2pl] 11/60 targets  146s
+[synth_2pl] 12/60 targets  148s
+[synth_2pl] 13/60 targets  168s
+[synth_2pl] 14/60 targets  172s
+[synth_2pl] 15/60 targets  191s
+[synth_2pl] 16/60 targets  194s
+[synth_2pl] 17/60 targets  213s
+[synth_2pl] 18/60 targets  216s
+[synth_2pl] 19/60 targets  236s
+[synth_2pl] 20/60 targets  238s
+[synth_2pl] 21/60 targets  265s
+[synth_2pl] 22/60 targets  267s
+[synth_2pl] 23/60 targets  287s
+[synth_2pl] 24/60 targets  288s
+[synth_2pl] 25/60 targets  308s
+[synth_2pl] 26/60 targets  311s
+[synth_2pl] 27/60 targets  330s
+[synth_2pl] 28/60 targets  333s
+[synth_2pl] 29/60 targets  352s
+[synth_2pl] 30/60 targets  354s
+[synth_2pl] 31/60 targets  374s
+[synth_2pl] 32/60 targets  377s
+[synth_2pl] 33/60 targets  395s
+[synth_2pl] 34/60 targets  399s
+[synth_2pl] 35/60 targets  417s
+[synth_2pl] 36/60 targets  421s
+[synth_2pl] 37/60 targets  439s
+[synth_2pl] 38/60 targets  443s
+[synth_2pl] 39/60 targets  461s
+[synth_2pl] 40/60 targets  464s
+[synth_2pl] 41/60 targets  483s
+[synth_2pl] 42/60 targets  486s
+[synth_2pl] 43/60 targets  505s
+[synth_2pl] 44/60 targets  507s
+[synth_2pl] 45/60 targets  527s
+[synth_2pl] 46/60 targets  529s
+[synth_2pl] 47/60 targets  549s
+[synth_2pl] 48/60 targets  551s
+[synth_2pl] 49/60 targets  571s
+[synth_2pl] 50/60 targets  572s
+[synth_2pl] 51/60 targets  593s
+[synth_2pl] 52/60 targets  594s
+[synth_2pl] 53/60 targets  615s
+[synth_2pl] 54/60 targets  616s
+[synth_2pl] 55/60 targets  637s
+[synth_2pl] 56/60 targets  637s
+[synth_2pl] 57/60 targets  658s
+[synth_2pl] 58/60 targets  660s
+[synth_2pl] 59/60 targets  680s
+[synth_2pl] 60/60 targets  682s
+RUN_GATE=PASS synth_2pl rows=18000 targets=60 seconds=680.3
+2026-10-29T20:55:24Z done confirm/synth_2pl
+2026-10-29T20:55:24Z start confirm/synth_guess --targets 60 --reps 5
+[synth_guess] 0/60 targets already checkpointed
+[synth_guess] 1/60 targets  22s
+[synth_guess] 2/60 targets  23s
+[synth_guess] 3/60 targets  44s
+[synth_guess] 4/60 targets  46s
+[synth_guess] 5/60 targets  67s
+[synth_guess] 6/60 targets  68s
+[synth_guess] 7/60 targets  90s
+[synth_guess] 8/60 targets  90s
+[synth_guess] 9/60 targets  112s
+[synth_guess] 10/60 targets  112s
+[synth_guess] 11/60 targets  134s
+[synth_guess] 12/60 targets  135s
+[synth_guess] 13/60 targets  157s
+[synth_guess] 14/60 targets  157s
+[synth_guess] 15/60 targets  179s
+[synth_guess] 16/60 targets  179s
+[synth_guess] 17/60 targets  205s
+[synth_guess] 18/60 targets  206s
+[synth_guess] 19/60 targets  227s
+[synth_guess] 20/60 targets  228s
+[synth_guess] 21/60 targets  249s
+[synth_guess] 22/60 targets  250s
+[synth_guess] 23/60 targets  272s
+[synth_guess] 24/60 targets  273s
+[synth_guess] 25/60 targets  294s
+[synth_guess] 26/60 targets  295s
+[synth_guess] 27/60 targets  317s
+[synth_guess] 28/60 targets  317s
+[synth_guess] 29/60 targets  339s
+[synth_guess] 30/60 targets  339s
+[synth_guess] 31/60 targets  361s
+[synth_guess] 32/60 targets  361s
+[synth_guess] 33/60 targets  382s
+[synth_guess] 34/60 targets  383s
+[synth_guess] 35/60 targets  404s
+[synth_guess] 36/60 targets  404s
+[synth_guess] 37/60 targets  426s
+[synth_guess] 38/60 targets  426s
+[synth_guess] 39/60 targets  447s
+[synth_guess] 40/60 targets  448s
+[synth_guess] 41/60 targets  470s
+[synth_guess] 42/60 targets  470s
+[synth_guess] 43/60 targets  491s
+[synth_guess] 44/60 targets  492s
+[synth_guess] 45/60 targets  513s
+[synth_guess] 46/60 targets  514s
+[synth_guess] 47/60 targets  536s
+[synth_guess] 48/60 targets  536s
+[synth_guess] 49/60 targets  558s
+[synth_guess] 50/60 targets  558s
+[synth_guess] 51/60 targets  580s
+[synth_guess] 52/60 targets  581s
+[synth_guess] 53/60 targets  602s
+[synth_guess] 54/60 targets  603s
+[synth_guess] 55/60 targets  625s
+[synth_guess] 56/60 targets  625s
+[synth_guess] 57/60 targets  647s
+[synth_guess] 58/60 targets  647s
+[synth_guess] 59/60 targets  669s
+[synth_guess] 60/60 targets  670s
+RUN_GATE=PASS synth_guess rows=18000 targets=60 seconds=669.1
+2026-10-29T21:06:41Z done confirm/synth_guess
+2026-10-29T21:06:41Z start confirm/synth_2dim --targets 60 --reps 5
+[synth_2dim] 0/60 targets already checkpointed
+[synth_2dim] 1/60 targets  22s
+[synth_2dim] 2/60 targets  23s
+[synth_2dim] 3/60 targets  44s
+[synth_2dim] 4/60 targets  46s
+[synth_2dim] 5/60 targets  67s
+[synth_2dim] 6/60 targets  69s
+[synth_2dim] 7/60 targets  89s
+[synth_2dim] 8/60 targets  91s
+[synth_2dim] 9/60 targets  111s
+[synth_2dim] 10/60 targets  113s
+[synth_2dim] 11/60 targets  133s
+[synth_2dim] 12/60 targets  135s
+[synth_2dim] 13/60 targets  156s
+[synth_2dim] 14/60 targets  158s
+[synth_2dim] 15/60 targets  178s
+[synth_2dim] 16/60 targets  180s
+[synth_2dim] 17/60 targets  201s
+[synth_2dim] 18/60 targets  203s
+[synth_2dim] 19/60 targets  223s
+[synth_2dim] 20/60 targets  226s
+[synth_2dim] 21/60 targets  245s
+[synth_2dim] 22/60 targets  248s
+[synth_2dim] 23/60 targets  267s
+[synth_2dim] 24/60 targets  270s
+[synth_2dim] 25/60 targets  290s
+[synth_2dim] 26/60 targets  293s
+[synth_2dim] 27/60 targets  313s
+[synth_2dim] 28/60 targets  315s
+[synth_2dim] 29/60 targets  336s
+[synth_2dim] 30/60 targets  338s
+[synth_2dim] 31/60 targets  359s
+[synth_2dim] 32/60 targets  361s
+[synth_2dim] 33/60 targets  381s
+[synth_2dim] 34/60 targets  383s
+[synth_2dim] 35/60 targets  403s
+[synth_2dim] 36/60 targets  405s
+[synth_2dim] 37/60 targets  426s
+[synth_2dim] 38/60 targets  427s
+[synth_2dim] 39/60 targets  448s
+[synth_2dim] 40/60 targets  450s
+[synth_2dim] 41/60 targets  470s
+[synth_2dim] 42/60 targets  471s
+[synth_2dim] 43/60 targets  493s
+[synth_2dim] 44/60 targets  494s
+[synth_2dim] 45/60 targets  515s
+[synth_2dim] 46/60 targets  516s
+[synth_2dim] 47/60 targets  537s
+[synth_2dim] 48/60 targets  539s
+[synth_2dim] 49/60 targets  560s
+[synth_2dim] 50/60 targets  562s
+[synth_2dim] 51/60 targets  583s
+[synth_2dim] 52/60 targets  585s
+[synth_2dim] 53/60 targets  606s
+[synth_2dim] 54/60 targets  608s
+[synth_2dim] 55/60 targets  630s
+[synth_2dim] 56/60 targets  631s
+[synth_2dim] 57/60 targets  653s
+[synth_2dim] 58/60 targets  653s
+[synth_2dim] 59/60 targets  675s
+[synth_2dim] 60/60 targets  676s
+RUN_GATE=PASS synth_2dim rows=18000 targets=60 seconds=675.0
+2026-10-29T21:18:03Z done confirm/synth_2dim
+2026-10-29T21:18:03Z CONFIRM_COMPLETE
+2026-10-29T21:18:03Z start sens_1pl/ollb_gsm8k --irt-model 1pl --targets 30 --reps 3 --panel-sizes 8 64
+[ollb_gsm8k] 0/30 targets already checkpointed
+[ollb_gsm8k] 1/30 targets  25s
+[ollb_gsm8k] 2/30 targets  30s
+[ollb_gsm8k] 3/30 targets  46s
+[ollb_gsm8k] 4/30 targets  48s
+[ollb_gsm8k] 5/30 targets  65s
+[ollb_gsm8k] 6/30 targets  70s
+[ollb_gsm8k] 7/30 targets  85s
+[ollb_gsm8k] 8/30 targets  90s
+[ollb_gsm8k] 9/30 targets  109s
+[ollb_gsm8k] 10/30 targets  121s
+[ollb_gsm8k] 11/30 targets  134s
+[ollb_gsm8k] 12/30 targets  145s
+[ollb_gsm8k] 13/30 targets  158s
+[ollb_gsm8k] 14/30 targets  166s
+[ollb_gsm8k] 15/30 targets  183s
+[ollb_gsm8k] 16/30 targets  187s
+[ollb_gsm8k] 17/30 targets  206s
+[ollb_gsm8k] 18/30 targets  208s
+[ollb_gsm8k] 19/30 targets  226s
+[ollb_gsm8k] 20/30 targets  228s
+[ollb_gsm8k] 21/30 targets  245s
+[ollb_gsm8k] 22/30 targets  250s
+[ollb_gsm8k] 23/30 targets  267s
+[ollb_gsm8k] 24/30 targets  271s
+[ollb_gsm8k] 25/30 targets  291s
+[ollb_gsm8k] 26/30 targets  297s
+[ollb_gsm8k] 27/30 targets  309s
+[ollb_gsm8k] 28/30 targets  316s
+[ollb_gsm8k] 29/30 targets  329s
+[ollb_gsm8k] 30/30 targets  336s
+RUN_GATE=PASS ollb_gsm8k rows=2160 targets=30 seconds=332.6
+2026-10-29T21:23:40Z done sens_1pl/ollb_gsm8k
+2026-10-29T21:23:40Z start sens_1pl/ollb_arc --irt-model 1pl --targets 30 --reps 3 --panel-sizes 8 64
+[ollb_arc] 0/30 targets already checkpointed
+[ollb_arc] 1/30 targets  14s
+[ollb_arc] 2/30 targets  14s
+[ollb_arc] 3/30 targets  27s
+[ollb_arc] 4/30 targets  28s
+[ollb_arc] 5/30 targets  41s
+[ollb_arc] 6/30 targets  42s
+[ollb_arc] 7/30 targets  55s
+[ollb_arc] 8/30 targets  56s
+[ollb_arc] 9/30 targets  70s
+[ollb_arc] 10/30 targets  70s
+[ollb_arc] 11/30 targets  84s
+[ollb_arc] 12/30 targets  84s
+[ollb_arc] 13/30 targets  97s
+[ollb_arc] 14/30 targets  97s
+[ollb_arc] 15/30 targets  111s
+[ollb_arc] 16/30 targets  111s
+[ollb_arc] 17/30 targets  125s
+[ollb_arc] 18/30 targets  125s
+[ollb_arc] 19/30 targets  138s
+[ollb_arc] 20/30 targets  140s
+[ollb_arc] 21/30 targets  152s
+[ollb_arc] 22/30 targets  153s
+[ollb_arc] 23/30 targets  166s
+[ollb_arc] 24/30 targets  167s
+[ollb_arc] 25/30 targets  180s
+[ollb_arc] 26/30 targets  180s
+[ollb_arc] 27/30 targets  194s
+[ollb_arc] 28/30 targets  194s
+[ollb_arc] 29/30 targets  207s
+[ollb_arc] 30/30 targets  208s
+RUN_GATE=PASS ollb_arc rows=2160 targets=30 seconds=207.7
+2026-10-29T21:27:10Z done sens_1pl/ollb_arc
+2026-10-29T21:27:10Z start sens_1pl/ollb_hellaswag --irt-model 1pl --targets 30 --reps 3 --panel-sizes 8 64
+[ollb_hellaswag] 0/30 targets already checkpointed
+/work/scripts/../src/eost/replay.py:76: RuntimeWarning: overflow encountered in square
+  out += Z * (ev + em2 - em ** 2)
+/work/scripts/../src/eost/replay.py:82: RuntimeWarning: invalid value encountered in scalar subtract
+  idx = np.flatnonzero(scores >= m - 1e-12 * max(1.0, abs(m)))
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/work/scripts/run_benchmark_resumable.py", line 39, in _work
+    rows, diag = run_target(_BANK, int(t), _CFG, {})
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/scripts/../src/eost/experiment.py", line 103, in run_target
+    out = replay(y, pre.get(mname), pool, holdout, crit, cfg.budget, rng_s)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/scripts/../src/eost/replay.py", line 148, in replay
+    i = cand[_argmax_tiebreak(sc, rng)]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/scripts/../src/eost/replay.py", line 83, in _argmax_tiebreak
+    return idx[0] if len(idx) == 1 else rng.choice(idx)
+                                        ^^^^^^^^^^^^^^^
+  File "numpy/random/_generator.pyx", line 874, in numpy.random._generator.Generator.choice
+ValueError: a cannot be empty unless no samples are taken
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/work/scripts/run_benchmark_resumable.py", line 114, in <module>
+    main()
+  File "/work/scripts/run_benchmark_resumable.py", line 110, in main
+    run_one(name, cfg, a.phase, a.workers)
+  File "/work/scripts/run_benchmark_resumable.py", line 61, in run_one
+    for k, (t, rows, diag, secs) in enumerate(pool.imap_unordered(_work, todo)):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 873, in next
+    raise value
+ValueError: a cannot be empty unless no samples are taken
+2026-10-29T21:39:41Z relaunch after EVR overflow in sens_1pl/ollb_hellaswag (frozen code, target 28); sensitivity runs continue with --evr-guard
+2026-10-29T21:39:41Z skip sens_1pl/ollb_gsm8k (complete)
+2026-10-29T21:39:41Z skip sens_1pl/ollb_arc (complete)
+2026-10-29T21:39:41Z start sens_1pl/ollb_hellaswag --irt-model 1pl --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_hellaswag] 0/30 targets already checkpointed
+[ollb_hellaswag] 1/30 targets  29s
+[ollb_hellaswag] 2/30 targets  30s
+[ollb_hellaswag] 3/30 targets  61s
+[ollb_hellaswag] 4/30 targets  62s
+[ollb_hellaswag] 5/30 targets  91s
+[ollb_hellaswag] 6/30 targets  91s
+[ollb_hellaswag] 7/30 targets  119s
+[ollb_hellaswag] 8/30 targets  120s
+[ollb_hellaswag] 9/30 targets  149s
+[ollb_hellaswag] 10/30 targets  149s
+[ollb_hellaswag] 11/30 targets  178s
+[ollb_hellaswag] 12/30 targets  179s
+[ollb_hellaswag] 13/30 targets  207s
+[ollb_hellaswag] 14/30 targets  208s
+[ollb_hellaswag] 15/30 targets  235s
+[ollb_hellaswag] 16/30 targets  237s
+[ollb_hellaswag] 17/30 targets  264s
+[ollb_hellaswag] 18/30 targets  266s
+[ollb_hellaswag] 19/30 targets  292s
+[ollb_hellaswag] 20/30 targets  294s
+[ollb_hellaswag] 21/30 targets  321s
+[ollb_hellaswag] 22/30 targets  323s
+[ollb_hellaswag] 23/30 targets  349s
+[ollb_hellaswag] 24/30 targets  353s
+[ollb_hellaswag] 25/30 targets  378s
+[ollb_hellaswag] 26/30 targets  382s
+[ollb_hellaswag] 27/30 targets  407s
+[ollb_hellaswag] 28/30 targets  412s
+[ollb_hellaswag] 29/30 targets  437s
+[ollb_hellaswag] 30/30 targets  440s
+RUN_GATE=PASS ollb_hellaswag rows=2160 targets=30 seconds=438.0
+2026-10-29T21:47:02Z done sens_1pl/ollb_hellaswag
+2026-10-29T21:47:02Z start sens_1pl/ollb_winogrande --irt-model 1pl --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_winogrande] 0/30 targets already checkpointed
+[ollb_winogrande] 1/30 targets  14s
+[ollb_winogrande] 2/30 targets  15s
+[ollb_winogrande] 3/30 targets  29s
+[ollb_winogrande] 4/30 targets  29s
+[ollb_winogrande] 5/30 targets  43s
+[ollb_winogrande] 6/30 targets  43s
+[ollb_winogrande] 7/30 targets  57s
+[ollb_winogrande] 8/30 targets  57s
+[ollb_winogrande] 9/30 targets  71s
+[ollb_winogrande] 10/30 targets  72s
+[ollb_winogrande] 11/30 targets  86s
+[ollb_winogrande] 12/30 targets  86s
+[ollb_winogrande] 13/30 targets  100s
+[ollb_winogrande] 14/30 targets  100s
+[ollb_winogrande] 15/30 targets  114s
+[ollb_winogrande] 16/30 targets  114s
+[ollb_winogrande] 17/30 targets  128s
+[ollb_winogrande] 18/30 targets  128s
+[ollb_winogrande] 19/30 targets  142s
+[ollb_winogrande] 20/30 targets  143s
+[ollb_winogrande] 21/30 targets  156s
+[ollb_winogrande] 22/30 targets  157s
+[ollb_winogrande] 23/30 targets  170s
+[ollb_winogrande] 24/30 targets  170s
+[ollb_winogrande] 25/30 targets  185s
+[ollb_winogrande] 26/30 targets  186s
+[ollb_winogrande] 27/30 targets  198s
+[ollb_winogrande] 28/30 targets  201s
+[ollb_winogrande] 29/30 targets  213s
+[ollb_winogrande] 30/30 targets  215s
+RUN_GATE=PASS ollb_winogrande rows=2160 targets=30 seconds=213.6
+2026-10-29T21:50:38Z done sens_1pl/ollb_winogrande
+2026-10-29T21:50:38Z start sens_1pl/ollb_mmlu --irt-model 1pl --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_mmlu] 0/30 targets already checkpointed
+[ollb_mmlu] 1/30 targets  26s
+[ollb_mmlu] 2/30 targets  29s
+[ollb_mmlu] 3/30 targets  53s
+[ollb_mmlu] 4/30 targets  54s
+[ollb_mmlu] 5/30 targets  78s
+[ollb_mmlu] 6/30 targets  79s
+[ollb_mmlu] 7/30 targets  103s
+[ollb_mmlu] 8/30 targets  104s
+[ollb_mmlu] 9/30 targets  129s
+[ollb_mmlu] 10/30 targets  133s
+[ollb_mmlu] 11/30 targets  157s
+[ollb_mmlu] 12/30 targets  158s
+[ollb_mmlu] 13/30 targets  182s
+[ollb_mmlu] 14/30 targets  186s
+[ollb_mmlu] 15/30 targets  209s
+[ollb_mmlu] 16/30 targets  212s
+[ollb_mmlu] 17/30 targets  234s
+[ollb_mmlu] 18/30 targets  239s
+[ollb_mmlu] 19/30 targets  264s
+[ollb_mmlu] 20/30 targets  264s
+[ollb_mmlu] 21/30 targets  289s
+[ollb_mmlu] 22/30 targets  290s
+[ollb_mmlu] 23/30 targets  316s
+[ollb_mmlu] 24/30 targets  318s
+[ollb_mmlu] 25/30 targets  342s
+[ollb_mmlu] 26/30 targets  346s
+[ollb_mmlu] 27/30 targets  372s
+[ollb_mmlu] 28/30 targets  376s
+[ollb_mmlu] 29/30 targets  399s
+[ollb_mmlu] 30/30 targets  405s
+RUN_GATE=PASS ollb_mmlu rows=2160 targets=30 seconds=402.2
+2026-10-29T21:57:25Z done sens_1pl/ollb_mmlu
+2026-10-29T21:57:25Z start sens_1pl/swe_verified --irt-model 1pl --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[swe_verified] 0/30 targets already checkpointed
+[swe_verified] 1/30 targets  5s
+[swe_verified] 2/30 targets  6s
+[swe_verified] 3/30 targets  11s
+[swe_verified] 4/30 targets  11s
+[swe_verified] 5/30 targets  16s
+[swe_verified] 6/30 targets  17s
+[swe_verified] 7/30 targets  22s
+[swe_verified] 8/30 targets  22s
+[swe_verified] 9/30 targets  27s
+[swe_verified] 10/30 targets  28s
+[swe_verified] 11/30 targets  33s
+[swe_verified] 12/30 targets  34s
+[swe_verified] 13/30 targets  39s
+[swe_verified] 14/30 targets  40s
+[swe_verified] 15/30 targets  45s
+[swe_verified] 16/30 targets  45s
+[swe_verified] 17/30 targets  50s
+[swe_verified] 18/30 targets  50s
+[swe_verified] 19/30 targets  56s
+[swe_verified] 20/30 targets  56s
+[swe_verified] 21/30 targets  62s
+[swe_verified] 22/30 targets  62s
+[swe_verified] 23/30 targets  67s
+[swe_verified] 24/30 targets  68s
+[swe_verified] 25/30 targets  73s
+[swe_verified] 26/30 targets  73s
+[swe_verified] 27/30 targets  78s
+[swe_verified] 28/30 targets  79s
+[swe_verified] 29/30 targets  84s
+[swe_verified] 30/30 targets  85s
+RUN_GATE=PASS swe_verified rows=2160 targets=30 seconds=84.3
+2026-10-29T21:58:51Z done sens_1pl/swe_verified
+2026-10-29T21:58:51Z start sens_1pl/livecodebench --irt-model 1pl --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[livecodebench] 0/28 targets already checkpointed
+[livecodebench] 1/28 targets  4s
+[livecodebench] 2/28 targets  4s
+[livecodebench] 3/28 targets  8s
+[livecodebench] 4/28 targets  8s
+[livecodebench] 5/28 targets  12s
+[livecodebench] 6/28 targets  12s
+[livecodebench] 7/28 targets  16s
+[livecodebench] 8/28 targets  16s
+[livecodebench] 9/28 targets  20s
+[livecodebench] 10/28 targets  21s
+[livecodebench] 11/28 targets  24s
+[livecodebench] 12/28 targets  24s
+[livecodebench] 13/28 targets  28s
+[livecodebench] 14/28 targets  28s
+[livecodebench] 15/28 targets  32s
+[livecodebench] 16/28 targets  32s
+[livecodebench] 17/28 targets  35s
+[livecodebench] 18/28 targets  36s
+[livecodebench] 19/28 targets  39s
+[livecodebench] 20/28 targets  40s
+[livecodebench] 21/28 targets  42s
+[livecodebench] 22/28 targets  44s
+[livecodebench] 23/28 targets  47s
+[livecodebench] 24/28 targets  48s
+[livecodebench] 25/28 targets  50s
+[livecodebench] 26/28 targets  52s
+[livecodebench] 27/28 targets  54s
+[livecodebench] 28/28 targets  56s
+RUN_GATE=PASS livecodebench rows=1008 targets=28 seconds=55.2
+2026-10-29T21:59:49Z done sens_1pl/livecodebench
+2026-10-29T21:59:49Z start sens_1pl/cruxeval_o --irt-model 1pl --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[cruxeval_o] 0/30 targets already checkpointed
+[cruxeval_o] 1/30 targets  3s
+[cruxeval_o] 2/30 targets  3s
+[cruxeval_o] 3/30 targets  5s
+[cruxeval_o] 4/30 targets  7s
+[cruxeval_o] 5/30 targets  8s
+[cruxeval_o] 6/30 targets  9s
+[cruxeval_o] 7/30 targets  11s
+[cruxeval_o] 8/30 targets  12s
+[cruxeval_o] 9/30 targets  14s
+[cruxeval_o] 10/30 targets  15s
+[cruxeval_o] 11/30 targets  17s
+[cruxeval_o] 12/30 targets  19s
+[cruxeval_o] 13/30 targets  20s
+[cruxeval_o] 14/30 targets  22s
+[cruxeval_o] 15/30 targets  23s
+[cruxeval_o] 16/30 targets  25s
+[cruxeval_o] 17/30 targets  25s
+[cruxeval_o] 18/30 targets  28s
+[cruxeval_o] 19/30 targets  28s
+[cruxeval_o] 20/30 targets  31s
+[cruxeval_o] 21/30 targets  31s
+[cruxeval_o] 22/30 targets  34s
+[cruxeval_o] 23/30 targets  34s
+[cruxeval_o] 24/30 targets  37s
+[cruxeval_o] 25/30 targets  37s
+[cruxeval_o] 26/30 targets  40s
+[cruxeval_o] 27/30 targets  40s
+[cruxeval_o] 28/30 targets  43s
+[cruxeval_o] 29/30 targets  43s
+[cruxeval_o] 30/30 targets  46s
+RUN_GATE=PASS cruxeval_o rows=1080 targets=30 seconds=44.4
+2026-10-29T22:00:36Z done sens_1pl/cruxeval_o
+2026-10-29T22:00:36Z start sens_fixedprior/ollb_gsm8k --fixed-prior --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_gsm8k] 0/30 targets already checkpointed
+[ollb_gsm8k] 1/30 targets  11s
+[ollb_gsm8k] 2/30 targets  11s
+[ollb_gsm8k] 3/30 targets  23s
+[ollb_gsm8k] 4/30 targets  23s
+[ollb_gsm8k] 5/30 targets  34s
+[ollb_gsm8k] 6/30 targets  34s
+[ollb_gsm8k] 7/30 targets  44s
+[ollb_gsm8k] 8/30 targets  44s
+[ollb_gsm8k] 9/30 targets  54s
+[ollb_gsm8k] 10/30 targets  55s
+[ollb_gsm8k] 11/30 targets  64s
+[ollb_gsm8k] 12/30 targets  66s
+[ollb_gsm8k] 13/30 targets  74s
+[ollb_gsm8k] 14/30 targets  77s
+[ollb_gsm8k] 15/30 targets  94s
+[ollb_gsm8k] 16/30 targets  95s
+[ollb_gsm8k] 17/30 targets  104s
+[ollb_gsm8k] 18/30 targets  106s
+[ollb_gsm8k] 19/30 targets  115s
+[ollb_gsm8k] 20/30 targets  117s
+[ollb_gsm8k] 21/30 targets  125s
+[ollb_gsm8k] 22/30 targets  127s
+[ollb_gsm8k] 23/30 targets  135s
+[ollb_gsm8k] 24/30 targets  138s
+[ollb_gsm8k] 25/30 targets  146s
+[ollb_gsm8k] 26/30 targets  149s
+[ollb_gsm8k] 27/30 targets  156s
+[ollb_gsm8k] 28/30 targets  159s
+[ollb_gsm8k] 29/30 targets  167s
+[ollb_gsm8k] 30/30 targets  170s
+RUN_GATE=PASS ollb_gsm8k rows=2160 targets=30 seconds=168.4
+2026-10-29T22:03:28Z done sens_fixedprior/ollb_gsm8k
+2026-10-29T22:03:28Z start sens_fixedprior/ollb_arc --fixed-prior --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_arc] 0/30 targets already checkpointed
+[ollb_arc] 1/30 targets  16s
+[ollb_arc] 2/30 targets  16s
+[ollb_arc] 3/30 targets  26s
+[ollb_arc] 4/30 targets  27s
+[ollb_arc] 5/30 targets  37s
+[ollb_arc] 6/30 targets  37s
+[ollb_arc] 7/30 targets  46s
+[ollb_arc] 8/30 targets  47s
+[ollb_arc] 9/30 targets  56s
+[ollb_arc] 10/30 targets  57s
+[ollb_arc] 11/30 targets  66s
+[ollb_arc] 12/30 targets  66s
+[ollb_arc] 13/30 targets  75s
+[ollb_arc] 14/30 targets  76s
+[ollb_arc] 15/30 targets  86s
+[ollb_arc] 16/30 targets  86s
+[ollb_arc] 17/30 targets  96s
+[ollb_arc] 18/30 targets  96s
+[ollb_arc] 19/30 targets  106s
+[ollb_arc] 20/30 targets  106s
+[ollb_arc] 21/30 targets  115s
+[ollb_arc] 22/30 targets  116s
+[ollb_arc] 23/30 targets  125s
+[ollb_arc] 24/30 targets  126s
+[ollb_arc] 25/30 targets  135s
+[ollb_arc] 26/30 targets  136s
+[ollb_arc] 27/30 targets  145s
+[ollb_arc] 28/30 targets  146s
+[ollb_arc] 29/30 targets  154s
+[ollb_arc] 30/30 targets  156s
+RUN_GATE=PASS ollb_arc rows=2160 targets=30 seconds=155.4
+2026-10-29T22:06:06Z done sens_fixedprior/ollb_arc
+2026-10-29T22:06:06Z start sens_fixedprior/ollb_hellaswag --fixed-prior --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_hellaswag] 0/30 targets already checkpointed
+[ollb_hellaswag] 1/30 targets  17s
+[ollb_hellaswag] 2/30 targets  17s
+[ollb_hellaswag] 3/30 targets  34s
+[ollb_hellaswag] 4/30 targets  35s
+[ollb_hellaswag] 5/30 targets  52s
+[ollb_hellaswag] 6/30 targets  52s
+[ollb_hellaswag] 7/30 targets  70s
+[ollb_hellaswag] 8/30 targets  70s
+[ollb_hellaswag] 9/30 targets  87s
+[ollb_hellaswag] 10/30 targets  88s
+[ollb_hellaswag] 11/30 targets  105s
+[ollb_hellaswag] 12/30 targets  105s
+[ollb_hellaswag] 13/30 targets  122s
+[ollb_hellaswag] 14/30 targets  122s
+[ollb_hellaswag] 15/30 targets  140s
+[ollb_hellaswag] 16/30 targets  140s
+[ollb_hellaswag] 17/30 targets  157s
+[ollb_hellaswag] 18/30 targets  158s
+[ollb_hellaswag] 19/30 targets  175s
+[ollb_hellaswag] 20/30 targets  175s
+[ollb_hellaswag] 21/30 targets  192s
+[ollb_hellaswag] 22/30 targets  192s
+[ollb_hellaswag] 23/30 targets  209s
+[ollb_hellaswag] 24/30 targets  210s
+[ollb_hellaswag] 25/30 targets  226s
+[ollb_hellaswag] 26/30 targets  227s
+[ollb_hellaswag] 27/30 targets  243s
+[ollb_hellaswag] 28/30 targets  244s
+[ollb_hellaswag] 29/30 targets  261s
+[ollb_hellaswag] 30/30 targets  262s
+RUN_GATE=PASS ollb_hellaswag rows=2160 targets=30 seconds=261.2
+2026-10-29T22:10:29Z done sens_fixedprior/ollb_hellaswag
+2026-10-29T22:10:29Z start sens_fixedprior/ollb_winogrande --fixed-prior --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_winogrande] 0/30 targets already checkpointed
+[ollb_winogrande] 1/30 targets  11s
+[ollb_winogrande] 2/30 targets  11s
+[ollb_winogrande] 3/30 targets  22s
+[ollb_winogrande] 4/30 targets  22s
+[ollb_winogrande] 5/30 targets  33s
+[ollb_winogrande] 6/30 targets  33s
+[ollb_winogrande] 7/30 targets  43s
+[ollb_winogrande] 8/30 targets  44s
+[ollb_winogrande] 9/30 targets  54s
+[ollb_winogrande] 10/30 targets  55s
+[ollb_winogrande] 11/30 targets  65s
+[ollb_winogrande] 12/30 targets  65s
+[ollb_winogrande] 13/30 targets  76s
+[ollb_winogrande] 14/30 targets  76s
+[ollb_winogrande] 15/30 targets  87s
+[ollb_winogrande] 16/30 targets  87s
+[ollb_winogrande] 17/30 targets  97s
+[ollb_winogrande] 18/30 targets  98s
+[ollb_winogrande] 19/30 targets  108s
+[ollb_winogrande] 20/30 targets  109s
+[ollb_winogrande] 21/30 targets  119s
+[ollb_winogrande] 22/30 targets  119s
+[ollb_winogrande] 23/30 targets  130s
+[ollb_winogrande] 24/30 targets  130s
+[ollb_winogrande] 25/30 targets  140s
+[ollb_winogrande] 26/30 targets  141s
+[ollb_winogrande] 27/30 targets  151s
+[ollb_winogrande] 28/30 targets  151s
+[ollb_winogrande] 29/30 targets  162s
+[ollb_winogrande] 30/30 targets  162s
+RUN_GATE=PASS ollb_winogrande rows=2160 targets=30 seconds=161.9
+2026-10-29T22:13:13Z done sens_fixedprior/ollb_winogrande
+2026-10-29T22:13:13Z start sens_fixedprior/ollb_mmlu --fixed-prior --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_mmlu] 0/30 targets already checkpointed
+[ollb_mmlu] 1/30 targets  22s
+[ollb_mmlu] 2/30 targets  22s
+[ollb_mmlu] 3/30 targets  44s
+[ollb_mmlu] 4/30 targets  44s
+[ollb_mmlu] 5/30 targets  66s
+[ollb_mmlu] 6/30 targets  66s
+[ollb_mmlu] 7/30 targets  87s
+[ollb_mmlu] 8/30 targets  87s
+[ollb_mmlu] 9/30 targets  109s
+[ollb_mmlu] 10/30 targets  110s
+[ollb_mmlu] 11/30 targets  131s
+[ollb_mmlu] 12/30 targets  131s
+[ollb_mmlu] 13/30 targets  152s
+[ollb_mmlu] 14/30 targets  153s
+[ollb_mmlu] 15/30 targets  173s
+[ollb_mmlu] 16/30 targets  174s
+[ollb_mmlu] 17/30 targets  195s
+[ollb_mmlu] 18/30 targets  196s
+[ollb_mmlu] 19/30 targets  216s
+[ollb_mmlu] 20/30 targets  218s
+[ollb_mmlu] 21/30 targets  238s
+[ollb_mmlu] 22/30 targets  240s
+[ollb_mmlu] 23/30 targets  260s
+[ollb_mmlu] 24/30 targets  261s
+[ollb_mmlu] 25/30 targets  281s
+[ollb_mmlu] 26/30 targets  283s
+[ollb_mmlu] 27/30 targets  303s
+[ollb_mmlu] 28/30 targets  304s
+[ollb_mmlu] 29/30 targets  325s
+[ollb_mmlu] 30/30 targets  326s
+RUN_GATE=PASS ollb_mmlu rows=2160 targets=30 seconds=325.2
+2026-10-29T22:18:41Z done sens_fixedprior/ollb_mmlu
+2026-10-29T22:18:41Z start sens_fixedprior/swe_verified --fixed-prior --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[swe_verified] 0/30 targets already checkpointed
+[swe_verified] 1/30 targets  3s
+[swe_verified] 2/30 targets  3s
+[swe_verified] 3/30 targets  6s
+[swe_verified] 4/30 targets  6s
+[swe_verified] 5/30 targets  9s
+[swe_verified] 6/30 targets  9s
+[swe_verified] 7/30 targets  12s
+[swe_verified] 8/30 targets  13s
+[swe_verified] 9/30 targets  15s
+[swe_verified] 10/30 targets  16s
+[swe_verified] 11/30 targets  18s
+[swe_verified] 12/30 targets  19s
+[swe_verified] 13/30 targets  21s
+[swe_verified] 14/30 targets  22s
+[swe_verified] 15/30 targets  24s
+[swe_verified] 16/30 targets  25s
+[swe_verified] 17/30 targets  27s
+[swe_verified] 18/30 targets  28s
+[swe_verified] 19/30 targets  30s
+[swe_verified] 20/30 targets  31s
+[swe_verified] 21/30 targets  33s
+[swe_verified] 22/30 targets  34s
+[swe_verified] 23/30 targets  36s
+[swe_verified] 24/30 targets  37s
+[swe_verified] 25/30 targets  39s
+[swe_verified] 26/30 targets  40s
+[swe_verified] 27/30 targets  42s
+[swe_verified] 28/30 targets  43s
+[swe_verified] 29/30 targets  45s
+[swe_verified] 30/30 targets  46s
+RUN_GATE=PASS swe_verified rows=2160 targets=30 seconds=45.5
+2026-10-29T22:19:28Z done sens_fixedprior/swe_verified
+2026-10-29T22:19:28Z start sens_fixedprior/livecodebench --fixed-prior --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[livecodebench] 0/28 targets already checkpointed
+[livecodebench] 1/28 targets  3s
+[livecodebench] 2/28 targets  3s
+[livecodebench] 3/28 targets  6s
+[livecodebench] 4/28 targets  6s
+[livecodebench] 5/28 targets  9s
+[livecodebench] 6/28 targets  9s
+[livecodebench] 7/28 targets  11s
+[livecodebench] 8/28 targets  12s
+[livecodebench] 9/28 targets  15s
+[livecodebench] 10/28 targets  15s
+[livecodebench] 11/28 targets  18s
+[livecodebench] 12/28 targets  18s
+[livecodebench] 13/28 targets  21s
+[livecodebench] 14/28 targets  21s
+[livecodebench] 15/28 targets  24s
+[livecodebench] 16/28 targets  24s
+[livecodebench] 17/28 targets  27s
+[livecodebench] 18/28 targets  27s
+[livecodebench] 19/28 targets  30s
+[livecodebench] 20/28 targets  30s
+[livecodebench] 21/28 targets  32s
+[livecodebench] 22/28 targets  34s
+[livecodebench] 23/28 targets  36s
+[livecodebench] 24/28 targets  37s
+[livecodebench] 25/28 targets  39s
+[livecodebench] 26/28 targets  40s
+[livecodebench] 27/28 targets  42s
+[livecodebench] 28/28 targets  44s
+RUN_GATE=PASS livecodebench rows=1008 targets=28 seconds=42.9
+2026-10-29T22:20:13Z done sens_fixedprior/livecodebench
+2026-10-29T22:20:13Z start sens_fixedprior/cruxeval_o --fixed-prior --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[cruxeval_o] 0/30 targets already checkpointed
+[cruxeval_o] 1/30 targets  2s
+[cruxeval_o] 2/30 targets  2s
+[cruxeval_o] 3/30 targets  4s
+[cruxeval_o] 4/30 targets  4s
+[cruxeval_o] 5/30 targets  7s
+[cruxeval_o] 6/30 targets  7s
+[cruxeval_o] 7/30 targets  9s
+[cruxeval_o] 8/30 targets  9s
+[cruxeval_o] 9/30 targets  11s
+[cruxeval_o] 10/30 targets  11s
+[cruxeval_o] 11/30 targets  13s
+[cruxeval_o] 12/30 targets  13s
+[cruxeval_o] 13/30 targets  15s
+[cruxeval_o] 14/30 targets  15s
+[cruxeval_o] 15/30 targets  17s
+[cruxeval_o] 16/30 targets  17s
+[cruxeval_o] 17/30 targets  19s
+[cruxeval_o] 18/30 targets  19s
+[cruxeval_o] 19/30 targets  21s
+[cruxeval_o] 20/30 targets  22s
+[cruxeval_o] 21/30 targets  23s
+[cruxeval_o] 22/30 targets  24s
+[cruxeval_o] 23/30 targets  25s
+[cruxeval_o] 24/30 targets  26s
+[cruxeval_o] 25/30 targets  27s
+[cruxeval_o] 26/30 targets  28s
+[cruxeval_o] 27/30 targets  29s
+[cruxeval_o] 28/30 targets  30s
+[cruxeval_o] 29/30 targets  31s
+[cruxeval_o] 30/30 targets  32s
+RUN_GATE=PASS cruxeval_o rows=1080 targets=30 seconds=31.8
+2026-10-29T22:20:47Z done sens_fixedprior/cruxeval_o
+2026-10-29T22:20:47Z start sens_dedup/ollb_gsm8k --max-kappa 0.8 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_gsm8k] 0/30 targets already checkpointed
+[ollb_gsm8k] 1/30 targets  14s
+[ollb_gsm8k] 2/30 targets  15s
+[ollb_gsm8k] 3/30 targets  29s
+[ollb_gsm8k] 4/30 targets  30s
+[ollb_gsm8k] 5/30 targets  44s
+[ollb_gsm8k] 6/30 targets  45s
+[ollb_gsm8k] 7/30 targets  58s
+[ollb_gsm8k] 8/30 targets  60s
+[ollb_gsm8k] 9/30 targets  72s
+[ollb_gsm8k] 10/30 targets  74s
+[ollb_gsm8k] 11/30 targets  87s
+[ollb_gsm8k] 12/30 targets  88s
+[ollb_gsm8k] 13/30 targets  102s
+[ollb_gsm8k] 14/30 targets  103s
+[ollb_gsm8k] 15/30 targets  117s
+[ollb_gsm8k] 16/30 targets  117s
+[ollb_gsm8k] 17/30 targets  131s
+[ollb_gsm8k] 18/30 targets  132s
+[ollb_gsm8k] 19/30 targets  146s
+[ollb_gsm8k] 20/30 targets  147s
+[ollb_gsm8k] 21/30 targets  160s
+[ollb_gsm8k] 22/30 targets  161s
+[ollb_gsm8k] 23/30 targets  176s
+[ollb_gsm8k] 24/30 targets  177s
+[ollb_gsm8k] 25/30 targets  190s
+[ollb_gsm8k] 26/30 targets  192s
+[ollb_gsm8k] 27/30 targets  205s
+[ollb_gsm8k] 28/30 targets  206s
+[ollb_gsm8k] 29/30 targets  222s
+[ollb_gsm8k] 30/30 targets  222s
+RUN_GATE=PASS ollb_gsm8k rows=2160 targets=30 seconds=221.6
+2026-10-29T22:24:30Z done sens_dedup/ollb_gsm8k
+2026-10-29T22:24:30Z start sens_dedup/ollb_mmlu --max-kappa 0.8 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_mmlu] 0/30 targets already checkpointed
+[ollb_mmlu] 1/30 targets  25s
+[ollb_mmlu] 2/30 targets  26s
+[ollb_mmlu] 3/30 targets  50s
+[ollb_mmlu] 4/30 targets  52s
+[ollb_mmlu] 5/30 targets  75s
+[ollb_mmlu] 6/30 targets  77s
+[ollb_mmlu] 7/30 targets  101s
+[ollb_mmlu] 8/30 targets  101s
+[ollb_mmlu] 9/30 targets  126s
+[ollb_mmlu] 10/30 targets  127s
+[ollb_mmlu] 11/30 targets  150s
+[ollb_mmlu] 12/30 targets  151s
+[ollb_mmlu] 13/30 targets  176s
+[ollb_mmlu] 14/30 targets  176s
+[ollb_mmlu] 15/30 targets  202s
+[ollb_mmlu] 16/30 targets  202s
+[ollb_mmlu] 17/30 targets  227s
+[ollb_mmlu] 18/30 targets  228s
+[ollb_mmlu] 19/30 targets  253s
+[ollb_mmlu] 20/30 targets  253s
+[ollb_mmlu] 21/30 targets  278s
+[ollb_mmlu] 22/30 targets  279s
+[ollb_mmlu] 23/30 targets  303s
+[ollb_mmlu] 24/30 targets  303s
+[ollb_mmlu] 25/30 targets  327s
+[ollb_mmlu] 26/30 targets  328s
+[ollb_mmlu] 27/30 targets  352s
+[ollb_mmlu] 28/30 targets  352s
+[ollb_mmlu] 29/30 targets  377s
+[ollb_mmlu] 30/30 targets  377s
+RUN_GATE=PASS ollb_mmlu rows=2160 targets=30 seconds=377.1
+2026-10-29T22:30:49Z done sens_dedup/ollb_mmlu
+2026-10-29T22:30:49Z start sens_dedup/ollb_arc --max-kappa 0.8 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_arc] 0/30 targets already checkpointed
+[ollb_arc] 1/30 targets  11s
+[ollb_arc] 2/30 targets  12s
+[ollb_arc] 3/30 targets  23s
+[ollb_arc] 4/30 targets  23s
+[ollb_arc] 5/30 targets  34s
+[ollb_arc] 6/30 targets  34s
+[ollb_arc] 7/30 targets  46s
+[ollb_arc] 8/30 targets  46s
+[ollb_arc] 9/30 targets  56s
+[ollb_arc] 10/30 targets  58s
+[ollb_arc] 11/30 targets  68s
+[ollb_arc] 12/30 targets  70s
+[ollb_arc] 13/30 targets  79s
+[ollb_arc] 14/30 targets  83s
+[ollb_arc] 15/30 targets  90s
+[ollb_arc] 16/30 targets  94s
+[ollb_arc] 17/30 targets  102s
+[ollb_arc] 18/30 targets  106s
+[ollb_arc] 19/30 targets  114s
+[ollb_arc] 20/30 targets  118s
+[ollb_arc] 21/30 targets  126s
+[ollb_arc] 22/30 targets  129s
+[ollb_arc] 23/30 targets  137s
+[ollb_arc] 24/30 targets  141s
+[ollb_arc] 25/30 targets  148s
+[ollb_arc] 26/30 targets  154s
+[ollb_arc] 27/30 targets  160s
+[ollb_arc] 28/30 targets  165s
+[ollb_arc] 29/30 targets  171s
+[ollb_arc] 30/30 targets  177s
+RUN_GATE=PASS ollb_arc rows=2160 targets=30 seconds=173.8
+2026-10-29T22:33:48Z done sens_dedup/ollb_arc
+2026-10-29T22:33:48Z start sens_dedup/ollb_hellaswag --max-kappa 0.8 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_hellaswag] 0/30 targets already checkpointed
+[ollb_hellaswag] 1/30 targets  21s
+[ollb_hellaswag] 2/30 targets  21s
+[ollb_hellaswag] 3/30 targets  43s
+[ollb_hellaswag] 4/30 targets  43s
+[ollb_hellaswag] 5/30 targets  63s
+[ollb_hellaswag] 6/30 targets  64s
+[ollb_hellaswag] 7/30 targets  85s
+[ollb_hellaswag] 8/30 targets  86s
+[ollb_hellaswag] 9/30 targets  106s
+[ollb_hellaswag] 10/30 targets  107s
+[ollb_hellaswag] 11/30 targets  128s
+[ollb_hellaswag] 12/30 targets  129s
+[ollb_hellaswag] 13/30 targets  149s
+[ollb_hellaswag] 14/30 targets  150s
+[ollb_hellaswag] 15/30 targets  170s
+[ollb_hellaswag] 16/30 targets  170s
+[ollb_hellaswag] 17/30 targets  190s
+[ollb_hellaswag] 18/30 targets  192s
+[ollb_hellaswag] 19/30 targets  211s
+[ollb_hellaswag] 20/30 targets  216s
+[ollb_hellaswag] 21/30 targets  232s
+[ollb_hellaswag] 22/30 targets  236s
+[ollb_hellaswag] 23/30 targets  252s
+[ollb_hellaswag] 24/30 targets  256s
+[ollb_hellaswag] 25/30 targets  273s
+[ollb_hellaswag] 26/30 targets  278s
+[ollb_hellaswag] 27/30 targets  293s
+[ollb_hellaswag] 28/30 targets  298s
+[ollb_hellaswag] 29/30 targets  314s
+[ollb_hellaswag] 30/30 targets  319s
+RUN_GATE=PASS ollb_hellaswag rows=2160 targets=30 seconds=316.4
+2026-10-29T22:39:09Z done sens_dedup/ollb_hellaswag
+2026-10-29T22:39:09Z start sens_dedup/ollb_winogrande --max-kappa 0.8 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_winogrande] 0/30 targets already checkpointed
+[ollb_winogrande] 1/30 targets  14s
+[ollb_winogrande] 2/30 targets  16s
+[ollb_winogrande] 3/30 targets  28s
+[ollb_winogrande] 4/30 targets  30s
+[ollb_winogrande] 5/30 targets  42s
+[ollb_winogrande] 6/30 targets  45s
+[ollb_winogrande] 7/30 targets  56s
+[ollb_winogrande] 8/30 targets  58s
+[ollb_winogrande] 9/30 targets  70s
+[ollb_winogrande] 10/30 targets  74s
+[ollb_winogrande] 11/30 targets  85s
+[ollb_winogrande] 12/30 targets  88s
+[ollb_winogrande] 13/30 targets  101s
+[ollb_winogrande] 14/30 targets  104s
+[ollb_winogrande] 15/30 targets  116s
+[ollb_winogrande] 16/30 targets  118s
+[ollb_winogrande] 17/30 targets  131s
+[ollb_winogrande] 18/30 targets  133s
+[ollb_winogrande] 19/30 targets  146s
+[ollb_winogrande] 20/30 targets  148s
+[ollb_winogrande] 21/30 targets  161s
+[ollb_winogrande] 22/30 targets  164s
+[ollb_winogrande] 23/30 targets  175s
+[ollb_winogrande] 24/30 targets  179s
+[ollb_winogrande] 25/30 targets  191s
+[ollb_winogrande] 26/30 targets  195s
+[ollb_winogrande] 27/30 targets  206s
+[ollb_winogrande] 28/30 targets  209s
+[ollb_winogrande] 29/30 targets  221s
+[ollb_winogrande] 30/30 targets  225s
+RUN_GATE=PASS ollb_winogrande rows=2160 targets=30 seconds=223.0
+2026-10-29T22:42:56Z done sens_dedup/ollb_winogrande
+2026-10-29T22:42:56Z SENSITIVITY_COMPLETE
+2026-10-29T22:42:56Z ALL_COMPLETE (sensitivity)
+[ollb_gsm8k] done
+[ollb_arc] done
+[ollb_hellaswag] done
+[ollb_winogrande] done
+[ollb_mmlu] done
+[swe_verified] done
+[livecodebench] done
+[cruxeval_o] done
+policy               eig:mg  evr:mg  mfi:pi  naive
+dataset         t                                 
+cruxeval_o      10    0.643   0.650   0.627  0.431
+                25    0.768   0.750   0.739  0.526
+                50    0.807   0.808   0.791  0.609
+                100   0.856   0.836   0.829  0.738
+livecodebench   10    0.762   0.703   0.719  0.568
+                25    0.821   0.804   0.795  0.727
+                50    0.867   0.863   0.857  0.764
+                100   0.901   0.908   0.895  0.800
+ollb_arc        10    0.605   0.610   0.610  0.281
+                25    0.685   0.721   0.691  0.450
+                50    0.745   0.764   0.745  0.555
+                100   0.800   0.807   0.788  0.682
+ollb_gsm8k      10    0.757   0.777   0.777  0.709
+                25    0.848   0.846   0.837  0.815
+                50    0.881   0.871   0.869  0.857
+                100   0.904   0.898   0.896  0.890
+ollb_hellaswag  10    0.652   0.611   0.639  0.249
+                25    0.753   0.755   0.748  0.375
+                50    0.796   0.800   0.790  0.470
+                100   0.833   0.840   0.833  0.565
+ollb_mmlu       10    0.700   0.716   0.672  0.423
+                25    0.774   0.791   0.737  0.560
+                50    0.804   0.812   0.770  0.615
+                100   0.842   0.838   0.809  0.706
+ollb_winogrande 10    0.505   0.536   0.484  0.273
+                25    0.609   0.635   0.602  0.332
+                50    0.672   0.668   0.642  0.418
+                100   0.718   0.711   0.683  0.536
+swe_verified    10    0.730   0.760   0.750  0.617
+                25    0.832   0.844   0.840  0.724
+                50    0.880   0.890   0.877  0.801
+                100   0.919   0.922   0.914  0.850
+EXPLORE_RANKING_GATE=PASS
+2026-10-29T23:04:39Z EXPLORE_COMPLETE
+2026-10-29T23:04:39Z ALL_COMPLETE (explore)
+2026-10-29T23:04:45Z start sens_1pl_reg/ollb_gsm8k --irt-model 1pl --sd-log-a 0.05 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_gsm8k] 0/30 targets already checkpointed
+[ollb_gsm8k] 1/30 targets  9s
+[ollb_gsm8k] 2/30 targets  9s
+[ollb_gsm8k] 3/30 targets  18s
+[ollb_gsm8k] 4/30 targets  19s
+[ollb_gsm8k] 5/30 targets  30s
+[ollb_gsm8k] 6/30 targets  30s
+[ollb_gsm8k] 7/30 targets  46s
+[ollb_gsm8k] 8/30 targets  46s
+[ollb_gsm8k] 9/30 targets  56s
+[ollb_gsm8k] 10/30 targets  57s
+[ollb_gsm8k] 11/30 targets  64s
+[ollb_gsm8k] 12/30 targets  66s
+[ollb_gsm8k] 13/30 targets  73s
+[ollb_gsm8k] 14/30 targets  75s
+[ollb_gsm8k] 15/30 targets  82s
+[ollb_gsm8k] 16/30 targets  85s
+[ollb_gsm8k] 17/30 targets  94s
+[ollb_gsm8k] 18/30 targets  101s
+[ollb_gsm8k] 19/30 targets  109s
+[ollb_gsm8k] 20/30 targets  113s
+[ollb_gsm8k] 21/30 targets  117s
+[ollb_gsm8k] 22/30 targets  122s
+[ollb_gsm8k] 23/30 targets  130s
+[ollb_gsm8k] 24/30 targets  139s
+[ollb_gsm8k] 25/30 targets  145s
+[ollb_gsm8k] 26/30 targets  150s
+[ollb_gsm8k] 27/30 targets  154s
+[ollb_gsm8k] 28/30 targets  160s
+[ollb_gsm8k] 29/30 targets  163s
+[ollb_gsm8k] 30/30 targets  169s
+RUN_GATE=PASS ollb_gsm8k rows=2160 targets=30 seconds=165.9
+2026-10-29T23:07:36Z done sens_1pl_reg/ollb_gsm8k
+2026-10-29T23:07:36Z start sens_1pl_reg/ollb_arc --irt-model 1pl --sd-log-a 0.05 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_arc] 0/30 targets already checkpointed
+[ollb_arc] 1/30 targets  8s
+[ollb_arc] 2/30 targets  9s
+[ollb_arc] 3/30 targets  17s
+[ollb_arc] 4/30 targets  17s
+[ollb_arc] 5/30 targets  25s
+[ollb_arc] 6/30 targets  25s
+[ollb_arc] 7/30 targets  33s
+[ollb_arc] 8/30 targets  34s
+[ollb_arc] 9/30 targets  42s
+[ollb_arc] 10/30 targets  42s
+[ollb_arc] 11/30 targets  50s
+[ollb_arc] 12/30 targets  51s
+[ollb_arc] 13/30 targets  58s
+[ollb_arc] 14/30 targets  59s
+[ollb_arc] 15/30 targets  67s
+[ollb_arc] 16/30 targets  67s
+[ollb_arc] 17/30 targets  75s
+[ollb_arc] 18/30 targets  76s
+[ollb_arc] 19/30 targets  83s
+[ollb_arc] 20/30 targets  84s
+[ollb_arc] 21/30 targets  91s
+[ollb_arc] 22/30 targets  93s
+[ollb_arc] 23/30 targets  100s
+[ollb_arc] 24/30 targets  101s
+[ollb_arc] 25/30 targets  108s
+[ollb_arc] 26/30 targets  109s
+[ollb_arc] 27/30 targets  117s
+[ollb_arc] 28/30 targets  117s
+[ollb_arc] 29/30 targets  125s
+[ollb_arc] 30/30 targets  125s
+RUN_GATE=PASS ollb_arc rows=2160 targets=30 seconds=124.9
+2026-10-29T23:09:43Z done sens_1pl_reg/ollb_arc
+2026-10-29T23:09:43Z start sens_1pl_reg/ollb_hellaswag --irt-model 1pl --sd-log-a 0.05 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_hellaswag] 0/30 targets already checkpointed
+[ollb_hellaswag] 1/30 targets  16s
+[ollb_hellaswag] 2/30 targets  16s
+[ollb_hellaswag] 3/30 targets  31s
+[ollb_hellaswag] 4/30 targets  31s
+[ollb_hellaswag] 5/30 targets  47s
+[ollb_hellaswag] 6/30 targets  47s
+[ollb_hellaswag] 7/30 targets  63s
+[ollb_hellaswag] 8/30 targets  63s
+[ollb_hellaswag] 9/30 targets  78s
+[ollb_hellaswag] 10/30 targets  78s
+[ollb_hellaswag] 11/30 targets  94s
+[ollb_hellaswag] 12/30 targets  94s
+[ollb_hellaswag] 13/30 targets  109s
+[ollb_hellaswag] 14/30 targets  109s
+[ollb_hellaswag] 15/30 targets  125s
+[ollb_hellaswag] 16/30 targets  125s
+[ollb_hellaswag] 17/30 targets  141s
+[ollb_hellaswag] 18/30 targets  141s
+[ollb_hellaswag] 19/30 targets  156s
+[ollb_hellaswag] 20/30 targets  157s
+[ollb_hellaswag] 21/30 targets  172s
+[ollb_hellaswag] 22/30 targets  173s
+[ollb_hellaswag] 23/30 targets  187s
+[ollb_hellaswag] 24/30 targets  188s
+[ollb_hellaswag] 25/30 targets  203s
+[ollb_hellaswag] 26/30 targets  204s
+[ollb_hellaswag] 27/30 targets  219s
+[ollb_hellaswag] 28/30 targets  220s
+[ollb_hellaswag] 29/30 targets  234s
+[ollb_hellaswag] 30/30 targets  236s
+RUN_GATE=PASS ollb_hellaswag rows=2160 targets=30 seconds=235.0
+2026-10-29T23:13:40Z done sens_1pl_reg/ollb_hellaswag
+2026-10-29T23:13:40Z start sens_1pl_reg/ollb_winogrande --irt-model 1pl --sd-log-a 0.05 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_winogrande] 0/30 targets already checkpointed
+[ollb_winogrande] 1/30 targets  9s
+[ollb_winogrande] 2/30 targets  9s
+[ollb_winogrande] 3/30 targets  18s
+[ollb_winogrande] 4/30 targets  18s
+[ollb_winogrande] 5/30 targets  27s
+[ollb_winogrande] 6/30 targets  27s
+[ollb_winogrande] 7/30 targets  36s
+[ollb_winogrande] 8/30 targets  36s
+[ollb_winogrande] 9/30 targets  45s
+[ollb_winogrande] 10/30 targets  45s
+[ollb_winogrande] 11/30 targets  54s
+[ollb_winogrande] 12/30 targets  54s
+[ollb_winogrande] 13/30 targets  63s
+[ollb_winogrande] 14/30 targets  63s
+[ollb_winogrande] 15/30 targets  72s
+[ollb_winogrande] 16/30 targets  72s
+[ollb_winogrande] 17/30 targets  81s
+[ollb_winogrande] 18/30 targets  81s
+[ollb_winogrande] 19/30 targets  90s
+[ollb_winogrande] 20/30 targets  90s
+[ollb_winogrande] 21/30 targets  98s
+[ollb_winogrande] 22/30 targets  99s
+[ollb_winogrande] 23/30 targets  108s
+[ollb_winogrande] 24/30 targets  108s
+[ollb_winogrande] 25/30 targets  116s
+[ollb_winogrande] 26/30 targets  117s
+[ollb_winogrande] 27/30 targets  125s
+[ollb_winogrande] 28/30 targets  125s
+[ollb_winogrande] 29/30 targets  134s
+[ollb_winogrande] 30/30 targets  134s
+RUN_GATE=PASS ollb_winogrande rows=2160 targets=30 seconds=134.1
+2026-10-29T23:15:56Z done sens_1pl_reg/ollb_winogrande
+2026-10-29T23:15:56Z start sens_1pl_reg/ollb_mmlu --irt-model 1pl --sd-log-a 0.05 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[ollb_mmlu] 0/30 targets already checkpointed
+[ollb_mmlu] 1/30 targets  16s
+[ollb_mmlu] 2/30 targets  17s
+[ollb_mmlu] 3/30 targets  32s
+[ollb_mmlu] 4/30 targets  32s
+[ollb_mmlu] 5/30 targets  48s
+[ollb_mmlu] 6/30 targets  48s
+[ollb_mmlu] 7/30 targets  64s
+[ollb_mmlu] 8/30 targets  65s
+[ollb_mmlu] 9/30 targets  81s
+[ollb_mmlu] 10/30 targets  81s
+[ollb_mmlu] 11/30 targets  96s
+[ollb_mmlu] 12/30 targets  97s
+[ollb_mmlu] 13/30 targets  113s
+[ollb_mmlu] 14/30 targets  113s
+[ollb_mmlu] 15/30 targets  129s
+[ollb_mmlu] 16/30 targets  129s
+[ollb_mmlu] 17/30 targets  145s
+[ollb_mmlu] 18/30 targets  145s
+[ollb_mmlu] 19/30 targets  161s
+[ollb_mmlu] 20/30 targets  162s
+[ollb_mmlu] 21/30 targets  177s
+[ollb_mmlu] 22/30 targets  178s
+[ollb_mmlu] 23/30 targets  193s
+[ollb_mmlu] 24/30 targets  194s
+[ollb_mmlu] 25/30 targets  209s
+[ollb_mmlu] 26/30 targets  210s
+[ollb_mmlu] 27/30 targets  225s
+[ollb_mmlu] 28/30 targets  226s
+[ollb_mmlu] 29/30 targets  241s
+[ollb_mmlu] 30/30 targets  242s
+RUN_GATE=PASS ollb_mmlu rows=2160 targets=30 seconds=241.5
+2026-10-29T23:19:59Z done sens_1pl_reg/ollb_mmlu
+2026-10-29T23:19:59Z start sens_1pl_reg/swe_verified --irt-model 1pl --sd-log-a 0.05 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[swe_verified] 0/30 targets already checkpointed
+[swe_verified] 1/30 targets  3s
+[swe_verified] 2/30 targets  3s
+[swe_verified] 3/30 targets  6s
+[swe_verified] 4/30 targets  6s
+[swe_verified] 5/30 targets  8s
+[swe_verified] 6/30 targets  8s
+[swe_verified] 7/30 targets  11s
+[swe_verified] 8/30 targets  11s
+[swe_verified] 9/30 targets  13s
+[swe_verified] 10/30 targets  14s
+[swe_verified] 11/30 targets  16s
+[swe_verified] 12/30 targets  16s
+[swe_verified] 13/30 targets  19s
+[swe_verified] 14/30 targets  19s
+[swe_verified] 15/30 targets  22s
+[swe_verified] 16/30 targets  22s
+[swe_verified] 17/30 targets  24s
+[swe_verified] 18/30 targets  24s
+[swe_verified] 19/30 targets  27s
+[swe_verified] 20/30 targets  27s
+[swe_verified] 21/30 targets  30s
+[swe_verified] 22/30 targets  30s
+[swe_verified] 23/30 targets  32s
+[swe_verified] 24/30 targets  33s
+2026-11-04T00:45:06Z relaunch posthoc after VM restart
+2026-11-04T00:45:06Z skip sens_1pl_reg/ollb_gsm8k (complete)
+2026-11-04T00:45:06Z skip sens_1pl_reg/ollb_arc (complete)
+2026-11-04T00:45:06Z skip sens_1pl_reg/ollb_hellaswag (complete)
+2026-11-04T00:45:06Z skip sens_1pl_reg/ollb_winogrande (complete)
+2026-11-04T00:45:06Z skip sens_1pl_reg/ollb_mmlu (complete)
+2026-11-04T00:45:06Z start sens_1pl_reg/swe_verified --irt-model 1pl --sd-log-a 0.05 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+2026-11-04T00:46:35Z relaunch posthoc after VM restart (dockerd restarted)
+2026-11-04T00:46:35Z skip sens_1pl_reg/ollb_gsm8k (complete)
+2026-11-04T00:46:35Z skip sens_1pl_reg/ollb_arc (complete)
+2026-11-04T00:46:35Z skip sens_1pl_reg/ollb_hellaswag (complete)
+2026-11-04T00:46:35Z skip sens_1pl_reg/ollb_winogrande (complete)
+2026-11-04T00:46:35Z skip sens_1pl_reg/ollb_mmlu (complete)
+2026-11-04T00:46:35Z start sens_1pl_reg/swe_verified --irt-model 1pl --sd-log-a 0.05 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[swe_verified] 24/30 targets already checkpointed
+[swe_verified] 25/30 targets  3s
+[swe_verified] 26/30 targets  3s
+[swe_verified] 27/30 targets  6s
+[swe_verified] 28/30 targets  6s
+[swe_verified] 29/30 targets  8s
+[swe_verified] 30/30 targets  9s
+RUN_GATE=PASS swe_verified rows=2160 targets=30 seconds=40.7
+2026-11-04T00:47:00Z done sens_1pl_reg/swe_verified
+2026-11-04T00:47:00Z start sens_1pl_reg/livecodebench --irt-model 1pl --sd-log-a 0.05 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[livecodebench] 0/28 targets already checkpointed
+[livecodebench] 1/28 targets  3s
+[livecodebench] 2/28 targets  3s
+[livecodebench] 3/28 targets  6s
+[livecodebench] 4/28 targets  6s
+[livecodebench] 5/28 targets  8s
+[livecodebench] 6/28 targets  9s
+[livecodebench] 7/28 targets  11s
+[livecodebench] 8/28 targets  12s
+[livecodebench] 9/28 targets  15s
+[livecodebench] 10/28 targets  15s
+[livecodebench] 11/28 targets  18s
+[livecodebench] 12/28 targets  18s
+[livecodebench] 13/28 targets  21s
+[livecodebench] 14/28 targets  21s
+[livecodebench] 15/28 targets  24s
+[livecodebench] 16/28 targets  24s
+[livecodebench] 17/28 targets  27s
+[livecodebench] 18/28 targets  27s
+[livecodebench] 19/28 targets  30s
+[livecodebench] 20/28 targets  30s
+[livecodebench] 21/28 targets  33s
+[livecodebench] 22/28 targets  33s
+[livecodebench] 23/28 targets  36s
+[livecodebench] 24/28 targets  37s
+[livecodebench] 25/28 targets  39s
+[livecodebench] 26/28 targets  40s
+[livecodebench] 27/28 targets  42s
+[livecodebench] 28/28 targets  43s
+RUN_GATE=PASS livecodebench rows=1008 targets=28 seconds=42.4
+2026-11-04T00:47:46Z done sens_1pl_reg/livecodebench
+2026-11-04T00:47:46Z start sens_1pl_reg/cruxeval_o --irt-model 1pl --sd-log-a 0.05 --targets 30 --reps 3 --panel-sizes 8 64 --evr-guard
+[cruxeval_o] 0/30 targets already checkpointed
+[cruxeval_o] 1/30 targets  2s
+[cruxeval_o] 2/30 targets  2s
+[cruxeval_o] 3/30 targets  4s
+[cruxeval_o] 4/30 targets  4s
+[cruxeval_o] 5/30 targets  6s
+[cruxeval_o] 6/30 targets  6s
+[cruxeval_o] 7/30 targets  8s
+[cruxeval_o] 8/30 targets  8s
+[cruxeval_o] 9/30 targets  10s
+[cruxeval_o] 10/30 targets  10s
+[cruxeval_o] 11/30 targets  12s
+[cruxeval_o] 12/30 targets  12s
+[cruxeval_o] 13/30 targets  14s
+[cruxeval_o] 14/30 targets  15s
+[cruxeval_o] 15/30 targets  17s
+[cruxeval_o] 16/30 targets  17s
+[cruxeval_o] 17/30 targets  19s
+[cruxeval_o] 18/30 targets  19s
+[cruxeval_o] 19/30 targets  21s
+[cruxeval_o] 20/30 targets  21s
+[cruxeval_o] 21/30 targets  23s
+[cruxeval_o] 22/30 targets  23s
+[cruxeval_o] 23/30 targets  25s
+[cruxeval_o] 24/30 targets  25s
+[cruxeval_o] 25/30 targets  27s
+[cruxeval_o] 26/30 targets  27s
+[cruxeval_o] 27/30 targets  29s
+[cruxeval_o] 28/30 targets  29s
+[cruxeval_o] 29/30 targets  32s
+[cruxeval_o] 30/30 targets  32s
+RUN_GATE=PASS cruxeval_o rows=1080 targets=30 seconds=31.5
+2026-11-04T00:48:19Z done sens_1pl_reg/cruxeval_o
+2026-11-04T00:48:19Z POSTHOC_COMPLETE
+2026-11-04T00:48:19Z ALL_COMPLETE (posthoc)

@@ -1,0 +1,155 @@
+{
+ "phase": "dev_fixedprior",
+ "n_rows": 19440,
+ "datasets": [
+  "cruxeval_i",
+  "ollb_truthfulqa",
+  "swe_lite",
+  "synth_2pl"
+ ],
+ "panel_sizes": [
+  4,
+  8,
+  16,
+  32,
+  64
+ ],
+ "decisions": {
+  "H1": {
+   "name": "information vs predictive entropy",
+   "n_benchmarks": 0,
+   "holm_sig_favouring_new": 0,
+   "holm_sig_favouring_base": 0,
+   "supported": false,
+   "per_N": {
+    "4": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "8": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "16": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "32": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "64": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    }
+   }
+  },
+  "H2": {
+   "name": "calibration-marginal EIG vs plug-in Fisher CAT",
+   "n_benchmarks": 0,
+   "holm_sig_favouring_new": 0,
+   "holm_sig_favouring_base": 0,
+   "supported": false,
+   "per_N": {
+    "4": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "8": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "16": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "32": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "64": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    }
+   }
+  },
+  "H3": {
+   "name": "adaptive EOST-M vs naive subsampling (score error)",
+   "n_benchmarks": 0,
+   "holm_sig_favouring_new": 0,
+   "holm_sig_favouring_base": 0,
+   "supported": false,
+   "per_N": {
+    "4": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "8": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "16": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "32": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "64": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    }
+   }
+  },
+  "H4": {
+   "name": "interval calibration (|coverage - 0.90|)",
+   "n_benchmarks": 0,
+   "holm_sig_favouring_new": 0,
+   "holm_sig_favouring_base": 0,
+   "supported": false,
+   "per_N": {
+    "4": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "8": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "16": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "32": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    },
+    "64": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 0
+    }
+   }
+  }
+ }
+}

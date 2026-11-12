@@ -1,0 +1,43 @@
+{
+  "title": "Calibration Uncertainty in Adaptive Large Language Model Evaluation: code, data, frozen analysis plans and artifacts",
+  "upload_type": "software",
+  "description": "Docker-only reproduction package for the paper 'Calibration Uncertainty in Adaptive Large Language Model Evaluation: Theory and Empirical Evidence' (EOST-M). Contains the code, the frozen analysis plans and their SHA-256 locks (configs/PREREGISTRATION.lock.json, configs/STUDY2.lock.json), the processed response matrices that may be redistributed, every artifact with its hash manifest (artifacts/ARTIFACT_MANIFEST.json), and the manuscript (the article and its extended version with every secondary table and figure). The study-2 plan was frozen on 2026-11-04T04:02:37Z (git commit bd46f79); depositing this record does not make it a preregistration, but makes the final package immutable and publicly verifiable.",
+  "creators": [
+    {
+      "name": "Mesellem, Ahmed",
+      "affiliation": "STIC Laboratory, Abou Bekr Belkaid University, Tlemcen, Algeria"
+    },
+    {
+      "name": "Bouhedja, Lotfi",
+      "affiliation": "LESAIL Laboratory, Ecole Supérieure Normale d'Oran, Algeria"
+    },
+    {
+      "name": "Taalbi, Ahmed",
+      "affiliation": "LESAIL Laboratory, Ecole Supérieure Normale d'Oran, Algeria"
+    },
+    {
+      "name": "Berrahal, Mokhtar",
+      "affiliation": "LESAIL Laboratory, Ecole Supérieure Normale d'Oran, Algeria"
+    },
+    {
+      "name": "Mana, Mohammed",
+      "affiliation": "STIC Laboratory, Abou Bekr Belkaid University, Tlemcen, Algeria"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "adaptive testing",
+    "item response theory",
+    "evaluation of large language models",
+    "calibration uncertainty",
+    "expected information gain"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/mesellemahmed/eost",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "version": "5.0.0"
+}

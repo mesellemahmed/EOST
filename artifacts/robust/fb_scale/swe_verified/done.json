@@ -1,0 +1,18 @@
+{
+ "dataset": "swe_verified",
+ "targets": [
+  7,
+  22,
+  35,
+  51,
+  62,
+  165
+ ],
+ "chains": 4,
+ "burn": 200,
+ "draws": 100,
+ "thin": 2,
+ "scale_step": 0.2,
+ "n_rows": 24,
+ "cpu_seconds": 305.0
+}

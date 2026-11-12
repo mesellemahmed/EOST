@@ -1,0 +1,8 @@
+{
+ "task": "tiny",
+ "dataset": "livecodebench",
+ "N": 8,
+ "n_rows": 135,
+ "cpu_seconds": 75.7,
+ "burn_fix": null
+}

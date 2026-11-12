@@ -1,0 +1,90 @@
+{
+ "dataset": "ollb_hellaswag",
+ "component": "main",
+ "config": {
+  "master_seed": 20261104,
+  "n_targets": 40,
+  "replicates": 3,
+  "panel_sizes": [
+   4,
+   8,
+   16
+  ],
+  "primary_N": 8,
+  "budget": 100,
+  "holdout_frac": 0.2,
+  "theta_lo": -5.0,
+  "theta_hi": 5.0,
+  "theta_K": 201,
+  "resid_thr": 0.5,
+  "loco_N": [
+   4,
+   8,
+   16
+  ],
+  "fb_N": [
+   4,
+   8
+  ],
+  "eb_arms_N": [
+   8
+  ],
+  "fb_burn": 10,
+  "fb_draws": 8,
+  "fb_thin": 4,
+  "reduction_T": [
+   25,
+   50,
+   100
+  ],
+  "mince_R": 2000,
+  "mince_step": 25,
+  "mince_tau": 0.01,
+  "mix_every": 4,
+  "recal_window": 1.5
+ },
+ "targets": [
+  3,
+  5,
+  11,
+  24,
+  38,
+  54,
+  56,
+  58,
+  62,
+  78,
+  79,
+  90,
+  99,
+  111,
+  114,
+  124,
+  164,
+  180,
+  186,
+  204,
+  206,
+  208,
+  209,
+  215,
+  220,
+  244,
+  261,
+  265,
+  267,
+  326,
+  327,
+  347,
+  349,
+  350,
+  359,
+  365,
+  367,
+  379,
+  383,
+  392
+ ],
+ "n_rows": 8280,
+ "cpu_seconds": 4407.0
+}

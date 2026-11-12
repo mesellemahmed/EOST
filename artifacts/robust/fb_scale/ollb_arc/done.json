@@ -1,0 +1,18 @@
+{
+ "dataset": "ollb_arc",
+ "targets": [
+  6,
+  40,
+  117,
+  216,
+  249,
+  363
+ ],
+ "chains": 4,
+ "burn": 200,
+ "draws": 100,
+ "thin": 2,
+ "scale_step": 0.2,
+ "n_rows": 24,
+ "cpu_seconds": 869.1
+}

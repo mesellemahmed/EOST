@@ -1,0 +1,54 @@
+{
+  "version": "EOST-study2-1",
+  "banks": ["ollb_gsm8k", "ollb_arc", "ollb_hellaswag", "ollb_winogrande", "ollb_mmlu", "swe_verified",
+            "livecodebench", "cruxeval_o"],
+  "unit_of_analysis": "target system (one per strict family cluster; mean over replicates)",
+  "test": "two-sided Wilcoxon signed-rank on paired per-target values",
+  "multiplicity": "Holm over the confirmatory family: every superiority hypothesis x bank at the primary panel size",
+  "alpha": 0.05,
+  "primary_panel_size": 8,
+  "secondary_panel_sizes": [4, 16],
+  "min_banks": 5,
+  "seed": 20261104,
+  "recalibration_rule": "Ra",
+  "superiority": [
+    {"id": "R2", "name": "replication of H2 with independent targets: EOST-M vs plug-in 2PL Fisher CAT",
+     "new": "eig:mg", "base": "mfi:pi", "metric": "ilogloss"},
+    {"id": "R3", "name": "replication of H3: EOST-M vs naive subsampling (score error)",
+     "new": "eig:mg", "base": "naive", "metric": "iae"},
+    {"id": "R4", "name": "replication of H4: interval calibration vs plug-in 2PL Fisher CAT",
+     "new": "eig:mg", "base": "mfi:pi", "metric": "covgap"},
+    {"id": "C1", "name": "EOST-M vs regularized Rasch-type plug-in CAT (held-out log loss)",
+     "new": "eig:mg", "base": "mfi:1pr", "metric": "ilogloss"},
+    {"id": "C2", "name": "EOST-M vs regularized one-parameter marginal model (held-out log loss)",
+     "new": "eig:mg", "base": "eig:1prmg", "metric": "ilogloss"},
+    {"id": "C4", "name": "adaptivity under the same model: EOST-M vs Random:mg (score error)",
+     "new": "eig:mg", "base": "random:mg", "metric": "iae"},
+    {"id": "C5b", "name": "recalibrated EOST-M intervals vs EOST-M intervals (interval score)",
+     "new": "eig:mg+R", "base": "eig:mg", "metric": "iis"},
+    {"id": "C6", "name": "recalibrated EOST-M intervals vs naive Wilson intervals (interval score)",
+     "new": "eig:mg+R", "base": "naive", "metric": "iis"},
+    {"id": "C7", "name": "EOST-M vs ATLAS-style 3PL CAT (score error)",
+     "new": "eig:mg", "base": "atlas", "metric": "iae"},
+    {"id": "C8", "name": "EOST-M vs tinyBenchmarks gp-IRT at 50 items (absolute score error)",
+     "new": "eig:mg", "base": "tiny:gpirt", "metric": "err@50"},
+    {"id": "C9", "name": "EOST-M vs MINCE subset mean at 50 items (absolute score error)",
+     "new": "eig:mg", "base": "mince", "metric": "err@50"}
+  ],
+  "equivalence": [
+    {"id": "C3", "name": "fully Bayesian CAT (Bayesian maximum information) vs EOST-M (held-out log loss)",
+     "new": "fb:bmi", "base": "eig:mg", "metric": "ilogloss", "margin": 0.01, "ci_level": 0.90, "min_banks": 6}
+  ],
+  "coverage": [
+    {"id": "C5a", "name": "recalibrated EOST-M: mean coverage of the 90% interval within [0.85, 0.95]",
+     "policy": "eig:mg+R", "lo": 0.85, "hi": 0.95, "min_banks": 6}
+  ],
+  "secondary_contrasts": [
+    ["fb:eig", "eig:mg", "ilogloss"], ["fb:bmi", "fb:eig", "ilogloss"], ["fb:bmi", "eig:mg", "iae"],
+    ["eig:xf", "eig:mg", "ilogloss"], ["eig:tp", "eig:mg", "ilogloss"], ["eig:mg", "mfi:1pr", "iae"],
+    ["eig:mg", "mfi:1pr", "covgap"], ["eig:mg+R", "mfi:1pr+R", "iis"], ["mix:mg", "eig:mg", "covgap"],
+    ["mix:mg", "eig:mg", "iae"], ["eig:mg", "atlas", "ilogloss"], ["eig:mg", "tiny:gpirt", "err@25"],
+    ["eig:mg", "tiny:gpirt", "err@100"], ["eig:mg", "mince", "err@25"], ["eig:mg", "mince", "err@100"],
+    ["eig:mg", "random:mg", "ilogloss"]
+  ]
+}

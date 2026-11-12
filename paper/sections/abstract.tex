@@ -1,0 +1,18 @@
+\begin{abstract}
+Adaptive testing with item response theory needs item parameters calibrated on other
+systems, and new, private or costly benchmarks for language models often have only a
+handful. We study this calibration uncertainty with EOST-M, which uses each item's expected
+response function under an empirical-Bayes prior and selects items by expected information
+gain. This model is exact given the calibrators' abilities, and a difficulty with Gaussian
+uncertainty $s$ caps an item's Fisher information at $2/(\pi s^2)$ for any link. Two
+frozen-plan studies on eight benchmarks give three messages.
+First, plug-in Fisher-information testing fails with small panels: with eight calibrators and
+one target per family cluster, EOST-M predicted held-out verdicts better (median
+\STwoRTwoMed\%, significant on \STwoRTwoFav\ of 8 benchmarks). Second, accounting for the
+uncertainty fixes much of this: EOST-M beat a regularized Rasch-type test (\STwoCOneMed\%),
+\AbstractFB\ and its score error was lower than with random items under the same model,
+ATLAS-style testing, tinyBenchmarks and MINCE, all run on the same eight calibrators, on every
+benchmark, meeting the frozen criterion only against MINCE. Third, the information criterion then matters little.
+EOST-M's 90\% intervals still under-cover (\STwoCoveigmg; \STwoCoveigmgRR\ after
+recalibration).
+\end{abstract}

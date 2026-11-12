@@ -1,0 +1,23 @@
+{
+ "synth_2pl": {
+  "name": "synth_2pl",
+  "J": 300,
+  "I": 600,
+  "mean_acc": 0.5098555555555555,
+  "sha256": "2c11f7c97c8b648a053d2fec572c994192d2986ef400c3815bd9a6fb7daf875a"
+ },
+ "synth_guess": {
+  "name": "synth_guess",
+  "J": 300,
+  "I": 600,
+  "mean_acc": 0.5771722222222222,
+  "sha256": "28f757487c1ae7f0588a87948faddee03cae5a87e865565c316acdfdef6d6032"
+ },
+ "synth_2dim": {
+  "name": "synth_2dim",
+  "J": 300,
+  "I": 600,
+  "mean_acc": 0.5097388888888889,
+  "sha256": "d68910332157965f2145e878facbb349928aacee49347f3aa6957e8d0aa085a7"
+ }
+}

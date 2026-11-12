@@ -1,0 +1,90 @@
+\section{Experimental design}
+\label{sec:design}
+
+\paragraph{Data.} Table~\ref{tab:data} describes the eight confirmatory banks of both studies
+and the three development banks used only to design the protocols. Open LLM Leaderboard
+\citep{beeching2023openllm} verdicts for 395 models on GSM8K \citep{cobbe2021gsm8k},
+ARC-Challenge \citep{clark2018arc}, HellaSwag \citep{zellers2019hellaswag}, WinoGrande
+\citep{sakaguchi2020winogrande}, MMLU \citep{hendrycks2021mmlu} and TruthfulQA
+\citep{lin2022truthfulqa} come from the release of \citet{polo2024tinybenchmarks}
+(HellaSwag and MMLU subsampled to 2,000 items, TruthfulQA's MC2 score binarized at 0.5);
+SWE-bench Verified and Lite \citep{jimenez2024swebench} verdicts (instance resolved by the
+official harness) come from the public submissions (175 and 84 systems); LiveCodeBench
+\citep{jain2025livecodebench} pass rates of 28 models and CRUXEval \citep{gu2024cruxeval}
+pass rates of 31 models are binarized at one half. In the table, $J$, $F$ and $I$ count
+systems, heuristic families and items, a ``single'' verdict is one deterministic evaluation
+per system and item, an ``aggregate'' verdict a binarized pass rate, and the last column
+counts the items that no system solves. Every source is pinned to a git commit and every
+processed matrix is hashed. Three synthetic banks with known abilities (300 systems and 600
+items each: a well-specified 2PL, 60\% of items with a guessing floor of 0.25, and half of
+the items depending on a second ability dimension correlated 0.6 with the first) are always
+fitted with the unidimensional 2PL and never enter a confirmatory decision.
+
+\input{short/tables/datasets}
+
+\paragraph{Families and strict clusters.} Systems that share an underlying model are not
+independent. \emph{Heuristic families} group systems by organization namespace (Open LLM
+Leaderboard), by model line (LiveCodeBench, CRUXEval) or by shared underlying LLM
+(SWE-bench). Because they miss renamed copies, merges and cross-organization fine-tunes,
+study~2 uses \emph{strict clusters}: connected components of the graph that joins two systems
+if they share a family or if their standardized 2PL residuals correlate at least 0.5, pooled
+over the banks that share systems. There are \ClusOLLB\ strict clusters on the Open LLM
+Leaderboard (the largest with \ClusOLLBMax\ systems), \ClusSWE\ on SWE-bench Verified,
+\ClusLCB\ on LiveCodeBench and \ClusCRUX\ on CRUXEval.
+
+\paragraph{Study 1.} For each bank, up to 60 targets were drawn by accuracy decile (all
+systems for LiveCodeBench and CRUXEval). For each target and replicate $r=1,\dots,5$ a
+holdout was drawn, and for each panel size $N\in\{4,8,16,32,64\}$ a panel outside the
+target's heuristic family. The twelve policies of Section~\ref{sec:framework} (five criteria
+under both models, PWFI under the marginal model, and Naive) were replayed on the target's
+recorded verdicts with a budget of $T=100$ items. At the primary panel size $N=8$,
+\textbf{H1} states that EIG:mg has a lower held-out log loss than Entropy:mg, \textbf{H2}
+the same against MFI:pi, \textbf{H3} that EIG:mg has a lower score error than Naive, and
+\textbf{H4} that its 90\% intervals are better calibrated than MFI:pi's
+($|\mathrm{coverage}-0.9|$). Each contrast is a two-sided Wilcoxon signed-rank test
+\citep{wilcoxon1945individual} on per-target values, with Holm correction
+\citep{holm1979simple} over the whole family; a hypothesis is \emph{supported} if the
+adjusted test favours EOST-M on at least five of the eight banks and the baseline on none.
+The protocol was designed on the development banks, where fixed weakly-informative priors
+shrank unsolved items towards an arbitrary difficulty, so empirical-Bayes hyperpriors were
+adopted for every policy. Plan, code and data manifests were then hashed and committed
+before any confirmatory run; as no external registry was used, we speak of a \emph{frozen
+analysis plan} rather than a preregistration \citep{nosek2018preregistration}.
+
+\paragraph{Study 2.} Designed after an external review of study~1 and frozen in the same way,
+study~2 uses one target per strict cluster (at most 40 per bank, stratified by accuracy) and
+panels ($N\in\{4,8,16\}$, three replicates) that exclude the target's whole cluster. It
+adds the strongest competitors we could identify: a regularized Rasch-type plug-in CAT
+(\textsc{MFI:1pr}: one common discrimination with $\log a\sim\mathcal N(0,0.05^2)$) and its
+marginal version (\textsc{EIG:1prmg}); the PDM Bayesian CAT, a Gibbs sampler for the
+panel's hierarchical 2PL with a translation move for the overall location and eight
+retained draws, selecting by Bayesian maximum information as recommended by
+\citet{fink2025accounting} or by EIG; \textsc{Random:mg}, random items scored by EOST-M's
+model, which isolates the value of adaptivity; an ATLAS-style 3PL CAT \citep{li2026atlas}
+with the lower asymptote at the chance rate and a random choice among the five most
+informative items \citep{kingsbury1989procedures}; tinyBenchmarks (K-Means anchors on the
+panel's item embeddings and the gp-IRT estimator; \citealp{polo2024tinybenchmarks}) and
+MINCE (Monte Carlo sizing and the mean of a frozen random subset; \citealp{das2026mince}) at
+budgets of 25, 50 and 100 items; MFI:pi and Naive; and two empirical-Bayes variants of
+EOST-M (a cross-fitted hyperprior and a Student-$t$ family). Eleven superiority hypotheses at
+$N=8$, with Holm correction over $11\times8$ tests and the same decision rule, replicate H2--H4
+(R2--R4) and compare EOST-M with the Rasch-type plug-in (C1) and marginal (C2) tests on log
+loss, with Random:mg (C4) and the ATLAS-style CAT (C7) on score error, with tinyBenchmarks
+(C8) and MINCE (C9) on the score error after 50 items, and the recalibrated interval with
+the raw one (C5b) and with Naive's Wilson interval (C6) on the interval score. Two further
+decisions test the equivalence of the PDM Bayesian CAT and EOST-M within $\pm1\%$ (C3:
+90\% bootstrap interval inside the margin on at least six banks) and the calibration of the
+recalibrated interval (C5a: mean coverage in $[0.85,0.95]$ on at least six banks). A temporal
+component on SWE-bench Verified uses the latest quarter of submissions as targets and only
+earlier submissions as calibrators.
+
+\paragraph{Deviations and reproducibility.} No deviation affected a confirmatory
+computation. While study~2 was running, before any result was inspected, an independent
+review of its code found that tinyBenchmarks' K-Means can return fewer anchors than its
+budget and that the sampler's frozen burn-in (10 sweeps) was too short on some banks; the
+frozen run was completed unchanged, every frozen decision is reported as computed, and the
+post hoc corrections, specified before the results were seen, are reported alongside.
+Analyses outside the frozen plans are labelled exploratory or post hoc, with decision rules
+recorded before running. Everything runs in a pinned CPU-only Docker image without network
+access (study~1: \ConfirmRuns\ adaptive tests, about \ConfirmHours~h on two cores; study~2:
+about \StudyTwoHours~h).

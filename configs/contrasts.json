@@ -1,0 +1,18 @@
+{
+  "pairs": [
+    ["eig:mg", "entropy:mg"],
+    ["eig:pi", "entropy:pi"],
+    ["eig:mg", "eig:pi"],
+    ["eig:mg", "mfi:pi"],
+    ["eig:mg", "random:mg"],
+    ["eig:mg", "naive"],
+    ["evr:mg", "mfi:pi"],
+    ["evr:mg", "naive"],
+    ["evr:mg", "eig:mg"]
+  ],
+  "metrics": {
+    "ilogloss": {"lower_is_better": true},
+    "ibrier": {"lower_is_better": true},
+    "iae": {"lower_is_better": true}
+  }
+}

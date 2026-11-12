@@ -1,0 +1,8 @@
+{
+ "task": "tiny",
+ "dataset": "cruxeval_o",
+ "N": 8,
+ "n_rows": 108,
+ "cpu_seconds": 33.7,
+ "burn_fix": null
+}

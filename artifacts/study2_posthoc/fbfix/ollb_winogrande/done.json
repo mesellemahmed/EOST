@@ -1,0 +1,8 @@
+{
+ "task": "fbfix",
+ "dataset": "ollb_winogrande",
+ "N": 8,
+ "n_rows": 480,
+ "cpu_seconds": 1184.3,
+ "burn_fix": 60
+}

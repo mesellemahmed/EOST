@@ -1,0 +1,15 @@
+{
+ "median_breakeven_vs_full": 8.715893540012022,
+ "range_breakeven_vs_full": [
+  8.421052631578947,
+  10.0
+ ],
+ "median_items_match_naive100": 22.5,
+ "median_items_match_random_mg100": 65.0,
+ "median_breakeven_vs_naive": 121.95,
+ "range_breakeven_vs_naive": [
+  66.66666666666667,
+  351.73333333333335
+ ],
+ "median_cost_ratio_M100": 0.16212541517276305
+}

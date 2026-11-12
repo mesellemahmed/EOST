@@ -1,0 +1,285 @@
+\section{Experimental design}
+\label{sec:design}
+
+\subsection{Data}
+\input{tables/datasets}
+We use public item-level verdicts of real systems (Table~\ref{tab:data}). Open LLM
+Leaderboard \citep{beeching2023openllm} verdicts for 395 models on GSM8K
+\citep{cobbe2021gsm8k}, ARC-Challenge \citep{clark2018arc}, HellaSwag
+\citep{zellers2019hellaswag}, WinoGrande \citep{sakaguchi2020winogrande}, MMLU
+\citep{hendrycks2021mmlu} and TruthfulQA \citep{lin2022truthfulqa} are taken from the
+release of \citet{polo2024tinybenchmarks}; HellaSwag and MMLU are uniformly subsampled to
+2,000 items with a fixed seed, and TruthfulQA's continuous MC2 score is binarized at 0.5.
+SWE-bench Verified and Lite \citep{jimenez2024swebench} verdicts (instance resolved by the
+official harness) come from the public submissions repository (175 and 84 systems).
+LiveCodeBench \citep{jain2025livecodebench} pass rates for 28 models on 1,055 problems and
+CRUXEval \citep{gu2024cruxeval} pass rates of temperature-0.2 samples for 31 models are
+binarized at one half; these two banks therefore carry recorded aggregate verdicts
+(Section~\ref{sec:framework}), the other six deterministic ones. Every source is pinned to
+a git commit and every processed matrix carries a SHA-256 hash.
+
+\paragraph{Synthetic banks.} Three simulated banks with known abilities complement the
+real data (300 systems, 600 items each, $\theta\sim\mathcal N(0,1)$,
+$\log a\sim\mathcal N(0,0.5^2)$, $b\sim\mathcal N(0,1.5^2)$): a well-specified 2PL bank; a
+bank in which 60\% of the items have a guessing floor of 0.25; and a bank in which half of
+the items depend on a second ability dimension correlated 0.6 with the first. The fitted
+model is always the unidimensional 2PL. Synthetic results never enter a confirmatory
+decision.
+
+\paragraph{Families and strict clusters.} Systems that share an underlying model are
+not independent. \emph{Heuristic families} are defined by organization namespace (Open
+LLM Leaderboard), by model line including reasoning-effort and version variants
+(LiveCodeBench, CRUXEval), and, for SWE-bench, by the set of underlying LLMs declared in a
+submission's metadata (two agentic systems are related if they share any LLM). Heuristic
+families miss renamed copies, merges and fine-tunes across organizations, so study~2 uses
+\emph{strict clusters}: connected components of the graph that joins two systems if they
+share a heuristic family or if the correlation of their standardized 2PL residuals is at
+least 0.5---they share at least half of their idiosyncratic error pattern beyond what
+ability explains. Residuals are pooled over banks that share systems (the six Open LLM
+Leaderboard banks; CRUXEval-O and -I). Agreement measures such as Cohen's $\kappa$ were
+not usable for this purpose: on HellaSwag, $\kappa\ge0.8$ chains 353 of 395 systems into
+one component because all strong models agree on most items. The strict clusters number
+\ClusOLLB\ on the Open LLM Leaderboard (largest \ClusOLLBMax\ systems), \ClusSWE\ on
+SWE-bench Verified, \ClusLCB\ on LiveCodeBench and \ClusCRUX\ on CRUXEval.
+
+\subsection{Study 1: frozen plan, leave-family-out replay}\label{sec:dev}
+For each bank, up to 60 targets were drawn stratified by accuracy decile (all systems
+for LiveCodeBench and CRUXEval). For each target and replicate $r=1,\dots,5$, a holdout of
+20\% of the items was drawn and shared by all policies and panel sizes; for each panel
+size $N\in\{4,8,16,32,64\}$ a panel was drawn outside the target's heuristic family. The
+twelve policies of Section~\ref{sec:framework} (five criteria under both models, PWFI
+under the marginal model only, plus Naive) were replayed on the target's recorded
+verdicts with a budget of $T=100$ items. All random streams derive from one master seed
+by hashing (bank, purpose, target, replicate, $N$, policy).
+
+The protocol was designed on development banks only (SWE-bench Lite, CRUXEval-I,
+TruthfulQA, synthetic 2PL; Section~\ref{sec:devhist}), where one problem appeared: with
+fixed weakly-informative priors, items solved by no calibrator were shrunk towards an
+arbitrary difficulty, so empirical-Bayes hyperpriors were adopted for every policy. The
+plan (banks, protocol, endpoints, four hypotheses, tests, multiplicity control, decision
+rule), the analysis code and the data manifests were then hashed and committed before any
+confirmatory run, and the run wrapper refuses to start if a frozen file changes. No public
+registry or external time stamp was used, so we call this a \emph{frozen analysis plan}
+rather than a preregistration \citep{nosek2018preregistration}; the git history shows the
+freeze commit before every confirmatory artifact.
+
+\paragraph{Hypotheses} (primary panel size $N=8$):
+\textbf{H1} EIG:mg has lower integrated holdout log loss than Entropy:mg;
+\textbf{H2} EIG:mg has lower integrated holdout log loss than MFI:pi;
+\textbf{H3} EIG:mg has lower integrated score error than Naive subsampling;
+\textbf{H4} EIG:mg's 90\% score intervals are better calibrated than MFI:pi's
+($|\mathrm{coverage}-0.9|$). Each contrast is a two-sided Wilcoxon signed-rank test
+\citep{wilcoxon1945individual} on paired per-target values (replicates averaged within
+target), with Holm correction \citep{holm1979simple} over the whole family
+(8 banks $\times$ panel sizes $\times$ 4 hypotheses); a hypothesis is \emph{supported} if,
+at $N=8$, the adjusted test favours EOST-M in at least five of the eight banks and the
+baseline in none. Because targets of one family are not independent, every study-1
+contrast is also re-analysed post hoc with heuristic families and with strict clusters as
+units (cluster means, the same tests and decision rule).
+
+\subsection{Study 2: independent targets and strong competitors}\label{sec:design2}
+Study~2 was designed after an external review of study~1 and frozen before execution
+(plan, hypotheses, cluster file and code hashed and committed; the plan and its hash were
+also sent to the first author, outside the execution environment, before the first run).
+It differs from
+study~1 in four ways. \emph{Targets} are one randomly chosen representative per strict
+cluster (systems that were not study-1 targets preferred), at most 40 per bank, stratified
+by accuracy, so targets are independent units; \emph{panels} ($N\in\{4,8,16\}$, three
+replicates, new seeds) exclude the target's whole strict cluster. \emph{Competitors} are
+the strongest we could identify:
+\begin{itemize}\itemsep0pt
+\item \textsc{MFI:1pr}, a regularized Rasch-type plug-in CAT (one common discrimination
+with $\log a\sim\mathcal N(0,0.05^2)$, empirical-Bayes prior on $b$), and
+\textsc{EIG:1prmg}, the same model integrated (both found post hoc in study~1);
+\item \textsc{FB:bmi} and \textsc{FB:eig}, a \emph{posterior-draw marginal Bayesian CAT} (PDM
+Bayesian CAT; called the fully Bayesian CAT in the frozen plan): a Gibbs sampler for the
+hierarchical 2PL of the panel (abilities, item parameters on the grid, hyperparameters,
+with a translation move for the overall location), eight retained draws, and the
+target's posterior computed with each item's response function averaged over the draws
+separately (the target of \citealp{vanderlinden2020fast}; Lemma~\ref{lem:exact} shows that
+this integrates the calibrators' abilities and the hyperprior item by item, not jointly);
+selection by Bayesian maximum information
+(posterior-weighted expected Fisher information, the strategy recommended by
+\citealp{fink2025accounting}) or by EIG ($N\in\{4,8\}$);
+\item \textsc{Random:mg}, random items scored with the EOST-M model, which isolates the
+value of adaptivity from that of the calibration;
+\item \textsc{ATLAS}, an ATLAS-style CAT \citep{li2026atlas}: 3PL with the lower asymptote
+fixed at the chance rate of the item format (ARC-C, HellaSwag, MMLU $0.25$, WinoGrande
+$0.5$, others 0), first item closest in difficulty to 0, then a uniform draw among the five
+most informative items at the expected a posteriori (EAP) ability \citep{kingsbury1989procedures};
+\item \textsc{tinyBenchmarks} \citep{polo2024tinybenchmarks}: anchor items by K-Means on
+the panel's item embeddings and the gp-IRT estimator, at budgets of 25, 50 and 100 items;
+\textsc{MINCE} \citep{das2026mince}: Monte Carlo sizing on the panel and the plain mean of
+one frozen random subset, at the same budgets and at its own size $n^\star$;
+\item \textsc{MFI:pi} and \textsc{Naive} as in study~1, two empirical-Bayes variants of
+EOST-M (cross-fitted hyperprior; Student-$t$ hyperprior family) and an exploratory mixed
+policy (every fourth item uniform at random).
+\end{itemize}
+\emph{Intervals} of EOST-M and of the Rasch-type test are also reported after the
+leave-one-calibrator-out recalibration of Section~\ref{sec:framework}. \emph{Hypotheses}
+(all at $N=8$, Holm over 11 superiority hypotheses $\times$ 8 banks; supported with
+$\ge5$ banks for EOST-M and none against): replications of H2--H4 with independent targets
+(R2--R4); EOST-M versus the Rasch-type plug-in (C1) and marginal (C2) tests on log loss;
+versus Random:mg on score error (C4); recalibrated versus raw EOST-M intervals (C5b) and
+versus Naive's Wilson intervals (C6) on the interval score; versus ATLAS-style CAT on score
+error (C7); versus tinyBenchmarks (C8) and MINCE (C9) on the absolute score error after 50
+items. In addition, the PDM Bayesian CAT and EOST-M are declared practically equivalent
+(C3) if the 90\% bootstrap interval of their relative log-loss difference lies within
+$\pm1\%$ on at least six banks, and the recalibrated EOST-M interval is declared calibrated
+(C5a) if its mean coverage lies in $[0.85,0.95]$ on at least six banks. A \emph{temporal
+component} on SWE-bench Verified uses the latest quarter of submissions by date as targets
+and only earlier submissions as calibrators ($N=8$); the synthetic banks are a secondary
+component. During the run, before any result was inspected, an independent review of the
+code found two problems---tinyBenchmarks can use fewer anchors than its budget, and the
+burn-in of the Bayesian sampler was too short on some banks---whose post hoc
+corrections were specified in the research log before the results were looked at; the
+frozen run was completed unchanged and every frozen decision is reported as computed
+(Section~\ref{sec:deviations}, deviation xiii).
+
+\paragraph{Implementation of the competitors.} The \emph{Bayesian CATs} run a Gibbs sampler on the
+panel's hierarchical 2PL: (1) every item's grid point is drawn from its exact conditional
+grid posterior; (2) every calibrator's ability is drawn by griddy Gibbs on 65 points
+spanning $\pm0.8$ around its current value; (2b) all abilities and difficulties and the
+difficulty mean are shifted by a common multiple of the difficulty grid step (at most 16
+steps either way) drawn from its conditional, which only involves the ability prior (the
+likelihood and the difficulty hyperprior are invariant); shifts that would move any
+sampled difficulty off the grid are excluded, so the move is exact only within these
+bounds and rarely acts when many difficulties sit near the edge of the grid; (3) the
+hyperparameters are drawn from their conjugate conditionals (flat means, Jeffreys standard
+deviations). The chain starts at EOST-M's estimates; in the frozen plan, 8 draws are kept
+every 4 sweeps after a burn-in of 10 sweeps, and each contributes its exact conditional item
+posterior (Rao--Blackwellization). As noted above, this burn-in proved too short on some banks; the
+post hoc correction (60 sweeps) is described in Section~\ref{sec:s2fb}. In 300-sweep chains on the
+development banks (\texttt{scripts/fb\_mixing.py}), the translation move removed the slow
+mixing of the overall location: the lag-3 autocorrelation of the mean calibrator ability
+fell from \MixLocWithoutMin--\MixLocWithoutMax\ without the move to at most \MixLocWithMax\
+with it. That location is genuinely uncertain---its posterior standard deviation was
+\MixLocSdFour, \MixLocSdEight\ and \MixLocSdSixteen\ for $N=4$, 8 and 16, close to
+$1/\sqrt N$ as implied by the $\mathcal N(0,1)$ ability prior---but it shifts abilities and
+difficulties together. Scale hyperparameters mix more slowly (lag-3 autocorrelation of
+$\sigma_a$ between \MixScaleMin\ and \MixScaleMax), so the eight retained draws represent
+their uncertainty only roughly. Follow-up RF2 (Section~\ref{sec:rf2}) measured this with
+four long chains, and exploratory follow-ups added the missing moves.
+
+The \emph{ATLAS-style} test fits a 3PL with fixed lower asymptote by grid MAP given the
+panel's abilities and the empirical-Bayes prior. \emph{tinyBenchmarks} uses K-Means (best of
+five k-means++ restarts) on $(a_i,a_ib_i)$ of the panel's plug-in 2PL fit, the item nearest
+to each centroid as anchor, cluster fractions as weights, the bounded maximum-likelihood
+ability for p-IRT, and $\lambda=\hat b^2/(\hat v/(4n)+\hat b^2)$ with $\hat b$ the
+leave-one-calibrator-out error of the IRT prediction and $\hat v$ the mean Bernoulli
+variance of the calibrators. \emph{MINCE} draws 2,000 random subsets per candidate size
+(steps of 25) and stops when the 95th percentile of the worst-case drift over calibrators
+improves by less than one point.
+
+\subsection{From the pilot program to the frozen plans}\label{sec:devhist}\label{sec:pilot}
+
+\paragraph{Pilot program (historical).} Before study~1, the framework (EOST in our project) was developed through a staged pilot
+program on math word problems with \texttt{Qwen3-8B} as target, greedy decoding
+and exact numeric oracles, including self-generated items with an independent oracle
+(the self-testing aspect of the framework). Every stage had an explicit pass/fail gate
+fixed in advance. We report the stages \emph{as recorded in the frozen project log},
+including failed gates and the subsequent corrections, because they motivated
+the design of Sections~\ref{sec:framework}--\ref{sec:design}. Stages S0--S4 were
+executed before the project's Docker-only rule; the S4B run of one model was executed in
+the project's earlier container runtime, which differs from the runtime of this paper
+(Section~\ref{sec:repro}). Their raw artifacts are archived with SHA-256 hashes but they
+were \emph{not} re-executed for this paper, and none of the paper's claims rests on them.
+Table~\ref{tab:pilot} summarizes them.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{Pilot program (historical values from the frozen project log; not re-executed here).
+AUIC: area under the information curve; IG: expected-information-gain policy (EOST).}
+\label{tab:pilot}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{0.9cm}p{4.2cm}p{9.4cm}@{}}
+\toprule
+Stage & Setting & Recorded outcome and gate \\
+\midrule
+S0 & Synthetic latent-trait simulator, 30 seeds; IG vs.\ entropy, random, difficulty-matched &
+IG $>$ entropy on entropy reduction (6.77 vs.\ 6.51; Holm $p=2.8\times10^{-9}$) and AUIC (5.29 vs.\ 5.12; rank-biserial 1.0). \textbf{Pass}. \\
+S1-R2 & GSM-Symbolic, 45 items; 4 calibration conditions (two Qwen3 checkpoints $\times$ thinking on/off) &
+Conditions were not independent systems. \textbf{Gate fail}. \\
+S1-R3 & Same bank, regularized 2PL & IG AUIC 0.950 vs.\ entropy 0.923 (29/30 seeds); identical final holdout. Exploratory. \\
+S2 & LLM-generated items, procedural oracle (75 items, 5 families) &
+After fixing a numeric-tolerance bug: IG AUIC 1.224 vs.\ 1.139 (27/30 seeds, $p=1.2\times10^{-4}$); gains early in the test, endpoint saturated, log-loss tail risk. Publication gate \textbf{fail}. \\
+S3 & Circularity: self-, external- and procedurally-generated items (45 matched triplets) &
+Self minus external accuracy 0.089 (95\% CI $[0,0.2]$, McNemar $p=0.22$): no \emph{detectable} circularity gap at this power (not equivalence). \\
+S4 & GSM8K, GSM-Hard, SVAMP, ASDiv (240 items); 4 calibration conditions &
+Macro AUIC IG 0.967 vs.\ entropy 0.858 (30/30 seeds). Original gate \textbf{fail} (predictive non-inferiority). An audit found the original Brier holdout was policy-dependent; with a common fixed holdout, integrated Brier 0.0936 vs.\ 0.0969 (24/30 seeds, $p=3.1\times10^{-5}$), final Brier tie (16/30). GSM-Hard went the other way (Brier 0.195 vs.\ 0.183). 2PL weakly identified: 7 distinct $b$, 50.8\% of $a$ at the upper bound. \\
+S4B & Expanding the calibration panel to independent systems &
+Six calibrators passed a post-hoc parser audit (parse failures within the project's internal 5\% threshold); a seventh, community checkpoint produced 235/240 truncated generations---a generation-protocol failure, not a capability measurement---and is classified as invalid for calibration. Incomplete; not analysed. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three lessons from the pilot shaped EOST v2. First, the information advantage
+of IG over predictive entropy was consistent across synthetic, self-generated
+and multi-benchmark settings, but it was concentrated early in the test, as
+Proposition~\ref{prop:local} predicts. Second, predictive evaluation must use a
+holdout shared by all policies; the policy-dependent holdout of the original S4
+analysis produced a spurious non-inferiority failure, which we keep reported as
+such. Third, and most important, a calibration panel of four conditions drawn
+from two checkpoints cannot identify a 2PL: half of the discriminations
+saturated at the optimizer bound, the textbook setting for capitalization on
+chance (Proposition~\ref{prop:cap}). The confirmatory study therefore targets
+exactly this small-panel regime, with independent systems, leave-family-out
+panels and calibration-marginal selection.
+
+\paragraph{Development runs.} The development runs on the development banks that shaped both
+protocols are summarized in Table~\ref{tab:dev}; the switch to empirical-Bayes hyperpriors
+described in Section~\ref{sec:dev} was decided there, before the plan of study~1 was frozen.
+
+\input{tables/development}
+
+\paragraph{Choosing the recalibration rule.} Three leave-one-calibrator-out rules were
+implemented: multiplying the model half-width by the 90\% quantile of the pseudo-targets'
+absolute standardized errors divided by $z_{0.95}$ (Rq) or by their root mean square
+(Rr), and replacing it by the 90\% quantile of their absolute errors (Ra). On the
+development banks only, and by a selection rule written in the research log before that
+run, the rule whose mean coverage at $N\in\{4,8\}$ was closest to 0.90 was chosen: Ra
+(\DevRaCov, against \DevRqCov\ for Rq and \DevRrCov\ for Rr; Table~\ref{tab:devrule}). The same
+run showed that no rule helps with four calibrators, which is why the recalibration
+hypotheses concern $N=8$.
+
+\IfFileExists{tables/devrule.tex}{\input{tables/devrule}}{}
+
+\subsection{Deviations from the frozen plans}\label{sec:deviations}
+\DeviationText
+
+\subsection{Computation, reproducibility and environment}\label{sec:repro}
+All computations of this paper are executed by \texttt{./run} inside one pinned CPU-only
+container image; scientific containers have no network access, and data were fetched
+beforehand with sparse git checkouts of pinned commits. Study~1 (\ConfirmRuns\ adaptive
+tests of 100 items) required about \ConfirmHours~h on a two-core machine and study~2 about
+\StudyTwoHours~h, plus \StudyTwoFixHours~h for its post hoc corrections.
+\begin{itemize}\itemsep1pt\sloppy
+\item \emph{Runtime image} \texttt{eost-runtime:cpu}, image ID \texttt{sha256:\ImageIdShort\dots}
+(full ID in \texttt{configs/ENVIRONMENT.json}), built on 2026-10-29 from \texttt{ubuntu:24.04}
+pinned by digest \texttt{sha256:\BaseDigestShort\dots}; Python 3.12.3, NumPy 2.5.4, SciPy
+1.18.1, pandas 3.1.0; complete package list in \texttt{configs/ENVIRONMENT.json} and
+\texttt{requirements.lock}. Study~1, its post hoc analyses, study~2 and the post hoc
+corrections of study~2 all ran in this image; the post hoc recomputation of study~1 one week
+after the frozen runs reproduced the stored rows bit for bit, and the correction runs of
+study~2 reproduce the frozen Bayesian-CAT rows exactly when given the frozen burn-in.
+\item \emph{Paper image}: TeX Live, image ID \texttt{sha256:\PaperImageIdShort\dots}.
+\item \emph{Pilot image} (historical, Section~\ref{sec:pilot}): an earlier runtime of the
+project that shares the tag \texttt{eost-runtime:cpu} but is a different image
+(\texttt{python:3.12-slim-bookworm}, Python 3.12.15, PyTorch 2.7.0+cpu, image ID
+\texttt{sha256:\PilotImageIdShort\dots}, on a different workstation); no result of this paper
+was computed in it.
+\item \emph{Sources} pinned to git commits: SWE-bench experiments \texttt{40f164d},
+tinyBenchmarks \texttt{e9a8b10}, LiveCodeBench site \texttt{f186ab5}, CRUXEval
+\texttt{190faf1}, and, for the live protocol only, GSM8K \texttt{3101c7d}. Processed
+matrices, both frozen plans and every artifact are SHA-256 hashed.
+\item \emph{Tests and checks}: unit tests cover the analytic gradients, parameter recovery,
+the empirical-Bayes estimator, the information cap for the logistic link
+(Proposition~\ref{prop:cap}), the small-variance limit of EIG, the Jensen inequality of
+Corollary~\ref{cor:jensen}, the EVR closed form and its numerical guard, the equivalence of
+the study-2 replay and live engines with the frozen replay, the Gibbs sampler, its post hoc
+copy and the reduction baselines. Every number in the text is a macro generated from the
+artifacts, and every qualitative statement about results in
+Sections~\ref{sec:study1}--\ref{sec:conclusion} is encoded as a predicate that
+\texttt{scripts/check\_claims.py} re-evaluates on the artifacts
+(\texttt{CLAIMS\_GATE=PASS}; \texttt{artifacts/CLAIMS.json}).
+\end{itemize}

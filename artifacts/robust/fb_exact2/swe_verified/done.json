@@ -1,0 +1,19 @@
+{
+ "dataset": "swe_verified",
+ "targets": [
+  7,
+  22,
+  35,
+  51,
+  62,
+  165
+ ],
+ "chains": 4,
+ "burn": 150,
+ "draws": 100,
+ "thin": 2,
+ "rounds": 2,
+ "collapsed_translation": true,
+ "n_rows": 24,
+ "cpu_seconds": 442.6
+}

@@ -1,0 +1,6 @@
+{
+ "variant": "metadata",
+ "dataset": "swe_verified",
+ "n_rows": 600,
+ "cpu_seconds": 41.3
+}
