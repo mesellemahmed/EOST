@@ -1,0 +1,84 @@
+\section{Introduction}
+\label{sec:intro}
+
+Large language models (LLMs) are compared by running them on static benchmarks and
+reporting an average. This is expensive---agentic and code benchmarks execute hidden
+tests or whole repositories for every item---and statistically wasteful, because items
+differ enormously in how much they reveal about a system
+\citep{lalor2016building,rodriguez2021evaluation}. Computerized adaptive testing (CAT),
+the psychometric answer to the same problem for human examinees
+\citep{lord1980applications,wainer2000cat}, has therefore been transferred to LLMs: item
+response theory (IRT) models fitted on the item-level verdicts of previously evaluated
+systems are used to pick anchor items \citep{vivek2024anchor,polo2024tinybenchmarks}, to
+distill benchmarks \citep{kipnis2025metabench}, or to administer items adaptively by
+maximum Fisher information \citep{hofmann2025fluid,li2026atlas,zheng2026medcat,zhou2026lost}.
+
+These methods calibrate on hundreds to thousands of systems and then treat the item
+parameters as known. Many practical settings have only a handful of calibration systems:
+a new or private benchmark, a freshly generated item pool, a domain where only a few open
+models can be run, or an agentic benchmark where every evaluation is costly. With four to
+eight calibrators, item parameters---especially discriminations---are poorly identified,
+and adaptive selection then \emph{capitalizes on calibration error}: it preferentially
+picks the items whose informativeness is most overestimated
+\citep{vanderlinden2000capitalization,patton2013influence}. Psychometrics knows remedies
+for this: expected response functions that integrate the item-parameter posterior
+\citep{mislevy1994erf} and fully Bayesian adaptive testing
+\citep{vanderlinden2020fast,fink2025accounting}. What is not known is how much these
+remedies matter in the small-panel regime of LLM evaluation, against which competitors,
+and with what consequences for the uncertainty that an adaptive test reports.
+
+This paper studies that question with a calibration-marginal adaptive test, EOST-M: items
+enter the test through their expected response function under an empirical-Bayes item
+prior, are selected by expected information gain (EIG), and are graded by an independent
+oracle. Two studies with analysis plans frozen before execution---the second designed after
+an external review, with one target per family cluster and the strongest competitors we
+could identify---lead to three messages.
+
+\begin{enumerate}\itemsep2pt
+\item \textbf{Small-panel calibration uncertainty is the real problem.} With 4--8
+calibrators, plug-in Fisher-information CAT treats item parameters that a small panel
+cannot determine---poorly located difficulties and inflated discriminations---as known,
+and both its predictions and its intervals suffer.
+\item \textbf{Accounting for that uncertainty fixes a substantial part of it.} Integrating
+the item-parameter posterior (EOST-M) and constraining the discriminations (a regularized
+Rasch-type test) are two remedies for the same failure. \StudyTwoIntroMsgTwo
+\item \textbf{Once uncertainty is handled, the choice of information criterion matters
+much less than first hypothesized.} EIG, maximum and posterior-weighted Fisher information
+and the score-targeted criterion performed almost identically under the
+calibration-marginal model (a descriptive comparison, not an equivalence test), and the
+original hypothesis that information beats predictive entropy on held-out prediction is
+consistent in sign but small and not supported by the frozen rule; for the benchmark score,
+entropy differs more, as the one-step score-targeted analysis predicts.
+\end{enumerate}
+
+\paragraph{Contributions.}
+\begin{enumerate}\itemsep1pt
+\item \textbf{Theory} (Section~\ref{sec:theory}). The calibration-marginal model is the exact
+Bayesian model given the calibrators' abilities and the hyperprior (Lemma~\ref{lem:exact}),
+which locates it with respect to fully Bayesian CAT; an item whose difficulty has a
+Gaussian posterior with standard deviation $s$ can never carry more than $2/(\pi s^2)$ of
+Fisher information, for the logistic link and any other, with a general bound for other
+posteriors (Proposition~\ref{prop:cap}); entropy, Fisher
+information and EIG are related exactly and agree under a common discrimination; and a
+closed form for one-step score-targeted design.
+\item \textbf{Evidence} (Sections~\ref{sec:study1}--\ref{sec:cost}). Study~1: eight real
+benchmarks from five domains (\NSystemsTotal\ systems), panels of 4--64 calibrators,
+re-analysed with family clusters as units. Study~2: independent targets (one per strict
+family cluster), competitors including a regularized Rasch-type test, a posterior-draw marginal Bayesian
+CAT, ATLAS-style 3PL CAT, tinyBenchmarks, MINCE and Random:mg, a leave-one-calibrator-out
+recalibration of score intervals, and a temporal validation on later SWE-bench
+submissions. A cost analysis gives break-even points.
+\item \textbf{Reproducibility.} A Docker-only pipeline over pinned public sources; every
+number in the paper is a macro generated from hashed artifacts and the qualitative
+statements about results are re-checked on the artifacts by an automatic test; both analysis plans were
+hashed and committed before execution (Section~\ref{sec:design}).
+\end{enumerate}
+
+\paragraph{Scope.} All evidence is a replay of recorded verdicts produced by deterministic
+oracles or by recorded aggregate verdicts (Section~\ref{sec:design}); a protocol for live
+deployment is released (Section~\ref{sec:live}) but could not be run in our execution
+environment. The framework
+also allows models to generate their own items (self-testing); this was explored only in a
+historical pilot program (Section~\ref{sec:pilot}) and is not part of the evidence.
+
+\paragraph{Main findings.} \IntroFindings

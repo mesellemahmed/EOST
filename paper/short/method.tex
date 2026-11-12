@@ -1,0 +1,111 @@
+\section{Calibration-marginal adaptive testing}
+\label{sec:framework}
+
+\paragraph{Items, oracles and verdicts.} A test item $i$ is a task with an oracle $O_i$ that
+maps a system's output to a verdict $y_i\in\{0,1\}$: exact numeric match, hidden unit tests,
+or a log-likelihood comparison of answer options. The framework (EOST, for entropy-oracled
+information-optimal self-testing, optimal in the one-step sense of Section~\ref{sec:theory})
+has one structural rule: the system under evaluation may propose items but is never the
+oracle of its own verdicts, which avoids the circularity of models judging models
+\citep{zheng2023judging}. All items here come from fixed banks; self-generated items were
+explored only in a historical pilot and are not part of the evidence. Verdicts are
+deterministic (one recorded evaluation per system and item) or recorded aggregates (a pass
+rate over samples binarized at one half). Figure~\ref{fig:framework} summarizes the test.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  font=\footnotesize,
+  box/.style={draw=black!55, rounded corners=2pt, align=center, inner sep=4pt, fill=white, text width=3.15cm},
+  key/.style={draw=blue!60!black, rounded corners=2pt, align=center, inner sep=4pt, fill=blue!6, text width=3.75cm},
+  arr/.style={-{Stealth[length=2mm]}, black!70, thick},
+  lab/.style={font=\scriptsize, text=black!65, fill=white, inner sep=1pt}
+]
+\node[box] (bank) at (0,0) {Item source\\{\scriptsize bank, generator, or the evaluated model}};
+\node[key] (sel) at (5.5,0) {Select item $i$ maximizing\\ $I(\Theta;y_i\mid\mathcal D_t)$ {\scriptsize (or $R_i$)}};
+\node[box] (sys) at (11.0,0) {System under test\\{\scriptsize answers item $i$}};
+\node[box] (panel) at (0,-2.1) {Calibration panel $\mathcal C$\\{\scriptsize $N$ systems, target's family or cluster excluded}};
+\node[key] (cal) at (5.5,-2.1) {Empirical-Bayes calibration\\{\scriptsize item posteriors $\pi_i(\log a,b)$, ERF}\\{\scriptsize $\bar P_i(\theta)=\mathbb E_{\pi_i}\,\sigma(a(\theta-b))$}};
+\node[box, fill=black!4] (oracle) at (11.0,-2.1) {Independent oracle $O_i$\\{\scriptsize unit tests, exact match}};
+\node[box] (post) at (11.0,-4.0) {Ability posterior $\pi_t(\theta)$\\{\scriptsize score $\hat A_t$ and 90\% interval}};
+\draw[arr] (bank) -- node[lab, above=1pt]{candidates} (sel);
+\draw[arr] (panel) -- node[lab, above=1pt]{verdicts} (cal);
+\draw[arr] (cal) -- node[lab, right=2pt]{$\bar P_i$} (sel);
+\draw[arr] (sel) -- node[lab, above=1pt]{item $i$} (sys);
+\draw[arr] (sys) -- node[lab, right=2pt]{output} (oracle);
+\draw[arr] (oracle) -- node[lab, right=2pt]{$y_i\in\{0,1\}$} (post);
+\draw[arr] (post.west) -- (8.35,-4.0) -- node[lab, pos=0.15, left=1pt, fill=none]{update $\mathcal D_{t+1}$} (8.35,-1.05) -- (6.95,-1.05) -- (6.95,0 |- sel.south);
+\end{tikzpicture}
+\caption{EOST-M: calibration-marginal adaptive testing with an independent oracle.}
+\label{fig:framework}
+\end{figure}
+
+\paragraph{Measurement model and calibration.} Let target $s$ have competence $\theta_s$ and
+respond according to the two-parameter logistic (2PL) model
+\begin{equation}
+\Pr(y_{si}=1\mid\theta_s,a_i,b_i)=\sigma\big(a_i(\theta_s-b_i)\big),\qquad a_i>0 .
+\end{equation}
+Item parameters $\psi_i=(\log a_i,b_i)$ are calibrated on a \emph{panel} $\mathcal C$ of $N$
+other systems that excludes the target and every related system (its heuristic family in
+study~1, its strict cluster in study~2; Section~\ref{sec:design}). Calibration has four
+steps shared by every policy: (i) joint maximum a posteriori (MAP) estimation of the
+calibrators' abilities $\hat\theta_{\mathcal C}$ and the item parameters, with
+$\theta_j\sim\mathcal N(0,1)$, $\log a_i\sim\mathcal N(0,1)$, $b_i\sim\mathcal N(0,2^2)$;
+(ii) an empirical-Bayes hyperprior $\log a_i\sim\mathcal N(\mu_a,\sigma_a^2)$,
+$b_i\sim\mathcal N(\mu_b,\sigma_b^2)$ that maximizes the marginal likelihood of all items
+given $\hat\theta_{\mathcal C}$ (EM on a $14\times65$ grid), well determined even for $N=4$
+because it pools hundreds of items; (iii) plug-in parameters $(\hat a_i,\hat b_i)$, the
+conditional MAP under that hyperprior; (iv) the exact grid posterior
+$\pi_i(\psi)\propto p(\psi)\prod_{j\in\mathcal C}p(y_{ji}\mid\hat\theta_j,\psi)$ on
+$26\times129$ points of $(\log a,b)\in[-2.5,2.5]\times[-8,8]$. The \textbf{plug-in} model
+uses $P_i(\theta)=\sigma(\hat a_i(\theta-\hat b_i))$, as in classical CAT and recent LLM work
+\citep{hofmann2025fluid,li2026atlas}; the \textbf{marginal} model uses the expected
+response function (ERF)
+\begin{equation}\label{eq:erf}
+\bar P_i(\theta)=\int\sigma\big(a(\theta-b)\big)\,\pi_i(d\psi)
+\end{equation}
+\citep{mislevy1994erf}, which is the exact response probability given
+$\hat\theta_{\mathcal C}$ and the hyperprior (Lemma~\ref{lem:exact}). The two models share
+$\hat\theta_{\mathcal C}$ and the hyperprior and differ only in plugging in a mode versus
+integrating the item posterior.
+
+\paragraph{Item selection.} The target's ability posterior $\pi_t$ is kept on a 201-point
+grid over $[-5,5]$ with prior $\mathcal N(0,1)$. At step $t$ an item is chosen by
+\textsc{Random} (uniform choice), \textsc{Entropy} (largest predictive entropy),
+\textsc{MFI} (largest Fisher information at the posterior mean), \textsc{PWFI}
+(posterior-weighted Fisher information; \citealp{vanderlinden1998bayesian}), \textsc{EIG}
+(largest expected information gain $I(\theta;y_i\mid\mathcal D_t)$) or \textsc{EVR}
+(largest expected reduction of the posterior variance of the unobserved bank total,
+Proposition~\ref{prop:evr}), each under the plug-in (\texttt{:pi}) or the marginal
+(\texttt{:mg}) model (PWFI under the marginal model only). The proposed method,
+\textbf{EOST-M}, is \textsc{EIG:mg}; the state of practice is \textsc{MFI:pi}; the
+model-free baseline \textsc{Naive} samples items uniformly and reports the sample mean with
+a Wilson interval and finite-population correction. Entropy, EIG and PWFI are matrix--vector
+products with precomputed item-by-grid matrices, EVR uses the closed form of
+Proposition~\ref{prop:evr} on the grid, and ties are broken at random.
+
+\paragraph{Score, intervals and recalibration.} The full-bank accuracy
+$A=\frac1I\sum_iy_{si}$ is estimated by
+$\hat A_t=\frac1I\big(\sum_{\text{asked}}y_{si}+\sum_{\text{not asked}}\mathbb E_{\pi_t}P_i(\theta)\big)$.
+Its 90\% interval uses the exact mean and variance of the predictive distribution of the
+unobserved total---a mixture over the ability grid of Poisson-binomial sums---with a normal
+approximation. Because a model-based interval ignores misspecification and dependence
+between systems, we also study a leave-one-calibrator-out recalibration (``+R''): for every
+calibrator $c$, the item posteriors are recomputed without $c$'s cluster, the same test is
+replayed on $c$, whose score is known, and the recalibrated half-width at step $t$ is the
+90\% quantile of the absolute errors pooled over calibrators and over the steps within a
+factor 1.5 of $t$. With $N\le8$ pseudo-targets this is a cross-validated correction, not a
+conformal guarantee \citep{vovk2005algorithmic}; the rule was chosen among three variants on
+development banks before study~2.
+
+\paragraph{Endpoints.} Competence is a model construct whose scale is fixed only by the
+prior, so the endpoints are observable. (1) \emph{Held-out predictive log loss}: a holdout of
+20\% of the bank, drawn once per target and replicate, never administered and shared by all
+policies and panel sizes, is predicted after each step with $\mathbb E_{\pi_t}P_i(\theta)$,
+and the log loss is averaged over the steps $t\le T$; this strictly proper score rewards both
+accuracy and calibration. (2) \emph{Score error}: the integrated absolute error (IAE), the
+average of $|\hat A_t-A|$ over $t\le T$. (3) \emph{Coverage} of the 90\% interval and the
+\emph{interval score} $(u-l)+\frac2\alpha(l-A)_++\frac2\alpha(A-u)_+$ with $\alpha=0.1$,
+which penalizes both width and misses \citep{gneiting2007strictly}. Secondary endpoints
+include the Brier score, the number of items after which the score error stays below a
+tolerance, and, on synthetic banks, the error and coverage of the true $\theta$.

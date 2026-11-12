@@ -1,0 +1,8 @@
+{
+ "task": "tiny",
+ "dataset": "ollb_winogrande",
+ "N": 8,
+ "n_rows": 360,
+ "cpu_seconds": 326.6,
+ "burn_fix": null
+}

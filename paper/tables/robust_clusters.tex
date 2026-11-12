@@ -1,0 +1,21 @@
+\begin{table}[tbp]
+\centering\footnotesize
+\caption{Robustness of study 2 to the clustering (follow-up RF1, planned before running). Frozen targets, holdouts and panel seeds; only the systems excluded from each target's panel change. For each exclusion rule: targets used, and for R2 (EOST-M vs plug-in Fisher CAT, log loss), C1 (vs the Rasch-type plug-in test, log loss) and C4 (vs Random:mg, score IAE): median relative improvement of EOST-M over benchmarks (\%), benchmarks with a positive difference, and benchmarks Holm-significant for / against EOST-M (frozen 88-test family with the rule's $p$-values substituted).}
+\label{tab:robclust}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lrrrrrrrrr@{}}
+\toprule
+ & & \multicolumn{3}{c}{R2} & \multicolumn{3}{c}{C1} & \multicolumn{2}{c}{C4} \\
+\cmidrule(lr){3-5}\cmidrule(lr){6-8}\cmidrule(l){9-10}
+Panel exclusion rule & targets & median & pos. & sig. & median & pos. & sig. & median & sig. \\
+\midrule
+frozen (joint residuals, $r\ge0.5$) & 267 & $+5.9$ & 8/8 & 5/0 & $+2.4$ & 7/8 & 5/0 & $+21.1$ & 4/0 \\
+\midrule
+metadata only (no responses) & 267 & $+5.9$ & 8/8 & 4/0 & $+2.4$ & 7/8 & 5/0 & $+20.5$ & 3/0 \\
+leave-bank-out residuals & 267 & $+5.9$ & 8/8 & 5/0 & $+2.4$ & 7/8 & 5/0 & $+19.6$ & 3/0 \\
+joint residuals, $r\ge0.4$ & 267 & $+5.9$ & 8/8 & 6/0 & $+2.4$ & 7/8 & 5/0 & $+19.5$ & 3/0 \\
+joint residuals, $r\ge0.6$ & 267 & $+5.9$ & 8/8 & 4/0 & $+2.4$ & 7/8 & 5/0 & $+20.1$ & 3/0 \\
+joint residuals, $r\ge0.7$ & 267 & $+5.9$ & 8/8 & 4/0 & $+2.4$ & 7/8 & 5/0 & $+18.3$ & 3/0 \\
+\bottomrule
+\end{tabular}
+\end{table}

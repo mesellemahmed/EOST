@@ -1,0 +1,12 @@
+{
+ "dataset": "livecodebench",
+ "N": 8,
+ "taus": [
+  0.05,
+  0.15,
+  0.3,
+  0.5
+ ],
+ "n_targets": 28,
+ "n_rows": 1260
+}

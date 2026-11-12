@@ -1,0 +1,146 @@
+name: eost
+
+# Every scientific service runs in the same pinned image with NO network
+# access (network_mode: none): data are fetched beforehand by ./run fetch
+# (host-side git only) and nothing inside a scientific container can download.
+x-science: &science
+  image: eost-runtime:cpu
+  build:
+    context: .
+    dockerfile: Dockerfile
+  working_dir: /work
+  volumes:
+    - ./:/work
+  network_mode: none
+  environment:
+    PYTHONPATH: /work/src
+
+services:
+  doctor:
+    <<: *science
+    command: ["python", "-m", "eost.doctor"]
+  tests:
+    <<: *science
+    command: ["python", "-m", "pytest", "-q", "-p", "no:cacheprovider"]
+  data:
+    <<: *science
+    command: ["python", "scripts/build_datasets.py"]
+  synthetic:
+    <<: *science
+    command: ["python", "scripts/make_synthetic.py"]
+  bench:
+    <<: *science
+    entrypoint: ["python", "scripts/run_benchmark.py"]
+  bench_resumable:
+    <<: *science
+    entrypoint: ["python", "scripts/run_benchmark_resumable.py"]
+  analyze:
+    <<: *science
+    entrypoint: ["python", "scripts/analyze.py"]
+  explore:
+    <<: *science
+    entrypoint: ["python", "scripts/explore_ranking.py"]
+  report:
+    <<: *science
+    entrypoint: ["python", "scripts/make_report.py"]
+  claims:
+    <<: *science
+    command: ["python", "scripts/check_claims.py"]
+  posthoc:
+    <<: *science
+    entrypoint: ["python", "scripts/posthoc_baselines.py"]
+  analyze_posthoc:
+    <<: *science
+    command: ["python", "scripts/analyze_posthoc.py"]
+  shrinkage:
+    <<: *science
+    entrypoint: ["python", "scripts/posthoc_shrinkage.py"]
+  analyze_shrinkage:
+    <<: *science
+    command: ["python", "scripts/analyze_shrinkage.py"]
+  coverage:
+    <<: *science
+    command: ["python", "scripts/analyze_coverage.py"]
+  study2:
+    <<: *science
+    entrypoint: ["python", "scripts/run_study2.py"]
+  analyze2:
+    <<: *science
+    command: ["python", "scripts/analyze_study2.py"]
+  s2fix:
+    <<: *science
+    entrypoint: ["python", "scripts/posthoc_s2_corrections.py"]
+  analyze_s2fix:
+    <<: *science
+    command: ["python", "scripts/analyze_s2_corrections.py"]
+  robust_clusters:
+    <<: *science
+    command: ["python", "scripts/robust_clusters.py"]
+  fb_convergence:
+    <<: *science
+    command: ["python", "scripts/fb_convergence.py"]
+  fb_scale:
+    <<: *science
+    command: ["python", "scripts/fb_scale.py"]
+  fb_exact:
+    <<: *science
+    command: ["python", "scripts/fb_exact.py"]
+  fb_exact2:
+    <<: *science
+    command: ["python", "scripts/fb_exact2.py"]
+  meta:
+    <<: *science
+    command: ["python", "scripts/meta_analysis.py"]
+  meta_sources:
+    <<: *science
+    command: ["python", "scripts/meta_sources.py"]
+  analyze_robust:
+    <<: *science
+    command: ["python", "scripts/analyze_robust.py"]
+  report3:
+    <<: *science
+    command: ["python", "scripts/report_robust.py"]
+  short:
+    <<: *science
+    command: ["python", "scripts/short_tables.py"]
+  flatten:
+    <<: *science
+    entrypoint: ["python", "scripts/flatten_short.py"]
+  clusters:
+    <<: *science
+    command: ["python", "scripts/analyze_clusters.py"]
+  cost:
+    <<: *science
+    command: ["python", "scripts/analyze_cost.py"]
+  eb:
+    <<: *science
+    command: ["python", "scripts/analyze_eb.py"]
+  report2:
+    <<: *science
+    command: ["python", "scripts/report_study2.py"]
+  live:
+    # the only service with network access: it must reach the model's OpenAI-compatible endpoint
+    image: eost-runtime:cpu
+    working_dir: /work
+    volumes:
+      - ./:/work
+    network_mode: host
+    environment:
+      PYTHONPATH: /work/src
+    entrypoint: ["python", "scripts/live_eost.py"]
+  verify:
+    <<: *science
+    entrypoint: ["python", "scripts/verify_artifacts.py"]
+  demo:
+    <<: *science
+    entrypoint: ["python", "-m", "eost.cli"]
+  paper:
+    image: eost-paper:texlive
+    build:
+      context: .
+      dockerfile: docker/paper.Dockerfile
+    working_dir: /work/paper
+    volumes:
+      - ./:/work
+    network_mode: none
+    command: ["bash", "build.sh"]

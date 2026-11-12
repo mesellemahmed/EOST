@@ -1,0 +1,20 @@
+\begin{table}[tbp]
+\centering\footnotesize
+\caption{Study 2, Bayesian CATs against EOST-M at $N=4$ (post hoc correction of the burn-in and exploratory joint model; same targets, panels, holdouts and chains). Equivalence: 90\% bootstrap interval of the relative difference in held-out log loss within $\pm1\%$ (rule of C3: at least six benchmarks); median relative difference of log loss (positive: Bayesian CAT worse); benchmarks with a Holm-significant difference favouring EOST-M / the Bayesian CAT; the same for the score error (median relative improvement of EOST-M); mean coverage of the 90\% score interval (EOST-M: 0.78).}
+\label{tab:fbfixfour}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+ & \multicolumn{3}{c}{held-out log loss} & \multicolumn{2}{c}{score IAE} & \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-6}
+Variant & equiv. & median \% & sig. & median \% & sig. & coverage \\
+\midrule
+PDM Bayesian, BMI (frozen, burn-in 10) & 4/8 & $+0.33$ & 0/0 & $+2.6$ & 0/0 & 0.82 \\
+PDM Bayesian, EIG (frozen, burn-in 10) & 4/8 & $+0.45$ & 0/0 & $+6.5$ & 0/0 & 0.79 \\
+PDM Bayesian, BMI (burn-in 60) & 4/8 & $+0.21$ & 0/0 & $+1.6$ & 0/0 & 0.81 \\
+PDM Bayesian, EIG (burn-in 60) & 2/8 & $+0.45$ & 1/0 & $+5.8$ & 1/0 & 0.79 \\
+joint fully Bayesian, BMI (exploratory) & 4/8 & $-0.03$ & 0/0 & $+1.0$ & 0/0 & 0.79 \\
+joint fully Bayesian, EIG (exploratory) & 4/8 & $+0.17$ & 0/0 & $-0.8$ & 0/0 & 0.79 \\
+\bottomrule
+\end{tabular}
+\end{table}

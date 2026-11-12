@@ -1,0 +1,6 @@
+{
+ "variant": "joint_0.6",
+ "dataset": "ollb_mmlu",
+ "n_rows": 600,
+ "cpu_seconds": 135.9
+}

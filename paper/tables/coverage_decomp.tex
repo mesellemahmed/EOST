@@ -1,0 +1,22 @@
+\begin{table}[tbp]
+\centering\footnotesize
+\caption{Where the coverage of the 90\% score interval comes from (exploratory analysis of the post hoc runs, planned before computing; $N=8$). Coverage and score IAE (in percentage points) of EOST-M (EIG:mg) and of the regularized Rasch-type plug-in test (MFI:1pr), median over targets of the ratio of their mean interval widths (Rasch-type over EOST-M; Holm-significant on 8 of 8 benchmarks), and ratio of mean interval width to score IAE for plug-in 2PL (MFI:pi), EOST-M, the Rasch-type test and the marginal regularized one-parameter model (EIG:1prmg, column 1PL:mg). A calibrated 90\% interval for unbiased Gaussian errors has ratio $2\cdot1.645/\sqrt{2/\pi}=4.12$.}
+\label{tab:covdecomp}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lccccccccc@{}}
+\toprule
+ & \multicolumn{2}{c}{coverage} & width & \multicolumn{2}{c}{score IAE} & \multicolumn{4}{c}{width / IAE} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-4}\cmidrule(lr){5-6}\cmidrule(l){7-10}
+Benchmark & EOST-M & Rasch & ratio & EOST-M & Rasch & MFI:pi & EOST-M & Rasch & 1PL:mg \\
+\midrule
+GSM8K & 0.70 & 0.78 & 1.12 & 4.4 & 4.1 & 2.62 & 2.89 & 3.34 & 3.33 \\
+ARC-C & 0.74 & 0.87 & 1.44 & 2.9 & 3.0 & 2.20 & 2.97 & 3.97 & 3.83 \\
+HellaSwag & 0.76 & 0.79 & 1.14 & 1.8 & 1.7 & 2.00 & 2.88 & 3.21 & 3.46 \\
+WinoGrande & 0.75 & 0.75 & 1.52 & 2.9 & 4.2 & 1.84 & 2.97 & 3.06 & 2.99 \\
+MMLU & 0.77 & 0.81 & 1.76 & 3.2 & 5.3 & 1.90 & 3.22 & 3.40 & 3.68 \\
+SWE-bench V. & 0.76 & 0.81 & 1.20 & 3.5 & 3.5 & 2.39 & 2.98 & 3.51 & 3.70 \\
+LiveCodeBench & 0.76 & 0.81 & 1.08 & 2.9 & 2.7 & 2.26 & 3.11 & 3.53 & 3.83 \\
+CRUXEval-O & 0.77 & 0.86 & 1.39 & 3.1 & 3.4 & 2.29 & 3.17 & 3.85 & 3.89 \\
+\bottomrule
+\end{tabular}
+\end{table}

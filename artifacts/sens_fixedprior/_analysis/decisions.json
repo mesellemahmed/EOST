@@ -1,0 +1,96 @@
+{
+ "phase": "sens_fixedprior",
+ "n_rows": 15048,
+ "datasets": [
+  "cruxeval_o",
+  "livecodebench",
+  "ollb_arc",
+  "ollb_gsm8k",
+  "ollb_hellaswag",
+  "ollb_mmlu",
+  "ollb_winogrande",
+  "swe_verified"
+ ],
+ "panel_sizes": [
+  8,
+  64
+ ],
+ "decisions": {
+  "H1": {
+   "name": "information vs predictive entropy",
+   "n_benchmarks": 8,
+   "holm_sig_favouring_new": 8,
+   "holm_sig_favouring_base": 0,
+   "supported": true,
+   "per_N": {
+    "8": {
+     "favour_new": 8,
+     "favour_base": 0,
+     "n": 8
+    },
+    "64": {
+     "favour_new": 6,
+     "favour_base": 0,
+     "n": 6
+    }
+   }
+  },
+  "H2": {
+   "name": "calibration-marginal EIG vs plug-in Fisher CAT",
+   "n_benchmarks": 8,
+   "holm_sig_favouring_new": 1,
+   "holm_sig_favouring_base": 1,
+   "supported": false,
+   "per_N": {
+    "8": {
+     "favour_new": 1,
+     "favour_base": 1,
+     "n": 8
+    },
+    "64": {
+     "favour_new": 0,
+     "favour_base": 0,
+     "n": 6
+    }
+   }
+  },
+  "H3": {
+   "name": "adaptive EOST-M vs naive subsampling (score error)",
+   "n_benchmarks": 8,
+   "holm_sig_favouring_new": 7,
+   "holm_sig_favouring_base": 0,
+   "supported": true,
+   "per_N": {
+    "8": {
+     "favour_new": 7,
+     "favour_base": 0,
+     "n": 8
+    },
+    "64": {
+     "favour_new": 5,
+     "favour_base": 0,
+     "n": 6
+    }
+   }
+  },
+  "H4": {
+   "name": "interval calibration (|coverage - 0.90|)",
+   "n_benchmarks": 8,
+   "holm_sig_favouring_new": 4,
+   "holm_sig_favouring_base": 0,
+   "supported": false,
+   "per_N": {
+    "8": {
+     "favour_new": 4,
+     "favour_base": 0,
+     "n": 8
+    },
+    "64": {
+     "favour_new": 1,
+     "favour_base": 0,
+     "n": 6
+    }
+   }
+  }
+ }
+}

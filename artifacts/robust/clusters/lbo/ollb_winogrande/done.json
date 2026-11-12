@@ -1,0 +1,6 @@
+{
+ "variant": "lbo",
+ "dataset": "ollb_winogrande",
+ "n_rows": 600,
+ "cpu_seconds": 110.7
+}

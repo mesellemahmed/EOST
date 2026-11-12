@@ -1,0 +1,6 @@
+{
+ "variant": "lbo",
+ "dataset": "ollb_gsm8k",
+ "n_rows": 600,
+ "cpu_seconds": 141.2
+}

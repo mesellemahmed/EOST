@@ -1,0 +1,78 @@
+\documentclass[twoside,11pt]{article}
+
+% Official JMLR style (https://github.com/JmlrOrg/jmlr-style-file, commit f413f63).
+% It loads epsfig, amssymb, natbib (plainnat), graphicx and hyperref, and defines the
+% theorem-like environments. The [preprint] option removes the journal heading and the
+% editor line; drop it and fill \jmlrheading/\editor for the camera-ready version.
+\usepackage[preprint]{jmlr2e}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{booktabs,longtable,array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,calc}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{lastpage}
+\usepackage[section]{placeins}% floats never drift past the next section
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{5}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\floatpagefraction}{0.75}
+
+\providecommand{\qed}{\hfill\BlackBox}
+\newcommand{\todo}[1]{\textcolor{red}{#1}}
+
+\input{generated/numbers}
+\IfFileExists{generated/numbers2.tex}{\input{generated/numbers2}}{}
+\IfFileExists{generated/numbers3.tex}{\input{generated/numbers3}}{}
+\IfFileExists{sections/results_text3.tex}{\input{sections/results_text3}}{}
+\IfFileExists{sections/results_text2.tex}{\input{sections/results_text2}}{}
+\input{sections/defaults}
+\input{sections/results_text}
+
+% Running heads: short title and authors' last names
+\input{sections/authors}
+\ShortHeadings{Calibration Uncertainty in Adaptive LLM Evaluation (Extended Version)}{\PaperShortAuthors}
+\firstpageno{1}
+
+\begin{document}
+
+\title{Calibration Uncertainty in Adaptive Large Language Model Evaluation:\\ Theory and Empirical Evidence (Extended Version)}
+
+\author{\PaperAuthors}
+
+
+\maketitle
+
+\input{sections/abstract}
+
+\begin{keywords}
+  adaptive testing, item response theory, evaluation of large language models,
+  calibration uncertainty, expected information gain
+\end{keywords}
+
+\input{sections/intro}
+\input{sections/related}
+\input{sections/framework}
+\input{sections/fig_framework}
+\input{sections/algorithm}
+\input{sections/theory}
+\input{sections/design}
+\input{sections/results1}
+\input{sections/results2}
+\input{sections/robustness}
+\input{sections/cost}
+\input{sections/discussion}
+
+\input{sections/acks}
+
+\vskip 0.2in
+\bibliography{refs}
+
+\end{document}

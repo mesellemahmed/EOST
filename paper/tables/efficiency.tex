@@ -1,0 +1,35 @@
+\begin{table}[tbp]
+\centering\footnotesize
+\caption{Items needed to match the full-bank score error of 100 uniformly sampled items (Naive): first checkpoint $t$ at which the mean $|\hat A_t-A|$ over targets falls below the Naive error at $t=100$, at the primary panel size $N=8$ and at the largest panel available for the benchmark.}
+\label{tab:efficiency}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Benchmark & $N$ & Naive error @100 & Entropy:mg & MFI:pi & EIG:mg & EVR:mg \\
+\midrule
+GSM8K & 8 & 0.0296 & $>$100 & $>$100 & 70 & 80 \\
+ & 64 & 0.0258 & $>$100 & 90 & 80 & 80 \\
+\addlinespace[2pt]
+ARC-C & 8 & 0.0364 & 25 & 15 & 20 & 12 \\
+ & 64 & 0.0408 & 12 & 5 & 3 & 3 \\
+\addlinespace[2pt]
+HellaSwag & 8 & 0.0295 & 30 & 8 & 8 & 10 \\
+ & 64 & 0.0306 & 10 & 3 & 3 & 4 \\
+\addlinespace[2pt]
+WinoGrande & 8 & 0.0326 & 80 & 20 & 20 & 15 \\
+ & 64 & 0.0311 & 30 & 8 & 6 & 5 \\
+\addlinespace[2pt]
+MMLU & 8 & 0.0395 & 100 & 60 & 15 & 12 \\
+ & 64 & 0.0396 & 25 & 6 & 5 & 6 \\
+\addlinespace[2pt]
+SWE-bench V. & 8 & 0.0334 & 40 & 50 & 40 & 40 \\
+ & 64 & 0.0314 & 30 & 40 & 40 & 30 \\
+\addlinespace[2pt]
+LiveCodeBench & 8 & 0.0305 & 30 & 40 & 25 & 30 \\
+ & 16 & 0.0298 & 25 & 20 & 15 & 20 \\
+\addlinespace[2pt]
+CRUXEval-O & 8 & 0.0359 & 25 & 30 & 25 & 20 \\
+ & 16 & 0.0379 & 25 & 10 & 10 & 10 \\
+\addlinespace[2pt]
+\bottomrule
+\end{tabular}
+\end{table}

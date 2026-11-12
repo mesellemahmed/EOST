@@ -1,0 +1,28 @@
+\section{What adaptive evaluation costs}
+\label{sec:cost}
+
+Adaptive testing saves items only after somebody has answered the whole bank: the
+calibration panel. Counting one administered item as the unit of cost, evaluating $M$ new
+systems costs $MI$ with the full bank of $I$ items, and $NI+MT$ with a fresh panel of $N$
+calibrators and adaptive tests of $T$ items, so adaptive testing pays off once
+$M>NI/(I-T)$. With eight calibrators and $T=100$ this break-even lies between
+\CostBreakFullMin\ and \CostBreakFullMax\ new systems on every benchmark
+(Table~\ref{tab:cost}), and for
+100 new systems the total cost is about \CostRatioHundred\% of full evaluation.
+
+The fairer comparison is with uniform subsampling, which needs no panel at all. At
+matched precision, EOST-M needed a median of \CostItemsNaive\ items to reach the score
+error that 100 uniformly sampled items reach with the sample mean, so it saves about
+\CostSaveNaive\ items per system but must first pay $NI$; the break-even is then a median of
+\CostBreakNaiveMed\ new systems (from \CostBreakNaiveMin\ to \CostBreakNaiveMax\ across
+benchmarks). Against Random:mg, which pays for the same panel, adaptivity alone saves
+items from the first system on \CostRandomSaveBanks\ of 8 benchmarks: EOST-M matched 100
+random items scored by the same model after a median of \CostItemsRandom\ items. Two situations change the arithmetic. When the
+calibrators' full results already exist---public leaderboards, previous internal
+evaluations---the panel is free and adaptive testing is cheaper from the first system.
+When items are expensive to administer and a benchmark is used for many systems, as for
+agentic benchmarks, the per-system saving dominates quickly. The computation itself is
+negligible: calibrating a panel and running a 100-item test takes seconds on one CPU core
+(Section~\ref{sec:design}).
+
+\input{tables/cost}

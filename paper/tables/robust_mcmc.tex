@@ -1,0 +1,71 @@
+\begin{table}[tbp]
+\centering\scriptsize
+\caption{MCMC convergence of the Bayesian CATs' sampler (follow-up RF2: the frozen sampler with long chains; 6 targets per benchmark, replicate 0, $N=8$; four chains, one from EOST-M's estimates and three from dispersed starts; burn-in 250, then 300 sweeps per chain with every third retained, 400 retained draws). Per benchmark and parameter: number of the six panels with rank-normalized split $\hat R<1.01$ / $\hat R<1.05$ / bulk ESS $\ge100$. Location: mean calibrator ability; scale: standard deviation of the calibrators' abilities (explanatory, not in the plan of RF2); $\mu_a,\sigma_a$: mean and standard deviation of the log discriminations, $\mu_b,\sigma_b$: of the difficulties. Last two columns: median and largest relative spread (\%) of the held-out log loss of the PDM Bayesian CAT (BMI) across the four chains. Summary rows over all panels: percentages; median (maximum) $\hat R$; median (minimum) bulk ESS; median Monte Carlo standard error as a percentage of the posterior standard deviation.}
+\label{tab:rf2}
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+ & \multicolumn{6}{c}{panels with $\hat R<1.01$ / $\hat R<1.05$ / ESS $\ge100$} & \multicolumn{2}{c}{chain spread (\%)} \\
+\cmidrule(lr){2-7}\cmidrule(l){8-9}
+Benchmark & location & $\mu_b$ & $\sigma_b$ & $\mu_a$ & $\sigma_a$ & scale & median & max \\
+\midrule
+GSM8K & 6/6/6 & 0/3/2 & 0/0/0 & 0/0/0 & 0/0/0 & 0/0/0 & 8.9 & 43.3 \\
+ARC-C & 1/6/6 & 6/6/6 & 0/0/0 & 0/0/0 & 0/0/0 & 0/0/0 & 1.0 & 1.7 \\
+HellaSwag & 0/3/3 & 2/6/5 & 0/0/0 & 0/0/0 & 0/0/0 & 0/0/0 & 1.7 & 4.2 \\
+WinoGrande & 0/5/4 & 4/5/5 & 0/0/0 & 0/1/0 & 0/0/0 & 0/0/0 & 0.9 & 1.3 \\
+MMLU & 5/6/6 & 5/6/6 & 0/0/0 & 0/0/0 & 0/3/2 & 0/0/0 & 0.4 & 3.2 \\
+SWE-bench V. & 6/6/6 & 6/6/6 & 0/0/0 & 0/0/0 & 0/0/0 & 0/0/0 & 1.1 & 2.6 \\
+LiveCodeBench & 2/6/5 & 1/5/5 & 0/0/0 & 0/0/0 & 0/0/0 & 0/0/0 & 1.7 & 5.6 \\
+CRUXEval-O & 3/6/6 & 6/6/6 & 0/0/0 & 0/0/0 & 0/1/0 & 0/0/0 & 0.8 & 5.5 \\
+\addlinespace
+all panels (\%) & 48/92/88 & 62/90/85 & 0/0/0 & 0/2/0 & 0/8/4 & 0/0/0 & 1.0 & 43.3 \\
+$\hat R$, median (max) & 1.01 (1.10) & 1.01 (1.21) & 1.47 (2.46) & 1.50 (2.77) & 1.27 (3.04) & 1.40 (2.44) & & \\
+bulk ESS, median (min) & 778 (35) & 612 (13) & 8 (5) & 8 (5) & 11 (5) & 9 (5) & & \\
+MCSE / sd (\%) & 4 & 4 & 37 & 38 & 30 & 35 & & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[tbp]
+\centering\scriptsize
+\caption{MCMC convergence of the exploratory samplers (follow-ups RF2b and RF2d; same panels, starting points and columns as Table~\ref{tab:rf2}; 400 retained draws). Upper block (RF2b): a Metropolis--Hastings move along the scale ridge added to every sweep of the frozen sampler. Lower block (RF2d): the model of Lemma~\ref{lem:exact} (item prior normalized over the grid) sampled with the hyperparameters, the scale and the location moved by Metropolis--Hastings steps with the item parameters summed out.}
+\label{tab:rf2x}
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}lrrrrrrrr@{}}
+\toprule
+ & \multicolumn{6}{c}{panels with $\hat R<1.01$ / $\hat R<1.05$ / ESS $\ge100$} & \multicolumn{2}{c}{chain spread (\%)} \\
+\cmidrule(lr){2-7}\cmidrule(l){8-9}
+Benchmark & location & $\mu_b$ & $\sigma_b$ & $\mu_a$ & $\sigma_a$ & scale & median & max \\
+\midrule
+\multicolumn{9}{@{}l}{\emph{RF2b: with the scale move, 4 chains, burn-in 200, 200 further sweeps per chain}} \\
+GSM8K & 6/6/6 & 5/6/6 & 0/5/4 & 1/5/5 & 0/0/0 & 1/5/4 & 1.2 & 6.0 \\
+ARC-C & 6/6/6 & 6/6/6 & 0/5/5 & 0/4/5 & 0/1/0 & 0/5/3 & 1.1 & 3.1 \\
+HellaSwag & 1/2/2 & 2/6/5 & 0/1/1 & 0/0/1 & 0/0/0 & 0/1/1 & 2.0 & 5.6 \\
+WinoGrande & 4/6/6 & 6/6/6 & 0/3/3 & 0/6/5 & 0/0/0 & 0/3/2 & 0.6 & 1.6 \\
+MMLU & 6/6/6 & 5/6/6 & 0/5/5 & 0/5/6 & 0/4/0 & 1/5/5 & 0.5 & 1.3 \\
+SWE-bench V. & 6/6/6 & 5/6/6 & 0/6/6 & 1/6/6 & 0/0/0 & 0/6/6 & 0.7 & 4.7 \\
+LiveCodeBench & 5/6/6 & 5/6/6 & 0/4/4 & 0/6/6 & 0/0/0 & 0/5/5 & 1.9 & 3.0 \\
+CRUXEval-O & 5/6/6 & 6/6/6 & 1/6/6 & 1/6/6 & 0/0/0 & 2/6/6 & 0.7 & 2.3 \\
+\addlinespace
+all panels (\%) & 81/92/92 & 83/100/98 & 2/73/71 & 6/79/83 & 0/10/0 & 8/75/67 & 1.0 & 6.0 \\
+$\hat R$, median (max) & 1.00 (1.09) & 1.00 (1.04) & 1.04 (1.25) & 1.03 (1.32) & 1.31 (2.03) & 1.03 (1.26) & & \\
+bulk ESS, median (min) & 552 (35) & 544 (97) & 153 (13) & 171 (10) & 11 (5) & 132 (12) & & \\
+MCSE / sd (\%) & 4 & 4 & 8 & 8 & 32 & 9 & & \\
+\midrule
+\multicolumn{9}{@{}l}{\emph{RF2d: exact sampler of Lemma~\ref{lem:exact}'s model, 4 chains, burn-in 150, 200 further sweeps per chain}} \\
+GSM8K & 6/6/6 & 3/6/6 & 0/2/3 & 0/3/3 & 1/6/5 & 0/4/3 & 1.3 & 26.0 \\
+ARC-C & 1/5/5 & 0/4/5 & 0/6/5 & 0/2/1 & 0/1/1 & 0/6/5 & 0.3 & 0.8 \\
+HellaSwag & 1/4/2 & 0/2/0 & 0/1/0 & 0/2/2 & 0/2/0 & 0/1/0 & 0.5 & 3.6 \\
+WinoGrande & 0/4/3 & 0/0/0 & 0/0/0 & 0/0/0 & 0/5/5 & 0/2/1 & 0.7 & 1.5 \\
+MMLU & 0/5/4 & 0/4/3 & 0/4/1 & 0/4/1 & 2/6/6 & 0/4/1 & 0.7 & 1.0 \\
+SWE-bench V. & 6/6/6 & 5/6/6 & 0/2/0 & 0/1/0 & 1/6/5 & 0/1/0 & 1.2 & 3.1 \\
+LiveCodeBench & 5/6/5 & 2/4/4 & 0/3/3 & 0/3/3 & 0/4/3 & 0/4/3 & 1.1 & 5.8 \\
+CRUXEval-O & 2/6/6 & 1/6/4 & 0/5/4 & 0/5/3 & 0/5/5 & 0/6/4 & 0.6 & 5.7 \\
+\addlinespace
+all panels (\%) & 44/88/77 & 23/67/58 & 0/48/33 & 0/42/27 & 8/73/62 & 0/58/35 & 0.7 & 26.0 \\
+$\hat R$, median (max) & 1.02 (1.09) & 1.03 (1.19) & 1.05 (1.25) & 1.06 (1.16) & 1.03 (1.20) & 1.04 (1.21) & & \\
+bulk ESS, median (min) & 162 (42) & 129 (16) & 77 (13) & 72 (20) & 127 (15) & 85 (15) & & \\
+MCSE / sd (\%) & 8 & 9 & 12 & 12 & 9 & 11 & & \\
+\bottomrule
+\end{tabular}
+\end{table}

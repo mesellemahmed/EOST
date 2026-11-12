@@ -1,0 +1,26 @@
+{
+ "panels": 14,
+ "per_bank": {
+  "ollb_arc": {
+   "panels": 6,
+   "max_rhat_all": 1.171277075667218,
+   "max_rhat_loc": 1.171277075667218,
+   "min_rhat_loc": 1.0287060861834367,
+   "max_rhat_excl_loc_mu_b": 1.091178262866075
+  },
+  "ollb_gsm8k": {
+   "panels": 6,
+   "max_rhat_all": 1.0541539129666642,
+   "max_rhat_loc": 1.0051210293495556,
+   "min_rhat_loc": 0.9990562139497975,
+   "max_rhat_excl_loc_mu_b": 1.0541539129666642
+  },
+  "ollb_hellaswag": {
+   "panels": 2,
+   "max_rhat_all": 2.810890886894081,
+   "max_rhat_loc": 2.810890886894081,
+   "min_rhat_loc": 2.3843772773080865,
+   "max_rhat_excl_loc_mu_b": 1.3526432433936717
+  }
+ }
+}

@@ -1,0 +1,83 @@
+{
+ "dataset": "ollb_truthfulqa",
+ "phase": "dev",
+ "config": {
+  "panel_sizes": [
+   4,
+   8,
+   16,
+   32,
+   64
+  ],
+  "replicates": 3,
+  "n_targets": 30,
+  "budget": 100,
+  "holdout_frac": 0.2,
+  "irt_model": "2pl",
+  "priors": {
+   "mu_log_a": 0.0,
+   "sd_log_a": 1.0,
+   "sd_b": 2.0,
+   "sd_theta": 1.0
+  },
+  "policies": [
+   "naive",
+   "random:pi",
+   "random:mg",
+   "entropy:pi",
+   "mfi:pi",
+   "eig:pi",
+   "evr:pi",
+   "entropy:mg",
+   "mfi:mg",
+   "pwfi:mg",
+   "eig:mg",
+   "evr:mg"
+  ],
+  "max_agreement": null,
+  "theta_lo": -5.0,
+  "theta_hi": 5.0,
+  "theta_K": 201,
+  "item_grid": [
+   25,
+   81
+  ],
+  "master_seed": 20261029
+ },
+ "n_targets": 30,
+ "targets": [
+  26,
+  31,
+  41,
+  51,
+  85,
+  94,
+  102,
+  104,
+  139,
+  144,
+  153,
+  156,
+  167,
+  178,
+  183,
+  209,
+  210,
+  214,
+  217,
+  248,
+  264,
+  266,
+  272,
+  295,
+  302,
+  305,
+  317,
+  349,
+  352,
+  393
+ ],
+ "n_rows": 5400,
+ "seconds": 225.8,
+ "bank_meta_source": "tinybenchmarks"
+}

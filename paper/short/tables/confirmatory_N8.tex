@@ -1,0 +1,23 @@
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{Study 1: relative improvement (\%) of EOST-M for H1--H4 at $N=8$.}
+\label{tab:confirm}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}lrcccc@{}}
+\toprule
+ & & H1 & H2 & H3 & H4 \\
+Benchmark & targets & vs Entropy:mg & vs MFI:pi & vs Naive & vs MFI:pi \\
+\midrule
+GSM8K & 60 & $+2.7$* & $+2.4$ & $+16.8$ & $+11.6$ \\
+ARC-C & 60 & $+0.4$ & $+4.7$* & $+61.0$* & $+41.6$* \\
+HellaSwag & 60 & $+5.5$* & $+9.6$* & $+68.4$* & $+46.8$* \\
+WinoGrande & 60 & $+3.1$* & $+4.9$* & $+53.4$* & $+57.3$* \\
+MMLU & 60 & $+2.9$* & $+5.0$* & $+55.3$* & $+59.0$* \\
+SWE-bench V. & 60 & $+0.7$ & $+6.1$* & $+46.9$* & $+31.7$* \\
+LiveCodeBench & 28 & $+1.0$ & $+6.4$* & $+51.3$* & $+48.1$* \\
+CRUXEval-O & 31 & $+0.5$ & $+5.4$* & $+57.7$* & $+33.4$* \\
+\midrule
+decision & & 4/0 not supported & 7/0 supported & 7/0 supported & 7/0 supported \\
+\bottomrule
+\end{tabular}
+\end{table}

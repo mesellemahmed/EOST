@@ -1,0 +1,22 @@
+\begin{table}[tbp]
+\centering\footnotesize
+\caption{Study 2 per benchmark ($N=8$): number of targets (independent clusters) and relative improvement (\%) of EOST-M over each competitor; * Holm-significant. $^\dagger$Recorded aggregate verdicts.}
+\label{tab:study2banks}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+ & & \multicolumn{3}{c}{held-out log loss} & \multicolumn{2}{c}{score IAE} \\
+\cmidrule(lr){3-5}\cmidrule(l){6-7}
+Benchmark & targets & MFI:pi & Rasch plug-in & Rasch marg. & Random:mg & ATLAS \\
+\midrule
+GSM8K & 40 & $+5.3$* & $+1.7$ & $+0.3$ & $+22.0$* & $+3.4$ \\
+ARC-C & 40 & $+4.5$ & $+2.0$* & $+1.7$* & $+12.8$ & $+51.2$* \\
+HellaSwag & 40 & $+12.2$* & $+6.4$* & $+1.3$ & $+43.1$* & $+38.0$* \\
+WinoGrande & 40 & $+5.3$* & $+2.8$* & $+3.2$* & $+30.0$* & $+48.7$* \\
+MMLU & 40 & $+7.2$* & $+4.7$* & $+5.0$* & $+5.0$ & $+24.1$ \\
+SWE-bench V. & 40 & $+6.9$* & $+1.8$ & $+2.1$* & $+20.2$ & $+16.3$* \\
+LiveCodeBench$^\dagger$ & 15 & $+6.4$ & $+3.4$* & $+1.9$ & $+46.7$* & $+27.9$ \\
+CRUXEval-O$^\dagger$ & 12 & $+5.4$ & $-0.4$ & $+0.2$ & $+2.0$ & $+1.4$ \\
+\bottomrule
+\end{tabular}
+\end{table}

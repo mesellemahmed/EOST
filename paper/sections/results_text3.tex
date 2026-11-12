@@ -1,0 +1,172 @@
+% Prose of the robustness follow-ups RF1-RF3 (after the second review). Numbers are macros
+% from scripts/report_robust.py; qualitative statements are checked by scripts/check_claims.py.
+
+\newcommand{\RobustIntro}{%
+A second review raised two methodological questions about study~2---whether the
+response-derived clusters favour EOST-M, and whether the Bayesian CATs were estimated with
+enough Markov chain Monte Carlo---and asked whether the effects generalize across benchmarks
+under a less conservative criterion than the frozen one. Three follow-ups answer them (RF1--RF3);
+their plans and decision rules were written in the research log before they were run, and
+none of them changes a frozen decision. Further, exploratory follow-ups of the MCMC question
+(RF2b--RF2d) were designed after the diagnostics of RF2 had been seen, and a sensitivity
+analysis of RF3 (RF3b) after a third review; their plans, too, were written before they were
+run.}
+
+\newcommand{\RobustClusterText}{%
+The strict clusters join systems
+whose 2PL residuals correlate, and those residuals are computed from every system's full
+response vector, the target's included. Excluding the calibrators that resemble a target
+could make its panel harder to calibrate and so favour a method built for calibration
+uncertainty. We kept the frozen targets, holdouts and panel seeds and changed only the systems
+excluded from each panel: heuristic families alone (no response data), leave-bank-out
+clusters (residual correlations computed on the other benchmarks that contain the same
+systems), and the frozen construction at thresholds 0.4, 0.6 and 0.7. Recomputing the frozen
+construction reproduced all \RobReproRows\ frozen rows exactly. Under every alternative rule,
+R2 and C1 kept their frozen median improvements (\RobRTwoMedMin\% and \RobCOneMedMin\%), R2
+remained positive on all eight benchmarks with \RobRTwoFavRange\ of them Holm-significant, and
+C1 remained positive on seven with \RobCOneFavRange\ significant, none
+against (Table~\ref{tab:robclust}; per benchmark in Table~\ref{tab:robclustbanks}): the
+robustness criterion fixed in advance was \RobRuleMet. The response-derived links matter
+only on the Open LLM Leaderboard banks, where hundreds of fine-tunes share a few base models;
+on the other benchmarks the clusters are essentially the heuristic families
+(Table~\ref{tab:robclustcount}). Adaptivity (C4) had \RobCFourFavRange\
+significant benchmarks under the alternative rules (frozen: \STwoCFourFav), with medians between
+\RobCFourMedMin\% and \RobCFourMedMax\%.}
+
+\newcommand{\RobustMetaText}{%
+The frozen rule asks for significance on at least
+five of eight benchmarks after a Holm correction over 88 tests, so an effect can favour EOST-M
+on all eight benchmarks and still be declared not supported. A random-effects meta-analysis
+asks a different, secondary question---does an effect point the same way across
+benchmarks?---without changing any decision (Table~\ref{tab:meta}). Treating the benchmarks
+as independent, the pooled improvement excluded zero for \MetaNExclZero\ of the 11
+superiority hypotheses, including the \MetaNExclZeroUnsup\ that missed the frozen threshold by
+one benchmark (\MetaUnsupList; $I^2$ \MetaUnsupIMin--\MetaUnsupIMax\%), and the 95\%
+prediction interval for a new benchmark excluded zero only for \MetaPiExclList. But five
+benchmarks share the same 395 Open LLM Leaderboard systems, a dependence the model ignores.
+Counting them as one source (RF3b: \MetaSrcK\ sources, standard error from a bootstrap over the
+shared systems), \MetaSrcNExclZero\ of the 11 intervals excluded zero (\MetaSrcExclList);
+\MetaSrcLostList\ stayed positive in \MetaSrcLostPosMin--\MetaSrcLostPosMax\ of the
+\MetaSrcK\ sources but with intervals including zero, so of the four near misses only
+\MetaSrcUnsupKeptList\ kept an interval above zero. The dependence through shared systems was
+small (median correlation \MetaSrcR); the loss comes from having four sources and from their
+heterogeneity. Most effects thus point the same way across benchmarks; the analysis does not
+show that they generalize to a new one.}
+
+\newcommand{\RobustMCMCDesign}{%
+On six study-2 targets per benchmark, drawn with a fixed seed (replicate~0, $N=8$;
+\ConvPanels\ panels), we ran the post hoc copy of the frozen sampler, which reproduces it
+exactly, with four chains. Chain~1 started at EOST-M's estimates, as the frozen arm did;
+chains 2--4 started from dispersed points (abilities perturbed by $\mathcal N(0,0.5^2)$;
+$\mu_b\pm0.5$; $\sigma_b\times0.7$ or $1.4$; $\mu_a\pm0.3$; $\sigma_a\times0.7$ or $1.4$).
+Each chain ran 250 burn-in sweeps and 300 further sweeps, every third of which was retained
+(400 retained draws in all). Diagnostics use the 300 post-burn-in sweeps of each chain:
+rank-normalized split $\hat R$ (the larger of the bulk and folded versions), bulk effective
+sample sizes (ESS) with Geyer's initial monotone sequence, and Monte Carlo standard errors
+from the ESS of the raw draws \citep{vehtari2021rank,geyer1992practical}. The posterior-draw
+marginal arms average the item posteriors over the 400 pooled draws; the joint arms mix over
+every tenth draw (40). Table~\ref{tab:rf2} gives the convergence per benchmark,
+Table~\ref{tab:rf2arms} the arms on the same cells and Figure~\ref{fig:rf2traces} the traces
+of the first panel of each benchmark.}
+\newcommand{\RobustMCMCFrozen}{%
+The overall location converged ($\hat R<1.05$ on \ConvLocRhatFive\% of panels, median bulk
+ESS \ConvLocEssMed), and so did $\mu_b$ on most panels (\ConvMuBRhatFive\%), but $\sigma_b$,
+$\mu_a$ and $\sigma_a$ did not: $\hat R<1.05$ on at most \ConvHypRhatFiveMax\% of panels,
+median $\hat R$ \ConvHypRhatMedMin--\ConvHypRhatMedMax, median bulk ESS
+\ConvHypEssMedMin--\ConvHypEssMedMax, and Monte Carlo standard errors of
+\ConvHypMcseMin--\ConvHypMcseMax\% of their posterior standard deviations. Neither did the
+ability scale, the standard deviation of the calibrators' abilities ($\hat R<1.05$ on
+\ConvScaleRhatFive\% of panels): the ratio of the largest to the smallest chain mean had a
+median of \ConvScaleRatioMed\ (at most \ConvScaleRatioMax). Multiplying all abilities and
+difficulties by a constant and dividing the discriminations by it leaves the likelihood
+unchanged, so with eight calibrators only their $\mathcal N(0,1)$ prior fixes the scale of
+the calibration; the frozen sampler has a translation move but no move along this ridge, on
+which the spread of the calibrators' abilities moved together with $\sigma_b$ (median
+correlation \ConvCorScaleSdB) and $\mu_a$ (\ConvCorScaleMuA). The four chains' held-out log
+losses differed by more than 5\% on \ConvLLSpreadGtFive\% of panels (at most
+\ConvLLSpreadMax\%). Under the rule fixed in advance the study-2 statement about the
+Bayesian CATs was \ConvRule: on individual cells the long chains changed the held-out log
+loss by a median of \ConvLongAbsVsSixtyMin--\ConvLongAbsVsSixtyMax\% relative to a burn-in of
+60, more than the 0.5\% allowed, although the signed median changes were small
+(\ConvLongVsSixtyMin\ to \ConvLongVsSixtyMax\%). As the better estimate, the long-chain arms
+differed from EOST-M by a median of \ConvLongVsEostMin\ to \ConvLongVsEostMax\% in held-out
+log loss, with the benchmarks split (Table~\ref{tab:rf2arms}); on these cells they covered
+the score \ConvLongCovRange\ of the time, against \ConvEostCov\ for EOST-M.}
+\newcommand{\RobustMCMCScale}{%
+Exploratory follow-ups, designed after these diagnostics and each planned before it was run,
+added the missing moves. RF2b added to every sweep a Metropolis--Hastings move along the
+scale ridge, applied to the posterior of the abilities and hyperparameters with the item
+parameters summed out on the grid: the abilities, $\mu_b$ and $\sigma_b$ are multiplied by
+$s$ and $\mu_a$ is decreased by $\log s$, with $\log s=\pm0.2$ or $\pm0.4$ (multiples of the
+step of the log-discrimination grid, so that the move maps that grid onto itself); the
+acceptance ratio contains the Jacobian $s^{N+2}$, and the item parameters are then drawn from
+their exact conditional, which makes the scheme a partially collapsed Gibbs sampler
+\citep{vandyk2008partially} with a discrete form of parameter expansion
+\citep{liu1999parameter}. With this move (median acceptance \SclAccMed\%; Table~\ref{tab:rf2x}),
+$\hat R<1.05$ was reached on \SclScaleRhatFive\% of panels for the ability scale, \SclSdBRhatFive\% for
+$\sigma_b$ and \SclMuARhatFive\% for $\mu_a$ (RF2: \ConvScaleRhatFive, \ConvSdBRhatFive\ and
+\ConvMuARhatFive\%), but only on \SclSdARhatFive\% for $\sigma_a$ (median bulk ESS
+\SclSdAEssMed), so the convergence criterion fixed for RF2b was not met; the four chains'
+held-out log losses now differed by at most \SclLLSpreadMax\% (RF2: \ConvLLSpreadMax\%). Its
+arms differed from EOST-M by a median of \SclVsEostMin\ to \SclVsEostMax\% in held-out log
+loss (descriptive, since the chains had not converged).
+\par
+The frozen sampler's conjugate hyperparameter draws, which RF2b kept, mix slowly when each
+item carries little information, and they treat the grid prior as a continuous density: they
+condition on the sampled grid points, whereas EOST-M normalizes the prior over the grid, and
+the two differ when a standard deviation approaches the grid step (0.2 for $\log a$), where the unnormalized version accumulates at the lower bound of $\sigma_a$
+(\ConvFloorChains\ of RF2's \ConvChains\ chains and \SclFloorChains\ of RF2b's \SclChains\
+spent most of their sweeps there; Figure~\ref{fig:rf2traces}, GSM8K). RF2c and RF2d
+therefore sample the model of Lemma~\ref{lem:exact} exactly. RF2c replaces the conjugate
+draws by random-walk Metropolis moves on $\mu_a$, $\log\sigma_a$, $\mu_b$ and $\log\sigma_b$
+with the item parameters summed out (two rounds per sweep; cheap because the grid is the
+product of a discrimination axis and a difficulty axis; step sizes adapted during burn-in
+only), keeps the scale move and the frozen ability update, and multiplies the weights of the
+translation move by the factor $(Z(\eta)/Z(\eta'))^I$ that the normalized prior requires.
+RF2c was stopped after \RfcPanels\ panels: on GSM8K every recorded quantity converged
+(largest $\hat R$ \RfcGsmRhatMax), but on ARC-C and HellaSwag the overall location did not
+($\hat R$ up to \RfcLocRhatMax), because when the difficulty prior extends beyond the edge of
+the grid (HellaSwag) the corrected translation weights, raised to the power of the number of
+items, block almost every shift. RF2d therefore adds a collapsed translation---the abilities
+and $\mu_b$ shifted by 1, 2 or 4 grid steps with the item parameters summed out, which items
+at the edge of the grid cannot block---and finer scale steps
+($\log s\in\{\pm0.05,\pm0.1,\pm0.2,\pm0.4\}$): it moves the hyperparameters, the scale and
+the location by Metropolis--Hastings steps with the item parameters summed out. All samplers
+were checked before they were run: with the new move switched off, RF2b's sampler reproduces
+RF2's draws exactly, and the stationary laws of the scale moves, the hyperparameter moves and
+both translation moves match exact computations on small problems. RF2b used a burn-in of
+200 sweeps and RF2d one of 150, each followed by 200 sweeps per chain with every second
+retained (400 draws).}
+\newcommand{\RobustMCMCExact}{%
+RF2d came much closer to convergence (median acceptance: translation \ExtAccTrans\%, scale
+\ExtAccMed\%, hyperparameter moves about \ExtAccMuA\%). $\hat R<1.05$ held on
+\ExtLocRhatFive\% of panels for the location, \ExtScaleRhatFive\% for the ability scale, and
+\ExtMuBRhatFive\%, \ExtSdBRhatFive\%, \ExtMuARhatFive\% and \ExtSdARhatFive\% for $\mu_b$,
+$\sigma_b$, $\mu_a$ and $\sigma_a$, with medians of $\hat R$ between \ExtLocRhatMed\ and
+\ExtRhatMedMaxAll\ across these quantities, a largest value of \ExtRhatMaxAll\ (against
+\ConvHypRhatMax\ in RF2), and median bulk ESS between \ExtEssMedMin\ and \ExtLocEssMed\
+(Table~\ref{tab:rf2x}, Figure~\ref{fig:rf2dtraces}). No chain stayed at the lower bound of
+$\sigma_a$, but on \ExtBoxSdB\ panels $\sigma_b$ and on \ExtBoxSdA\ panels $\sigma_a$ spent
+more than a quarter of the sweeps within 5\% of the upper bound of the prior box inherited
+from the frozen sampler (4 and 1.5), which therefore constrains the posterior there. With
+$\hat R<1.05$ on only \ExtRhatFiveMin\% of panels for the slowest quantity, short of the 90\%
+fixed in advance, the convergence criterion was \ExtConverged, and a fully converged
+comparator was not obtained. The four chains' held-out log losses differed by a median of
+\ExtLLSpreadMed\% (at most \ExtLLSpreadMax\%). Under the model of Lemma~\ref{lem:exact}, the
+posterior mean of the ability scale exceeded EOST-M's point estimate on \ExtPostAboveEb\% of
+panels (median ratio \ExtPostOverEbMed): the calibration that EOST-M conditions on has a
+smaller spread than the posterior.}
+\newcommand{\RobustMCMCConclusion}{%
+Across all \AllBayesNArms\ combinations of Bayesian arm and sampler on these cells, from the
+frozen chain to RF2d, the median difference from EOST-M in held-out log loss stayed within
+$\pm$\AllBayesVsEostMaxAbs\%, with the benchmarks split (RF2d: \ExtVsEostMin\ to
+\ExtVsEostMax\%; Table~\ref{tab:rf2arms} gives every arm). The study-2 comparison did not
+move as the sampler improved, which makes an artefact of the frozen chain unlikely; our
+statements about the Bayesian CATs nevertheless concern the implementations studied, not an
+exactly computed fully Bayesian test. The RF2d arms covered the score as often as EOST-M did
+on the same cells (\ExtCovMin--\ExtCovMax\ against \ExtEostCov), so integrating the
+calibrators' abilities and the hyperprior did not repair the under-coverage; the higher
+coverage of RF2's long chains (\ConvLongCovMin) did not survive the exact model. In score
+error the RF2d arms were lower than EOST-M by a median of \ExtIaeGainMin--\ExtIaeGainMax\%
+over cells but on only \ExtIaeBanksMin--\ExtIaeBanksMax\ of 8 benchmarks, a possible
+advantage that 48 cells cannot establish.}

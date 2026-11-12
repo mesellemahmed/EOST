@@ -1,0 +1,23 @@
+\begin{table}[tbp]
+\centering\scriptsize
+\caption{Real response matrices. Verdict: one deterministic evaluation per system and item (single) or a recorded pass rate over several samples binarized at one half (aggregate; TruthfulQA: continuous MC2 score binarized). $J$ systems, $F$ heuristic families, $I$ items; accuracy range across systems; items solved by no system. Role: confirmatory in studies 1 and 2, or development bank used only to design the protocols (Sections~\ref{sec:dev} and~\ref{sec:design2}). SE: software engineering.}
+\label{tab:data}
+\setlength{\tabcolsep}{2.6pt}
+\begin{tabular}{@{}lllllrrrcr@{}}
+\toprule
+Bank & Role & Domain & Oracle & Verdict & $J$ & $F$ & $I$ & Accuracy & Unsolved \\
+\midrule
+GSM8K & 1, 2 & math & numeric match & single & 395 & 227 & 1319 & 0.00--0.77 & 13 \\
+ARC-C & 1, 2 & multiple choice & log-lik.\ choice & single & 395 & 227 & 1172 & 0.26--0.73 & 51 \\
+HellaSwag & 1, 2 & multiple choice & log-lik.\ choice & single & 395 & 227 & 2000 & 0.31--0.90 & 43 \\
+WinoGrande & 1, 2 & multiple choice & log-lik.\ choice & single & 395 & 227 & 1267 & 0.59--0.87 & 1 \\
+MMLU & 1, 2 & multiple choice & log-lik.\ choice & single & 395 & 227 & 2000 & 0.26--0.80 & 0 \\
+SWE-bench V. & 1, 2 & agentic SE & repository tests & single & 175 & 123 & 500 & 0.00--0.79 & 26 \\
+LiveCodeBench & 1, 2 & code generation & hidden tests & aggregate & 28 & 15 & 1055 & 0.23--0.87 & 46 \\
+CRUXEval-O & 1, 2 & code reasoning & execution & aggregate & 31 & 12 & 800 & 0.22--0.78 & 98 \\
+SWE-bench Lite & dev. & agentic SE & repository tests & single & 84 & 49 & 300 & 0.00--0.60 & 35 \\
+CRUXEval-I & dev. & code reasoning & execution & aggregate & 31 & 12 & 800 & 0.14--0.78 & 59 \\
+TruthfulQA & dev. & multiple choice & log-lik.\ choice & aggregate & 395 & 227 & 817 & 0.30--0.73 & 47 \\
+\bottomrule
+\end{tabular}
+\end{table}

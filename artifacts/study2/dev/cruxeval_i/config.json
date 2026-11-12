@@ -1,0 +1,61 @@
+{
+ "dataset": "cruxeval_i",
+ "component": "dev",
+ "config": {
+  "master_seed": 20261104,
+  "n_targets": 20,
+  "replicates": 2,
+  "panel_sizes": [
+   4,
+   8
+  ],
+  "primary_N": 8,
+  "budget": 100,
+  "holdout_frac": 0.2,
+  "theta_lo": -5.0,
+  "theta_hi": 5.0,
+  "theta_K": 201,
+  "resid_thr": 0.5,
+  "loco_N": [
+   4,
+   8,
+   16
+  ],
+  "fb_N": [
+   4,
+   8
+  ],
+  "eb_arms_N": [
+   8
+  ],
+  "fb_burn": 10,
+  "fb_draws": 8,
+  "fb_thin": 4,
+  "reduction_T": [
+   25,
+   50,
+   100
+  ],
+  "mince_R": 2000,
+  "mince_step": 25,
+  "mince_tau": 0.01,
+  "mix_every": 4,
+  "recal_window": 1.5
+ },
+ "targets": [
+  0,
+  9,
+  10,
+  16,
+  19,
+  20,
+  21,
+  22,
+  25,
+  26,
+  27,
+  29
+ ],
+ "n_rows": 1152,
+ "cpu_seconds": 194.2
+}

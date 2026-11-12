@@ -1,0 +1,19 @@
+{
+ "dataset": "livecodebench",
+ "targets": [
+  1,
+  7,
+  11,
+  13,
+  15,
+  21
+ ],
+ "chains": 4,
+ "burn": 150,
+ "draws": 100,
+ "thin": 2,
+ "rounds": 2,
+ "collapsed_translation": true,
+ "n_rows": 24,
+ "cpu_seconds": 995.7
+}

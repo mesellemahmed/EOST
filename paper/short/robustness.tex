@@ -1,0 +1,59 @@
+\section{Robustness of the study-2 conclusions}
+\label{sec:robust}
+
+A second review asked whether the response-derived clusters favour EOST-M, whether the
+Bayesian CATs were estimated with enough MCMC, and whether the effects generalize across
+benchmarks. Three follow-ups (RF1--RF3), whose plans and decision rules were written before
+they were run, answer these questions, together with exploratory extensions (RF2b--RF2d,
+RF3b) planned in the same way; none changes a frozen decision.
+
+\paragraph{Clusters that never see the target's responses (RF1).} The strict clusters use
+residuals computed from every system's responses, the target's included, and excluding the
+calibrators that resemble a target could make its panel harder to calibrate. Keeping the
+frozen targets, holdouts and seeds, we rebuilt the panels from heuristic families alone,
+from residuals computed on the other benchmarks, and with residual thresholds from 0.4 to 0.7.
+Under every rule, R2 and C1 kept their frozen median improvements (\RobRTwoMedMin\% and
+\RobCOneMedMin\%), R2 remained positive on all eight benchmarks with \RobRTwoFavRange\
+significant, and C1 positive on seven with \RobCOneFavRange\ significant and none against:
+the robustness criterion fixed in advance was \RobRuleMet.
+
+\paragraph{MCMC quality of the Bayesian CATs (RF2--RF2d).} We ran the frozen sampler with
+four long chains on \ConvPanels\ panels and computed rank-normalized split $\hat R$ and bulk
+effective sample sizes \citep{vehtari2021rank}. The overall location converged ($\hat R<1.05$
+on \ConvLocRhatFive\% of panels), but $\sigma_b$, $\mu_a$ and $\sigma_a$ did not
+($\hat R<1.05$ on at most \ConvHypRhatFiveMax\%): multiplying all abilities and difficulties
+by a constant and dividing the discriminations by it leaves the likelihood unchanged, so with
+eight calibrators only their $\mathcal N(0,1)$ prior fixes the scale of the calibration, and
+the frozen sampler has no move along this ridge. Under the rule fixed in advance the study-2
+statement about the Bayesian CATs was \ConvRule: the long chains changed the cell-level log
+loss by a median of \ConvLongAbsVsSixtyMin--\ConvLongAbsVsSixtyMax\% relative to a burn-in of 60,
+more than the 0.5\% allowed, while the long-chain arms differed from EOST-M by a median of \ConvLongVsEostMin\
+to \ConvLongVsEostMax\%, with the benchmarks split. Exploratory samplers then added a
+Metropolis--Hastings move along the scale ridge with the item parameters summed out (RF2b, a
+partially collapsed Gibbs sampler with a discrete form of parameter expansion;
+\citealp{vandyk2008partially,liu1999parameter}) and sampled the model of
+Lemma~\ref{lem:exact} exactly, with collapsed moves for the hyperparameters, the scale and the
+location (RF2d). RF2d came much closer to convergence (medians of $\hat R$ at most
+\ExtRhatMedMaxAll, largest value \ExtRhatMaxAll\ against \ConvHypRhatMax\ for the frozen
+sampler) but reached $\hat R<1.05$ on only \ExtRhatFiveMin\% of panels for its slowest
+quantity, short of the 90\% fixed in advance, so a fully converged comparator was not
+obtained. Across all \AllBayesNArms\ combinations of Bayesian arm and sampler, the median
+difference from EOST-M in held-out log loss stayed within $\pm$\AllBayesVsEostMaxAbs\%, with
+the benchmarks split: the comparison did not move as the sampler improved, which makes an
+artefact of the frozen chain unlikely. The RF2d arms covered the score as often as EOST-M
+on the same cells (\ExtCovMin--\ExtCovMax\ against \ExtEostCov), and their score error was lower by a median of
+\ExtIaeGainMin--\ExtIaeGainMax\% over cells but on only \ExtIaeBanksMin--\ExtIaeBanksMax\ of
+8 benchmarks, a possible advantage that 48 cells cannot establish.
+
+\paragraph{Effects across benchmarks (RF3, RF3b).} The frozen rule requires significance on
+five of eight benchmarks after a Holm correction over 88 tests, so an effect can favour
+EOST-M everywhere and still be declared not supported. A secondary random-effects
+meta-analysis that treats the benchmarks as independent found pooled improvements excluding
+zero for \MetaNExclZero\ of the 11 superiority hypotheses, including the
+\MetaNExclZeroUnsup\ near misses (\MetaUnsupList). Five benchmarks, however, share the same
+395 Open LLM Leaderboard systems. Counting them as one source (RF3b: \MetaSrcK\ sources, with
+a bootstrap over the shared systems), \MetaSrcNExclZero\ of the 11 intervals excluded zero
+(\MetaSrcExclList), and of the near misses only \MetaSrcUnsupKeptList\ kept an interval above
+zero; the dependence through shared systems was small (median correlation \MetaSrcR), and the
+loss comes from having four heterogeneous sources. Most effects point the same way across
+benchmarks; the analysis does not show that they generalize to a new one.

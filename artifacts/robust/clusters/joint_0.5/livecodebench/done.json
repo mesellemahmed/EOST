@@ -1,0 +1,6 @@
+{
+ "variant": "joint_0.5",
+ "dataset": "livecodebench",
+ "n_rows": 225,
+ "cpu_seconds": 33.9
+}

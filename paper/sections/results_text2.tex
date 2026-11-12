@@ -1,0 +1,265 @@
+% Study-2 prose. Every number is a macro generated from the artifacts (scripts/report_study2.py);
+% every qualitative statement is checked by scripts/check_claims.py.
+
+\newcommand{\StudyTwoSummary}{%
+Of the \STwoNHyp\ frozen decisions, \STwoNSupported\ were supported. Apart from the
+recalibration contrast C5b, every superiority contrast favoured EOST-M on at least seven
+of the eight benchmarks and no competitor was significantly better on any benchmark; four
+of the five superiority hypotheses that were not supported (C2, C4, C7, C8) missed the
+frozen threshold by one benchmark, with four of eight significant and none against.
+CRUXEval-O, with only \STwoTargetsMin\ independent clusters, did not reach significance in
+any contrast.}
+
+\newcommand{\StudyTwoReplicationText}{%
+With independent targets the study-1 result therefore holds: the gain over plug-in Fisher
+CAT was positive on every benchmark, larger with four calibrators (median
+\SecRTwoNFourMed\%, \SecRTwoNFourFav\ benchmarks significant) and smaller with sixteen
+(\SecRTwoNSixteenMed\%, none significant), and of the same size for deterministic
+(\STwoRTwoDet\%) and recorded aggregate verdicts (\STwoRTwoAgg\%). Plug-in Fisher CAT's 90\%
+intervals covered the full-bank score only \STwoCovmfipi\ of the time, against
+\STwoCoveigmg\ for EOST-M.}
+
+\newcommand{\StudyTwoRaschText}{%
+Integration therefore beat constraint on held-out prediction, as the post hoc probe of
+study~1 suggested, but by a small margin, of similar size for deterministic and aggregate
+verdicts (\STwoCOneDet\% and \STwoCOneAgg\%); the margin was larger with sixteen calibrators
+than with four (median \SecCOneNSixteenMed\% against \SecCOneNFourMed\%), where a single
+discrimination becomes a visible misspecification. On the score, the two tests were close
+(median \SecEostVsRaschIAEMed\% in favour of EOST-M, no benchmark significant), and the
+Rasch-type intervals were again better calibrated before recalibration (coverage
+\STwoCovmfiOnepr\ against \STwoCoveigmg; Section~\ref{sec:s2cov}).}
+
+\newcommand{\StudyTwoReductionText}{%
+The adaptive gain over Random:mg grew with the panel (median \SecCFourNFourMed\% with four
+calibrators, \SecCFourNSixteenMed\% with sixteen) and was similar for deterministic and
+aggregate verdicts (\STwoCFourDet\% and \STwoCFourAgg\%). The ATLAS-style test had the
+largest score error of all model-based policies and covered the score only
+\STwoCovatlas\ of the time: with eight calibrators its item parameters are plug-in estimates,
+as in plug-in Fisher CAT, and its randomesque choice among the five most informative items
+trades efficiency for exposure control (ATLAS itself calibrates on thousands of models; our
+implementation follows its model and selection rule, not its code).
+tinyBenchmarks and MINCE choose their items without looking at the target. With eight
+calibrators, tinyBenchmarks' K-Means cannot always find as many anchors as its budget: its
+item embeddings come from the panel's plug-in fit and can only take as many distinct values
+as there are distinct response patterns among the items, which is far fewer than the $2^8$
+possible ones when many items are solved by all or by none of the calibrators. At a budget of
+100 items, fewer anchors were available in some cells of \TinyShortHundredBanks\ of the 8
+benchmarks and in \TinyShortHundredMax\% of the cells of the most affected one
+(Table~\ref{tab:tinyaudit}). A review of the code during the run found this, and a
+post hoc audit decided before the results were seen shows that it does not change C8: at the
+50-item budget it affected at most \TinyShortFiftyMax\% of the cells of a benchmark, and
+restricting C8 to full-budget cells, or comparing with EOST-M after the number of items
+tinyBenchmarks actually used, again gave \TinyFullFav\ significant benchmarks under the
+frozen Holm family, as in the frozen analysis (median \TinyFullMed\%). Because the frozen code did
+not record how many anchors were used, they were counted post hoc with the same seeds; the
+recomputed errors equal the frozen ones exactly (maximum difference \TinyReproDiff). MINCE's own stopping rule
+asked for a median of \STwoMinceNstarMed\ items and then had a score error of
+\STwoMinceErrNstar\ points, more than EOST-M after 100 items (\STwoErreigmgHundred).
+Table~\ref{tab:reduction} also lists tinyBenchmarks' p-IRT and anchor-only estimators; C8
+concerns gp-IRT, the estimator its authors recommend.}
+
+\newcommand{\StudyTwoCoverageText}{%
+Model-based intervals remained too narrow with eight calibrators
+(Figure~\ref{fig:study2cov}): EOST-M covered the full-bank score \STwoCoveigmg\ of the time,
+the PDM Bayesian CAT \FbBmiCov\ (after the burn-in correction), the Rasch-type test \STwoCovmfiOnepr\ and plug-in
+Fisher CAT \STwoCovmfipi, whereas Random:mg reached \STwoCovrandommg\ and Naive's Wilson
+interval \STwoCovnaive. Leave-one-calibrator-out recalibration raised EOST-M's coverage to
+\STwoCoveigmgRR\ (from \STwoCFiveaMin\ on \STwoEostRCovMinBank\ to \STwoCFiveaMax), inside
+$[0.85,0.95]$ on \STwoCFiveaIn\ benchmarks, one short of the frozen criterion (C5a
+\STwoCFiveaVerdict). It did not improve the interval score, which penalizes width as well as
+misses (C5b \STwoCFivebVerdict; significantly worse on HellaSwag and WinoGrande): the wider
+intervals cost about as much as the misses they removed. Recalibrated EOST-M intervals had a
+much better interval score than Naive's Wilson intervals (C6 \STwoCSixVerdict, median
+\STwoCSixMed\%), because at a coverage of \STwoCoveigmgRR\ they were much narrower (mean width
+\STwoWidtheigmgRR\ against \STwoWidthnaive). The same recalibration brought the Rasch-type
+test inside $[0.85,0.95]$ on all eight benchmarks (\STwoCovmfiOneprRR\ on average, between
+\STwoRaschRCovMin\ and \STwoRaschRCovMax), but with intervals about twice as wide as
+recalibrated EOST-M's (\STwoWidthmfiOneprRR) and a worse interval score on
+\SecEostRVsRaschRISFav\ benchmarks (none better). Recalibration needs calibrators to serve as
+pseudo-targets and helped more as the panel grew: EOST-M's recalibrated coverage was
+\STwoCovEostRNFour, \STwoCovEostRNEight\ and \STwoCovEostRNSixteen\ at $N=4$, 8 and 16, and
+its interval score was worse than the raw interval's at $N=4$ (\STwoISEostRNFour\ against
+\STwoISEostNFour) but better at $N=16$ (\STwoISEostRNSixteen\ against \STwoISEostNSixteen).
+Mixing one uniformly drawn item in four into the adaptive test raised coverage only to
+\STwoCovmixmg.}
+
+\newcommand{\StudyTwoRobustText}{%
+\emph{Temporal validation.} On the \TempTargets\ SWE-bench Verified submissions of the latest
+quarter, calibrated only on earlier submissions, \TempNSig\ of the \TempNTests\ frozen
+contrasts favoured EOST-M at a Holm-adjusted $p<0.05$ within the component and none favoured
+a competitor; only the recalibration contrast C5b was not significant
+($p=\TempCFivebP$). EOST-M's held-out log loss was \TempRTwoMed\% lower than plug-in Fisher
+CAT's (\TempRTwoWins\ of \TempRTwoN\ targets) and \TempCOneMed\% lower than the Rasch-type
+test's, and its score error \TempCFourMed\% lower than Random:mg's. Coverage was
+\TempCovEost\ raw and \TempCovEostR\ recalibrated (Rasch-type: \TempCovRasch\ and
+\TempCovRaschR; Naive: \TempCovNaive).
+\par
+\emph{Synthetic banks.} Where the fitted 2PL is correct, recalibration moved coverage away
+from the nominal level (\SynTwoplCovEost\ raw, \SynTwoplCovEostR\ recalibrated at $N=8$), as
+it did on the bank with guessing (\SynGuessCovEost\ and \SynGuessCovEostR); it moved coverage
+towards it only on the bank with a second ability dimension (\SynTwodimCovEost\ and
+\SynTwodimCovEostR). Recalibration from a handful of pseudo-targets is noisy, and it pays only
+when the model's own intervals are clearly too narrow.
+\par
+\emph{Statistical conventions.} As in study~1, the direction of a significant contrast is
+read from the mean difference while the test is rank-based; across both studies \SignsDisc\
+of the \SignsSig\ Holm-significant contrasts had a mean difference and a rank-biserial
+correlation of opposite signs.}
+
+\newcommand{\StudyTwoIntroMsgTwo}{%
+In study~2, with one target per family cluster, EOST-M also predicted held-out verdicts
+better than the regularized Rasch-type test (median \STwoCOneMed\%, \STwoCOneFav\ of 8
+benchmarks significant), and Bayesian CATs that also integrate the calibrators' abilities
+were not significantly different from it.}
+
+\newcommand{\StudyTwoFBText}{%
+A review of the code during the run, before any result was inspected, found that the
+frozen burn-in of 10 sweeps was too short on some benchmarks: the translation move is
+restricted to shifts that keep every sampled difficulty on the grid, so on HellaSwag, where
+many difficulties sit near the edge of the grid, it rarely acted and the mean calibrator
+ability drifted by a median of \FbDriftFrozenMax\ during the retained sweeps (median over
+benchmarks \FbDriftFrozenMedian). Both Bayesian-CAT arms were re-run post hoc with a burn-in
+of 60 sweeps on the same targets, panels, holdouts and chains, which brought the drift on
+HellaSwag down to \FbDriftCorrMax, close to the other benchmarks (median
+\FbDriftCorrMedian). The correction did not change the conclusion (Table~\ref{tab:fbfix});
+Section~\ref{sec:s2follow} examines the sampler's convergence with long chains and better moves.
+With either burn-in, the PDM Bayesian CAT was not significantly different from EOST-M on
+any benchmark, in held-out log loss or in score error; its log loss was higher by a median
+of \FbBmiMed\% with Bayesian maximum information and \FbEigMed\% with EIG (frozen:
+\FbFrozenBmiMed\% and \FbFrozenEigMed\%), within $\pm1\%$ on only \FbBmiEq\ (BMI) and
+\FbEigEq\ (EIG) benchmarks, and its intervals covered \FbBmiCov\ of the time against \FbEostCov\ for EOST-M.
+The PDM Bayesian CAT follows \citet{vanderlinden2020fast} and averages each
+item's response function over the posterior draws separately, which treats the shared
+uncertainty about the location of the calibration as independent item-level noise
+(Lemma~\ref{lem:exact}). The exploratory joint fully Bayesian CAT, which keeps this
+uncertainty shared by mixing over draws of the whole calibration, was the closest to EOST-M
+with EIG selection
+(median \FbjEigMed\%, within $\pm1\%$ on \FbjEigEq\ benchmarks; with Bayesian maximum
+information \FbjBmiMed\%), as we had expected before running it. With eight calibrators,
+integrating their abilities and the hyperprior on top of the item parameters therefore made
+no significant difference; equivalence within $\pm1\%$ was not shown, and on a few
+benchmarks the bootstrap intervals still allow differences of about one per cent.}
+\newcommand{\StudyTwoFBDetails}{%
+The post hoc re-analysis of the frozen arm reproduces the equivalence test of
+Table~\ref{tab:equiv} exactly, and with the frozen burn-in the correction runs reproduce the
+frozen rows exactly (maximum difference 0 on the first target
+of every benchmark), so the corrected arms differ from the frozen ones only by the burn-in.
+At $N=4$ (Table~\ref{tab:fbfixfour}) the corrected PDM Bayesian CAT was within $\pm1\%$ of
+EOST-M on \FbBmiEqNFour\ (BMI) and \FbEigEqNFour\ (EIG) benchmarks, with median differences of
+\FbBmiMedNFour\% and \FbEigMedNFour\%, \FbBmiFbSigNFour\ and \FbEigFbSigNFour\ benchmarks
+significantly in its favour and \FbBmiEostSigNFour\ and \FbEigEostSigNFour\ in EOST-M's, and
+coverage \FbBmiCovNFour\ (EOST-M: \STwoCovEostNFour); the location of the calibration is more
+uncertain with four calibrators, and the chains' drift was correspondingly larger. The sampler is not expensive: with eight calibrators the frozen chain
+(42 sweeps) took a median of \STwoSecFb~s per panel, against \STwoSecCal~s for EOST-M's whole
+calibration and \STwoSecLoco~s for the leave-one-calibrator-out recalibration.}
+\newcommand{\DiscussionWhyNotFB}{%
+A fully Bayesian adaptive test is the principled answer to calibration uncertainty, and
+\citet{fink2025accounting} found it the most accurate correction in simulations with
+hundreds of calibration responses per item. With eight calibrators it did not help
+measurably: integrating the calibrators' abilities and the hyperprior changed held-out
+prediction, score error and coverage by no significant amount, although equivalence within
+$\pm1\%$ was not shown either. The form that averages each item over the posterior draws
+separately (the PDM Bayesian CAT) was, if anything, slightly worse than EOST-M in study~2,
+which would fit its treating the shared uncertainty about the location of the calibration as
+independent item noise; but with the better samplers of Section~\ref{sec:s2follow} neither form
+was consistently worse, so we do not read this difference as a property of the posterior-draw
+approximation.
+By Lemma~\ref{lem:exact}, EOST-M is the fully Bayesian model with the calibrators' abilities
+and the hyperprior held fixed; in this regime what matters is the item-level uncertainty that
+both integrate rather than the panel-level uncertainty that only the fully Bayesian model
+adds, as far as our data can tell. A
+fully Bayesian test also needs a Markov chain per panel, whose tuning is a source of error in
+its own right: our frozen burn-in was too short on some benchmarks, and with eight calibrators
+the posterior has a ridge in the scale of the calibration along which a standard Gibbs sampler
+barely moves, so that even long chains did not converge for the scale hyperparameters; an exact
+sampler with collapsed moves came close but did not meet our convergence criterion either
+(Section~\ref{sec:s2follow}). EOST-M is the simpler default. Two leads remain open. The
+better samplers left held-out log loss essentially unchanged but suggest a possible advantage
+of Bayesian integration for estimating the score: the near-converged exact sampler was ahead of
+EOST-M in score error on most of the 48 cells it was run on, but on only about half of the
+benchmarks, too few to establish it. And panel-level uncertainty may matter more when the
+calibrators' abilities are poorly determined, for instance with short banks; we did not test
+this.}
+
+\newcommand{\DiscussionRemedies}{%
+The post hoc probes of study~1 suggested that constraining the discriminations to a common
+value is almost as good as integrating their uncertainty. Study~2 tested this under a frozen
+plan with independent targets. Integration was better on held-out prediction (C1
+\STwoCOneVerdict, median \STwoCOneMed\%), more so with sixteen calibrators, where one common
+discrimination becomes a visible misspecification; the score errors of the two tests were
+close; and the constrained model's raw intervals were better calibrated because they are
+wider, not because its estimates are more accurate (Section~\ref{sec:strong}). The
+one-parameter model integrated over its item posterior sat in between (C2, median
+\STwoCTwoMed\%). The practical reading is that a small panel must not be trusted with
+item-specific discriminations: integrating their uncertainty is preferable when prediction
+and score accuracy matter most, and constraining them gives a simpler and more conservative
+test.}
+
+\newcommand{\DiscussionUncertainty}{%
+The review of study~1 asked whether the under-coverage of model-based intervals could be
+fixed. Study~2 tried four remedies under a frozen plan: integrating the calibrators'
+abilities and the hyperprior (the Bayesian CATs), leave-one-calibrator-out
+recalibration, mixing uniformly drawn items into the adaptive test, and recalibrating a
+constrained model. None gave nominal coverage with intervals as narrow as EOST-M's. The
+Bayesian CATs' intervals and the mixed test stayed below 0.80; recalibration brought
+EOST-M to \STwoCoveigmgRR\ on average, inside the frozen band on \STwoCFiveaIn\ of 8
+benchmarks, with an interval score no better than before; the recalibrated Rasch-type test
+reached \STwoCovmfiOneprRR\ with intervals twice as wide. Random items scored by the same
+model reached \STwoCovrandommg\ without any recalibration. The exploratory coverage
+decomposition of study~1 suggests that the shortfall arises when adaptive selection meets a
+misspecified model, and the prior predictive checks locate a misspecification in the
+dependence structure of real systems' verdicts (Section~\ref{sec:eb}). Recalibration is
+therefore not yet a validated remedy: it raised coverage, but neither frozen criterion for it
+was met, it made the interval score worse on two benchmarks, and on the well-specified
+synthetic bank it moved coverage away from the nominal level. Practitioners should report
+model-based intervals together with the panel size and their expected under-coverage, may
+add recalibrated intervals as a sensitivity analysis, and should use a Wilson interval from
+uniformly sampled items when nominal coverage matters more than width.}
+
+\newcommand{\DiscussionReduction}{%
+If the aim is to evaluate the next system with a fraction of a benchmark and only a handful
+of calibration systems exist, which method should be used? In study~2, EOST-M's score error
+after 50 items was \STwoCEightMed\% lower than tinyBenchmarks' and \STwoCNineMed\% lower than
+MINCE's, and over the whole test \STwoCSevenMed\% lower than that of an ATLAS-style 3PL CAT,
+in the same direction on every benchmark and significantly on four or five of eight (only the
+comparison with MINCE met the frozen criterion). These
+methods were designed for other regimes: tinyBenchmarks for hundreds of calibration models,
+whose anchors then cover the item space; ATLAS for thousands; MINCE for sizing a random
+subset. With a handful of calibrators the plug-in parameters they rely on are unreliable,
+and tinyBenchmarks cannot always find as many anchors as its budget. In this regime our evidence
+favours adaptive selection under calibration uncertainty, although it is conclusive by the
+frozen criterion only against MINCE; with large panels the differences should shrink, as
+the gain over plug-in Fisher CAT does.}
+
+\newcommand{\RecommendationsText}{%
+For adaptive evaluation of LLMs with a small calibration panel: (1) do not plug in
+item-specific discriminations calibrated on fewer than a few dozen systems; integrate their
+uncertainty with an empirical-Bayes item prior (the expected response function is cheap),
+or constrain them to a common value when a simple, conservative test matters more than
+accuracy; (2) select by expected information gain or any information criterion computed
+from the marginal model---the choice matters little---and, when the estimand is the
+benchmark score, let the score-targeted criterion take over late in the test;
+\RecommendationFB\ (4) report model-based intervals with the panel size and their expected
+under-coverage, and report coverage alongside accuracy; treat interval recalibration as
+promising but not yet validated; (5) exclude the target's whole cluster of related systems, not only its
+nominal family, from its panel, and analyse with clusters as units; (6) count the
+calibration panel in the cost: with eight fresh calibrators who answer the whole bank,
+adaptive testing costs less than full evaluation after \CostBreakFullMin--\CostBreakFullMax\
+new systems, but less than uniform subsampling of equal precision only after a median of
+\CostBreakNaiveMed; when the calibrators' results already exist, it is cheaper from the first
+system.}
+
+\newcommand{\AbstractFB}{Bayesian tests that also integrate the calibrators' abilities were
+not significantly different from it,}
+\newcommand{\IntroFBFinding}{a posterior-draw marginal Bayesian CAT was not significantly better or worse
+than EOST-M on any benchmark but met the frozen equivalence margin on too few of them, before
+and after a post hoc correction of its burn-in, and in follow-ups with long chains and
+better-mixing samplers the median difference stayed below half a per cent; and}
+\newcommand{\DiscussionFBShort}{integrating the panel-level uncertainty as well, in the Bayesian
+tests we ran, made no significant difference (equivalence was not shown either).}
+\newcommand{\ConclusionFB}{Bayesian CATs that also integrate the calibrators' abilities
+were not significantly different from it, without being shown equivalent, and better-mixing
+samplers did not change that comparison.}
+\newcommand{\RecommendationFB}{(3) the Bayesian treatments of the calibrators that we ran made
+no significant difference with panels of this size, so the simpler calibration-marginal model,
+exact given the calibrators, is a reasonable default;}

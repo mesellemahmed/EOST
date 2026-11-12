@@ -1,0 +1,18 @@
+{
+ "dataset": "ollb_gsm8k",
+ "targets": [
+  11,
+  110,
+  117,
+  180,
+  282,
+  293
+ ],
+ "chains": 4,
+ "burn": 200,
+ "draws": 100,
+ "thin": 2,
+ "rounds": 2,
+ "n_rows": 24,
+ "cpu_seconds": 1603.8
+}

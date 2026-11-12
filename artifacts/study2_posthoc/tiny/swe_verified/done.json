@@ -1,0 +1,8 @@
+{
+ "task": "tiny",
+ "dataset": "swe_verified",
+ "N": 8,
+ "n_rows": 360,
+ "cpu_seconds": 90.7,
+ "burn_fix": null
+}

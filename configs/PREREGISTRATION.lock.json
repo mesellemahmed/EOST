@@ -1,0 +1,17 @@
+{
+ "frozen_at_utc": "2026-10-29T16:27:10+00:00",
+ "files": {
+  "configs/preregistration.md": "0d6e51f0980ea19ddce4d5a6b0ae22030434e139654967208ce17eec5d45eaf4",
+  "configs/hypotheses.json": "f8883254688d509bbd4462a7328fb47c2222c227a429bca864c9eb287bba6e01",
+  "src/eost/irt.py": "7d459c8be64fbf05375cc3176e3be5c0fe97f06e69985a69254e3fc69c1b41cf",
+  "src/eost/replay.py": "58a0cf664c3bbc425494f6fdee866e24f724ba03642f8c1f9df750f2b0342352",
+  "src/eost/experiment.py": "40e96f7fc20ddcd6f62f93d87a1337764cb429e8211e32b991abe2fd48d455aa",
+  "src/eost/data.py": "d6757b86b8f92c44be3eced7e19bfacef953686b0720b4d7b778c0b082d0b760",
+  "src/eost/stats.py": "bfebca49db1c81c5a5a1f0c6d04ff465fa563341f6bb6638bb0364e8534b04f7",
+  "scripts/run_benchmark.py": "37521794bde4f13987a952b8839cb9c031ea90ba39c21abb8f047fc70f2fd114",
+  "scripts/analyze.py": "c926df476ea485fea340f0c8ce222ccb893c359a2843cb4a42b33a70cfbe25e1",
+  "scripts/build_datasets.py": "72697f270594d0bf37bcb6265625f2bb0b0d2fc8356c58fe86495948ae32eafd",
+  "data/processed/MANIFEST.json": "9a2ddf564f4f3528dae4efbbc393fc978ae3bae70134244ee7723410b02c1c2f",
+  "data/processed/SYNTH_MANIFEST.json": "8c0a04ecb52e5da9d1f59de7ce5d0e8b0bf4824f90b8671076c81bc9a59767ed"
+ }
+}

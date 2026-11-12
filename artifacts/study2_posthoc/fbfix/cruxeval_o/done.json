@@ -1,0 +1,8 @@
+{
+ "task": "fbfix",
+ "dataset": "cruxeval_o",
+ "N": 8,
+ "n_rows": 144,
+ "cpu_seconds": 190.3,
+ "burn_fix": 60
+}

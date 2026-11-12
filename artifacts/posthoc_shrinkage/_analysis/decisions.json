@@ -1,0 +1,82 @@
+{
+ "reproduction_max_abs_diff": {
+  "cruxeval_o": 0.0,
+  "livecodebench": 0.0,
+  "ollb_arc": 0.0,
+  "ollb_gsm8k": 0.0,
+  "ollb_hellaswag": 0.0,
+  "ollb_mmlu": 0.0,
+  "ollb_winogrande": 0.0,
+  "swe_verified": 0.0
+ },
+ "reproduction_exact": true,
+ "eost_coverage": 0.7523741743471584,
+ "path": [
+  {
+   "policy": "eig:mg@0.05",
+   "criterion": "eig:mg",
+   "tau": 0.05,
+   "ll_rel_vs_eost_%": 2.4225942498175566,
+   "iae_rel_vs_eost_%": 13.915996242359302,
+   "coverage": 0.7422302803379417
+  },
+  {
+   "policy": "eig:mg@0.15",
+   "criterion": "eig:mg",
+   "tau": 0.15,
+   "ll_rel_vs_eost_%": 2.1853923388618504,
+   "iae_rel_vs_eost_%": 14.280909624180632,
+   "coverage": 0.7366215821812596
+  },
+  {
+   "policy": "eig:mg@0.30",
+   "criterion": "eig:mg",
+   "tau": 0.3,
+   "ll_rel_vs_eost_%": 1.4332902943077976,
+   "iae_rel_vs_eost_%": 12.666854874161832,
+   "coverage": 0.7424899961597542
+  },
+  {
+   "policy": "eig:mg@0.50",
+   "criterion": "eig:mg",
+   "tau": 0.5,
+   "ll_rel_vs_eost_%": 0.15136644597621268,
+   "iae_rel_vs_eost_%": 1.3010933104098386,
+   "coverage": 0.7581390360983103
+  },
+  {
+   "policy": "mfi:pi@0.05",
+   "criterion": "mfi:pi",
+   "tau": 0.05,
+   "ll_rel_vs_eost_%": 3.7232422367929834,
+   "iae_rel_vs_eost_%": 7.4542618290298455,
+   "coverage": 0.725721198156682
+  },
+  {
+   "policy": "mfi:pi@0.15",
+   "criterion": "mfi:pi",
+   "tau": 0.15,
+   "ll_rel_vs_eost_%": 3.426212455411157,
+   "iae_rel_vs_eost_%": 11.599663606167349,
+   "coverage": 0.7112060483870968
+  },
+  {
+   "policy": "mfi:pi@0.30",
+   "criterion": "mfi:pi",
+   "tau": 0.3,
+   "ll_rel_vs_eost_%": 3.5076080706520436,
+   "iae_rel_vs_eost_%": 10.84958426351699,
+   "coverage": 0.6896791666666666
+  },
+  {
+   "policy": "mfi:pi@0.50",
+   "criterion": "mfi:pi",
+   "tau": 0.5,
+   "ll_rel_vs_eost_%": 3.568237844479162,
+   "iae_rel_vs_eost_%": 9.557980806474317,
+   "coverage": 0.6492970238095238
+  }
+ ],
+ "promising_criterion": "coverage >= 0.80 and median log loss at most 0.5% worse than EOST-M",
+ "promising": []
+}

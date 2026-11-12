@@ -1,0 +1,14 @@
+{
+ "dataset": "swe_verified",
+ "panel_sizes": [
+  4,
+  8,
+  16
+ ],
+ "n_targets": 60,
+ "n_rows": 6300,
+ "prior_1pr": {
+  "sd_log_a": 0.05,
+  "sd_b": 2.0
+ }
+}

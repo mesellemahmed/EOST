@@ -1,0 +1,6 @@
+{
+ "variant": "joint_0.5",
+ "dataset": "cruxeval_o",
+ "n_rows": 180,
+ "cpu_seconds": 16.1
+}

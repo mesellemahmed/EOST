@@ -1,0 +1,35 @@
+\begin{table}[tbp]
+\centering\scriptsize
+\caption{Development phase (exploratory; 30 targets, 3 replicates). The switch from fixed to empirical-Bayes (EB) item hyperpriors was decided here, before freezing the confirmatory plan.}
+\label{tab:dev}
+\begin{tabular}{@{}llrrrrrrr@{}}
+\toprule
+ & & & \multicolumn{2}{c}{holdout log loss} & \multicolumn{2}{c}{score IAE} & \multicolumn{2}{c}{coverage} \\
+\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+Bank & prior & $N$ & EIG:mg & MFI:pi & EIG:mg & MFI:pi & EIG:mg & MFI:pi \\
+\midrule
+Synth. 2PL & fixed & 4 & 0.5762 & 0.6410 & 0.0433 & 0.0543 & 0.78 & 0.55 \\
+SWE-bench Lite & fixed & 4 & 0.4133 & 0.4110 & 0.0430 & 0.0406 & 0.74 & 0.69 \\
+CRUXEval-I & fixed & 4 & 0.4833 & 0.5054 & 0.0342 & 0.0441 & 0.88 & 0.63 \\
+TruthfulQA & fixed & 4 & 0.4215 & 0.4179 & 0.0335 & 0.0395 & 0.87 & 0.66 \\
+Synth. 2PL & fixed & 8 & 0.5371 & 0.5696 & 0.0382 & 0.0427 & 0.77 & 0.59 \\
+SWE-bench Lite & fixed & 8 & 0.3743 & 0.3773 & 0.0349 & 0.0292 & 0.74 & 0.75 \\
+CRUXEval-I & fixed & 8 & 0.4460 & 0.4659 & 0.0315 & 0.0400 & 0.80 & 0.55 \\
+TruthfulQA & fixed & 8 & 0.3726 & 0.3755 & 0.0264 & 0.0305 & 0.83 & 0.64 \\
+Synth. 2PL & fixed & 64 & 0.4914 & 0.4931 & 0.0290 & 0.0275 & 0.77 & 0.80 \\
+SWE-bench Lite & fixed & 64 & 0.3254 & 0.3267 & 0.0264 & 0.0250 & 0.80 & 0.81 \\
+TruthfulQA & fixed & 64 & 0.3204 & 0.3214 & 0.0223 & 0.0237 & 0.70 & 0.64 \\
+Synth. 2PL & EB & 4 & 0.5711 & 0.5884 & 0.0424 & 0.0475 & 0.87 & 0.78 \\
+SWE-bench Lite & EB & 4 & 0.4036 & 0.4207 & 0.0393 & 0.0371 & 0.77 & 0.69 \\
+CRUXEval-I & EB & 4 & 0.4833 & 0.5113 & 0.0365 & 0.0452 & 0.83 & 0.64 \\
+TruthfulQA & EB & 4 & 0.4110 & 0.4323 & 0.0367 & 0.0392 & 0.77 & 0.64 \\
+Synth. 2PL & EB & 8 & 0.5332 & 0.5403 & 0.0359 & 0.0407 & 0.92 & 0.82 \\
+SWE-bench Lite & EB & 8 & 0.3649 & 0.3730 & 0.0296 & 0.0293 & 0.83 & 0.79 \\
+CRUXEval-I & EB & 8 & 0.4450 & 0.4702 & 0.0326 & 0.0416 & 0.79 & 0.53 \\
+TruthfulQA & EB & 8 & 0.3679 & 0.3851 & 0.0284 & 0.0308 & 0.78 & 0.65 \\
+Synth. 2PL & EB & 64 & 0.4902 & 0.4915 & 0.0261 & 0.0273 & 0.89 & 0.87 \\
+SWE-bench Lite & EB & 64 & 0.3228 & 0.3243 & 0.0237 & 0.0240 & 0.86 & 0.84 \\
+TruthfulQA & EB & 64 & 0.3202 & 0.3223 & 0.0236 & 0.0248 & 0.67 & 0.63 \\
+\bottomrule
+\end{tabular}
+\end{table}

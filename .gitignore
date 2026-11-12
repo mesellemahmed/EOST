@@ -1,0 +1,15 @@
+data/raw/
+data/processed/swe_*.npz
+data/processed/livecodebench.npz
+dist/
+__pycache__/
+*.pyc
+.pytest_cache/
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.toc

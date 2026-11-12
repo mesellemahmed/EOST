@@ -1,0 +1,285 @@
+\section{Theory: what calibration uncertainty does to an adaptive test}
+\label{sec:theory}
+
+Throughout, $\pi_t$ denotes the target's ability posterior after $t$ administered
+items, $\mu_t$ and $\sigma_t^2$ its mean and variance, $h(p)=-p\log p-(1-p)\log(1-p)$
+the binary entropy (nats), and $P_i$ the response function used for item $i$
+(plug-in $P_i(\theta)=\sigma(\hat a_i(\theta-\hat b_i))$ or the expected response
+function $\bar P_i$ of Eq.~\eqref{eq:erf}). Each result is followed by
+its proof.
+All optimality statements below are \emph{myopic}: they concern the best next item
+given the current posterior, not the best sequential policy over a whole test.
+
+\paragraph{The calibration-marginal model is an exact Bayesian model given the calibrators.}
+\begin{lemma}[Exactness given the panel's abilities]\label{lem:exact}
+Let the calibrators' abilities $\theta_C$ and the item hyperparameters $\eta$ be fixed.
+Then the item parameters $\psi_1,\dots,\psi_I$ are independent a posteriori given the
+panel's responses, and for any set $S$ of items answered by a new target with ability
+$\theta$,
+\begin{equation}\label{eq:factor}
+p(y_S\mid\theta,\mathcal D_{\mathrm{panel}},\theta_C,\eta)=\prod_{i\in S}\bar P_i(\theta)^{y_i}\{1-\bar P_i(\theta)\}^{1-y_i},
+\qquad \bar P_i(\theta)=\mathbb E\big[P_{\psi_i}(\theta)\mid\mathcal D_{\mathrm{panel}},\theta_C,\eta\big].
+\end{equation}
+Integrating $\theta_C$ and $\eta$ as well (a fully Bayesian treatment) replaces the
+product by
+\[
+\mathbb E_{\theta_C,\eta\mid\mathcal D}\Big[\prod_{i\in S}\bar P_i^{(\theta_C,\eta)}(\theta)^{y_i}\{1-\bar P_i^{(\theta_C,\eta)}(\theta)\}^{1-y_i}\Big],
+\]
+which no longer factorizes, because shared abilities and hyperparameters make the items
+dependent.
+\end{lemma}
+
+\begin{proof}
+Given $\theta_C$ and $\eta$, the joint posterior of the item parameters is proportional
+to $\prod_i p(\psi_i\mid\eta)\prod_{n}p(y_{ni}\mid\theta_n,\psi_i)$, a product of factors that
+each involve one item only; the items are therefore independent a posteriori. The
+target's responses are conditionally independent given $(\theta,\psi)$ and each involves
+one item, so
+$p(y_S\mid\theta,\cdot)=\int\prod_{i\in S}p(y_i\mid\theta,\psi_i)\prod_i p(\psi_i\mid\cdot)\,d\psi
+=\prod_{i\in S}\int p(y_i\mid\theta,\psi_i)p(\psi_i\mid\cdot)\,d\psi_i$, and the inner integral
+is $\bar P_i(\theta)^{y_i}\{1-\bar P_i(\theta)\}^{1-y_i}$. Integrating over
+$(\theta_C,\eta)$ afterwards averages products, not factors, which does not factorize
+unless the posterior of $(\theta_C,\eta)$ is a point mass.
+\end{proof}
+
+The ability posterior, the predictive distribution and the information criteria of
+EOST-M are therefore exact Bayesian quantities \emph{conditional on} point estimates of
+the calibrators' abilities and of the hyperprior; nothing is approximated about the item
+parameters except the grid. This locates EOST-M precisely with respect to fully Bayesian
+adaptive testing \citep{vanderlinden2020fast,fink2025accounting}: those methods also
+integrate $\theta_C$ and $\eta$, by Markov chain Monte Carlo. When their sampler draws
+stored item parameters independently for each administered item at every iteration, as
+the algorithm of \citet{vanderlinden2020fast} does, the ability posterior it targets uses
+the per-item averages $\mathbb E_{\theta_C,\eta}[\bar P_i^{(\theta_C,\eta)}]$, i.e.\
+Eq.~\eqref{eq:factor} with item marginals that also average over $(\theta_C,\eta)$; we call
+this the \emph{posterior-draw marginal} Bayesian CAT, and the version that keeps the product
+inside the expectation the \emph{joint fully Bayesian} CAT. The
+difference between the two is thus an empirical question about how much the uncertainty
+in $(\theta_C,\eta)$ matters; study~2 answers it (Section~\ref{sec:study2}).
+
+\begin{proposition}[Entropy--information decomposition]\label{prop:decomp}
+For every item $i$,
+\begin{equation}
+U_{\mathrm{EIG}}(i)= I(\theta;y_i\mid\mathcal D_t)
+= \underbrace{h\big(\bar p_i\big)}_{U_{\mathrm{H}}(i)} \;-\; \mathbb E_{\pi_t}\big[h(P_i(\theta))\big],
+\qquad \bar p_i=\mathbb E_{\pi_t}[P_i(\theta)],
+\end{equation}
+so that $0\le U_{\mathrm{EIG}}(i)\le U_{\mathrm H}(i)$, with equality on the right
+if and only if the item is deterministic given $\theta$, $\pi_t$-almost surely.
+\end{proposition}
+
+\begin{proof}
+$I(\theta;y_i\mid\mathcal D_t)=H(y_i\mid\mathcal D_t)-H(y_i\mid\theta,\mathcal D_t)$.
+Given $\mathcal D_t$, $y_i$ is Bernoulli with mean $\bar p_i=\mathbb E_{\pi_t}P_i(\theta)$,
+so $H(y_i\mid\mathcal D_t)=h(\bar p_i)$; given $\theta$ it is Bernoulli$(P_i(\theta))$,
+so $H(y_i\mid\theta,\mathcal D_t)=\mathbb E_{\pi_t}h(P_i(\theta))\ge0$, with equality iff
+$P_i(\theta)\in\{0,1\}$ $\pi_t$-a.s. Non-negativity of mutual information gives
+the lower bound. For the plug-in model the item parameters are fixed; for the
+marginal model the response of the target to item $i$ given $\theta$ is
+Bernoulli$(\bar P_i(\theta))$ because $\psi_i=(\log a_i,b_i)$ appears only in
+item $i$'s likelihood and its posterior given the panel does not depend on the
+target's other responses, so the same argument applies with $P_i=\bar P_i$.
+\end{proof}
+
+Predictive entropy over-values items whose outcome is uncertain \emph{even for a known
+competence}: the subtracted term is the item's irreducible noise. EIG is the myopically
+optimal choice for information about $\theta$; it is not claimed to be optimal over a
+whole test, for which greedy guarantees require additional structure
+\citep{golovin2011adaptive}.
+
+\begin{proposition}[Local equivalence with Fisher information]\label{prop:local}
+Let $P_i$ be three times continuously differentiable with bounded derivatives
+near $\mu_t$, with $P_i(\mu_t)\in(0,1)$, and let $\pi_t$ concentrate,
+$\sigma_t\to0$ with $\mathbb E_{\pi_t}|\theta-\mu_t|^3=o(\sigma_t^2)$. Then
+\begin{equation}
+U_{\mathrm{EIG}}(i)=\tfrac12\,\sigma_t^2\,\mathcal I_i(\mu_t)+o(\sigma_t^2),
+\qquad \mathcal I_i(\theta)=\frac{P_i'(\theta)^2}{P_i(\theta)\{1-P_i(\theta)\}},
+\end{equation}
+while $U_{\mathrm H}(i)=h\big(P_i(\mu_t)\big)+O(\sigma_t^2)$.
+\end{proposition}
+
+\begin{proof}
+Assume $P_i\in C^3$ with bounded derivatives near $\mu=\mu_t$ and $P_i(\mu)\in(0,1)$.
+Write $\delta=\theta-\mu$, $P=P_i(\mu)$, $P'=P_i'(\mu)$, $P''=P_i''(\mu)$. Taylor's
+theorem gives $P_i(\theta)=P+P'\delta+\frac12P''\delta^2+O(|\delta|^3)$, hence
+$\bar p_i=P+\frac12P''\sigma^2+o(\sigma^2)$ because $\mathbb E\delta=0$,
+$\mathbb E\delta^2=\sigma^2$ and $\mathbb E|\delta|^3=o(\sigma^2)$. Since $h$ is smooth on
+$(0,1)$, $h(\bar p_i)=h(P)+\frac12h'(P)P''\sigma^2+o(\sigma^2)$ and
+$\mathbb E\,h(P_i(\theta))=h(P)+\frac12h'(P)P''\sigma^2+\frac12h''(P)P'^2\sigma^2+o(\sigma^2)$.
+(The expansions hold on $|\delta|\le\varepsilon$ for a fixed small $\varepsilon$; since $h$
+and $P_i$ are bounded, the contribution of $|\delta|>\varepsilon$ is at most a constant
+times $\Pr(|\delta|>\varepsilon)\le\mathbb E|\delta|^3/\varepsilon^3=o(\sigma^2)$.)
+Subtracting and using $h''(p)=-1/\{p(1-p)\}$,
+$U_{\mathrm{EIG}}(i)=\frac12\sigma^2P'^2/\{P(1-P)\}+o(\sigma^2)=\frac12\sigma^2\mathcal I_i(\mu)+o(\sigma^2)$.
+The statement for $U_{\mathrm H}$ is the first expansion.
+\end{proof}
+
+\begin{corollary}[Entropy is blind to discrimination]\label{cor:blind}
+Under the 2PL model,
+\[
+\mathcal I_i(\mu)=a_i^2P_i(\mu)\{1-P_i(\mu)\}.
+\]
+Two items
+with the same success probability $P_i(\mu_t)=p$ are tied by predictive entropy
+while their information ratio is $(a_1/a_2)^2$, so the two criteria rank them
+differently whenever $a_1\neq a_2$. When all items share one discrimination, both
+$h(P_i(\mu_t))$ and $\mathcal I_i(\mu_t)$ are strictly decreasing in
+$|P_i(\mu_t)-\tfrac12|$, hence entropy sampling, maximum Fisher information and EIG
+induce the same ranking to leading order: under a common discrimination, entropy
+sampling is optimal by accident.
+\end{corollary}
+
+\begin{proof}
+For the 2PL, $P_i'=a_iP_i(1-P_i)$, so $\mathcal I_i=a_i^2P_i(1-P_i)$. With a common
+$a$, $\mathcal I_i$ and $h(P_i)$ are both strictly decreasing functions of
+$|P_i-\frac12|$, hence order-equivalent.
+\end{proof}
+
+The corollary gives a sufficient condition for agreement (a common discrimination) and
+a constructive source of disagreement (ties in $p$ with unequal $a$); it does not claim
+that equal discriminations are necessary for two rankings to coincide on a particular
+bank. Proposition~\ref{prop:local} also implies that EIG, posterior-weighted Fisher
+information and maximum Fisher information agree to first order; differences between
+them are early-test phenomena \citep{chen2000comparison}. The decisive difference comes
+from calibration uncertainty.
+
+\begin{proposition}[Information cap under calibration uncertainty]\label{prop:cap}
+Let $G$ be a continuous distribution function (logistic for the 2PL, $\Phi$ for the
+normal ogive), let the item response function be $P_\psi(\theta)=G\big(a(\theta-b)\big)$,
+and let the difficulty given the panel be $b\mid a\sim\mathcal N(\bar b,s^2)$. Then the
+Fisher information about $\theta$ carried by a response under the expected response
+function satisfies, for every $\theta$ and every $a$,
+\begin{equation}\label{eq:cap}
+\bar{\mathcal I}(\theta)=\frac{\bar P'(\theta)^2}{\bar P(\theta)\{1-\bar P(\theta)\}}\le\frac{2}{\pi s^2},
+\end{equation}
+and the bound is attained in the limit $a\to\infty$. For the normal ogive the expected
+response function is exactly $\Phi\big(a^{\mathrm{eff}}(\theta-\bar b)\big)$ with
+$a^{\mathrm{eff}}=a/\sqrt{1+a^2s^2}<1/s$.
+\end{proposition}
+
+\begin{proof}
+Fix $a>0$ and let $L$ have distribution function $G$, independent of
+$b\sim\mathcal N(\bar b,s^2)$ (conditionally on $a$). Since
+$G(a(\theta-b))=\Pr(L/a+b\le\theta\mid b)$, the expected response function is
+$\bar P(\theta)=\Pr(L/a+b\le\theta)$, so a response can be represented as
+$y=\mathbf 1\{L/a+b\le\theta\}$. Consider the augmented observation $(y,L)$. The
+distribution of $L$ does not depend on $\theta$, so its Fisher information is
+$\mathcal I_{(y,L)}(\theta)=\mathbb E_L\big[\mathcal I_{y\mid L}(\theta)\big]$. Given $L=\ell$,
+$y$ is Bernoulli with success probability
+$\Pr(b\le\theta-\ell/a)=\Phi(u)$, $u=(\theta-\ell/a-\bar b)/s$, whose information is
+$s^{-2}\phi(u)^2/\{\Phi(u)(1-\Phi(u))\}\le s^{-2}\cdot\frac2\pi$, the maximum being
+attained at $u=0$ where $\phi(0)^2=(2\pi)^{-1}$ and $\Phi(0)(1-\Phi(0))=\frac14$. Hence
+$\mathcal I_{(y,L)}(\theta)\le2/(\pi s^2)$. (For a difficulty posterior with any distribution
+function $F$ and density $f$, the success probability given $L=\ell$ is $F(\theta-\ell/a)$, with
+information $f^2/\{F(1-F)\}$ at that point, which gives the general bound stated after this
+proof.) The response $y$ is a statistic of $(y,L)$, and
+the Fisher information of a statistic never exceeds that of the data it is computed from:
+the score of $y$ is the conditional expectation of the score of $(y,L)$ given $y$, whose
+variance is at most the variance of the latter \citep{zamir1998proof}. Therefore
+$\bar{\mathcal I}(\theta)=\mathcal I_y(\theta)\le\mathcal I_{(y,L)}(\theta)\le2/(\pi s^2)$.
+If $a$ is itself uncertain, the same argument conditions on $(a,L)$. As $a\to\infty$,
+$L/a\to0$ and $\bar P(\theta)\to\Phi((\theta-\bar b)/s)$, whose information at
+$\theta=\bar b$ is $2/(\pi s^2)$, so the bound is sharp. For the normal ogive,
+$L\sim\mathcal N(0,1)$ and $L/a+b\sim\mathcal N(\bar b,a^{-2}+s^2)$, which gives
+$\bar P(\theta)=\Phi\big(a^{\mathrm{eff}}(\theta-\bar b)\big)$ with
+$a^{\mathrm{eff}}=a/\sqrt{1+a^2s^2}$ and maximal information $\frac2\pi(a^{\mathrm{eff}})^2<2/(\pi s^2)$.
+\end{proof}
+
+The bound holds exactly for the logistic 2PL used in this paper; no probit approximation
+is involved. In words, the proof represents a response as $y=\mathbf 1\{L/a+b\le\theta\}$ with $L$
+distributed as $G$ independently of $b$: given $L$, the response is a probit item with
+discrimination $1/s$, whose information never exceeds $2/(\pi s^2)$, and discarding $L$
+cannot increase Fisher information \citep{zamir1998proof}. A unit test checks the bound
+numerically for the logistic link over a grid of $(a,s,\theta)$. The Gaussian form of the
+difficulty posterior enters only through the conditional item given $L$: the same argument gives
+$\bar{\mathcal I}(\theta)\le\sup_u f(u)^2/\{F(u)(1-F(u))\}$ for any difficulty posterior with
+distribution function $F$ and density $f$ (for a logistic posterior with standard deviation
+$s$ this is $\pi^2/(12s^2)\approx0.82/s^2$, against $2/(\pi s^2)\approx0.64/s^2$ for a Gaussian
+one), whereas a posterior concentrated on a few points gives no useful bound. Our grid
+posteriors are discrete approximations of smooth posteriors, so for them the Gaussian cap
+indicates the order of magnitude rather than a guarantee.
+
+\begin{corollary}[Averaging information is not integrating uncertainty]\label{cor:jensen}
+For any item-parameter posterior, the information of the expected response
+function never exceeds the posterior-expected Fisher information,
+$\bar{\mathcal I}_i(\theta)\le\mathbb E_{\pi_i}\big[\mathcal I_{i,\psi}(\theta)\big]$.
+\end{corollary}
+
+\begin{proof}
+For a binary response, $\mathcal I=P'^2/\{P(1-P)\}=P'^2/P+P'^2/(1-P)$. The
+map $(x,y)\mapsto x^2/y$ is jointly convex on $\mathbb R\times(0,\infty)$, so
+$\mathcal I$ is a jointly convex function of $(P,P')$. The expected response
+function and its derivative are the posterior averages
+$(\bar P_i,\bar P_i')=\mathbb E_{\pi_i}[(P_{i,\psi},P_{i,\psi}')]$, and Jensen's inequality
+gives $\bar{\mathcal I}_i(\theta)\le\mathbb E_{\pi_i}[\mathcal I_{i,\psi}(\theta)]$.
+\end{proof}
+
+Criteria that average Fisher information over parameter uncertainty---the Bayesian
+maximum-information criterion of fully Bayesian adaptive testing
+\citep{vanderlinden2020fast,fink2025accounting} and Laplace-approximated variants
+\citep{mandujano2026laplace}---can therefore be optimistic about poorly calibrated items
+and do not inherit the cap of Proposition~\ref{prop:cap}. (Empirically this optimism did
+not change which items were worth asking; Sections~\ref{sec:strong} and~\ref{sec:study2}.)
+Under the plug-in model the information of an item is $\hat a_i^2/4$ at its
+difficulty, unbounded in the point estimate $\hat a_i$. Items whose responses
+are perfectly separated in a small panel (solved by every strong calibrator and
+by no weak one, or by none) are exactly those with inflated $\hat a_i$ and large
+$s_i$; plug-in selection therefore concentrates on them, the classical
+\emph{capitalization on calibration error} \citep{vanderlinden2000capitalization,patton2013influence}.
+The expected response function removes the incentive automatically: its information is
+capped---by $2/(\pi s_i^2)$ for a Gaussian difficulty posterior, by the general bound above
+otherwise---whatever $\hat a_i$ is. A shrinkage prior on $a_i$ limits the
+inflation of $\hat a_i$, but not the uncertainty $s_i$ about where the item sits.
+
+\paragraph{Myopic score-targeted design.}
+Practitioners often care about the full-bank accuracy $A=\frac1I\sum_iy_i$
+rather than about $\theta$. Let $U$ be the set of unobserved items and
+$S_U=\sum_{k\in U}y_k$. The score-targeted criterion (EVR) asks the item that
+minimizes the expected posterior variance of $S_U$ after one more response.
+
+\begin{proposition}[One-step score-targeted design]\label{prop:evr}
+For $i\in U$ let
+\[
+v_i=\bar p_i(1-\bar p_i),\qquad M_{-i}(\theta)=\sum_{k\in U\setminus\{i\}}P_k(\theta),\qquad
+c_i=\mathrm{Cov}_{\pi_t}\big(P_i(\theta),M_{-i}(\theta)\big).
+\]
+The expected one-step variance reduction obtained by asking $i$ is exactly
+\begin{equation}\label{eq:evr}
+R_i=\mathrm{Var}(S_U\mid\mathcal D_t)-\mathbb E_{y_i}\big[\mathrm{Var}(S_{U\setminus\{i\}}\mid\mathcal D_t,y_i)\big]
+=\frac{(v_i+c_i)^2}{v_i}.
+\end{equation}
+Under the conditions of Proposition~\ref{prop:local}, and if
+$P_i'(\mu_t)M_{-i}'(\mu_t)\neq0$, then
+\[
+c_i=\sigma_t^2P_i'(\mu_t)M_{-i}'(\mu_t)\{1+o(1)\},\qquad
+R_i=v_i+2c_i+\sigma_t^4M_{-i}'(\mu_t)^2\,\mathcal I_i(\mu_t)\{1+o(1)\}.
+\]
+\end{proposition}
+
+\begin{proof}
+Write $S_U=y_i+S_{-i}$. By the law of total variance,
+$\mathbb E_{y_i}[\mathrm{Var}(S_{-i}\mid y_i)]=\mathrm{Var}(S_{-i})-\mathrm{Var}(\mathbb E[S_{-i}\mid y_i])$, so
+$R_i=\mathrm{Var}(y_i)+2\,\mathrm{Cov}(y_i,S_{-i})+\mathrm{Var}(\mathbb E[S_{-i}\mid y_i])$ (all moments
+conditional on $\mathcal D_t$). Here $\mathrm{Var}(y_i)=v_i$. Responses are conditionally
+independent given $\theta$, so $\mathrm{Cov}(y_i,S_{-i})=\mathrm{Cov}_{\pi_t}(P_i(\theta),M_{-i}(\theta))=c_i$.
+Because $y_i$ is binary, $\mathbb E[S_{-i}\mid y_i]$ is affine in $y_i$ with slope
+$c_i/v_i$, so $\mathrm{Var}(\mathbb E[S_{-i}\mid y_i])=c_i^2/v_i$ and $R_i=(v_i+c_i)^2/v_i$.
+Under the assumptions of Proposition~\ref{prop:local}, write
+$P_i(\theta)=P+P'\delta+r_1(\delta)$ and $M_{-i}(\theta)=M+M'\delta+r_2(\delta)$ with
+$|r_k(\delta)|\le C\delta^2$ (derivatives at $\mu$, as in the proof of Proposition~\ref{prop:local}). Since $\mathbb E\delta=0$,
+$c_i=P'M'\sigma^2+P'\,\mathbb E[\delta r_2]+M'\,\mathbb E[\delta r_1]+\mathrm{Cov}(r_1,r_2)$; the
+last three terms are $O(\mathbb E|\delta|^3+\mathbb E\delta^4)=o(\sigma^2)$ because the ability
+grid is bounded, so that $\mathbb E\delta^4\le C'\,\mathbb E|\delta|^3$. Hence
+$c_i=\sigma^2P'M'\{1+o(1)\}$ when $P'M'\neq0$, and with $v_i=P(1-P)\{1+O(\sigma^2)\}$,
+$c_i^2/v_i=\sigma^4M'^2P'^2/\{P(1-P)\}\{1+o(1)\}=\sigma^4M'^2\mathcal I_i(\mu)\{1+o(1)\}$.
+\end{proof}
+
+The first term of $R_i$ is a monotone transform of predictive entropy (own outcome
+uncertainty); the last is Fisher information weighted by the squared sensitivity of the
+remaining bank to $\theta$. One-step score-targeted selection therefore behaves like
+uncertainty sampling once competence is pinned down ($\sigma_t^2M'\to0$) and like
+information sampling while it is not; because $M'$ grows with the number of unobserved
+items, the information regime lasts longer on larger banks (Section~\ref{sec:curves}
+finds this tendency). ``Information-optimal'' is thus relative to an estimand and to a
+one-step horizon: EIG maximizes the next response's information about competence, and
+$R_i$ the next response's reduction of score variance.

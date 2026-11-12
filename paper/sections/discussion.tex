@@ -1,0 +1,121 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{Three messages.} \DiscussionSummary
+
+\paragraph{Small-panel calibration uncertainty is the problem.} With four or eight
+calibrators, a large fraction of items is answered identically by every calibrator, so
+that their difficulty is located only by the prior (Figure~\ref{fig:diag}).
+Plug-in testing treats these poorly located parameters as known: Fisher selection
+credits such items with information they do not carry, the plug-in posterior becomes
+overconfident, and the predicted outcomes of the unobserved items inherit the parameter
+errors, which is the bias floor of Figure~\ref{fig:curves-err}. The expected response
+function caps the information of an item whose difficulty is uncertain---at $2/(\pi s_i^2)$
+for a Gaussian difficulty posterior with standard deviation $s_i$
+(Proposition~\ref{prop:cap})---and predicts its outcome with the uncertainty it actually has; the empirical-Bayes
+hyperprior keeps the predicted success probabilities of unlocated items sensible. Both
+effects fade as the panel grows (Figure~\ref{fig:heatmap} and
+Figure~\ref{fig:mechanism}). For the very large panels used by recent work
+\citep{li2026atlas}, plug-in Fisher information is an adequate approximation; for new,
+private or expensive benchmarks, self-generated item pools, or the four-to-eight-system
+panels that a single laboratory can afford to run, it is not.
+
+\paragraph{Integrating and constraining are two remedies.} \DiscussionRemedies
+
+\paragraph{Why not always use a fully Bayesian adaptive test?} \DiscussionWhyNotFB
+
+\paragraph{The criterion matters less than first hypothesized.} The pilot program and
+study~1 agree on the direction of the original thesis---EIG learns more about
+competence than predictive entropy---but also bound its size: once both criteria are
+computed under the same calibration-marginal model, the gain on held-out prediction is
+small, and EIG, maximum and posterior-weighted Fisher information and the score-targeted
+criterion are practically interchangeable (Table~\ref{tab:policies}; a descriptive
+comparison---the failure of H1 is not a test of equivalence).
+Corollary~\ref{cor:blind} explains why: entropy and information disagree only through the
+spread of discriminations among items with similar success probability, and the
+expected response function shrinks discriminations towards what the panel can resolve.
+The post hoc one-parameter variant confirms the mechanism: with a common discrimination
+the EIG--entropy difference vanishes (Section~\ref{sec:sensitivity}). For the bank score
+rather than competence, Proposition~\ref{prop:evr} shows that uncertainty sampling becomes
+the right one-step criterion once competence is pinned down relative to the size of the
+unobserved bank; the score-error curves show both regimes (Section~\ref{sec:curves}).
+This is a negative result about the original hypothesis, and a useful one: what an
+adaptive test for LLMs must get right is the treatment of calibration uncertainty, not
+the choice among information criteria.
+
+\paragraph{Honest uncertainty.} \DiscussionUncertainty
+
+\paragraph{Adaptive testing or benchmark reduction?} \DiscussionReduction
+
+\paragraph{A protocol for live evaluation.}\label{sec:live} Every result of this paper replays recorded verdicts. A live deployment differs in two
+ways: the evaluated model has never been seen, and its answers are produced and graded at
+the moment the test asks for them, with their sampling variability. We release the
+protocol and code for such an experiment (\texttt{scripts/live\_eost.py}); it could not be
+run in our execution environment, which has no access to model weights. The protocol has three
+phases. (1) \emph{Freeze}: a calibration panel of $N$ leaderboard systems is
+drawn with a fixed seed, excluding the target's family by a name pattern; the panel is
+calibrated as in Section~\ref{sec:framework}; the leave-one-calibrator-out recalibration
+factors are computed; the panel, seed, rule and a hash of the bank are written to
+\texttt{frozen.json} before the first query. (2) \emph{Adaptive phase}: the model, served
+through any OpenAI-compatible endpoint with temperature 0, answers the item chosen by EIG;
+an independent deterministic oracle grades the answer (GSM8K: exact match of the final
+number after the five-shot chain-of-thought prompt; CRUXEval-O: execution of
+\texttt{assert f(input) == prediction} in an isolated subprocess); the estimate and both
+intervals are recorded at every step, with checkpoints at 20, 40 and 60 items. (3)
+\emph{Truth phase}: the remaining items are administered (answers already obtained are
+reused) and the full-bank score is computed only after the adaptive phase is complete.
+Every query, answer and verdict is appended to a log, so an interrupted run resumes.
+
+The live engine performs exactly the computations of the replay
+engine; a unit test feeds it recorded verdicts and checks that the selected items,
+estimates and intervals coincide with the replay. A mock end-to-end run, in which a
+recorded CRUXEval-O system answers through the live code path, reproduces the replay.
+The OpenAI-compatible client is tested against a local server. Two differences from the
+replay studies must be kept in mind when interpreting a live run: the target's prompt and
+decoding may differ from those that produced the calibrators' verdicts (the Open LLM
+Leaderboard used its own five-shot harness; CRUXEval-O verdicts aggregate samples at
+temperature 0.2), and such a protocol shift is itself part of what a live run measures.
+
+\paragraph{Limitations.} (i) All evidence replays recorded verdicts. Replay is exact for
+the recorded data, but it does not include the sampling variability of stochastic
+decoding, and the live protocol above could not be run in our
+execution environment; the temporal validation on later SWE-bench submissions
+approximates, but does not replace, a prospective deployment. (ii) Two confirmatory
+benchmarks (LiveCodeBench, CRUXEval-O) carry recorded aggregate verdicts, binarized pass
+rates over several samples; graded responses would need a different measurement model.
+(iii) The measurement model is a unidimensional 2PL; prior predictive checks show that
+real systems agree with each other less, item by item, than the model implies, mainly on
+multiple-choice banks (Section~\ref{sec:eb}). (iv) Strict clusters are themselves a
+heuristic: a residual correlation of 0.5 can miss distant relatives (distillation,
+shared training data) and merge unrelated systems; one target per cluster removes the
+dependence between targets, but calibrators drawn from other clusters may still share
+ancestry with a target. The study-2 conclusions on R2 and C1 did not depend on how the
+clusters were built---from metadata alone, from residuals on other benchmarks, or with
+thresholds from 0.4 to 0.7 (Section~\ref{sec:s2follow}). (v) The leave-one-calibrator-out recalibration is a
+cross-validated correction without a finite-sample guarantee; with eight calibrators it
+rests on very few pseudo-targets. (vi) The frozen Bayesian CATs used a grid-based Gibbs
+sampler with eight retained draws, whose scale hyperparameters did not converge even in long
+chains; exploratory samplers with collapsed moves came close to convergence and left the
+comparison with EOST-M unchanged, but a fully converged comparator---for instance by
+Hamiltonian Monte Carlo on a continuous parametrization---remains to be run
+(Section~\ref{sec:s2follow}). (vii) Both analysis plans were frozen by
+hashing and committing them, and the second was also sent to the first author before
+execution, but no public registry or external time stamp was reachable; a reader has to
+trust the git history. (viii) Items were treated as equally costly and item exposure was
+not controlled; an adaptive benchmark that serves the same few informative items to every
+model would accelerate their contamination \citep{wainer2000cat}. (ix) Panels are
+calibrated by joint maximum a posteriori estimation, which made the planned
+one-parameter sensitivity analysis of study~1 degenerate (Section~\ref{sec:sensitivity});
+marginal maximum likelihood over the calibrators' abilities avoids this class of
+problems. (x) The self-testing side of the framework rests only on a historical pilot
+(Section~\ref{sec:pilot}); a prospective study in which models generate items, an
+independent oracle verifies them and a fresh panel calibrates them is the natural next
+step. (xi) The cross-benchmark meta-analysis is secondary and treats the benchmarks as
+independent, although five of them share the same systems; counted as one source, they leave
+fewer pooled effects clear of zero (Section~\ref{sec:s2follow}).
+
+\paragraph{Recommendations.} \RecommendationsText
+
+\section{Conclusion}
+\label{sec:conclusion}
+\ConclusionText

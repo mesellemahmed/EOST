@@ -1,0 +1,361 @@
+% Narrative of the results. Every number is a macro generated from the artifacts
+% (paper/generated/numbers.tex) or lives in a generated table.
+
+\newcommand{\ResultsHypotheses}{%
+\textbf{H2 (calibration-marginal EIG vs.\ plug-in Fisher CAT)} is
+\textbf{\DecHTwo}: at $N=8$ EOST-M lowered the integrated holdout log loss in
+\PosHTwo\ of \NBHTwo\ benchmarks (median improvement \MedImpHTwo\%, range
+\MinImpHTwo\% to \MaxImpHTwo\%), Holm-significantly in \FavHTwo\ and never
+significantly in favour of the baseline. At $N=4$ the median
+improvement was \MedImpHTwoNfour\% (\FavHTwoNfour/\NBHTwoNfour\ significant),
+at $N=64$ only \MedImpHTwoNsixtyfour\%.
+\textbf{H3 (EOST-M vs.\ naive subsampling)} is \textbf{\DecHThree}: the
+integrated score error fell by a median of \MedImpHThree\% (\FavHThree\ of
+\NBHThree\ benchmarks significant).
+\textbf{H4 (interval calibration)} is \textbf{\DecHFour}: EOST-M reduced the
+miscalibration $|\mathrm{coverage}-0.9|$ of plug-in Fisher CAT by a median of
+\MedImpHFour\% (\FavHFour\ of \NBHFour\ significant).
+\textbf{H1 (information vs.\ entropy)} is \textbf{\DecHOne}: under the same
+calibration-marginal model, EIG lowered held-out log loss in \PosHOne\ of
+\NBHOne\ benchmarks, but by a median of only \MedImpHOne\% (range
+\MinImpHOne\% to \MaxImpHOne\%), Holm-significantly in \FavHOne, short of
+the frozen threshold. At the other panel sizes the same contrast was
+significant more often (\FavHOneNfour/\NBHOneNfour\ benchmarks at $N=4$,
+\FavHOneNsixtyfour/\NBHOneNsixtyfour\ at $N=64$; Table~\ref{tab:allN}), never in
+favour of entropy, but always with median gains of a few per cent. The sign
+predicted by the EOST thesis is therefore observed throughout, but its size on
+held-out prediction is small once calibration uncertainty is integrated
+(Corollary~\ref{cor:blind}); on score estimation the gap is larger
+(Table~\ref{tab:factorial}).
+GSM8K is the one benchmark on which the H2--H4 contrasts, while pointing the
+same way, did not reach significance. It is also the confirmatory bank on which
+an eight-system panel leaves the fewest items unlocated (\GsmFracExtremeNeight\%
+of items with identical panel verdicts, against a median of
+\OtherFracExtremeNeight\% elsewhere), because its leaderboard population spans
+the whole accuracy range, from format failures (\GsmFloorFrac\% of the models
+score below 5\%) to strong models; by the mechanism of
+Figure~\ref{fig:mechanism}, there is less for marginalization to correct. Math
+word problems were also the heterogeneous case of the pilot program
+(GSM-Hard, Section~\ref{sec:pilot}).}
+
+\newcommand{\ResultsFactorial}{%
+Because EOST-M differs from plug-in Fisher CAT in two respects---the criterion
+and the measurement model---Table~\ref{tab:factorial} crosses them. At $N=8$,
+replacing plug-in parameters by expected response functions improves held-out
+log loss by a median of \FactEntMgLL\% even with entropy selection, whereas
+switching the criterion under plug-in parameters changes little
+(entropy \FactEntPiLL\%, EIG \FactEigPiLL\%). Combining both gives
+\FactEigMgLL\%. EIG beat entropy on log loss in \EigVsEntMgPos\ of
+\NConfBanks\ benchmarks under the marginal model and in \EigVsEntPiPos\ under
+plug-in parameters. For the score, the criterion matters more: entropy
+selection is the worst adaptive rule under both models (score IAE
+\FactEntMgIAE\% relative to MFI:pi under the marginal model), while EIG:mg
+improves it by \FactEigMgIAE\%. Under the marginal model, the four
+information-based criteria (MFI, PWFI, EIG and EVR) are practically
+indistinguishable: their mean held-out log losses differ by at most
+\InfoSpreadLL\% and their score errors by at most \InfoSpreadIAE\%
+(Table~\ref{tab:policies}), as the first-order equivalence of
+Proposition~\ref{prop:local} predicts. Most of the gain over current practice
+thus comes from integrating calibration uncertainty; selecting by information
+rather than by entropy is what turns that model into an efficient test, and
+EIG is the principled member of an equivalence class rather than a uniquely
+better rule.}
+
+\newcommand{\ResultsPanel}{%
+The gain of EOST-M over plug-in Fisher CAT decreases monotonically with the
+panel size on every benchmark (Figure~\ref{fig:heatmap}a): it is largest with
+four calibrators and nearly vanishes with 64, the regime predicted by
+Proposition~\ref{prop:cap}, since the posterior uncertainty of item difficulties
+shrinks as calibrators are added. Gains in score error (panel b) are larger
+but noisier across panel sizes, and the advantage of EIG over entropy
+(panel c) shows no trend with $N$.}
+
+\newcommand{\ResultsCurves}{%
+Figure~\ref{fig:curves-err} shows the score error as a function of the number
+of administered items. Every model-based policy starts below the naive
+estimator, because the calibrated model predicts the bank before any item is
+asked: after one item, the model-based error is \HeadStartOtherMin--\HeadStartOtherMax\%
+of the naive error, except on GSM8K (\HeadStartGsm\%). Two regimes follow. In
+the first items, plug-in policies, which take their item parameters at face
+value, reduce the error fastest: at $t=5$ a plug-in policy is ahead of EOST-M
+on \EarlyPluginBetter\ of \NCurveBanks\ benchmarks. Their error then levels
+off. Between $t=25$ and $t=100$ the error of plug-in Fisher CAT falls by a
+median of \PlateauPi\%, that of EOST-M by \PlateauMg\%, and after 100 items
+EOST-M is below plug-in Fisher CAT on \FinalEigBelowMfi\ of \NCurveBanks\
+benchmarks. This is the signature of a bias floor: with eight calibrators, the
+predicted outcomes of the unobserved items inherit the errors of the plug-in
+parameters, and administering further items does not remove them.}
+
+\newcommand{\ResultsLate}{%
+Late in the test, entropy selection under the marginal model catches up: after
+100 items it has the lowest error of all policies on \EntLateBest\ of
+\NCurveBanks\ benchmarks (\EntLateBestList). Figure~\ref{fig:crossover}
+locates the crossover, the item after which entropy selection stays below
+EIG:mg. At $N=8$ it occurs on \CrossListNeight, and not within 100 items on
+\CrossNoneNeight. Across all panel sizes the crossover tends to come later the
+larger the bank (Spearman $\rho=\CrossRho$ over \CrossPoints\
+benchmark--panel combinations, no crossover counted as 101): it occurred within
+the budget in \CrossShareSmall\% of the combinations on the four smallest banks
+(500--1,172 items) and in \CrossShareLarge\% on the four larger ones. This is
+the regime change described by Proposition~\ref{prop:evr}: once competence is
+pinned down relative to the number of unobserved items, an item's own outcome
+uncertainty dominates the expected reduction of score variance, and the larger
+the bank, the later this happens. The score-targeted criterion, which
+implements this trade-off under the fitted model, ended below EIG:mg on
+\EvrBelowEigEntBest\ of the \EntLateBest\ benchmarks on which entropy finished
+best and on \EvrBelowEigEntNot\ of the others: it moved in the predicted
+direction, but only part of the way. These late-test comparisons were not
+part of the frozen plan and are exploratory. Bank size is confounded with source and
+domain, and \CrossNeverList\ show no crossover at any panel size, so size is at
+most one determinant of when the regime changes.}
+
+\newcommand{\ResultsEfficiency}{%
+Table~\ref{tab:efficiency} converts the curves into test lengths: at $N=8$,
+EOST-M matched the score error of 100 uniformly sampled items after a median of
+\EffItemsMedianNeight\ items (between \EffItemsMinNeight\ and \EffItemsMaxNeight\
+across benchmarks), and with the largest panels after a median of
+\EffItemsMedianNmax\ items. Table~\ref{tab:policies} compares all twelve
+policies: averaged over benchmarks at $N=8$, EOST-M has a score IAE of
+\IAEeigmgNeight\ versus \IAEmfipiNeight\ for plug-in Fisher CAT and
+\IAEnaiveNeight\ for naive subsampling (a \IAEredNaive\% reduction), and
+reaches a sustained error below 0.03 after \TtolEigmg\ items on average versus
+\TtolNaive\ for naive subsampling. Adaptivity itself contributes: under the
+same calibration-marginal model, random item selection---a model-assisted
+estimator in the spirit of IRT-based benchmark compression
+\citep{polo2024tinybenchmarks}---has a score IAE of \IAErandmgNeight, and
+EOST-M's error is significantly lower on \RandIaeFav\ of \RandIaeNB\
+benchmarks (secondary contrast).}
+
+\newcommand{\ResultsRanking}{%
+Leaderboards need the order of systems rather than one score. In an
+exploratory analysis with eight calibrators, Kendall's $\tau$ between the
+score estimated after 25 items and the true full-bank accuracy, across the
+targets of a benchmark, had a median of \TauEigTwentyfive\ for EOST-M,
+\TauMfiTwentyfive\ for plug-in Fisher CAT and \TauNaiveTwentyfive\ for 25
+uniformly sampled items (Table~\ref{tab:ranking}). Short adaptive
+tests therefore rank systems far better than random subsets of the same size,
+and the two adaptive tests are close to each other.}
+
+\newcommand{\ResultsCoverage}{%
+Plug-in posteriors are overconfident (Figure~\ref{fig:coverage}): at $N=8$ the
+90\% interval of plug-in Fisher CAT covered the true score \CovMfipi\ of the
+time on average, against \CovEigmg\ for EOST-M and \CovNaive\ for the
+model-free Wilson interval of naive subsampling. Marginalization therefore
+removes a large part of the overconfidence, most at small $N$, but no
+model-based adaptive policy reaches nominal coverage on real data. On the
+synthetic banks (Figure~\ref{fig:coverage}b), EOST-M's score coverage at $N=8$
+is \SynTwoplEigMgCovNeight\ when the model is well specified,
+\SynGuessEigMgCovNeight\ with guessing and \SynTwodimEigMgCovNeight\ with a
+second ability dimension (plug-in Fisher CAT: \SynTwoplMfiPiCovNeight,
+\SynGuessMfiPiCovNeight\ and \SynTwodimMfiPiCovNeight). Coverage thus degrades
+with misspecification, and the residual gap on real data is plausibly due to
+model misspecification rather than to the marginalization itself. The two
+panels of Figure~\ref{fig:coverage} also move in opposite directions as the
+panel grows: on the synthetic banks the coverage of the model-based intervals
+rises towards the nominal level, on real data it falls. More calibrators
+sharpen the item posteriors, which helps when the model is adequate and exposes
+its misfit when it is not.}
+
+\newcommand{\ResultsDiagnostics}{%
+With four calibrators, \FracExtremeNfour\% of the items of a confirmatory bank
+were answered identically by every calibrator, against
+\FracExtremeNsixtyfour\% with 64 (Figure~\ref{fig:diag}a); the difficulty of
+these items is located only by the prior. Under the empirical-Bayes prior,
+plug-in discriminations above 4 are practically absent with small panels
+(\FracAgtFourNfour\% of items at $N=4$) and appear only with large ones
+(\FracAgtFourNsixtyfour\% at $N=64$; panel c), so the overconfidence of
+plug-in testing at small $N$ comes mainly from treating poorly located
+difficulties as known rather than from extreme discriminations: the expected
+response function shrinks the median effective discrimination from \AmapNfour\
+to \AeffNfour\ at $N=4$ (panel b), as Proposition~\ref{prop:cap} prescribes.
+Across benchmarks and panel sizes, the log-loss gain of EOST-M over plug-in
+Fisher CAT increases with the fraction of unlocated items (Spearman
+$\rho=\MechRho$; Figure~\ref{fig:mechanism}).}
+
+\newcommand{\ResultsSynthetic}{%
+On the synthetic banks the true abilities are known (Figure~\ref{fig:synth}).
+At the primary panel size $N=8$, EOST-M had the smallest mean absolute error of
+the ability estimate among the four policies of the figure on all three banks
+(\SynTwoplEigMgErrNeight, \SynGuessEigMgErrNeight\ and \SynTwodimEigMgErrNeight\
+on the well-specified, guessing and two-dimensional banks, against
+\SynTwoplMfiPiErrNeight, \SynGuessMfiPiErrNeight\ and \SynTwodimMfiPiErrNeight\
+for plug-in Fisher CAT), and its 90\% credible interval covered the true
+ability more often (\SynTwoplEigMgThCovNeight, \SynGuessEigMgThCovNeight\ and
+\SynTwodimEigMgThCovNeight, against \SynTwoplMfiPiThCovNeight,
+\SynGuessMfiPiThCovNeight\ and \SynTwodimMfiPiThCovNeight). With four
+calibrators the ranking depends on the bank; from 16 calibrators on, EIG under
+the marginal model stays ahead of both plug-in policies on every bank. Coverage
+of the true ability falls for every adaptive policy as the panel grows: the
+posterior sharpens while the calibrated ability scale, which is fixed by the
+panel and the prior, only approximates the generating one. This identification
+issue is why our endpoints are defined on observable quantities
+(Section~\ref{sec:framework}).}
+
+\newcommand{\ResultsSensitivity}{%
+Table~\ref{tab:sens} repeats the four contrasts under the sensitivity
+variants specified in the frozen plan. Removing near-duplicate calibrators (Cohen's $\kappa\ge0.8$ with the
+target, on the \SensDedupNBanks\ leaderboard benchmarks) leaves the H2 gain at
+$N=8$ essentially unchanged (\SensDedupHTwoNeight\%, against
+\SensMainDedupBanksHTwoNeight\% for the main analysis on the same benchmarks).
+The empirical-Bayes hyperprior, by contrast, is an essential part of the
+method: with the fixed weakly-informative item prior, the H2 gain at $N=8$
+falls to a median of \SensFixedpriorHTwoNeight\% (main: \SensMainHTwoNeight\%)
+and EOST-M improves on plug-in Fisher CAT on only
+\SensFixedpriorHTwoNeightPos\ of \SensFixedpriorHTwoNeightB\ benchmarks. For
+items that the panel cannot locate, the expected response function is
+essentially the prior predictive, so integrating over the item posterior is
+only as good as the prior it integrates; this is the failure that development
+had revealed (Section~\ref{sec:dev}).
+\par
+The one-parameter variant specified in the frozen plan turned out to be uninformative. Its
+likelihood is invariant to a joint rescaling of the abilities, the
+difficulties and the common discrimination; with Gaussian priors on the former
+and a single log-normal prior term on the latter, the joint posterior mode
+shrinks the ability scale and inflates the common discrimination (median
+\OneplMedianA, up to \OneplMaxA, across calibrations). The resulting nearly
+deterministic response curves make every model-based policy grossly
+overconfident (EOST-M coverage \SensCovOneplNeight\ at $N=8$), so we report
+this variant but do not interpret its contrasts. The two-parameter model is
+protected from this degeneracy because every item carries its own prior term on
+$\log a$. \ResultsOneplReg}
+
+\newcommand{\IntroFindings}{%
+In study~1 (\NSystemsTotal\ systems, leave-family-out replay), EOST-M with eight
+calibrators predicted held-out verdicts better than plug-in Fisher CAT on all \NBHTwo\
+benchmarks (median \MedImpHTwo\%, Holm-significant on \FavHTwo), estimated the benchmark score with a median
+\MedImpHThree\% smaller error than uniform subsampling and a median \RandIaeMed\% smaller than
+random items scored by the same model, and gave less overconfident intervals; the gains shrink as
+the panel grows. With strict family clusters as units the prediction gain keeps its size
+(\CluHTwoStrMed\%) but is significant on only \CluHTwoStrFav\ benchmarks, below the frozen
+threshold. Study~2, with one target per cluster, supported the replications of all three
+study-1 results and the superiority of EOST-M over the regularized Rasch-type test;
+\IntroFBFinding\ in the eight-calibrator regime EOST-M was ahead of ATLAS-style CAT, tinyBenchmarks and MINCE on every benchmark,
+significantly on four or five of eight. Of its \STwoNHyp\ frozen decisions,
+\STwoNSupported\ were supported, and four of the unsupported superiority hypotheses missed
+the threshold by one benchmark; in a secondary random-effects meta-analysis that treats
+the benchmarks as independent their pooled effects exclude zero, but only that of
+\MetaSrcUnsupKeptList\ does so when the five benchmarks that share their systems count as one
+source. The two prediction results (against plug-in Fisher CAT and the
+Rasch-type test) did not depend on how the family clusters were built. Recalibration raised the coverage of EOST-M's 90\% intervals from
+\STwoCoveigmg\ to \STwoCoveigmgRR, short of the frozen criterion and without a better
+interval score. A temporal validation on later SWE-bench submissions favoured EOST-M in
+\TempNSig\ of \TempNTests\ contrasts.}
+
+\newcommand{\DiscussionSummary}{%
+The evidence supports the three messages of the introduction, each with a qualification.
+(1) Small panels break plug-in adaptive testing: item parameters estimated from four to eight
+systems and then treated as known---mainly poorly located difficulties, and inflated
+discriminations (Section~\ref{sec:study1})---make Fisher-information CAT predict worse and
+state intervals that cover the score only \STwoCovmfipi\ of the time; the effect replicated with independent
+targets and on later systems, and it fades as the panel grows. (2) Accounting for
+calibration uncertainty fixes much of this, in more than one way: integrating the item
+posterior (EOST-M) and constraining the discriminations (a Rasch-type test) are two
+remedies, integration predicting slightly better and constraint giving wider, better
+calibrated intervals; \DiscussionFBShort\ (3) Once uncertainty is handled, the choice among
+information criteria matters little (descriptively), and the original hypothesis that
+information beats entropy on held-out prediction is consistent in sign but small. What remains unsolved is calibrated uncertainty: no remedy we
+tried gave nominal coverage with intervals as narrow as EOST-M's.}
+
+\newcommand{\ConclusionText}{%
+Adaptive testing can make LLM evaluation cheaper, but with the small calibration panels
+of new, private or expensive benchmarks it works only if the uncertainty of the item
+calibration is taken seriously. Integrating that uncertainty through expected response
+functions with an empirical-Bayes prior is simple and exact given the calibrators. In two
+studies with frozen analysis plans, it predicted held-out verdicts better than plug-in
+Fisher-information testing, and in the second study also better than a regularized
+Rasch-type test, whose score errors were similar; it estimated benchmark scores more
+accurately than uniform subsampling and MINCE; and, with eight calibrators, it was ahead of
+random items scored by the same model, ATLAS-style adaptive testing and tinyBenchmarks on
+every benchmark without meeting the frozen criterion for these three comparisons. \ConclusionFB\ The original thesis
+of this project, that information rather than entropy is what an adaptive test should
+maximize, holds in sign but is modest on prediction once uncertainty is integrated, and the
+choice among information criteria hardly matters. The open problem is honest uncertainty:
+model-based intervals remain too narrow, and recalibration from the calibration panel
+improved coverage only at the price of width. Every number in this paper can be regenerated
+from pinned public data with a Docker-only pipeline and frozen analysis plans, and its
+qualitative statements about results are checked automatically against the artifacts.}
+
+\newcommand{\ResultsOneplReg}{%
+A post hoc variant with a strongly informative prior on the common
+discrimination, $\log a\sim\mathcal N(0,0.05^2)$, is well behaved (median
+common discrimination \OneplregMedianA; EOST-M coverage
+\SensCovOneplregNeight\ at $N=8$). It provides the check of
+Corollary~\ref{cor:blind} that the planned variant could not: when all
+items share one discrimination, the median log-loss difference between EIG and
+entropy at $N=8$ is \SensOneplregHOneNeight\% under the marginal model and
+\SensOneplregHOnePiNeight\% under plug-in parameters, against
+\SensMainHOneNeight\% and \SensMainHOnePiNeight\% with item-specific
+discriminations. The information advantage of EIG over entropy therefore comes
+from the heterogeneity of discriminations, as the theory says. Under this
+constrained model the gain of marginalization over plug-in parameters is also
+small (\SensOneplregHTwoNeight\%), an indication that much of the H2 gain
+concerns discriminations that a small panel cannot estimate well;
+Section~\ref{sec:strong} tests this directly.}
+
+\newcommand{\ResultsStrong}{%
+The regularized one-parameter variant suggests a competing explanation for H2:
+EOST-M may beat plug-in Fisher CAT mainly because item-specific
+discriminations estimated from a small panel are unreliable, a failure that a
+constrained plug-in model could avoid without any marginalization. We tested
+this post hoc against strong baselines on the confirmatory design (same
+targets, replicates, holdouts and panels; $N\in\{4,8,16\}$), under decision
+rules recorded before the runs (Table~\ref{tab:posthoc}). The recomputed
+EOST-M and MFI:pi rows reproduced the confirmatory artifacts exactly
+(\PhReproRows\ rows, recomputed days later after several machine restarts).
+\par
+Better point estimates do not fix plug-in testing: with posterior-mean
+instead of posterior-mode item parameters, held-out log loss is
+\PhMfieapLLNeightAbs\% worse than EOST-M's at $N=8$ (\PhMfieapLLNeightFav\ of
+\PhMfieapLLNeightB\ benchmarks significant), because the posterior mean of a
+poorly located item's discrimination inherits the long right tail of its
+posterior. A regularized Rasch-type plug-in test---a common discrimination with
+prior $\log a\sim\mathcal N(0,0.05^2)$---is a much stronger baseline. EOST-M's
+held-out log loss is lower on all \PhMfioneprLLNeightB\ benchmarks, but only
+by a median of \PhMfioneprLLNeightAbs\% at $N=8$ (significant on
+\PhMfioneprLLNeightFav), its score error is lower on
+\PhMfioneprIAENeightPos\ of \PhMfioneprIAENeightB\ (by a median of
+\PhMfioneprIAENeightAbs\%, and of \PhMfioneprIAENsixteenAbs\% at $N=16$, where a single
+discrimination becomes a visible misspecification), and the constrained
+model's intervals are better calibrated (coverage \PhCovMfionepr\ against
+\PhCovEigmg). By the rule fixed in advance, the advantage of EOST-M over
+plug-in CAT is therefore largely an advantage over \emph{unregularized
+item-specific discriminations}: integrating their uncertainty and constraining
+them are two remedies for the same small-panel failure, with integration ahead
+on prediction and score estimation, and the constrained model ahead on
+interval calibration. Finally, selecting by the posterior-expected Fisher
+information under the marginal model gives the same tests as EIG in practice
+(median difference \PhEfiLLNeightAbs\% at $N=8$, no benchmark significant): the optimism that
+Corollary~\ref{cor:jensen} attributes to averaged information did not change
+which items were worth asking in our banks.
+\par
+Can the two remedies be combined? In a further exploratory experiment, also
+planned before running, we kept EOST-M's calibration but fixed the prior
+standard deviation of $\log a$ to values between 0.05 and 0.5 instead of its
+empirical-Bayes estimate (median 0.68), shrinking the discriminations towards
+a common value (Figure~\ref{fig:shrink}). No setting met the
+criterion fixed in advance (coverage of at least 0.80 with a median held-out
+log loss at most 0.5\% above EOST-M's): coverage stayed between \ShrMgCovMin\ and
+\ShrMgCovMax\ (EOST-M: \ShrEostCov) while held-out log loss rose by
+\ShrMgLLMin\% to \ShrMgLLMax\%. The calibration advantage of the Rasch-type
+test therefore does not come from equalizing the discriminations as such.
+\par
+Where does it come from? A decomposition of the post hoc runs, again planned
+before computing (Table~\ref{tab:covdecomp}), answers this by
+the rule fixed in advance: the Rasch-type intervals are wider than EOST-M's on
+all \PhThreeWiderBanks\ benchmarks (median \PhThreeWidthPct\% wider,
+Holm-significant on \PhThreeWiderSig), while its score error is not lower on
+\PhThreeIaeNotLower\ of the \PhThreeCovHigher\ benchmarks where its coverage is
+higher. Across all benchmark--model cells, coverage is almost a monotone
+function of the ratio of mean interval width to score IAE (Spearman
+$\rho=\PhThreeRho$ over \PhThreeCells\ cells), and that ratio stays below the
+\PhThreeGauss\ of a calibrated 90\% interval for unbiased Gaussian errors in
+every cell (at most \PhThreeMaxRatio; on average \PhThreeRatioPi\ for plug-in
+2PL, \PhThreeRatioEost\ for EOST-M, \PhThreeRatioRasch\ for the Rasch-type test
+and \PhThreeRatioOnePrMg\ for the marginal one-parameter model). The
+constrained model is better calibrated because it is less confident, not
+because it is more accurate, and under adaptive selection every model we tried
+states intervals too narrow for its errors. The same marginal model with
+uniformly sampled items covers \CovRandmg\ of the time on the same banks, and
+EOST-M covers \SynTwoplEigMgCovNeight\ on the well-specified synthetic bank
+(Figure~\ref{fig:coverage}): the shortfall arises when adaptive selection meets
+a misspecified model, not from either alone.}

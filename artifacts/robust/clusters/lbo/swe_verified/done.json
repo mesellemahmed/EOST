@@ -1,0 +1,6 @@
+{
+ "variant": "lbo",
+ "dataset": "swe_verified",
+ "n_rows": 600,
+ "cpu_seconds": 40.8
+}

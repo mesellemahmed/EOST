@@ -1,0 +1,17 @@
+RF2b complete; starting RF2c
+[rf2c/ollb_gsm8k] 1/6 (252s)
+[rf2c/ollb_gsm8k] 2/6 (265s)
+[rf2c/ollb_gsm8k] 3/6 (295s)
+[rf2c/ollb_gsm8k] 4/6 (296s)
+[rf2c/ollb_gsm8k] 5/6 (238s)
+[rf2c/ollb_gsm8k] 6/6 (257s)
+RF2C_GATE=PASS ollb_gsm8k rows=24
+[rf2c/ollb_arc] 1/6 (165s)
+[rf2c/ollb_arc] 2/6 (165s)
+[rf2c/ollb_arc] 3/6 (171s)
+[rf2c/ollb_arc] 4/6 (170s)
+[rf2c/ollb_arc] 5/6 (165s)
+[rf2c/ollb_arc] 6/6 (168s)
+RF2C_GATE=PASS ollb_arc rows=24
+[rf2c/ollb_hellaswag] 1/6 (317s)
+[rf2c/ollb_hellaswag] 2/6 (360s)

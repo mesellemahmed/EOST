@@ -1,0 +1,17 @@
+{
+ "dataset": "ollb_hellaswag",
+ "targets": [
+  24,
+  206,
+  208,
+  220,
+  350,
+  379
+ ],
+ "chains": 4,
+ "burn": 250,
+ "draws": 100,
+ "thin": 3,
+ "n_rows": 24,
+ "cpu_seconds": 1989.0
+}

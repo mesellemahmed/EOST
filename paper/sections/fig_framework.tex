@@ -1,0 +1,27 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  font=\footnotesize,
+  box/.style={draw=black!55, rounded corners=2pt, align=center, inner sep=4pt, fill=white, text width=3.15cm},
+  key/.style={draw=blue!60!black, rounded corners=2pt, align=center, inner sep=4pt, fill=blue!6, text width=3.75cm},
+  arr/.style={-{Stealth[length=2mm]}, black!70, thick},
+  lab/.style={font=\scriptsize, text=black!65, fill=white, inner sep=1pt}
+]
+\node[box] (bank) at (0,0) {Item source\\{\scriptsize bank, generator, or the evaluated model}};
+\node[key] (sel) at (5.5,0) {Select item $i$ maximizing\\ $I(\Theta;y_i\mid\mathcal D_t)$ {\scriptsize (or $R_i$)}};
+\node[box] (sys) at (11.0,0) {System under test\\{\scriptsize answers item $i$}};
+\node[box] (panel) at (0,-2.1) {Calibration panel $\mathcal C$\\{\scriptsize $N$ systems, target's family or cluster excluded}};
+\node[key] (cal) at (5.5,-2.1) {Empirical-Bayes calibration\\{\scriptsize item posteriors $\pi_i(\log a,b)$, ERF}\\{\scriptsize $\bar P_i(\theta)=\mathbb E_{\pi_i}\,\sigma(a(\theta-b))$}};
+\node[box, fill=black!4] (oracle) at (11.0,-2.1) {Independent oracle $O_i$\\{\scriptsize unit tests, exact match}};
+\node[box] (post) at (11.0,-4.0) {Ability posterior $\pi_t(\theta)$\\{\scriptsize score $\hat A_t$ and 90\% interval}};
+\draw[arr] (bank) -- node[lab, above=1pt]{candidates} (sel);
+\draw[arr] (panel) -- node[lab, above=1pt]{verdicts} (cal);
+\draw[arr] (cal) -- node[lab, right=2pt]{$\bar P_i$} (sel);
+\draw[arr] (sel) -- node[lab, above=1pt]{item $i$} (sys);
+\draw[arr] (sys) -- node[lab, right=2pt]{output} (oracle);
+\draw[arr] (oracle) -- node[lab, right=2pt]{$y_i\in\{0,1\}$} (post);
+\draw[arr] (post.west) -- (8.35,-4.0) -- node[lab, pos=0.15, left=1pt, fill=none]{update $\mathcal D_{t+1}$} (8.35,-1.05) -- (6.95,-1.05) -- (6.95,0 |- sel.south);
+\end{tikzpicture}
+\caption{EOST-M, the calibration-marginal adaptive test studied in this paper. Item parameters are not plugged in: each item enters the test through its expected response function (ERF) under its empirical-Bayes posterior given a small calibration panel, items are selected one at a time by expected information gain about competence (or by the score-targeted criterion $R_i$ when the estimand is the benchmark score), and verdicts come from an independent oracle. The framework allows items from any source, including the evaluated model, but all evidence in this paper uses fixed banks.}
+\label{fig:framework}
+\end{figure}

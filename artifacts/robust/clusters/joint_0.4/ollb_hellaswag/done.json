@@ -1,0 +1,6 @@
+{
+ "variant": "joint_0.4",
+ "dataset": "ollb_hellaswag",
+ "n_rows": 600,
+ "cpu_seconds": 133.6
+}

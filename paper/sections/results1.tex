@@ -1,0 +1,140 @@
+\section{Study 1: calibration-marginal versus plug-in adaptive testing}
+\label{sec:study1}
+\label{sec:results}
+
+\subsection{Decisions under the frozen plan, and with dependent targets}
+Table~\ref{tab:confirm} reports the four frozen contrasts at $N=8$ and
+Table~\ref{tab:allN} all panel sizes. \ResultsHypotheses
+
+\input{tables/confirmatory_N8}
+\input{tables/confirmatory_allN}
+
+Targets of one family are not independent, and on the Open LLM Leaderboard they are
+numerous: hundreds of systems are fine-tunes or merges of a few base models.
+Table~\ref{tab:clusters} repeats every contrast with families as units. With heuristic
+families the frozen decisions are unchanged. With strict clusters---which also merge
+near-duplicates found from the verdicts and leave between \CluStrictUnitsMin\ and
+\CluStrictUnitsMax\ units per benchmark---H3 and H4 remain supported, but H2 is
+significant on \CluHTwoStrFav\ of 8 benchmarks only, below the frozen threshold of five,
+although its median effect is unchanged (\CluHTwoStrMed\%, 95\% cluster-bootstrap interval
+\CluHTwoCILo--\CluHTwoCIHi\%). The effect of marginalization on prediction is therefore
+not in doubt, but the per-benchmark significance claimed with targets as units overstates
+the evidence; study~2 was designed with one target per cluster to settle the question.
+
+\IfFileExists{tables/clusters.tex}{\input{tables/clusters}}{}
+\input{tables/confirmatory_N8_full}
+
+\subsection{Where the gain comes from}
+\ResultsFactorial\ The gain of EOST-M over plug-in Fisher CAT also decreases
+monotonically with the panel size on every benchmark---largest with four calibrators,
+nearly gone with 64 (Figure~\ref{fig:heatmap})---as Proposition~\ref{prop:cap}
+predicts, since the uncertainty of item difficulties shrinks as calibrators are added.
+\ResultsDiagnostics
+
+\input{tables/factorial}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/heatmap_improvement.pdf}
+\caption{Relative improvement (\%) of EIG:mg over the baseline for every benchmark and calibration-panel size; * marks Holm-adjusted $p<0.05$ (panels a and c: confirmatory family; panel b: secondary family). Blue favours EIG:mg.}
+\label{fig:heatmap}
+\end{figure}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/calibration_diagnostics.pdf}
+\caption{Calibration diagnostics on the study-1 benchmarks (thin lines: individual benchmarks; thick: mean). (a) Fraction of items that every calibrator answered identically, whose difficulty is identified only through the prior. (b) Median plug-in discrimination versus the effective discrimination of the expected response function. (c) Fraction of items whose plug-in discrimination exceeds 4 under the empirical-Bayes prior.}
+\label{fig:diag}
+\end{figure}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.55\linewidth]{figures/mechanism.pdf}
+\caption{Exploratory: the log-loss gain of EIG:mg over plug-in Fisher CAT grows with the fraction of items that the calibration panel cannot locate (identical verdicts across calibrators). One point per benchmark and panel size; dashed: least-squares line.}
+\label{fig:mechanism}
+\end{figure}
+
+\subsection{Learning curves}\label{sec:curves}
+\ResultsCurves\ \ResultsEfficiency\ Table~\ref{tab:full} gives the held-out log loss, the
+score error and the coverage of six of the policies on every bank, real or synthetic, and
+every panel size, and Figure~\ref{fig:curves-brier} the holdout Brier score as items are
+administered.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/curves_err_N8.pdf}
+\caption{Absolute error of the full-bank score estimate as items are administered ($N=8$; mean over targets of per-target means over 5 replicates; logarithmic $t$ axis).}
+\label{fig:curves-err}
+\end{figure}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/curves_brier_N8.pdf}
+\caption{Holdout Brier score as items are administered ($N=8$).}
+\label{fig:curves-brier}
+\end{figure}
+
+\input{tables/policies_N8}
+\input{tables/efficiency}
+
+\ResultsLate
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.55\linewidth]{figures/crossover.pdf}
+\caption{Exploratory test of the regime change of Proposition~\ref{prop:evr}: the item after which entropy selection under the marginal model has a lower score error than EIG:mg at every later checkpoint, against the size of the bank. One point per benchmark and panel size (jittered horizontally); shaded band: no crossover within the 100-item budget.}
+\label{fig:crossover}
+\end{figure}
+
+\input{tables/full_results}
+
+\subsection{Ranking systems}\label{sec:ranking}
+\ResultsRanking
+
+\IfFileExists{tables/ranking.tex}{\input{tables/ranking}}{}
+
+\subsection{Uncertainty}
+\ResultsCoverage
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/coverage.pdf}
+\caption{Coverage of the 90\% interval for the full-bank score, averaged over steps, targets and benchmarks, as a function of the panel size. Dotted line: nominal level.}
+\label{fig:coverage}
+\end{figure}
+
+\subsection{Synthetic banks}\label{sec:synthetic}
+\ResultsSynthetic
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\linewidth]{figures/synthetic_theta.pdf}
+\caption{Error of the ability estimate with respect to the true generating ability on the three synthetic banks (well-specified 2PL; 60\% of items with a 0.25 guessing floor; two correlated ability dimensions), averaged over the 100-item test.}
+\label{fig:synth}
+\end{figure}
+
+\subsection{Sensitivity analyses}\label{sec:sensitivity}
+\ResultsSensitivity
+
+\input{tables/sensitivity}
+
+\subsection{Post hoc probes that motivated study 2}\label{sec:strong}
+After all frozen runs, three post hoc analyses with decision rules recorded before running
+probed the main result: strong baselines, a regularization path of the discrimination prior
+and a decomposition of interval coverage. \ResultsStrong
+
+Because the regularized Rasch-type test is a strong competitor found after the fact,
+study~2 tests it, together with a Bayesian CAT that also integrates the calibrators'
+abilities, under a new frozen plan.
+
+\IfFileExists{tables/posthoc.tex}{\input{tables/posthoc}}{}
+
+\IfFileExists{figures/shrinkage_path.pdf}{%
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.55\linewidth]{figures/shrinkage_path.pdf}
+\caption{Exploratory regularization path ($N=8$; planned before running): EOST-M's calibration with the prior standard deviation of $\log a$ fixed to the value next to each point instead of its empirical-Bayes estimate, for the marginal model with EIG and the plug-in model with MFI. Horizontal axis: median over benchmarks of the relative held-out log-loss difference to EOST-M; vertical axis: mean coverage of the 90\% score interval (dotted: nominal).}
+\label{fig:shrink}
+\end{figure}}{}
+
+\IfFileExists{tables/coverage_decomp.tex}{\input{tables/coverage_decomp}}{}

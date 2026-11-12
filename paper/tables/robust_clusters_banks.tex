@@ -1,0 +1,22 @@
+\begin{table}[tbp]
+\centering\scriptsize
+\caption{Follow-up RF1 per benchmark: relative improvement (\%) of EOST-M in held-out log loss over plug-in Fisher CAT (R2) and over the Rasch-type plug-in test (C1) under each panel-exclusion rule; * Holm-significant (frozen 88-test family with the rule's $p$-values substituted). HS: HellaSwag; WG: WinoGrande; LCB: LiveCodeBench.}
+\label{tab:robclustbanks}
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}llrrrrrrrr@{}}
+\toprule
+Rule & & GSM8K & ARC & HS & WG & MMLU & SWE-V & LCB & CRUX-O \\
+\midrule
+metadata only & R2 & $+4.8$* & $+4.5$ & $+12.4$* & $+5.3$ & $+7.1$* & $+6.9$* & $+6.4$ & $+5.4$ \\
+metadata only & C1 & $+1.9$ & $+1.9$* & $+6.7$* & $+2.9$* & $+4.9$* & $+1.8$ & $+3.4$* & $-0.4$ \\
+leave-bank-out & R2 & $+4.0$ & $+4.6$* & $+12.2$* & $+5.2$* & $+6.7$* & $+6.9$* & $+6.4$ & $+5.4$ \\
+leave-bank-out & C1 & $+1.8$ & $+1.9$* & $+6.4$* & $+2.9$* & $+5.1$* & $+1.8$ & $+3.4$* & $-0.4$ \\
+joint, $r\ge0.4$ & R2 & $+5.1$* & $+4.5$* & $+12.5$* & $+5.1$* & $+7.6$* & $+6.9$* & $+6.4$ & $+5.4$ \\
+joint, $r\ge0.4$ & C1 & $+1.8$ & $+1.9$* & $+6.7$* & $+2.8$* & $+3.9$* & $+1.8$ & $+3.4$* & $-0.4$ \\
+joint, $r\ge0.6$ & R2 & $+4.8$ & $+4.6$* & $+12.2$* & $+5.2$ & $+7.1$* & $+6.9$* & $+6.4$ & $+5.4$ \\
+joint, $r\ge0.6$ & C1 & $+1.9$ & $+1.9$* & $+6.4$* & $+3.0$* & $+5.0$* & $+1.8$ & $+3.4$* & $-0.4$ \\
+joint, $r\ge0.7$ & R2 & $+4.8$* & $+4.5$ & $+12.2$* & $+5.3$ & $+7.0$* & $+6.9$* & $+6.4$ & $+5.4$ \\
+joint, $r\ge0.7$ & C1 & $+1.7$ & $+1.9$* & $+6.6$* & $+2.9$* & $+5.1$* & $+1.8$ & $+3.4$* & $-0.4$ \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,22 @@
+\begin{table}[tbp]
+\centering\footnotesize
+\caption{Post hoc comparison with strong baselines (not in the frozen plan; same targets, replicates, holdouts and calibration panels as the confirmatory study; decision rules recorded before the runs). Median relative improvement of EOST-M (EIG:mg) over each baseline across the eight benchmarks, in \%, with [benchmarks with a Holm-significant difference favouring EOST-M / favouring the baseline], Holm over this post hoc family, so that the counts for MFI:pi differ from Table~\ref{tab:confirm}; last column: mean coverage of the baseline's 90\% score interval at $N=8$.}
+\label{tab:posthoc}
+\setlength{\tabcolsep}{2.3pt}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+ & \multicolumn{3}{c}{holdout log loss} & score IAE & $|\mathrm{cov}-0.9|$ & cov. \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-5}\cmidrule(lr){6-6}\cmidrule(lr){7-7}
+Policy & $N=4$ & $N=8$ & $N=16$ & $N=8$ & $N=8$ & $N=8$ \\
+\midrule
+EOST-M (EIG:mg), reference & -- & -- & -- & -- & -- & 0.75 \\
+\midrule
+plug-in 2PL (MFI:pi) & $+7.1$ [8/0] & $+5.2$ [5/0] & $+3.6$ [2/0] & $+7.5$ [1/0] & $+44.2$ [5/0] & 0.60 \\
+plug-in posterior-mean 2PL, MFI & $+20.4$ [8/0] & $+15.5$ [7/0] & $+10.0$ [7/0] & $+7.3$ [2/0] & $+52.5$ [6/0] & 0.54 \\
+plug-in posterior-mean 2PL, EIG & $+21.2$ [8/0] & $+14.7$ [7/0] & $+9.8$ [7/0] & $+7.7$ [2/0] & $+53.7$ [6/0] & 0.53 \\
+plug-in regularized 1PL, MFI & $+2.9$ [4/0] & $+2.1$ [4/0] & $+3.3$ [5/0] & $+2.9$ [2/0] & $-25.9$ [0/0] & 0.81 \\
+marginal regularized 1PL, EIG & $+1.0$ [3/0] & $+1.8$ [5/0] & $+2.8$ [4/0] & $+6.7$ [2/0] & $-54.0$ [0/1] & 0.83 \\
+expected Fisher information (EFI:mg) & $0.0$ [0/0] & $0.0$ [0/0] & $0.0$ [0/0] & $+0.9$ [0/0] & $-3.0$ [0/0] & 0.76 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,8 @@
+{
+ "task": "fbfix",
+ "dataset": "ollb_mmlu",
+ "N": 4,
+ "n_rows": 480,
+ "cpu_seconds": 1828.0,
+ "burn_fix": 60
+}

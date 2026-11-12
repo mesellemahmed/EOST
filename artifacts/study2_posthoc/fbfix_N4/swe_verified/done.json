@@ -1,0 +1,8 @@
+{
+ "task": "fbfix",
+ "dataset": "swe_verified",
+ "N": 4,
+ "n_rows": 480,
+ "cpu_seconds": 341.8,
+ "burn_fix": 60
+}

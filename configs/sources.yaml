@@ -1,0 +1,52 @@
+# Public item-level response data used by EOST v2.
+# Every source is pinned to an exact git commit. `./run fetch` performs a
+# sparse, blob-filtered clone on the host (git is orchestration, not science);
+# `./run data` then parses the raw files inside a network-less container.
+sources:
+  swe_bench_experiments:
+    repo: https://github.com/SWE-bench/experiments
+    commit: 40f164d5b8f1d249bf95a6df8b74b577fd8e519d
+    commit_date: "2026-09-03"
+    dir: swe_exp
+    sparse:
+      - /evaluation/*/*/results/results.json
+      - /evaluation/*/*/metadata.yaml
+      - /evaluation/*/*/per_instance_details.json
+    license: "no license file in repository; derived matrices are NOT redistributed, rebuild locally"
+  tinybenchmarks:
+    repo: https://github.com/felipemaiapolo/tinyBenchmarks
+    commit: e9a8b1031b0340571beb6c9ca3a27891be09a8fd
+    commit_date: "2026-07-04"
+    dir: felipemaiapolo_tinyBenchmarks
+    sparse:
+      - /tutorials/data/lb.pickle
+      - /LICENSE
+    license: MIT
+    note: "Open LLM Leaderboard (v1) item-level correctness for 395 models, packaged by tinyBenchmarks (Maia Polo et al., 2024)"
+  livecodebench_site:
+    repo: https://github.com/LiveCodeBench/livecodebench.github.io
+    commit: f186ab5041d6b768733b8ae8145151c867942134
+    commit_date: "2025-08-01"
+    dir: LiveCodeBench_livecodebench.github.io
+    sparse:
+      - /build/performances_generation.json
+    license: "no license file in repository; derived matrices are NOT redistributed, rebuild locally"
+  cruxeval:
+    repo: https://github.com/facebookresearch/cruxeval
+    commit: 190faf16d175b5847b0af05d937872b1fb395942
+    commit_date: "2024-10-11"
+    dir: facebookresearch_cruxeval
+    sparse:
+      - /samples/evaluation_results.zip
+      - /LICENSE
+    license: MIT
+  grade_school_math:
+    repo: https://github.com/openai/grade-school-math
+    commit: 3101c7d5072418e28b9008a6636bde82a006892c
+    dir: openai_grade-school-math
+    sparse:
+      - /grade_school_math/data/test.jsonl
+      - /grade_school_math/data/train.jsonl
+      - /LICENSE
+    license: MIT
+    note: "item texts for the live protocol (scripts/live_eost.py) only; not used by the replay studies"

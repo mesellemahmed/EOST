@@ -1,0 +1,17 @@
+{
+ "dataset": "ollb_mmlu",
+ "targets": [
+  20,
+  154,
+  268,
+  273,
+  347,
+  383
+ ],
+ "chains": 4,
+ "burn": 250,
+ "draws": 100,
+ "thin": 3,
+ "n_rows": 24,
+ "cpu_seconds": 2069.4
+}

@@ -1,0 +1,84 @@
+\section{Related work and what is new here}
+\label{sec:related}
+
+\paragraph{Calibration error in adaptive testing.} Treating estimated item parameters
+as true inflates measurement precision and biases ability estimates, and adaptive
+selection amplifies the problem because it seeks the items that look most informative,
+the \emph{capitalization on calibration error}
+\citep{vanderlinden2000capitalization,olea2012capitalization,patton2013influence}.
+Remedies propagate parameter uncertainty into scale scores
+\citep{zhang2011investigating,yang2012characterizing}, replace the item response
+function by its expectation over the parameter posterior---the expected response
+function \citep{mislevy1994erf}, which we use---or treat all parameters in a fully
+Bayesian way. \citet{vanderlinden2020fast} give a fast Markov chain Monte Carlo
+algorithm for Bayesian adaptive testing that samples the joint posterior of ability and
+item parameters during the test, using stored posterior draws of the item parameters
+from a Bayesian calibration. \citet{fink2025accounting} compare corrections for
+calibration error in simulated 2PL tests with 100--500 calibration responses per item
+and find the fully Bayesian approach, with item selection by Bayesian maximum
+information averaged over ability and item draws, the most accurate. We therefore do
+\emph{not} claim to be the first to integrate calibration uncertainty into adaptive
+testing. Lemma~\ref{lem:exact} shows that our calibration-marginal model is exactly
+the fully Bayesian model with the calibrators' abilities and the hyperprior held at point
+estimates; study~2 compares the two directly.
+
+\paragraph{Item selection.} Classical CAT selects the item with maximum Fisher
+information at the current ability estimate \citep{lord1980applications}; Bayesian
+variants weight information by the ability posterior
+\citep{owen1975bayesian,vanderlinden1998bayesian}, use Kullback--Leibler information
+\citep{chang1996global} or other criteria \citep{veerkamp1997some}, and differ mainly
+early in a test \citep{chen2000comparison}; randomesque selection among the most
+informative items limits exposure \citep{kingsbury1989procedures}. Mutual-information
+selection was proposed for classification testing \citep{weissman2007mutual} and
+multidimensional CAT \citep{wang2011item}; in experimental design it is Lindley's
+information \citep{lindley1956measure,chaloner1995bayesian,rainforth2024modern} and in
+active learning BALD \citep{houlsby2011bald}, whose motivation---entropy conflates
+epistemic and aleatoric uncertainty---is Proposition~\ref{prop:decomp}. Uncertainty
+sampling \citep{lewis1994sequential} and expected error reduction
+\citep{roy2001toward} are the active-learning counterparts of our entropy and
+score-targeted criteria.
+
+\paragraph{IRT and reduced evaluation for LLMs.} IRT has been used to build evaluation
+scales \citep{lalor2016building}, to weight leaderboard examples
+\citep{rodriguez2021evaluation}, to select anchor points and compressed benchmarks
+\citep{vivek2024anchor,polo2024tinybenchmarks,kipnis2025metabench} and to amortize
+calibration with content-based difficulty predictors \citep{truong2025reliable}.
+tinyBenchmarks \citep{polo2024tinybenchmarks} choose about 100 anchor items by clustering
+item embeddings from hundreds of training models and combine the anchors with IRT
+predictions (gp-IRT). ATLAS \citep{li2026atlas} runs Fisher-information CAT with a 3PL
+calibrated on thousands of leaderboard models and reports up to 90\% fewer items;
+Fluid Benchmarking \citep{hofmann2025fluid} does the same with about one hundred
+calibration models. MINCE \citep{das2026mince} uses a few calibration models only to size
+a random subset by Monte Carlo, without an IRT model. Other work extends adaptive testing
+to continuous scores \citep{balkir2026confident}, accounts for prompt sensitivity with
+parameters treated as known \citep{jo2025measure}, links new datasets by fixed-parameter
+calibration \citep{habba2026growing}, uses neural or medical item banks
+\citep{zhou2026lost,zheng2026medcat}, or applies a Laplace approximation to neural IRT
+difficulties with selection by posterior-expected Fisher information
+\citep{mandujano2026laplace}; a position paper argues for psychometric testing of AI
+systems \citep{zhuang2025position}, and a simulation study finds item-level IRT
+inferences unreliable when few calibration models are available
+\citep{jiang2026trust}---the regime of this paper. Error bars for LLM evaluation are
+studied by \citet{madaan2024quantifying} and \citet{miller2024adding}.
+
+\paragraph{What is new.} The ingredients---expected response functions, Bayesian
+adaptive testing, information-based selection---are classical. What this paper adds is
+(i) their systematic study in the regime that LLM evaluation actually faces, with
+calibration panels of 4 to 64 systems instead of hundreds to thousands of examinees, on
+eight real benchmarks from five domains and with independent targets;
+(ii) theory for that regime: exactness of the calibration-marginal model given the
+calibrators (Lemma~\ref{lem:exact}), an information cap that holds exactly for any link
+under a Gaussian difficulty posterior (Proposition~\ref{prop:cap}), the relation between entropy, Fisher information and EIG
+under calibration uncertainty, and a one-step score-targeted criterion; (iii) head-to-head
+comparisons, under analysis plans frozen before execution, with the competitors that
+matter in this regime---a regularized Rasch-type test, Bayesian adaptive tests that also
+integrate the calibrators' abilities,
+ATLAS-style 3PL CAT, tinyBenchmarks, MINCE, and uniform subsampling with and without the
+same calibration; and (iv) an honest account of uncertainty quantification, including a
+leave-one-calibrator-out recalibration of score intervals and a cost analysis.
+
+\paragraph{Self-evaluation and circularity.} Using models to judge models raises
+circularity concerns \citep{zheng2023judging}. The framework allows models to generate
+items but requires an independent oracle for verdicts; this aspect was explored only in
+a historical pilot (Section~\ref{sec:pilot}) and is not part of the evidence of this
+paper.
